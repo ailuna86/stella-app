@@ -74,6 +74,12 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ ok: true, submissionId: id });
   } catch (err) {
+    // Was previously swallowed silently into the DB record only — meant
+    // real pipeline errors (bad OPENAI_API_KEY, missing canonical
+    // resources, a Python traceback, etc.) never showed up in the host's
+    // application logs, only as a generic message in the UI. Now also
+    // printed to stderr so it appears in Render/Railway logs immediately.
+    console.error(`[ST.ELLA] Evaluation failed for submission ${id}:`, err);
     record.status = "failed";
     record.error = err instanceof Error ? err.message : "Evaluation failed.";
     saveSubmission(record);
