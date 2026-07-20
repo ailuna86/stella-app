@@ -16,8 +16,25 @@ export default async function Dashboard() {
   const submissions = submissionsFor(user.id);
   const latest = submissions.find((s) => s.status === "done" && s.report);
   const practices = practiceResultsFor(user.id);
-  const submittedForAssignment =
-    assignment && submissions.some((s) => s.assignmentId === assignment.id);
+  const assignmentSubmission = assignment
+    ? submissions.find((s) => s.assignmentId === assignment.id)
+    : undefined;
+  const submittedForAssignment = !!assignmentSubmission;
+  // v17: this card used to only ever say "Evaluation in progress…" for any
+  // submission that wasn't status "done" — including ones that already
+  // failed cleanly (record.error set, status: "failed") and ones that were
+  // silently killed mid-run by a server restart/redeploy and can now never
+  // resolve (stuck at status "evaluating" forever, no error, nothing to
+  // wait for). Both looked identical to a genuinely still-running
+  // evaluation, which is confusing and, for the stuck case, permanently
+  // wrong. STUCK_AFTER_MS is generous: Gold's own pipeline timeout is 15
+  // minutes (see goldPipeline.ts TIMEOUT_MS), so anything older than that
+  // plus buffer definitely isn't "in progress" anymore.
+  const STUCK_AFTER_MS = 20 * 60 * 1000;
+  const assignmentFailed = assignmentSubmission?.status === "failed";
+  const assignmentStuck =
+    assignmentSubmission?.status === "evaluating" &&
+    Date.now() - new Date(assignmentSubmission.createdAt).getTime() > STUCK_AFTER_MS;
   // v15: the "study plan" used to be a fabricated multi-week timeline read
   // from a file that never existed — see lib/server/study-plan.ts for the
   // real artifact this now reads (a 3-phase roadmap regenerated after every
@@ -127,6 +144,17 @@ export default async function Dashboard() {
             No assignment yet — your trainer will send one. Meanwhile, daily practice is
             open below.
           </p>
+        ) : submittedForAssignment && (assignmentFailed || assignmentStuck) ? (
+          <div className="mt-2">
+            <p className="text-sm text-rose-600">
+              Sorry — something went wrong evaluating this essay and it didn&apos;t complete.
+              This isn&apos;t something you did; please try submitting again, or reach out to
+              your trainer if it keeps happening.
+            </p>
+            <Link href="/writing/submit" className="btn-secondary mt-3 inline-flex">
+              Try again
+            </Link>
+          </div>
         ) : submittedForAssignment ? (
           <p className="mt-2 text-sm text-mint-600">
             Submitted. {latest ? "Your report is ready below." : "Evaluation in progress…"}
