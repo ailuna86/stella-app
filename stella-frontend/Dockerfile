@@ -35,10 +35,20 @@ FROM node:20-bookworm
 RUN apt-get update \
   # build-essential is a fallback in case npm can't fetch a prebuilt
   # better-sqlite3 binary for this platform/Node ABI and has to compile it
-  # from source (node-gyp needs make/g++ for that).
-  && apt-get install -y --no-install-recommends python3 build-essential \
+  # from source (node-gyp needs make/g++ for that). python3-pip added after
+  # a real deploy crash revealed the pipeline is NOT 100% standard-library
+  # after all — see "full pipleine/requirements.txt" for what and why.
+  && apt-get install -y --no-install-recommends python3 python3-pip build-essential \
   && ln -s /usr/bin/python3 /usr/bin/python \
   && rm -rf /var/lib/apt/lists/*
+
+# --- Python pipeline dependencies ----------------------------------------
+# Debian 12 (bookworm) blocks bare `pip install` outside a virtualenv
+# (PEP 668, "externally-managed-environment") -- --break-system-packages is
+# required here since this container has no other Python workload to
+# protect from version conflicts.
+COPY "full pipleine/requirements.txt" "/app/pipeline-requirements.txt"
+RUN pip3 install --no-cache-dir --break-system-packages -r /app/pipeline-requirements.txt
 
 WORKDIR /app
 
