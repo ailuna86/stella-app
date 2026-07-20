@@ -1,0 +1,9 @@
+{
+  "schema_version": "GOLD_REVISION_LAUNCH_PACKET_V1_2",
+  "status": "ready_for_revision_when_student_submits_revised_essay",
+  "original_gold_session_dir": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\gold_session_7f710641d4",
+  "student_id": "student_123",
+  "essay_id": "essay_001",
+  "required_next_input": "revised_essay_text",
+  "note": "Revision is a second learner action. This unified pipeline writes the original-session packet needed for revision comparison."
+}

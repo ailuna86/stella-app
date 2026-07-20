@@ -1,0 +1,18 @@
+{
+  "schema_version": "WRITING_COACH_OUTPUT_GOLD_UNIFIED_V1_2",
+  "today_mission": {
+    "mission_id": "wc_ca88e8c44180",
+    "title": "Clear Sentence Builder",
+    "target_skill_id": "sentence_control",
+    "target_skill_name": "Sentence control",
+    "timebox_minutes": 10,
+    "student_instruction": "Write 5 complete academic sentences. Each sentence must have a clear subject, a correct main verb, and one complete idea.",
+    "success_checklist": [
+      "The response is complete.",
+      "The meaning is clear.",
+      "The target skill is visible.",
+      "There are no copied correction fragments from the old essay."
+    ],
+    "mastery_update_allowed": false
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "commands": {
+    "detector": [
+      "{python}",
+      "detector_cli.py",
+      "--input",
+      "{submission}",
+      "--output",
+      "{detector}",
+      "--pretty"
+    ],
+    "errormap": [
+      "{python}",
+      "detector_to_errormap_v3_standalone.py",
+      "--input",
+      "{detector}",
+      "--output",
+      "{errormap}",
+      "--pretty"
+    ]
+  }
+}

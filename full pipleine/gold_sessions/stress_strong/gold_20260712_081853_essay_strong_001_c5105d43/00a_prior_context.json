@@ -1,0 +1,13 @@
+{
+  "schema_version": "GOLD_PRIOR_CONTEXT_V1",
+  "engine_id": "VA_STELLA_GOLD_SESSION_CONTINUITY_LOADER",
+  "engine_version": "1.0.0-standalone-no-imports",
+  "created_at": "2026-07-12T06:18:53.216463+00:00",
+  "student_id": "stress_strong",
+  "cold_start": true,
+  "sessions_analyzed": 0,
+  "prior_learner_profile": null,
+  "prior_progress_profile": null,
+  "previous_directive": null,
+  "note": "cold_start=true means no persisted profile was found for this student_id; downstream engines should behave cautiously (cold-start mode) rather than assume high-confidence history."
+}

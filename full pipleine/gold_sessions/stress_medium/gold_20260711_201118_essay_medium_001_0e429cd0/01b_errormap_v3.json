@@ -1,0 +1,65 @@
+{
+  "schema_version": "ERRORMAP_V3_STANDALONE",
+  "engine_id": "VA_STELLA_DETECTOR_TO_ERRORMAP_STANDALONE",
+  "engine_version": "3.0.0-standalone-no-imports",
+  "created_at": "2026-07-11T18:13:00.718892+00:00",
+  "errors": [
+    {
+      "error_id": "row_b9428477e0918cd6",
+      "source_row_id": "row_b9428477e0918cd6",
+      "essay_id": "essay_medium_001",
+      "sentence_index": 2,
+      "criterion": "grammar",
+      "family": "CLAUSE_STRUCTURE",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "it compulsory",
+      "suggested_revision": "it is + adjective",
+      "severity": "moderate",
+      "confidence": 0.82,
+      "student_message": "Finite clause with 'it + adjective' requires copula 'is/was' unless valid ellipsis.",
+      "chargeable": true,
+      "location": {
+        "char_start": 189,
+        "char_end": 202,
+        "sentence": "While some argue that it should remain a voluntary choice, I largely agree that making it compulsory would bring more benefits than drawbacks, provided it is implemented thoughtfully."
+      }
+    },
+    {
+      "error_id": "row_3c69dec1720b2a58",
+      "source_row_id": "row_3c69dec1720b2a58",
+      "essay_id": "essay_medium_001",
+      "sentence_index": 11,
+      "criterion": "lexical_resource",
+      "family": "SPELLING",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "downsides",
+      "suggested_revision": "downsizes",
+      "severity": "moderate",
+      "confidence": 0.82,
+      "student_message": "Detect likely spelling error using resource-valid word and edit-distance candidate; resource absence is never an error.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1739,
+        "char_end": 1748,
+        "sentence": "Overall, although there are some practical challenges to consider, I believe the long-term benefits of compulsory community service, particularly in building empathy and life skills, outweigh the potential downsides."
+      }
+    }
+  ],
+  "broken_sentences_raw": [],
+  "counts": {
+    "CLAUSE_STRUCTURE": 1,
+    "SPELLING": 1
+  },
+  "counts_by_capacity": {
+    "sentence_control": 1,
+    "lexical_precision": 1
+  },
+  "counts_by_criterion": {
+    "grammar": 1,
+    "lexical_resource": 1
+  },
+  "summary": {
+    "error_count": 2,
+    "broken_sentence_signal_count": 0
+  }
+}

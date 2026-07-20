@@ -1,0 +1,16 @@
+=== LRET v1.12.0 summary (meaning-sensitive detector families) ===
+output: C:\Users\Ailuna Shamurzaeva\OneDrive\Desktop\AGART\VA English, IELTS\gold\full pipleine\gold_sessions\student_123\gold_20260711_145511_essay_001_7b5d168a\07d_lret_session.json
+fix_units: 0
+main_enhance_units: 0
+contextual_synonym_tasks: 0
+clarify_units: 10
+keep_units: 38
+free_pass_yield: 0
+llm_triggered: False
+canonical_loaded: False
+repeated_words_flagged: 3
+collocation_menus_flagged_total: 0
+malformed_sentences_flagged: 3
+truncated_vp_moved_from_keep: 0
+qa_status: needs_tuning
+qa_warnings: 5

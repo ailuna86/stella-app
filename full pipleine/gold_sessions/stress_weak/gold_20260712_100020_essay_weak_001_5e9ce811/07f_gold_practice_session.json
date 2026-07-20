@@ -1,0 +1,460 @@
+{
+  "schema_version": "GOLD_PRACTICE_SESSION_ADAPTIVE_V1",
+  "engine_id": "VA_STELLA_GOLD_PRACTICE_ENGINE_BRIDGE",
+  "engine_version": "1.0.0-wraps-practice_engine_v5b",
+  "created_at": "2026-07-12T08:09:11.898583+00:00",
+  "wrapped_engine": "PracticeEngineV5 (practice_engine_v5b.py)",
+  "student_id": "stress_weak",
+  "session_id": "44f044bd-97de-4fcf-a91c-bc5661ec7bab",
+  "welcome": {
+    "session_id": "44f044bd-97de-4fcf-a91c-bc5661ec7bab",
+    "student_id": "stress_weak",
+    "welcome_message": "Welcome back, stress_weak!\n\nThis is your first session — let's build your profile!\n\nToday's targets — chosen specifically for you:\n  1. grammar — Sentence Control\n  2. Vocabulary (LR) — Lexical Precision\n  3. Organization — Conclusion Construction\n  4. Organization — Ws Conclusion Alignment Struct\n  5. Argumentation — Arg Warrant Generation\n  6. Argumentation — Arg Warrant Quality\n  7. Argumentation — Arg Counterargument Development\n  8. Argumentation — Arg Rebuttal Quality\n  9. Reasoning Competence — Counterargument Development\n  10. Reasoning Competence — Evaluation Of Alternatives\n  11. Reasoning Competence — Rebuttal Quality\n",
+    "last_session_recap": {
+      "sessions_analyzed": 0,
+      "avg_completion_rate": null,
+      "avg_session_minutes": null,
+      "improving_criteria": [],
+      "slow_criteria": [],
+      "recommended_intent": "consolidation"
+    },
+    "targets": [
+      {
+        "rank": 1,
+        "criterion": "grammar",
+        "criterion_label": "grammar",
+        "skill_tag": "sentence_control",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+        "reason_text": "",
+        "difficulty": "controlled"
+      },
+      {
+        "rank": 2,
+        "criterion": "lexical_resource",
+        "criterion_label": "Vocabulary (LR)",
+        "skill_tag": "lexical_precision",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+        "reason_text": "",
+        "difficulty": "controlled"
+      },
+      {
+        "rank": 3,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "conclusion_construction",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 4,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_conclusion_alignment_struct",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 5,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_generation",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 6,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_quality",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 7,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_counterargument_development",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 8,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_rebuttal_quality",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 9,
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "counterargument_development",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 10,
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "evaluation_of_alternatives",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 11,
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "rebuttal_quality",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      }
+    ],
+    "cefr_floor": null,
+    "cefr_ceiling": null,
+    "_seen_ids_loaded": false,
+    "_cross_session_count": 0,
+    "session_length_options": [
+      {
+        "minutes": 5,
+        "estimated_exercises": 3
+      },
+      {
+        "minutes": 10,
+        "estimated_exercises": 6
+      },
+      {
+        "minutes": 15,
+        "estimated_exercises": 10
+      }
+    ]
+  },
+  "session_plan": {
+    "session_id": "44f044bd-97de-4fcf-a91c-bc5661ec7bab",
+    "chosen_duration_minutes": 10,
+    "total_exercises": 11,
+    "cefr_floor": null,
+    "cefr_ceiling": null,
+    "cefr_levels_selected": [
+      "B1"
+    ],
+    "family_fallbacks_used": [],
+    "slots_skipped_no_stock": [],
+    "_cross_session_excluded": 0,
+    "allocation": [
+      {
+        "criterion": "grammar",
+        "criterion_label": "grammar",
+        "skill_tag": "sentence_control",
+        "difficulty": "controlled",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "lexical_resource",
+        "criterion_label": "Vocabulary (LR)",
+        "skill_tag": "lexical_precision",
+        "difficulty": "controlled",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "conclusion_construction",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_conclusion_alignment_struct",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_generation",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_quality",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_counterargument_development",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_rebuttal_quality",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "counterargument_development",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "evaluation_of_alternatives",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "rebuttal_quality",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "exercise_number": 1,
+      "total_exercises": 11,
+      "exercise_id": "ex_c8d56a490944",
+      "exercise_type": "mcq",
+      "family": "ARTICLE_DETERMINER",
+      "family_label": "Article & Determiner",
+      "cefr_level": "B1",
+      "micro_skill": "recognition",
+      "prompt": "Choose the correct article: Local communities need ___ practical solution when public trust is low.",
+      "answer": "a",
+      "explanation": "'A' is correct because the noun begins with a consonant sound and is introduced for the first time. Use 'a' for singular countable nouns starting with a consonant sound at first mention. 'An' requires a vowel sound; 'the' signals a specific, previously identified referent; 'no article' is used only with uncountable or generic plural nouns.",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ]
+    },
+    {
+      "exercise_number": 2,
+      "total_exercises": 11,
+      "exercise_id": "ex_1d6709a23382",
+      "exercise_type": "error_correction",
+      "family": "LEXICAL_PRECISION",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "lexical_gap",
+      "prompt": "Find the error: 'She is a very responsible worker; she always arrives on time.'",
+      "answer": "reliable",
+      "explanation": "'Reliable' (dependable/consistent) is more precise than 'responsible' here.",
+      "choices": null
+    },
+    {
+      "exercise_number": 3,
+      "total_exercises": 11,
+      "exercise_id": "ex_e9f539515fe9",
+      "exercise_type": "order_selection",
+      "family": "CAUSE_EFFECT_REASONING",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "causal_chain",
+      "prompt": "Order: A: Algorithms optimised for engagement promote content that generates the strongest emotional responses. B: Repeated exposure to emotionally manipulative content reduces critical evaluation and increases susceptibility to misinformation. C: At scale, this creates population-level epistemic damage — large groups holding false or distorted beliefs about important questions. D: Platform regulation that separates engagement metrics from content amplification is therefore essential for maintaining a shared information environment.",
+      "answer": "A-B-C-D",
+      "explanation": "A gives the algorithmic mechanism; B gives the reduced critical evaluation effect; C gives the population-level epistemic damage; D gives the regulatory conclusion.",
+      "choices": [
+        "A-B-C-D",
+        "B-D-A-C",
+        "C-A-B-D",
+        "D-A-B-C"
+      ]
+    },
+    {
+      "exercise_number": 4,
+      "total_exercises": 11,
+      "exercise_id": "TRANSITIONS_B1_v10_00082",
+      "exercise_type": "mcq",
+      "family": "TRANSITIONS",
+      "family_label": "Transitions",
+      "cefr_level": "B1",
+      "micro_skill": "production",
+      "prompt": "Choose the best transition: Many people value convenience. ___, private car use can increase pollution. Context: in large cities; skill variant 162.",
+      "answer": "However",
+      "explanation": "When producing this structure (variant 1): 'However' is a transition connector: it links two related ideas. Here it links 'Choose the best transition: Many people value' and 'private car use can increase pollution'. Always punctuate 'However' correctly — it raises IELTS Coherence and Cohesion. [Key: 'However'].",
+      "choices": [
+        "There are many examples of this in daily life.",
+        "This is an important topic that many people think about.",
+        "However",
+        "People have different views on this issue."
+      ]
+    },
+    {
+      "exercise_number": 5,
+      "total_exercises": 11,
+      "exercise_id": "ex_d1c4bdf2eded",
+      "exercise_type": "classification",
+      "family": "HEDGING",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "classify_hedge_type",
+      "prompt": "Classify these hedges: 'it seems', 'according to', 'might', 'there is evidence that', 'tend to', 'some researchers argue'",
+      "answer": "Classify as: modal verbs, epistemic phrases, attribution, or frequency/tendency.",
+      "explanation": "Modal verbs: 'might'. Epistemic phrases: 'it seems', 'there is evidence that'. Attribution: 'according to', 'some researchers argue'. Frequency/tendency: 'tend to'.",
+      "choices": null
+    },
+    {
+      "exercise_number": 6,
+      "total_exercises": 11,
+      "exercise_id": "ex_d4a1de23437f",
+      "exercise_type": "error_correction",
+      "family": "SENTENCE_VARIETY",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "parallelism_error",
+      "prompt": "Fix the parallelism error: 'The essay will discuss the causes of poverty, to explain its effects, and how governments can reduce it.'",
+      "answer": "Make all three items grammatically parallel.",
+      "explanation": "The essay will discuss the causes of poverty, explain its effects, and examine how governments can reduce it.",
+      "choices": null
+    },
+    {
+      "exercise_number": 7,
+      "total_exercises": 11,
+      "exercise_id": "ex_63d29e83ed45",
+      "exercise_type": "order_selection",
+      "family": "COUNTERARGUMENT",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "full_argument_order",
+      "prompt": "Order: A: Therefore, the case for degrowth is strongest as a critique of how growth is measured and prioritised — not as a case for economic contraction per se. B: Degrowth advocates argue that infinite economic growth is incompatible with a finite planet and that wellbeing should be the measure of progress, not GDP. C: Critics of degrowth argue that economic growth has lifted billions from poverty and that halting it would primarily harm the world's poorest people who have yet to benefit. D: This objection has force, but conflates 'growth' with 'material throughput': decarbonised, service-based growth may be both sustainable and pro-poor in ways that current GDP growth is not.",
+      "answer": "B-C-D-A",
+      "explanation": "B states the claim; C gives the counterargument; D gives the rebuttal; A draws the conclusion.",
+      "choices": [
+        "B-C-D-A",
+        "A-D-C-B",
+        "C-B-D-A",
+        "D-B-C-A"
+      ]
+    },
+    {
+      "exercise_number": 8,
+      "total_exercises": 11,
+      "exercise_id": "ex_0a40fbab474b",
+      "exercise_type": "order_selection",
+      "family": "EXAMPLE_QUALITY",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "example_integration_order",
+      "prompt": "Order: A: The importance of using specific, quantified examples rather than vague generalisations is illustrated by the difference in persuasive power between these two versions. B: Version 1: 'Poor nutrition affects children's learning.' Version 2: 'A study in 29 US schools found that providing free breakfast to all students reduced chronic absenteeism by 3.4% and improved standardised test scores by 17.5% among the lowest-income students.' C: Version 2 is more persuasive because it specifies the mechanism (breakfast), the population (lowest-income students), and the outcomes (attendance and scores) with measurable precision. D: Effective academic writing uses examples that specify who, what, where, and how much — enabling the reader to assess both the relevance and the reliability of the evidence.",
+      "answer": "A-B-C-D",
+      "explanation": "A introduces the principle; B gives the concrete comparison; C explains why Version 2 is better; D draws the practical writing lesson.",
+      "choices": [
+        "A-B-C-D",
+        "B-A-C-D",
+        "C-A-B-D",
+        "D-C-A-B"
+      ]
+    },
+    {
+      "exercise_number": 9,
+      "total_exercises": 11,
+      "exercise_id": "ex_6a148516819b",
+      "exercise_type": "order_selection",
+      "family": "COUNTERARGUMENT",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "full_argument_order",
+      "prompt": "Order: A: Therefore, managing AI risk requires international cooperation, not only national regulation. B: Artificial intelligence poses significant risks — including labour market disruption, bias, and concentration of economic power — that justify regulatory oversight. C: Critics argue that heavy AI regulation will move development offshore to less regulated jurisdictions, undermining the competitiveness of those who regulate. D: This regulatory arbitrage concern is real, but it argues for coordinated international AI governance — similar to financial regulation post-2008 — rather than for a race to the bottom in domestic oversight.",
+      "answer": "B-C-D-A",
+      "explanation": "B states the claim; C gives the competitiveness counterargument; D gives the rebuttal via international coordination; A draws the conclusion.",
+      "choices": [
+        "B-C-D-A",
+        "A-D-C-B",
+        "C-B-D-A",
+        "D-B-C-A"
+      ]
+    },
+    {
+      "exercise_number": 10,
+      "total_exercises": 11,
+      "exercise_id": "ex_50c469e7fabb",
+      "exercise_type": "mcq",
+      "family": "SENTENCE_VARIETY",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "b1_sentence_variety",
+      "prompt": "Which strategy MOST effectively varies sentence openers in academic writing?",
+      "answer": "Alternating between subject-verb openers, fronted adverbials, participial phrases, and subordinate clauses.",
+      "explanation": "Variety in sentence openers is one of the most effective ways to improve written style — it signals grammatical range and avoids monotony.",
+      "choices": [
+        "Starting every sentence with 'However'.",
+        "Alternating between subject-verb openers, fronted adverbials, participial phrases, and subordinate clauses.",
+        "Using conjunctions to start every sentence.",
+        "Writing only passive sentences."
+      ]
+    },
+    {
+      "exercise_number": 11,
+      "total_exercises": 11,
+      "exercise_id": "ex_ae15113efb30",
+      "exercise_type": "short_rewrite",
+      "family": "SENTENCE_VARIETY",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "write_varied_sentences",
+      "prompt": "Rewrite to add sentence variety: 'Social media is popular. Young people use it a lot. It has some advantages. It also has disadvantages.'",
+      "answer": "Combine and vary the sentences significantly.",
+      "explanation": "Whilst social media has become increasingly popular, particularly among young people, its widespread use brings both significant advantages and notable disadvantages. / Social media is widely used, especially by young people. Although it offers certain benefits, its drawbacks are equally significant.",
+      "choices": null
+    }
+  ],
+  "exercise_count": 11,
+  "status": "ready_for_student",
+  "next_action": "student_answers_exercises_then_submit_answer_and_get_session_results"
+}

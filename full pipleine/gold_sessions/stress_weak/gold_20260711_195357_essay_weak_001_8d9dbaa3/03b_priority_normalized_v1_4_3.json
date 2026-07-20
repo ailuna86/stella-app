@@ -1,0 +1,246 @@
+{
+  "schema_version": "PRIORITY_NORMALIZED_V1_4_3",
+  "engine_id": "VA_STELLA_PRIORITY_OUTPUT_NORMALIZER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-11T17:57:43.995977+00:00",
+  "boundary": "Priority contract normalization only; no new scoring, detection, teaching, or exercise generation.",
+  "source_priority_schema": "PRIORITY_ENGINE_OUTPUT_V4",
+  "source_priority_usable_without_repair": true,
+  "normalization_reason": "raw_priority_usable",
+  "score_context": {
+    "released_score": {
+      "overall_band": 5.0,
+      "criteria_bands": {
+        "task_response": 5,
+        "coherence_cohesion": 5,
+        "lexical_resource": 5,
+        "grammar": 5
+      },
+      "score_family": "B1_WEAK",
+      "score_released": true
+    },
+    "score_status": "ready",
+    "score_confidence": "normal",
+    "progress_tracking_allowed": true,
+    "lie_update_allowed": true
+  },
+  "focus_areas": [
+    {
+      "rank": 1,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "criterion": "grammar",
+      "evidence_count": 11,
+      "weighted_pressure": 11.0,
+      "priority_level": "very_high",
+      "top_families": [
+        "SUBJECT_VERB_AGREEMENT",
+        "NOUN_NUMBER_COUNTABILITY"
+      ],
+      "family_counts": {
+        "SUBJECT_VERB_AGREEMENT": 9,
+        "NOUN_NUMBER_COUNTABILITY": 2
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_676548d49a6838ac",
+          "source_row_id": "row_676548d49a6838ac",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "it compulsory",
+          "sentence_index": 3,
+          "severity": "moderate",
+          "confidence": 0.95
+        },
+        {
+          "error_id": "row_b247d87ede2f1fcd",
+          "source_row_id": "row_b247d87ede2f1fcd",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "many",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.78
+        },
+        {
+          "error_id": "row_c2d7794db51021c4",
+          "source_row_id": "row_c2d7794db51021c4",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "think",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.78
+        },
+        {
+          "error_id": "row_c09ddb5b7942644a",
+          "source_row_id": "row_c09ddb5b7942644a",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "they meets",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.72
+        },
+        {
+          "error_id": "row_ac22dbde7aae5a47",
+          "source_row_id": "row_ac22dbde7aae5a47",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "students will learns",
+          "sentence_index": 3,
+          "severity": "moderate",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "skill_id": "lexical_precision",
+      "student_label": "Lexical Precision",
+      "criterion": "lexical_resource",
+      "evidence_count": 10,
+      "weighted_pressure": 10.0,
+      "priority_level": "very_high",
+      "top_families": [
+        "COLLOCATION",
+        "SPELLING"
+      ],
+      "family_counts": {
+        "COLLOCATION": 8,
+        "SPELLING": 2
+      },
+      "recommended_service": "lret",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_74ca7a2759e6c7d3",
+          "source_row_id": "row_74ca7a2759e6c7d3",
+          "family": "SPELLING",
+          "surface_quote": "dont",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.86
+        },
+        {
+          "error_id": "row_b10b868020e0a09c",
+          "source_row_id": "row_b10b868020e0a09c",
+          "family": "SPELLING",
+          "surface_quote": "dont",
+          "sentence_index": 11,
+          "severity": "moderate",
+          "confidence": 0.86
+        },
+        {
+          "error_id": "row_60d44c8a2d1d75d7",
+          "source_row_id": "row_60d44c8a2d1d75d7",
+          "family": "COLLOCATION",
+          "surface_quote": "doing community service",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.85
+        },
+        {
+          "error_id": "row_d5ae6b0f75212904",
+          "source_row_id": "row_d5ae6b0f75212904",
+          "family": "COLLOCATION",
+          "surface_quote": "old peoples",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.9
+        },
+        {
+          "error_id": "row_11d08edcd0ccf341",
+          "source_row_id": "row_11d08edcd0ccf341",
+          "family": "COLLOCATION",
+          "surface_quote": "homeless peoples",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.9
+        }
+      ]
+    }
+  ],
+  "primary_focus": {
+    "rank": 1,
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "skill_id": "sentence_control",
+    "student_label": "Sentence Control",
+    "criterion": "grammar",
+    "evidence_count": 11,
+    "weighted_pressure": 11.0,
+    "priority_level": "very_high",
+    "top_families": [
+      "SUBJECT_VERB_AGREEMENT",
+      "NOUN_NUMBER_COUNTABILITY"
+    ],
+    "family_counts": {
+      "SUBJECT_VERB_AGREEMENT": 9,
+      "NOUN_NUMBER_COUNTABILITY": 2
+    },
+    "recommended_service": "writing_coach",
+    "recommended_difficulty": "controlled",
+    "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+    "evidence_samples": [
+      {
+        "error_id": "row_676548d49a6838ac",
+        "source_row_id": "row_676548d49a6838ac",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "surface_quote": "it compulsory",
+        "sentence_index": 3,
+        "severity": "moderate",
+        "confidence": 0.95
+      },
+      {
+        "error_id": "row_b247d87ede2f1fcd",
+        "source_row_id": "row_b247d87ede2f1fcd",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "surface_quote": "many",
+        "sentence_index": 2,
+        "severity": "moderate",
+        "confidence": 0.78
+      },
+      {
+        "error_id": "row_c2d7794db51021c4",
+        "source_row_id": "row_c2d7794db51021c4",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "surface_quote": "think",
+        "sentence_index": 2,
+        "severity": "moderate",
+        "confidence": 0.78
+      },
+      {
+        "error_id": "row_c09ddb5b7942644a",
+        "source_row_id": "row_c09ddb5b7942644a",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "surface_quote": "they meets",
+        "sentence_index": 4,
+        "severity": "moderate",
+        "confidence": 0.72
+      },
+      {
+        "error_id": "row_ac22dbde7aae5a47",
+        "source_row_id": "row_ac22dbde7aae5a47",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "surface_quote": "students will learns",
+        "sentence_index": 3,
+        "severity": "moderate",
+        "confidence": 0.72
+      }
+    ]
+  },
+  "gold_learning_directive_seed": {
+    "next_best_skill": "sentence_control",
+    "next_best_capacity_domain": "sentence_control",
+    "recommended_service": "writing_coach",
+    "priority_level": "very_high"
+  },
+  "quality_flags": {
+    "has_focus_areas": true,
+    "unknown_skill_remaining": false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "EVALUATOR_BRIDGE_REQUEST_V1_4_3",
+  "bridge_engine_id": "VA_STELLA_EVALUATOR_CLI_BRIDGE",
+  "bridge_engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-12T08:02:17.373625+00:00",
+  "student_id": "stress_weak",
+  "essay_id": "essay_weak_001",
+  "submission_id": null,
+  "prompt_text": "Some people believe that unpaid community service should be a compulsory part of high school education. To what extent do you agree or disagree?",
+  "essay_text": "In my opinion I agree with this statement because community service teach students many important things. Nowadays many teenager only think about their phone and games, they dont care about other peoples in society. If school make it compulsory, students will learns responsibility and become more helpful person.\n\nFirstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples. This experience teach them empathy that they cannot learn it from books. For example, my cousin he was volunteer in hospital last year and now he understand more about how difficult is for sick peoples.\n\nSecondly, this activity also good for students resume when they applying to university. Many universities want to see student who have real experience, not only good grades. So compulsory service can help student in future also.\n\nHowever, some people think it should be voluntary because student have already too much homework and exam pressure. This is true but I think school can organize it in weekend so it dont effect their study to much.\n\nIn conclusion, I believe unpaid community service must be compulsory in high school because it bring many benefit for both student and society, even though there is some challenge to manage the time.",
+  "detector_output_path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_weak\\gold_20260712_100020_essay_weak_001_5e9ce811\\01c_detector_for_evaluator.json",
+  "scorer_output_path": null,
+  "ontology_dir": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine",
+  "use_llm": true,
+  "max_llm_skills": 30,
+  "bridge_quality_context": {
+    "detector_rows_supplied_to_evaluator": 90,
+    "detector_schema_expected_by_evaluator": "diagnostic_rows under root/results[0]"
+  }
+}

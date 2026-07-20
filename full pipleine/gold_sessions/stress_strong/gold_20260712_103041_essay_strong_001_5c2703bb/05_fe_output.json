@@ -1,0 +1,47 @@
+{
+  "schema_version": "FEEDBACK_ENGINE_V6C_CLI_STANDALONE",
+  "engine_id": "VA_STELLA_FEEDBACK_ENGINE_V6C_CLI",
+  "engine_version": "1.0.0-standalone-no-imports",
+  "created_at": "2026-07-12T08:32:20.197026+00:00",
+  "performance_summary": {
+    "overall_band": 5.5,
+    "criteria_bands": {
+      "task_response": 6,
+      "coherence_cohesion": 6,
+      "lexical_resource": 5,
+      "grammar": 5
+    },
+    "score_confidence": "normal",
+    "adjudication_status": "confirmed"
+  },
+  "bundles": [
+    {
+      "status": "ok",
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "criterion": "lexical_resource",
+      "title": "Lexical precision",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "summary": "1 chargeable signal(s) are linked to this area in the current ErrorMap.",
+      "examples": [
+        {
+          "error_id": "row_03a52cf1d48c8a26",
+          "source_row_id": "row_03a52cf1d48c8a26",
+          "essay_id": "essay_strong_001",
+          "sentence_index": 11,
+          "criterion": "lexical_resource",
+          "family": "SEMANTIC_COMBINATION",
+          "capacity_domain": "lexical_precision",
+          "surface_quote": "civic equity",
+          "suggested_revision": "Replace 'civic equity' with 'civic engagement' to better align with common usage in discussions about service programs.",
+          "severity": "moderate",
+          "confidence": 0.95,
+          "student_message": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+          "chargeable": true
+        }
+      ],
+      "next_step": "Repair unclear or imprecise word choices before upgrading style."
+    }
+  ],
+  "boundary": "Feedback Engine output; no scoring, LRET classification, coaching, practice, or revision logic."
+}

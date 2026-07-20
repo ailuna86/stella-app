@@ -1,0 +1,2563 @@
+{
+  "schema_version": "3.0.0",
+  "source_ontology": "writing_competency_ontology_v3.json",
+  "purpose": "Bucket and metric assignments for all 142 micro-skills in ontology_v3",
+  "total_skills": 142,
+  "evaluator_accessible_count": 121,
+  "summary_counts": {
+    "single_essay_observable": 56,
+    "hybrid_single_essay_plus_multi_essay_tracking": 36,
+    "hybrid_essay_observable_plus_practice_required": 29,
+    "practice_exercise_required": 21
+  },
+  "micro_skill_records": [
+    {
+      "skill_id": "identify_genre",
+      "skill_name": "Identify Genre",
+      "macro_domain": "D1",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_task_type",
+      "skill_name": "Identify Task Type",
+      "macro_domain": "D1",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_audience",
+      "skill_name": "Identify Audience",
+      "macro_domain": "D1",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_purpose",
+      "skill_name": "Identify Purpose",
+      "macro_domain": "D1",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_constraints",
+      "skill_name": "Identify Constraints",
+      "macro_domain": "D1",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "identify_required_components",
+      "skill_name": "Identify Required Components",
+      "macro_domain": "D1",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Task Schema Profile",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_evaluation_criteria",
+      "skill_name": "Identify Evaluation Criteria",
+      "macro_domain": "D1",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Task Schema Profile",
+        "Scorer output"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "maintain_task_focus",
+      "skill_name": "Maintain Task Focus",
+      "macro_domain": "D1",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile",
+        "Paragraph Map",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "generate_relevant_ideas",
+      "skill_name": "Generate Relevant Ideas",
+      "macro_domain": "D2",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Idea Map",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "generate_multiple_ideas",
+      "skill_name": "Generate Multiple Ideas",
+      "macro_domain": "D2",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Idea Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "generate_examples",
+      "skill_name": "Generate Examples",
+      "macro_domain": "D2",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Positive Evidence Profile",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "generate_explanations",
+      "skill_name": "Generate Explanations",
+      "macro_domain": "D2",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "generate_comparisons",
+      "skill_name": "Generate Comparisons",
+      "macro_domain": "D2",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile",
+        "Idea Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "generate_causes",
+      "skill_name": "Generate Causes",
+      "macro_domain": "D2",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Idea Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "generate_consequences",
+      "skill_name": "Generate Consequences",
+      "macro_domain": "D2",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "generate_solutions",
+      "skill_name": "Generate Solutions",
+      "macro_domain": "D2",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Idea Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "generate_evidence",
+      "skill_name": "Generate Evidence",
+      "macro_domain": "D2",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Positive Evidence Profile",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "generate_counterarguments",
+      "skill_name": "Generate Counterarguments",
+      "macro_domain": "D2",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "claim_construction",
+      "skill_name": "Claim Construction",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "reasoning_depth",
+      "skill_name": "Reasoning Depth",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "support_quality",
+      "skill_name": "Support Quality",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Positive Evidence Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "evidence_integration",
+      "skill_name": "Evidence Integration",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "causal_reasoning",
+      "skill_name": "Causal Reasoning",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "evaluation_of_alternatives",
+      "skill_name": "Evaluation of Alternatives",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "counterargument_development",
+      "skill_name": "Counterargument Development",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "rebuttal_quality",
+      "skill_name": "Rebuttal Quality",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "qualification_and_nuance",
+      "skill_name": "Qualification and Nuance",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "avoid_overgeneralization",
+      "skill_name": "Avoid Overgeneralization",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_trends",
+      "skill_name": "Identify Trends",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_comparisons",
+      "skill_name": "Identify Comparisons",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_patterns",
+      "skill_name": "Identify Patterns",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_extremes",
+      "skill_name": "Identify Extremes",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_rankings",
+      "skill_name": "Identify Rankings",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_proportions",
+      "skill_name": "Identify Proportions",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "identify_anomalies",
+      "skill_name": "Identify Anomalies",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "summarize_information",
+      "skill_name": "Summarize Information",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "select_relevant_information",
+      "skill_name": "Select Relevant Information",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "introduction_construction",
+      "skill_name": "Introduction Construction",
+      "macro_domain": "D5",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "thesis_construction",
+      "skill_name": "Thesis Construction",
+      "macro_domain": "D5",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "paragraph_planning",
+      "skill_name": "Paragraph Planning",
+      "macro_domain": "D5",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Paragraph Map",
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "topic_sentence_control",
+      "skill_name": "Topic Sentence Control",
+      "macro_domain": "D5",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "paragraph_balance",
+      "skill_name": "Paragraph Balance",
+      "macro_domain": "D5",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "conclusion_construction",
+      "skill_name": "Conclusion Construction",
+      "macro_domain": "D5",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "global_structure_control",
+      "skill_name": "Global Structure Control",
+      "macro_domain": "D5",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "logical_sequencing",
+      "skill_name": "Logical Sequencing",
+      "macro_domain": "D6",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "transition_control",
+      "skill_name": "Transition Control",
+      "macro_domain": "D6",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "reference_management",
+      "skill_name": "Reference Management",
+      "macro_domain": "D6",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "information_flow",
+      "skill_name": "Information Flow",
+      "macro_domain": "D6",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "example_integration",
+      "skill_name": "Example Integration",
+      "macro_domain": "D6",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "progression_management",
+      "skill_name": "Progression Management",
+      "macro_domain": "D6",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "cohesion_without_overlinking",
+      "skill_name": "Cohesion Without Overlinking",
+      "macro_domain": "D6",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "lexical_precision",
+      "skill_name": "Lexical Precision",
+      "macro_domain": "D7",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "rare_word_ratio",
+        "semantic_specificity_score"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "collocation_control",
+      "skill_name": "Collocation Control",
+      "macro_domain": "D7",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "collocation_match_count",
+        "collocation_variety",
+        "collocation_accuracy_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "semantic_compatibility",
+      "skill_name": "Semantic Compatibility",
+      "macro_domain": "D7",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "semantic_combination_accuracy"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "register_control",
+      "skill_name": "Register Control",
+      "macro_domain": "D7",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "informal_marker_ratio",
+        "hedge_density",
+        "academic_word_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "paraphrasing_ability",
+      "skill_name": "Paraphrasing Ability",
+      "macro_domain": "D7",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "prompt_overlap_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "lexical_variety",
+      "skill_name": "Lexical Variety",
+      "macro_domain": "D7",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "type_token_ratio",
+        "per_paragraph_ttr_variance"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "topic_vocabulary_control",
+      "skill_name": "Topic Vocabulary Control",
+      "macro_domain": "D7",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "topic_word_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "word_formation_control",
+      "skill_name": "Word Formation Control",
+      "macro_domain": "D7",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "morphological_variety"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "spelling_control",
+      "skill_name": "Spelling Control",
+      "macro_domain": "D7",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "spelling_error_rate"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "article_control",
+      "skill_name": "Article Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "article_present_count",
+        "second_mention_the_ratio"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "noun_form_control",
+      "skill_name": "Noun Form Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "nominalisation_count",
+        "plural_noun_variety"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "agreement_control",
+      "skill_name": "Agreement Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "overt_svagr_pair_count"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "tense_control",
+      "skill_name": "Tense Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "dominant_tense",
+        "tense_switch_count",
+        "tense_consistency_score"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "preposition_control",
+      "skill_name": "Preposition Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "preposition_count",
+        "preposition_variety"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "punctuation_control",
+      "skill_name": "Punctuation Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "comma_in_subordinate_count",
+        "sentence_terminal_consistency"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "simple_sentence_construction",
+      "skill_name": "Simple Sentence Construction",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "simple_sentence_ratio",
+        "fragment_count"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "complex_sentence_construction",
+      "skill_name": "Complex Sentence Construction",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "subordinate_clause_count",
+        "subordinator_variety",
+        "avg_subclause_length"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "relative_clause_control",
+      "skill_name": "Relative Clause Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "relative_clause_count",
+        "relative_pronoun_variety"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "conditional_control",
+      "skill_name": "Conditional Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "conditional_clause_count",
+        "conditional_type_variety"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "comparison_structure_control",
+      "skill_name": "Comparison Structure Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "comparison_structure_count",
+        "well_formed_comparison_ratio",
+        "double_comparative_count"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "clarity",
+      "skill_name": "Clarity",
+      "macro_domain": "D9",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "conciseness",
+      "skill_name": "Conciseness",
+      "macro_domain": "D9",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "readability",
+      "skill_name": "Readability",
+      "macro_domain": "D9",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "formality_control",
+      "skill_name": "Formality Control",
+      "macro_domain": "D9",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "academic_tone",
+      "skill_name": "Academic Tone",
+      "macro_domain": "D9",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "emphasis_control",
+      "skill_name": "Emphasis Control",
+      "macro_domain": "D9",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "hedging_control",
+      "skill_name": "Hedging Control",
+      "macro_domain": "D9",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "sentence_variety",
+      "skill_name": "Sentence Variety",
+      "macro_domain": "D9",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "compound_sentence_construction",
+      "skill_name": "Compound Sentence Construction",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "coordinator_clause_count",
+        "coordinator_variety"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_claim_generation",
+      "skill_name": "Claim Generation",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [
+        "claim_sentence_count"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_claim_specificity",
+      "skill_name": "Claim Specificity",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "claim_specificity_score"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_claim_precision",
+      "skill_name": "Claim Precision",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "claim_precision_score"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_claim_relevance",
+      "skill_name": "Claim Relevance",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "on_topic_claim_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_reason_generation",
+      "skill_name": "Reason Generation",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [
+        "reason_sentence_count"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_reason_quality",
+      "skill_name": "Reason Quality",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "reason_development_score"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_reason_relevance",
+      "skill_name": "Reason Relevance",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "reason_claim_alignment_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_support_generation",
+      "skill_name": "Support Generation",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [
+        "support_unit_count"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Positive Evidence Profile",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_support_alignment",
+      "skill_name": "Support Alignment",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "support_claim_alignment_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Positive Evidence Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_example_generation",
+      "skill_name": "Example Generation (Argumentation)",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [
+        "example_count"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Positive Evidence Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_example_relevance",
+      "skill_name": "Example Relevance (Argumentation)",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "example_relevance_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_example_specificity",
+      "skill_name": "Example Specificity (Argumentation)",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "example_specificity_score"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Positive Evidence Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_example_integration",
+      "skill_name": "Example Integration (Argumentation)",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "example_integration_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_warrant_generation",
+      "skill_name": "Warrant Generation",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "warrant_presence"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_warrant_quality",
+      "skill_name": "Warrant Quality",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "warrant_quality_score"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_counterargument_generation",
+      "skill_name": "Counterargument Generation (Argumentation)",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [
+        "counterargument_presence"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_counterargument_development",
+      "skill_name": "Counterargument Development (Argumentation)",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "counterarg_development_score"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_rebuttal_generation",
+      "skill_name": "Rebuttal Generation",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [
+        "rebuttal_presence"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_rebuttal_quality",
+      "skill_name": "Rebuttal Quality (Argumentation)",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "rebuttal_quality_score"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_position_consistency",
+      "skill_name": "Position Consistency",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "position_shift_count"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "arg_conclusion_alignment",
+      "skill_name": "Conclusion Alignment (Argumentation)",
+      "macro_domain": "D11",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "conclusion_thesis_alignment"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "ws_proposition_clarity",
+      "skill_name": "Proposition Clarity",
+      "macro_domain": "D5",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "ws_proposition_completeness",
+      "skill_name": "Proposition Completeness",
+      "macro_domain": "D5",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "ws_reasoning_chain_completeness",
+      "skill_name": "Reasoning Chain Completeness",
+      "macro_domain": "D3",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "ws_conclusion_alignment_struct",
+      "skill_name": "Conclusion Alignment (Structure)",
+      "macro_domain": "D5",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "th_causal_reasoning",
+      "skill_name": "Causal Reasoning (Thinking)",
+      "macro_domain": "D13",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Argument Map",
+        "Essay text",
+        "Idea Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "th_comparison_reasoning",
+      "skill_name": "Comparison Reasoning",
+      "macro_domain": "D13",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "th_tradeoff_analysis",
+      "skill_name": "Tradeoff Analysis",
+      "macro_domain": "D13",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "th_consequence_analysis",
+      "skill_name": "Consequence Analysis",
+      "macro_domain": "D13",
+      "primary_evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+      "evaluator_accessible": true,
+      "evidence_reliability": "essay_observes_product_practice_tests_process",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "th_solution_generation",
+      "skill_name": "Solution Generation (Thinking)",
+      "macro_domain": "D13",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Idea Map"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "th_alternative_evaluation",
+      "skill_name": "Alternative Evaluation",
+      "macro_domain": "D13",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "th_prioritization",
+      "skill_name": "Prioritization",
+      "macro_domain": "D13",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Paragraph Map"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "th_abstraction",
+      "skill_name": "Abstraction",
+      "macro_domain": "D13",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "th_synthesis",
+      "skill_name": "Synthesis",
+      "macro_domain": "D13",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "th_systems_thinking",
+      "skill_name": "Systems Thinking",
+      "macro_domain": "D13",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "lx_semantic_specificity",
+      "skill_name": "Semantic Specificity",
+      "macro_domain": "D14",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "concrete_noun_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "lx_semantic_accuracy",
+      "skill_name": "Semantic Accuracy",
+      "macro_domain": "D14",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "lexical_misuse_rate"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "lx_phrase_naturalness",
+      "skill_name": "Phrase Naturalness",
+      "macro_domain": "D14",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "native_phrase_match_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "lx_predicate_argument_compatibility",
+      "skill_name": "Predicate-Argument Compatibility",
+      "macro_domain": "D14",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "unexpected_argument_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "lx_academic_register_control",
+      "skill_name": "Academic Register Control",
+      "macro_domain": "D14",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "awl_ratio",
+        "hedge_density_academic",
+        "informal_marker_rate"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "lx_nominalization_control",
+      "skill_name": "Nominalization Control",
+      "macro_domain": "D14",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "nominalization_density"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "lx_paraphrase_control",
+      "skill_name": "Paraphrase Control",
+      "macro_domain": "D14",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "prompt_lexical_overlap_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "lx_lexical_variation",
+      "skill_name": "Lexical Variation",
+      "macro_domain": "D14",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "extended_ttr",
+        "per_paragraph_ttr_variance_adv"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Evaluator",
+        "Writing Coach"
+      ]
+    },
+    {
+      "skill_id": "rev_grammar_problem_detection",
+      "skill_name": "Grammar Problem Detection",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Detector rows"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_lexical_problem_detection",
+      "skill_name": "Lexical Problem Detection",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile",
+        "Detector rows"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_clarity_problem_detection",
+      "skill_name": "Clarity Problem Detection",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_cohesion_problem_detection",
+      "skill_name": "Cohesion Problem Detection",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_root_cause_identification",
+      "skill_name": "Root Cause Identification",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Detector rows",
+        "Scorer output"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_severity_estimation",
+      "skill_name": "Severity Estimation",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Scorer output",
+        "Detector rows"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_repair_prioritization",
+      "skill_name": "Repair Prioritization",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Scorer output"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_grammar_repair",
+      "skill_name": "Grammar Repair",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_lexical_repair",
+      "skill_name": "Lexical Repair",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Lexical Unit Profile"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_reasoning_repair",
+      "skill_name": "Reasoning Repair",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Argument Map"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_cohesion_repair",
+      "skill_name": "Cohesion Repair",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_self_evaluation_accuracy",
+      "skill_name": "Self-Evaluation Accuracy",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Scorer output"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "rev_confidence_calibration",
+      "skill_name": "Confidence Calibration",
+      "macro_domain": "D15",
+      "primary_evaluation_bucket": "practice_exercise_required",
+      "evaluator_accessible": false,
+      "evidence_reliability": "not_reliable_from_final_essay",
+      "metric_ids": [],
+      "required_inputs": [
+        "Essay text",
+        "Detector rows",
+        "Scorer output"
+      ],
+      "recommended_system_owners": [
+        "Learning Intelligence Engine"
+      ]
+    },
+    {
+      "skill_id": "passive_voice_control",
+      "skill_name": "Passive Voice Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "passive_clause_count",
+        "passive_accuracy_ratio",
+        "passive_vs_active_ratio"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Writing Coach",
+        "Essay Revision",
+        "Learning Intelligence"
+      ]
+    },
+    {
+      "skill_id": "modality_control",
+      "skill_name": "Modality Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_in_essay_but_stability_requires_history",
+      "metric_ids": [
+        "modal_count",
+        "modal_variety",
+        "epistemic_modal_ratio",
+        "modal_form_accuracy"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Writing Coach",
+        "Essay Revision",
+        "Learning Intelligence"
+      ]
+    },
+    {
+      "skill_id": "parallel_structure_control",
+      "skill_name": "Parallel Structure Control",
+      "macro_domain": "D8",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "coord_pair_count",
+        "non_parallel_count",
+        "parallel_accuracy_ratio"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Writing Coach",
+        "Essay Revision",
+        "LRET",
+        "Learning Intelligence"
+      ]
+    },
+    {
+      "skill_id": "overview_construction",
+      "skill_name": "Overview Construction",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "overview_paragraph_presence",
+        "general_vs_specific_ratio"
+      ],
+      "required_inputs": [
+        "Essay text",
+        "Task Schema Profile"
+      ],
+      "recommended_system_owners": [
+        "Writing Coach",
+        "Essay Revision",
+        "Practice Engine",
+        "Learning Intelligence"
+      ]
+    },
+    {
+      "skill_id": "data_language_precision",
+      "skill_name": "Data Language Precision",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "data_verb_count",
+        "degree_adverb_variety",
+        "quantitative_phrase_density"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Writing Coach",
+        "LRET",
+        "Essay Revision",
+        "Practice Engine",
+        "Learning Intelligence"
+      ]
+    },
+    {
+      "skill_id": "approximation_language",
+      "skill_name": "Approximation Language",
+      "macro_domain": "D4",
+      "primary_evaluation_bucket": "single_essay_observable",
+      "evaluator_accessible": true,
+      "evidence_reliability": "direct_or_high_confidence_from_essay_and_profiles",
+      "metric_ids": [
+        "approximation_marker_count",
+        "approximation_variety"
+      ],
+      "required_inputs": [
+        "Essay text"
+      ],
+      "recommended_system_owners": [
+        "Writing Coach",
+        "Essay Revision",
+        "Learning Intelligence"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "schema_version": "DIRECTIVE_ADAPTER_STANDALONE_V1_4_3",
+  "engine_id": "VA_STELLA_DIRECTIVE_ADAPTER_CLI",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-12T06:21:19.151949+00:00",
+  "boundary": "Directive adapter converts upstream priority and score contract into routing metadata only.",
+  "source_priority_schema": "PRIORITY_NORMALIZED_V1_4_3",
+  "focus_source": "priority_normalized",
+  "focus_areas": [
+    {
+      "rank": 1,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "criterion": "grammar",
+      "evidence_count": 1,
+      "weighted_pressure": 1.0,
+      "priority_level": "monitor",
+      "top_families": [
+        "CLAUSE_STRUCTURE"
+      ],
+      "family_counts": {
+        "CLAUSE_STRUCTURE": 1
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "guided",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_231ff13f4a54943e",
+          "source_row_id": "row_231ff13f4a54943e",
+          "family": "CLAUSE_STRUCTURE",
+          "surface_quote": "background, is",
+          "sentence_index": 8,
+          "severity": "moderate",
+          "confidence": 0.82
+        }
+      ]
+    }
+  ],
+  "primary_focus": {
+    "rank": 1,
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "skill_id": "sentence_control",
+    "student_label": "Sentence Control",
+    "criterion": "grammar",
+    "evidence_count": 1,
+    "weighted_pressure": 1.0,
+    "priority_level": "monitor",
+    "top_families": [
+      "CLAUSE_STRUCTURE"
+    ],
+    "family_counts": {
+      "CLAUSE_STRUCTURE": 1
+    },
+    "recommended_service": "writing_coach",
+    "recommended_difficulty": "guided",
+    "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+    "evidence_samples": [
+      {
+        "error_id": "row_231ff13f4a54943e",
+        "source_row_id": "row_231ff13f4a54943e",
+        "family": "CLAUSE_STRUCTURE",
+        "surface_quote": "background, is",
+        "sentence_index": 8,
+        "severity": "moderate",
+        "confidence": 0.82
+      }
+    ]
+  },
+  "score_context": {
+    "released_score": {
+      "overall_band": 5.0,
+      "criteria_bands": {
+        "task_response": 5,
+        "coherence_cohesion": 5,
+        "lexical_resource": 6,
+        "grammar": 5
+      },
+      "score_family": "B1_WEAK",
+      "score_released": true
+    },
+    "score_confidence": "reduced",
+    "score_status": "ready",
+    "verifier_status": "caution",
+    "adjudication_status": "released_reduced_confidence",
+    "progress_tracking_allowed": false,
+    "lie_update_allowed": false
+  },
+  "score_confidence": "reduced",
+  "adjudication_status": "released_reduced_confidence",
+  "progress_tracking_allowed": false,
+  "gold_learning_directive": {
+    "next_best_skill": "sentence_control",
+    "next_best_capacity_domain": "sentence_control",
+    "recommended_service": "writing_coach",
+    "learning_update_allowed": false,
+    "mastery_update_allowed": false,
+    "recommended_difficulty": "guided",
+    "reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus."
+  },
+  "learner_profile_context": {
+    "profile_supplied": true,
+    "profile_version": "GOLD_PRIOR_CONTEXT_V1"
+  },
+  "quality_flags": {
+    "has_primary_focus": true,
+    "has_recommended_service": true
+  }
+}

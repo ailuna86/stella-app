@@ -1,0 +1,8 @@
+{
+  "schema_version": "PREMIUM_VERIFIER_COMPAT_GOLD_V1_2",
+  "verifier_status": "pass",
+  "warnings": [],
+  "score_confidence": "normal",
+  "progress_tracking_allowed": true,
+  "lie_update_allowed": true
+}

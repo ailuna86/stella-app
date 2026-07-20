@@ -1,0 +1,132 @@
+{
+  "schema_version": "GOLD_QA_REPORT_V1_4",
+  "engine_id": "VA_STELLA_GOLD_ORCHESTRATOR",
+  "engine_version": "1.4.0-orchestration-only-no-engine-logic",
+  "created_at": "2026-07-08T10:33:40.902949+00:00",
+  "qa_status": "needs_attention",
+  "strict_mode": false,
+  "missing_required_artifacts": [
+    "detector",
+    "errormap",
+    "scorer",
+    "verifier",
+    "adjudicator",
+    "score_contract",
+    "priority",
+    "directive",
+    "feedback_engine",
+    "feedback_report",
+    "evaluator",
+    "evidence_fusion",
+    "lret_session",
+    "writing_coach",
+    "practice_session",
+    "learner_profile",
+    "service_routing"
+  ],
+  "invalid_required_artifacts": [],
+  "boundary_issues": [],
+  "artifact_status": {
+    "submission": {
+      "exists": true,
+      "valid_json": true,
+      "schema_version": "GOLD_SUBMISSION_NORMALIZED_V1_4"
+    },
+    "intake": {
+      "exists": false,
+      "valid_json": false
+    },
+    "detector": {
+      "exists": false,
+      "valid_json": false
+    },
+    "errormap": {
+      "exists": false,
+      "valid_json": false
+    },
+    "metric_profile": {
+      "exists": false,
+      "valid_json": false
+    },
+    "scorer": {
+      "exists": false,
+      "valid_json": false
+    },
+    "verifier": {
+      "exists": false,
+      "valid_json": false
+    },
+    "adjudicator": {
+      "exists": false,
+      "valid_json": false
+    },
+    "score_contract": {
+      "exists": false,
+      "valid_json": false
+    },
+    "priority": {
+      "exists": false,
+      "valid_json": false
+    },
+    "directive": {
+      "exists": false,
+      "valid_json": false
+    },
+    "feedback_engine": {
+      "exists": false,
+      "valid_json": false
+    },
+    "feedback_report": {
+      "exists": false,
+      "valid_json": false
+    },
+    "evaluator": {
+      "exists": false,
+      "valid_json": false
+    },
+    "evidence_fusion": {
+      "exists": false,
+      "valid_json": false
+    },
+    "lret_session": {
+      "exists": false,
+      "valid_json": false
+    },
+    "writing_coach": {
+      "exists": false,
+      "valid_json": false
+    },
+    "practice_session": {
+      "exists": false,
+      "valid_json": false
+    },
+    "learner_profile": {
+      "exists": false,
+      "valid_json": false
+    },
+    "skills_progress": {
+      "exists": false,
+      "valid_json": false
+    },
+    "learning_roadmap": {
+      "exists": false,
+      "valid_json": false
+    },
+    "service_routing": {
+      "exists": false,
+      "valid_json": false
+    },
+    "progress_snapshot": {
+      "exists": false,
+      "valid_json": false
+    },
+    "revision_workspace": {
+      "exists": false,
+      "valid_json": false
+    },
+    "revision_launch_packet": {
+      "exists": false,
+      "valid_json": false
+    }
+  }
+}

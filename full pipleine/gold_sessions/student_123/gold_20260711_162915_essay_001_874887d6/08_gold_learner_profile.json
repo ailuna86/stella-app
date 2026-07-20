@@ -1,0 +1,229 @@
+{
+  "schema_version": "GOLD_LEARNER_PROFILE_STANDALONE_V1_4_3",
+  "engine_id": "VA_STELLA_GOLD_LIE_PROFILE_BUILDER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-11T14:31:35.650990+00:00",
+  "student_id": "student_123",
+  "latest_essay_id": "essay_001",
+  "latest_score": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "task_response": 5,
+      "coherence_cohesion": 5,
+      "lexical_resource": 5,
+      "grammar": 5
+    },
+    "score_confidence": "normal",
+    "score_status": "ready",
+    "progress_tracking_allowed": true,
+    "lie_update_allowed": true
+  },
+  "latest_error_profile": {
+    "by_family": {
+      "VERB_FORM": 1,
+      "SPELLING": 3,
+      "WORD_FORM": 1,
+      "COMPARATIVE_FORM": 3,
+      "CLAUSE_STRUCTURE": 3,
+      "ARTICLE_DETERMINER": 2,
+      "SUBJECT_VERB_AGREEMENT": 1,
+      "COLLOCATION": 1
+    },
+    "by_capacity": {
+      "sentence_control": 10,
+      "lexical_precision": 5
+    },
+    "by_criterion": {
+      "grammar": 10,
+      "lexical_resource": 5
+    },
+    "total_chargeable": 15
+  },
+  "latest_priority_focus": [
+    {
+      "rank": 1,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "criterion": "grammar",
+      "evidence_count": 10,
+      "weighted_pressure": 10.0,
+      "priority_level": "very_high",
+      "top_families": [
+        "COMPARATIVE_FORM",
+        "CLAUSE_STRUCTURE",
+        "ARTICLE_DETERMINER",
+        "VERB_FORM",
+        "SUBJECT_VERB_AGREEMENT"
+      ],
+      "family_counts": {
+        "COMPARATIVE_FORM": 3,
+        "CLAUSE_STRUCTURE": 3,
+        "ARTICLE_DETERMINER": 2,
+        "VERB_FORM": 1,
+        "SUBJECT_VERB_AGREEMENT": 1
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_001d97c6eb25d4f0",
+          "source_row_id": "row_001d97c6eb25d4f0",
+          "family": "VERB_FORM",
+          "surface_quote": "has to spent",
+          "sentence_index": 1,
+          "severity": "moderate",
+          "confidence": 0.93
+        },
+        {
+          "error_id": "row_9e84bd7a83f73038",
+          "source_row_id": "row_9e84bd7a83f73038",
+          "family": "COMPARATIVE_FORM",
+          "surface_quote": "a lot of knowledge and experience than",
+          "sentence_index": 10,
+          "severity": "moderate",
+          "confidence": 0.9
+        },
+        {
+          "error_id": "row_2042a11a4c1b1fa6",
+          "source_row_id": "row_2042a11a4c1b1fa6",
+          "family": "CLAUSE_STRUCTURE",
+          "surface_quote": "can give",
+          "sentence_index": 11,
+          "severity": "moderate",
+          "confidence": 0.88
+        },
+        {
+          "error_id": "row_b8ce192c62894970",
+          "source_row_id": "row_b8ce192c62894970",
+          "family": "COMPARATIVE_FORM",
+          "surface_quote": "so older",
+          "sentence_index": 12,
+          "severity": "moderate",
+          "confidence": 0.91
+        },
+        {
+          "error_id": "row_5ebde8f095cb5460",
+          "source_row_id": "row_5ebde8f095cb5460",
+          "family": "COMPARATIVE_FORM",
+          "surface_quote": "more stronger",
+          "sentence_index": 14,
+          "severity": "moderate",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "skill_id": "lexical_precision",
+      "student_label": "Lexical Precision",
+      "criterion": "lexical_resource",
+      "evidence_count": 5,
+      "weighted_pressure": 5.0,
+      "priority_level": "medium",
+      "top_families": [
+        "SPELLING",
+        "WORD_FORM",
+        "COLLOCATION"
+      ],
+      "family_counts": {
+        "SPELLING": 3,
+        "WORD_FORM": 1,
+        "COLLOCATION": 1
+      },
+      "recommended_service": "lret",
+      "recommended_difficulty": "guided",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_d341b0c7588563fc",
+          "source_row_id": "row_d341b0c7588563fc",
+          "family": "SPELLING",
+          "surface_quote": "modey",
+          "sentence_index": 3,
+          "severity": "moderate",
+          "confidence": 0.82
+        },
+        {
+          "error_id": "row_1ccc8b886911bbd4",
+          "source_row_id": "row_1ccc8b886911bbd4",
+          "family": "SPELLING",
+          "surface_quote": "goverment",
+          "sentence_index": 3,
+          "severity": "moderate",
+          "confidence": 0.82
+        },
+        {
+          "error_id": "row_f57857d96106bbe7",
+          "source_row_id": "row_f57857d96106bbe7",
+          "family": "SPELLING",
+          "surface_quote": "contries",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.82
+        },
+        {
+          "error_id": "row_bacfe23972ce38dd",
+          "source_row_id": "row_bacfe23972ce38dd",
+          "family": "WORD_FORM",
+          "surface_quote": "Another issued is",
+          "sentence_index": 5,
+          "severity": "moderate",
+          "confidence": 0.8
+        },
+        {
+          "error_id": "row_b19808d985820c76",
+          "source_row_id": "row_b19808d985820c76",
+          "family": "COLLOCATION",
+          "surface_quote": "good ability to",
+          "sentence_index": 18,
+          "severity": "moderate",
+          "confidence": 0.82
+        }
+      ]
+    }
+  ],
+  "service_artifact_status": {
+    "feedback": {
+      "available": true,
+      "schema_version": "FEEDBACK_REPORT_V6C_CLI_STANDALONE",
+      "engine_id": "VA_STELLA_FEEDBACK_ENGINE_V6C_CLI"
+    },
+    "evaluator": {
+      "available": true,
+      "schema_version": "WKM_OUTPUT_V8.3",
+      "engine_id": null
+    },
+    "lret": {
+      "available": true,
+      "schema_version": "LRET_OUTPUT_V1.5",
+      "engine_id": null
+    },
+    "writing_coach": {
+      "available": true,
+      "schema_version": "WRITING_COACH_OUTPUT_V1_2_10_PROACTIVE_ADAPTIVE_CLI",
+      "engine_id": null
+    },
+    "practice": {
+      "available": true,
+      "schema_version": "GOLD_PRACTICE_SESSION_ADAPTIVE_V1",
+      "engine_id": "VA_STELLA_GOLD_PRACTICE_ENGINE_BRIDGE"
+    }
+  },
+  "next_best_action": {
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "recommended_service": "writing_coach",
+    "source": "directive"
+  },
+  "learning_state": {
+    "profile_update_allowed": true,
+    "trend_update_allowed": true,
+    "mastery_update_policy": "evidence_accumulation_only_until_student_attempts_practice_or_coach_tasks"
+  },
+  "boundary": "LIE profile aggregates completed Gold artifacts only; no scoring, detection, feedback generation, or exercise generation is performed here."
+}

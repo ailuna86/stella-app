@@ -1,0 +1,139 @@
+{
+  "schema_version": "GOLD_SERVICE_ROUTING_STANDALONE_V1_4_3",
+  "engine_id": "VA_STELLA_SERVICE_ROUTING_BUILDER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-11T13:28:47.711026+00:00",
+  "student_id": "student_123",
+  "essay_id": "essay_001",
+  "released_score": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "task_response": 5,
+      "coherence_cohesion": 5,
+      "lexical_resource": 5,
+      "grammar": 5
+    },
+    "score_family": "B1_WEAK",
+    "score_released": true
+  },
+  "score_status": "ready",
+  "student_score_release": true,
+  "next_best_service": "writing_coach",
+  "next_best_capacity_domain": "sentence_control",
+  "next_best_skill": "sentence_control",
+  "primary_focus": {
+    "rank": 1,
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "skill_id": "sentence_control",
+    "student_label": "Sentence Control",
+    "criterion": "grammar",
+    "evidence_count": 13,
+    "weighted_pressure": 12.05,
+    "priority_level": "very_high",
+    "top_families": [
+      "GRAMMAR_PUNCTUATION",
+      "VERB_PATTERN",
+      "CLAUSE_STRUCTURE",
+      "SUBJECT_VERB_AGREEMENT",
+      "COMPARATIVE_FORM"
+    ],
+    "family_counts": {
+      "GRAMMAR_PUNCTUATION": 6,
+      "VERB_PATTERN": 2,
+      "CLAUSE_STRUCTURE": 2,
+      "SUBJECT_VERB_AGREEMENT": 1,
+      "COMPARATIVE_FORM": 1,
+      "ARTICLE_DETERMINER": 1
+    },
+    "recommended_service": "writing_coach",
+    "recommended_difficulty": "controlled",
+    "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+    "evidence_samples": [
+      {
+        "error_id": "err_ddb2bdb4533b",
+        "source_row_id": "det_f0463c9513a1",
+        "family": "VERB_PATTERN",
+        "surface_quote": "for take",
+        "sentence_index": 3,
+        "severity": "high",
+        "confidence": 0.75
+      },
+      {
+        "error_id": "err_06ba1838138d",
+        "source_row_id": "det_1d63582154cf",
+        "family": "GRAMMAR_PUNCTUATION",
+        "surface_quote": " ,",
+        "sentence_index": 4,
+        "severity": "low",
+        "confidence": 0.95
+      },
+      {
+        "error_id": "err_72da915c3a1d",
+        "source_row_id": "det_39c224ecc2a6",
+        "family": "GRAMMAR_PUNCTUATION",
+        "surface_quote": "For example",
+        "sentence_index": 4,
+        "severity": "low",
+        "confidence": 0.95
+      },
+      {
+        "error_id": "err_cea76b2a9329",
+        "source_row_id": "det_cf959aeeea17",
+        "family": "GRAMMAR_PUNCTUATION",
+        "surface_quote": " .",
+        "sentence_index": 5,
+        "severity": "low",
+        "confidence": 0.95
+      },
+      {
+        "error_id": "err_ff85715fcec9",
+        "source_row_id": "det_42ea5ad1b1b2",
+        "family": "CLAUSE_STRUCTURE",
+        "surface_quote": "the way be",
+        "sentence_index": 5,
+        "severity": "high",
+        "confidence": 0.75
+      }
+    ]
+  },
+  "available_service_outputs": {
+    "lret_session": {
+      "path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\student_123\\gold_20260711_152834_essay_001_71cd6655\\07d_lret_session.json",
+      "exists": true,
+      "schema_version": "LRET_OUTPUT_V1.5",
+      "engine_id": null
+    },
+    "writing_coach": {
+      "path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\student_123\\gold_20260711_152834_essay_001_71cd6655\\07e_writing_coach_output.json",
+      "exists": true,
+      "schema_version": "WRITING_COACH_OUTPUT_V1_2_10_PROACTIVE_ADAPTIVE_CLI",
+      "engine_id": null
+    },
+    "practice_session": {
+      "path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\student_123\\gold_20260711_152834_essay_001_71cd6655\\07f_gold_practice_session.json",
+      "exists": true,
+      "schema_version": "GOLD_PRACTICE_SESSION_ADAPTIVE_V1",
+      "engine_id": "VA_STELLA_GOLD_PRACTICE_ENGINE_BRIDGE"
+    },
+    "revision_workspace": {
+      "path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\student_123\\gold_20260711_152834_essay_001_71cd6655\\10_revision_workspace.json",
+      "exists": false,
+      "schema_version": null,
+      "engine_id": null
+    }
+  },
+  "recommended_sequence": [
+    "read_feedback_report",
+    "writing_coach",
+    "practice_session",
+    "essay_revision",
+    "revision_comparison"
+  ],
+  "quality_flags": {
+    "has_next_service": true,
+    "has_next_capacity_domain": true,
+    "has_service_outputs": true
+  },
+  "boundary": "Routing artifact only; all educational/service outputs are produced by their own engines."
+}

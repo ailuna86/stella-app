@@ -1,0 +1,20 @@
+{
+  "schema_version": "EVALUATOR_BRIDGE_REQUEST_V1_4_3",
+  "bridge_engine_id": "VA_STELLA_EVALUATOR_CLI_BRIDGE",
+  "bridge_engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-12T06:20:45.614209+00:00",
+  "student_id": "stress_strong",
+  "essay_id": "essay_strong_001",
+  "submission_id": null,
+  "prompt_text": "Some people believe that unpaid community service should be a compulsory part of high school education. To what extent do you agree or disagree?",
+  "essay_text": "The question of whether unpaid community service should be mandated within secondary education has provoked considerable debate among educators, parents, and policymakers alike. Although reasonable objections exist, I contend that the civic and developmental benefits of compulsory service ultimately outweigh the concerns raised by its critics.\n\nProponents of voluntary participation typically argue that genuine altruism cannot be manufactured through obligation; when service is imposed rather than chosen, students may complete their hours with resentment rather than genuine engagement, undermining the very values the policy seeks to instil. There is undeniably some merit to this argument, particularly for students who are already stretched thin by academic and extracurricular commitments. Nevertheless, this concern conflates the initial motivation for an activity with its eventual impact; numerous longitudinal studies on service-learning suggest that even reluctantly undertaken volunteer work frequently cultivates lasting empathy once students are directly confronted with unfamiliar social realities.\n\nMoreover, compulsory community service functions as a powerful equalising mechanism. Absent a formal requirement, participation in volunteer work tends to correlate strongly with socioeconomic advantage, since privileged students are more likely to have the free time, transportation, and parental encouragement necessary to seek out such opportunities independently. A mandatory scheme, by contrast, ensures that every student, regardless of background, is afforded the same formative exposure to civic responsibility.\n\nCritics further contend that mandating service diverts scarce time away from academic pursuits at a moment when examination pressure is already intense. This is a legitimate logistical concern, yet it is hardly insurmountable; schools could integrate service hours into existing timetables, such as during designated project weeks, or permit flexible completion across school holidays, thereby minimising disruption to core studies.\n\nIn conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+  "detector_output_path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_strong\\gold_20260712_081853_essay_strong_001_c5105d43\\01c_detector_for_evaluator.json",
+  "scorer_output_path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_strong\\gold_20260712_081853_essay_strong_001_c5105d43\\02a_premium_scorer_v1_4_1_output.json",
+  "ontology_dir": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine",
+  "use_llm": true,
+  "max_llm_skills": 30,
+  "bridge_quality_context": {
+    "detector_rows_supplied_to_evaluator": 4,
+    "detector_schema_expected_by_evaluator": "diagnostic_rows under root/results[0]"
+  }
+}

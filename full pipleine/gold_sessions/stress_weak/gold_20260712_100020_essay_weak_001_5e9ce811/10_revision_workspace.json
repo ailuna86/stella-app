@@ -1,0 +1,1459 @@
+{
+  "schema_version": "GOLD_REVISION_WORKSPACE_V1_7_1",
+  "engine_id": "VA_GOLD_REVISION_UNIVERSAL_ENGINE",
+  "engine_version": "1.7.1-student-safe-prewrite-guidance-stabilized",
+  "created_at": "2026-07-12T08:09:12.425708+00:00",
+  "revision_mode": "upstream_only_annotated_dual_pane_workspace",
+  "upstream_signal_integrity": {
+    "status": "complete",
+    "evaluator_sentence_control_available": true,
+    "evaluator_paragraph_function_available": true,
+    "missing_sentence_control_count": 1,
+    "green_blocked_by_missing_evaluator_signal": 0,
+    "green_blocked_by_detector_rows": 9,
+    "message": "ER V1.7.1 does not mark green unless upstream language/function control permits it."
+  },
+  "source_summary": {
+    "score_summary": {
+      "overall_band": null,
+      "criteria_bands": {},
+      "score_confidence": "normal"
+    },
+    "original_word_count": 208,
+    "original_paragraph_count": 5,
+    "original_sentence_count": 12,
+    "displayed_sentence_status_counts": {
+      "red": 5,
+      "yellow": 7
+    },
+    "displayed_error_family_counts": {
+      "SUBJECT_VERB_AGREEMENT": 10,
+      "SPELLING": 2,
+      "GRAMMAR_PUNCTUATION": 1,
+      "COLLOCATION": 8,
+      "NOUN_NUMBER_COUNTABILITY": 2
+    },
+    "displayed_criterion_counts": {
+      "GRA": 13,
+      "LR": 10
+    },
+    "evaluator_required": true,
+    "evaluator_status": {
+      "available": true,
+      "source_engine": "VA_PREMIUM_EVALUATOR_WKE_V8_3",
+      "source_version": "8.3.0-comma-boundary-aware-ngram-extraction",
+      "sentence_control_available": true,
+      "paragraph_function_available": true,
+      "essay_function_available": true
+    }
+  },
+  "ui_contract": {
+    "layout": "left_annotated_essay_right_revision_editor",
+    "default_explanations_collapsed": true,
+    "copy_clean_text_available": true,
+    "controls": [
+      "show_all_highlights",
+      "show_only_red",
+      "show_yellow_and_red",
+      "show_only_yellow",
+      "show_hide_hints",
+      "copy_clean_essay_to_editor",
+      "submit_revised_essay"
+    ],
+    "color_legend": {
+      "green": "Keep: upstream engines confirm good enough language and useful IELTS function.",
+      "yellow": "Improve/check: upstream engines found repair need or sentence-control confirmation is missing.",
+      "red": "Rewrite: upstream engines show low control, multiple local problems, or paragraph-function pressure."
+    }
+  },
+  "annotated_essay": {
+    "paragraphs": [
+      {
+        "paragraph_index": 1,
+        "paragraph_number": 1,
+        "paragraph_role": "introduction",
+        "paragraph_status": "red",
+        "paragraph_status_label": "Rewrite",
+        "paragraph_function_status": "yellow",
+        "paragraph_function_label": "Improve",
+        "criterion_tags": [
+          "TR"
+        ],
+        "criterion_labels": [
+          "Answer / ideas"
+        ],
+        "paragraph_hint": "Use the introduction to frame the task, state the position, and preview the main arguments. Do not add examples.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [],
+        "revision_instructions": [
+          "For an introduction, use only task framing, position, and main-argument preview. Do not add examples here."
+        ],
+        "text": "In my opinion I agree with this statement because community service teach students many important things. Nowadays many teenager only think about their phone and games, they dont care about other peoples in society. If school make it compulsory, students will learns responsibility and become more helpful person.",
+        "sentences": [
+          {
+            "sentence_index": 1,
+            "sentence_number": 1,
+            "paragraph_index": 1,
+            "text": "In my opinion I agree with this statement because community service teach students many important things.",
+            "status": "red",
+            "status_label": "Rewrite",
+            "language_status": "red",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "red",
+            "criterion_tags": [
+              "GRA",
+              "LR"
+            ],
+            "criterion_labels": [
+              "Grammar",
+              "Vocabulary"
+            ],
+            "student_hint": "This sentence has 3 upstream local-control signals. Rewrite or revise it carefully; do not mark it as keep.",
+            "span_annotations": [
+              {
+                "span_text": "community service teach",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "COLLOCATION",
+                "learner_label": "natural phrase",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_ed32397867ce24a3",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "service teach",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_14034f8ccd712d78",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "this statement",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_4113d0c571ea8cde",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_ed32397867ce24a3",
+                "row_14034f8ccd712d78",
+                "row_4113d0c571ea8cde"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has 3 highlighted language problems. Rewrite or revise it carefully before keeping it."
+          },
+          {
+            "sentence_index": 2,
+            "sentence_number": 2,
+            "paragraph_index": 1,
+            "text": "Nowadays many teenager only think about their phone and games, they dont care about other peoples in society.",
+            "status": "red",
+            "status_label": "Rewrite",
+            "language_status": "red",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "red",
+            "criterion_tags": [
+              "GRA",
+              "LR"
+            ],
+            "criterion_labels": [
+              "Grammar",
+              "Vocabulary"
+            ],
+            "student_hint": "This sentence has 4 upstream local-control signals. Rewrite or revise it carefully; do not mark it as keep.",
+            "span_annotations": [
+              {
+                "span_text": "many",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_a8d6750bc9648cf3",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "think",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_c96fc92a698352cc",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "dont",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "SPELLING",
+                "learner_label": "spelling",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_ac7d2668316daf03",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "other peoples in society",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "COLLOCATION",
+                "learner_label": "natural phrase",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_246cfc2713b72c07",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_a8d6750bc9648cf3",
+                "row_c96fc92a698352cc",
+                "row_ac7d2668316daf03",
+                "row_246cfc2713b72c07"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has 4 highlighted language problems. Rewrite or revise it carefully before keeping it."
+          },
+          {
+            "sentence_index": 3,
+            "sentence_number": 3,
+            "paragraph_index": 1,
+            "text": "If school make it compulsory, students will learns responsibility and become more helpful person.",
+            "status": "red",
+            "status_label": "Rewrite",
+            "language_status": "red",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "red",
+            "criterion_tags": [
+              "GRA",
+              "LR"
+            ],
+            "criterion_labels": [
+              "Grammar",
+              "Vocabulary"
+            ],
+            "student_hint": "This sentence has 4 upstream local-control signals. Rewrite or revise it carefully; do not mark it as keep.",
+            "span_annotations": [
+              {
+                "span_text": "it compulsory",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_0efed0aa49157e1a",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "students will learns",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_4328f781bd87a30c",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "more helpful person",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "COLLOCATION",
+                "learner_label": "natural phrase",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_d88870658bf00749",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "school make",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_dfce30d38c855286",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_0efed0aa49157e1a",
+                "row_4328f781bd87a30c",
+                "row_d88870658bf00749",
+                "row_dfce30d38c855286"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has 4 highlighted language problems. Rewrite or revise it carefully before keeping it."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0,
+          "role_conflict_gaps_suppressed": [
+            "After the example, explain how it supports your main point."
+          ]
+        },
+        "paragraph_hint_public": "Use the introduction to frame the task, state the position, and preview the main arguments. Do not add examples."
+      },
+      {
+        "paragraph_index": 2,
+        "paragraph_number": 2,
+        "paragraph_role": "body",
+        "paragraph_status": "red",
+        "paragraph_status_label": "Rewrite",
+        "paragraph_function_status": "yellow",
+        "paragraph_function_label": "Improve",
+        "criterion_tags": [
+          "CC"
+        ],
+        "criterion_labels": [
+          "Flow"
+        ],
+        "paragraph_hint": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [
+          {
+            "level": "yellow",
+            "text": "Explain why this point is true or important.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Explain why this point is true or important."
+          },
+          {
+            "level": "yellow",
+            "text": "Add a specific example to support your point.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Add a specific example to support your point."
+          }
+        ],
+        "revision_instructions": [
+          "For a body paragraph, use one clear main idea, support it, and explain how the support proves the point."
+        ],
+        "text": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples. This experience teach them empathy that they cannot learn it from books. For example, my cousin he was volunteer in hospital last year and now he understand more about how difficult is for sick peoples.",
+        "sentences": [
+          {
+            "sentence_index": 4,
+            "sentence_number": 4,
+            "paragraph_index": 2,
+            "text": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples.",
+            "status": "red",
+            "status_label": "Rewrite",
+            "language_status": "red",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "red",
+            "criterion_tags": [
+              "GRA",
+              "LR"
+            ],
+            "criterion_labels": [
+              "Grammar",
+              "Vocabulary"
+            ],
+            "student_hint": "This sentence has 5 upstream local-control signals. Rewrite or revise it carefully; do not mark it as keep.",
+            "span_annotations": [
+              {
+                "span_text": "they meets",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_b38357a5df96e3a6",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "student doing",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "COLLOCATION",
+                "learner_label": "natural phrase",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_ea8c384393b64716",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "different peoples",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "COLLOCATION",
+                "learner_label": "natural phrase",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_67c40c61c6a5916e",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "old peoples",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "COLLOCATION",
+                "learner_label": "natural phrase",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_22766023a6ba471b",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "homeless peoples",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "COLLOCATION",
+                "learner_label": "natural phrase",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_b4f4bc31d2816b58",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_b38357a5df96e3a6",
+                "row_ea8c384393b64716",
+                "row_67c40c61c6a5916e",
+                "row_22766023a6ba471b",
+                "row_b4f4bc31d2816b58"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has 5 highlighted language problems. Rewrite or revise it carefully before keeping it."
+          },
+          {
+            "sentence_index": 5,
+            "sentence_number": 5,
+            "paragraph_index": 2,
+            "text": "This experience teach them empathy that they cannot learn it from books.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "LR"
+            ],
+            "criterion_labels": [
+              "Vocabulary"
+            ],
+            "student_hint": "Upstream engines flagged a natural phrase problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "This experience teach them empathy",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "COLLOCATION",
+                "learner_label": "natural phrase",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_da17ced6cfd35a04",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [
+              {
+                "level": "yellow",
+                "alert_type": "example_too_personal_for_academic_task",
+                "text": "Keep the idea, but use a wider social example — for instance, a type of programme, institution, or social trend.",
+                "source": "evaluator_example_quality",
+                "text_public": "Keep the idea, but use a wider social example — for instance, a type of programme, institution, or social trend."
+              }
+            ],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_da17ced6cfd35a04"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a natural phrase issue to fix before you keep it."
+          },
+          {
+            "sentence_index": 6,
+            "sentence_number": 6,
+            "paragraph_index": 2,
+            "text": "For example, my cousin he was volunteer in hospital last year and now he understand more about how difficult is for sick peoples.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0,
+          "role_conflict_gaps_suppressed": []
+        },
+        "paragraph_hint_public": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas."
+      },
+      {
+        "paragraph_index": 3,
+        "paragraph_number": 3,
+        "paragraph_role": "body",
+        "paragraph_status": "yellow",
+        "paragraph_status_label": "Improve",
+        "paragraph_function_status": "yellow",
+        "paragraph_function_label": "Improve",
+        "criterion_tags": [
+          "CC"
+        ],
+        "criterion_labels": [
+          "Flow"
+        ],
+        "paragraph_hint": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [
+          {
+            "level": "yellow",
+            "text": "Add a specific example to support your point.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Add a specific example to support your point."
+          }
+        ],
+        "revision_instructions": [
+          "For a body paragraph, use one clear main idea, support it, and explain how the support proves the point."
+        ],
+        "text": "Secondly, this activity also good for students resume when they applying to university. Many universities want to see student who have real experience, not only good grades. So compulsory service can help student in future also.",
+        "sentences": [
+          {
+            "sentence_index": 7,
+            "sentence_number": 7,
+            "paragraph_index": 3,
+            "text": "Secondly, this activity also good for students resume when they applying to university.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "GRA"
+            ],
+            "criterion_labels": [
+              "Grammar"
+            ],
+            "student_hint": "Upstream engines flagged a subject–verb control problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "this activity",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_edab72309282fd01",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_edab72309282fd01"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a subject–verb control issue to fix before you keep it."
+          },
+          {
+            "sentence_index": 8,
+            "sentence_number": 8,
+            "paragraph_index": 3,
+            "text": "Many universities want to see student who have real experience, not only good grades.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "GRA"
+            ],
+            "criterion_labels": [
+              "Grammar"
+            ],
+            "student_hint": "Upstream engines flagged a noun number problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "Many universities want to",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "NOUN_NUMBER_COUNTABILITY",
+                "learner_label": "noun number",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_a98d1169d452ef28",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_a98d1169d452ef28"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a noun number issue to fix before you keep it."
+          },
+          {
+            "sentence_index": 9,
+            "sentence_number": 9,
+            "paragraph_index": 3,
+            "text": "So compulsory service can help student in future also.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0,
+          "role_conflict_gaps_suppressed": []
+        },
+        "paragraph_hint_public": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas."
+      },
+      {
+        "paragraph_index": 4,
+        "paragraph_number": 4,
+        "paragraph_role": "body",
+        "paragraph_status": "red",
+        "paragraph_status_label": "Rewrite",
+        "paragraph_function_status": "green",
+        "paragraph_function_label": "Keep",
+        "criterion_tags": [],
+        "criterion_labels": [],
+        "paragraph_hint": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [],
+        "revision_instructions": [
+          "For a body paragraph, use one clear main idea, support it, and explain how the support proves the point."
+        ],
+        "text": "However, some people think it should be voluntary because student have already too much homework and exam pressure. This is true but I think school can organize it in weekend so it dont effect their study to much.",
+        "sentences": [
+          {
+            "sentence_index": 10,
+            "sentence_number": 10,
+            "paragraph_index": 4,
+            "text": "However, some people think it should be voluntary because student have already too much homework and exam pressure.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 11,
+            "sentence_number": 11,
+            "paragraph_index": 4,
+            "text": "This is true but I think school can organize it in weekend so it dont effect their study to much.",
+            "status": "red",
+            "status_label": "Rewrite",
+            "language_status": "red",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "red",
+            "criterion_tags": [
+              "GRA",
+              "LR"
+            ],
+            "criterion_labels": [
+              "Grammar",
+              "Vocabulary"
+            ],
+            "student_hint": "This sentence has 3 upstream local-control signals. Rewrite or revise it carefully; do not mark it as keep.",
+            "span_annotations": [
+              {
+                "span_text": "true but",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "GRAMMAR_PUNCTUATION",
+                "learner_label": "punctuation",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_e98202905c9fc28e",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "dont",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "SPELLING",
+                "learner_label": "spelling",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_2e3f5867d8d8e819",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "it dont",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_4f7de36c260ffb8f",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_e98202905c9fc28e",
+                "row_2e3f5867d8d8e819",
+                "row_4f7de36c260ffb8f"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has 3 highlighted language problems. Rewrite or revise it carefully before keeping it."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0,
+          "role_conflict_gaps_suppressed": []
+        },
+        "paragraph_hint_public": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas."
+      },
+      {
+        "paragraph_index": 5,
+        "paragraph_number": 5,
+        "paragraph_role": "conclusion",
+        "paragraph_status": "yellow",
+        "paragraph_status_label": "Improve",
+        "paragraph_function_status": "unknown",
+        "paragraph_function_label": "Check",
+        "criterion_tags": [
+          "TR"
+        ],
+        "criterion_labels": [
+          "Answer / ideas"
+        ],
+        "paragraph_hint": "Paragraph role is shown for layout, but upstream paragraph-function control is missing. For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example.",
+        "function_strengths": [],
+        "function_alerts": [
+          {
+            "level": "yellow",
+            "text": "Upstream paragraph-function control is missing; paragraph cannot be marked green yet.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Check the paragraph role before keeping this paragraph."
+          }
+        ],
+        "revision_instructions": [
+          "For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example."
+        ],
+        "text": "In conclusion, I believe unpaid community service must be compulsory in high school because it bring many benefit for both student and society, even though there is some challenge to manage the time.",
+        "sentences": [
+          {
+            "sentence_index": 12,
+            "sentence_number": 12,
+            "paragraph_index": 5,
+            "text": "In conclusion, I believe unpaid community service must be compulsory in high school because it bring many benefit for both student and society, even though there is some challenge to manage the time.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "GRA"
+            ],
+            "criterion_labels": [
+              "Grammar"
+            ],
+            "student_hint": "Upstream engines flagged a noun number problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "many benefit for both",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "NOUN_NUMBER_COUNTABILITY",
+                "learner_label": "noun number",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_5485e3485fd2ba89",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_5485e3485fd2ba89"
+              ],
+              "evaluator_sentence_control_present": false,
+              "evaluator_sentence_control_source": null
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a noun number issue to fix before you keep it."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": false,
+          "errormap_row_count": 0,
+          "role_conflict_gaps_suppressed": []
+        },
+        "paragraph_hint_public": "For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example."
+      }
+    ]
+  },
+  "revision_waves": [
+    {
+      "level": "yellow",
+      "title": "Wave 1 — Confirm language-control signals",
+      "text": "1 sentence(s) do not have evaluator sentence-control confirmation, so they are not treated as Keep.",
+      "student_title": "Wave 1 — Check sentences before keeping",
+      "student_text": "Check 1 sentence(s) before keeping them."
+    },
+    {
+      "level": "red",
+      "title": "Wave 2 — Rewrite red areas",
+      "text": "Paragraph(s) 1, 2, 4: rewrite red sentences first using short clear sentences.",
+      "student_title": "Wave 2 — Rewrite red areas",
+      "student_text": "Paragraph(s) 1, 2, 4: rewrite red sentences first using short clear sentences."
+    },
+    {
+      "level": "yellow",
+      "title": "Wave 3 — Improve/check yellow areas",
+      "text": "Paragraph(s) 3, 5: check language and paragraph function before keeping these sentences.",
+      "student_title": "Wave 3 — Improve yellow areas",
+      "student_text": "Paragraph(s) 3, 5: check language and paragraph role before keeping these sentences."
+    },
+    {
+      "level": "yellow",
+      "title": "Wave 4 — Final language pass",
+      "text": "After rewriting, check only changed sentences for grammar, vocabulary, spelling, and paragraph flow.",
+      "student_title": "Wave 4 — Final language pass",
+      "student_text": "After rewriting, check only changed sentences for grammar, vocabulary, spelling, and paragraph flow."
+    }
+  ],
+  "copyable_clean_text": "In my opinion I agree with this statement because community service teach students many important things. Nowadays many teenager only think about their phone and games, they dont care about other peoples in society. If school make it compulsory, students will learns responsibility and become more helpful person.\n\nFirstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples. This experience teach them empathy that they cannot learn it from books. For example, my cousin he was volunteer in hospital last year and now he understand more about how difficult is for sick peoples.\n\nSecondly, this activity also good for students resume when they applying to university. Many universities want to see student who have real experience, not only good grades. So compulsory service can help student in future also.\n\nHowever, some people think it should be voluntary because student have already too much homework and exam pressure. This is true but I think school can organize it in weekend so it dont effect their study to much.\n\nIn conclusion, I believe unpaid community service must be compulsory in high school because it bring many benefit for both student and society, even though there is some challenge to manage the time.",
+  "revision_editor_seed": "In my opinion I agree with this statement because community service teach students many important things. Nowadays many teenager only think about their phone and games, they dont care about other peoples in society. If school make it compulsory, students will learns responsibility and become more helpful person.\n\nFirstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples. This experience teach them empathy that they cannot learn it from books. For example, my cousin he was volunteer in hospital last year and now he understand more about how difficult is for sick peoples.\n\nSecondly, this activity also good for students resume when they applying to university. Many universities want to see student who have real experience, not only good grades. So compulsory service can help student in future also.\n\nHowever, some people think it should be voluntary because student have already too much homework and exam pressure. This is true but I think school can organize it in weekend so it dont effect their study to much.\n\nIn conclusion, I believe unpaid community service must be compulsory in high school because it bring many benefit for both student and society, even though there is some challenge to manage the time.",
+  "overall_revision_hints": {
+    "language_repair": [
+      {
+        "level": "red",
+        "text": "Rewrite 5 red sentence(s) before improving style or adding ideas."
+      },
+      {
+        "level": "yellow",
+        "text": "Check 7 yellow sentence(s); they are not safe Keep sentences yet."
+      }
+    ],
+    "paragraph_function": [
+      {
+        "level": "red",
+        "text": "Paragraph 1 (introduction): Use the introduction to frame the task, state the position, and preview the main arguments. Do not add examples."
+      },
+      {
+        "level": "yellow",
+        "text": "Paragraph 5 (conclusion): Paragraph role is shown for layout, but upstream paragraph-function control is missing. For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example."
+      }
+    ]
+  },
+  "student_checklist": [
+    "I fixed red sentences first.",
+    "I checked every yellow sentence before keeping it.",
+    "I did not treat a sentence as green unless the app marked it green.",
+    "I kept paragraph breaks.",
+    "I checked the introduction: no example, only task framing, position, and main arguments.",
+    "I checked the conclusion: final answer and main reasons, no new example.",
+    "I checked spelling and grammar after rewriting."
+  ],
+  "pre_revision_correction_policy": {
+    "full_corrected_sentence_visible": false,
+    "direct_replacement_phrase_visible": false,
+    "model_answer_visible": false,
+    "reason": "The learner should self-correct before seeing a model version."
+  },
+  "post_revision_ai_model_policy": {
+    "available_after_self_revision": true,
+    "pre_revision_model_answer_allowed": false,
+    "recommended_display": "paragraph_first_revised_vs_ai_then_collapsible_sentence_details",
+    "full_model_essay_default": false
+  },
+  "machine_payload": {
+    "errormap_rows_used": [
+      {
+        "error_id": "row_0efed0aa49157e1a",
+        "sentence_index": 3,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "it compulsory",
+        "sentence": "If school make it compulsory, students will learns responsibility and become more helpful person.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 231,
+        "char_end": 244,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_a8d6750bc9648cf3",
+        "sentence_index": 2,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "many",
+        "sentence": "Nowadays many teenager only think about their phone and games, they dont care about other peoples in society.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 115,
+        "char_end": 119,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_c96fc92a698352cc",
+        "sentence_index": 2,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "think",
+        "sentence": "Nowadays many teenager only think about their phone and games, they dont care about other peoples in society.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 134,
+        "char_end": 139,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_ac7d2668316daf03",
+        "sentence_index": 2,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "SPELLING",
+        "family_label": "spelling",
+        "quote": "dont",
+        "sentence": "Nowadays many teenager only think about their phone and games, they dont care about other peoples in society.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 174,
+        "char_end": 178,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_b38357a5df96e3a6",
+        "sentence_index": 4,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "they meets",
+        "sentence": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 362,
+        "char_end": 372,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_e98202905c9fc28e",
+        "sentence_index": 11,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "GRAMMAR_PUNCTUATION",
+        "family_label": "punctuation",
+        "quote": "true but",
+        "sentence": "This is true but I think school can organize it in weekend so it dont effect their study to much.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 1001,
+        "char_end": 1009,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_2e3f5867d8d8e819",
+        "sentence_index": 11,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "SPELLING",
+        "family_label": "spelling",
+        "quote": "dont",
+        "sentence": "This is true but I think school can organize it in weekend so it dont effect their study to much.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 1058,
+        "char_end": 1062,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_4328f781bd87a30c",
+        "sentence_index": 3,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "students will learns",
+        "sentence": "If school make it compulsory, students will learns responsibility and become more helpful person.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 246,
+        "char_end": 266,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_ea8c384393b64716",
+        "sentence_index": 4,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "COLLOCATION",
+        "family_label": "natural phrase",
+        "quote": "student doing",
+        "sentence": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 329,
+        "char_end": 342,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_67c40c61c6a5916e",
+        "sentence_index": 4,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "COLLOCATION",
+        "family_label": "natural phrase",
+        "quote": "different peoples",
+        "sentence": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 373,
+        "char_end": 390,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_22766023a6ba471b",
+        "sentence_index": 4,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "COLLOCATION",
+        "family_label": "natural phrase",
+        "quote": "old peoples",
+        "sentence": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 410,
+        "char_end": 421,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_b4f4bc31d2816b58",
+        "sentence_index": 4,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "COLLOCATION",
+        "family_label": "natural phrase",
+        "quote": "homeless peoples",
+        "sentence": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 425,
+        "char_end": 441,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_da17ced6cfd35a04",
+        "sentence_index": 5,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "COLLOCATION",
+        "family_label": "natural phrase",
+        "quote": "This experience teach them empathy",
+        "sentence": "This experience teach them empathy that they cannot learn it from books.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 443,
+        "char_end": 477,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_ed32397867ce24a3",
+        "sentence_index": 1,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "COLLOCATION",
+        "family_label": "natural phrase",
+        "quote": "community service teach",
+        "sentence": "In my opinion I agree with this statement because community service teach students many important things.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 50,
+        "char_end": 73,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_246cfc2713b72c07",
+        "sentence_index": 2,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "COLLOCATION",
+        "family_label": "natural phrase",
+        "quote": "other peoples in society",
+        "sentence": "Nowadays many teenager only think about their phone and games, they dont care about other peoples in society.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 190,
+        "char_end": 214,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_d88870658bf00749",
+        "sentence_index": 3,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "COLLOCATION",
+        "family_label": "natural phrase",
+        "quote": "more helpful person",
+        "sentence": "If school make it compulsory, students will learns responsibility and become more helpful person.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 293,
+        "char_end": 312,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_14034f8ccd712d78",
+        "sentence_index": 1,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "service teach",
+        "sentence": "In my opinion I agree with this statement because community service teach students many important things.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 60,
+        "char_end": 73,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_dfce30d38c855286",
+        "sentence_index": 3,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "school make",
+        "sentence": "If school make it compulsory, students will learns responsibility and become more helpful person.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 219,
+        "char_end": 230,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_4113d0c571ea8cde",
+        "sentence_index": 1,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "this statement",
+        "sentence": "In my opinion I agree with this statement because community service teach students many important things.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 27,
+        "char_end": 41,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_edab72309282fd01",
+        "sentence_index": 7,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "this activity",
+        "sentence": "Secondly, this activity also good for students resume when they applying to university.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 657,
+        "char_end": 670,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_a98d1169d452ef28",
+        "sentence_index": 8,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "NOUN_NUMBER_COUNTABILITY",
+        "family_label": "noun number",
+        "quote": "Many universities want to",
+        "sentence": "Many universities want to see student who have real experience, not only good grades.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 735,
+        "char_end": 760,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_4f7de36c260ffb8f",
+        "sentence_index": 11,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "it dont",
+        "sentence": "This is true but I think school can organize it in weekend so it dont effect their study to much.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 1055,
+        "char_end": 1062,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_5485e3485fd2ba89",
+        "sentence_index": 12,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "NOUN_NUMBER_COUNTABILITY",
+        "family_label": "noun number",
+        "quote": "many benefit for both",
+        "sentence": "In conclusion, I believe unpaid community service must be compulsory in high school because it bring many benefit for both student and society, even though there is some challenge to manage the time.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 1193,
+        "char_end": 1214,
+        "source": "errormap"
+      }
+    ],
+    "evaluator_control_summary": {
+      "available": true,
+      "source_engine": "VA_PREMIUM_EVALUATOR_WKE_V8_3",
+      "source_version": "8.3.0-comma-boundary-aware-ngram-extraction",
+      "sentence_control_available": true,
+      "paragraph_function_available": true,
+      "essay_function_available": true
+    },
+    "composition_policy": "upstream_only_no_hidden_evaluation"
+  },
+  "qa": {
+    "status": "pass",
+    "flags": [
+      "detector_rows_blocked_green"
+    ],
+    "no_pre_revision_corrections": true,
+    "no_essay_specific_patterns": true,
+    "upstream_only_mode": true
+  },
+  "prewriting_guidance": {
+    "title": "Before you write or revise",
+    "word_plan": {
+      "minimum_words": 250,
+      "recommended_range": "260-290 words",
+      "paragraph_targets": {
+        "introduction": "35-45 words",
+        "body_1": "80-100 words",
+        "body_2": "80-100 words",
+        "conclusion": "35-45 words"
+      }
+    },
+    "structure_options": [
+      {
+        "name": "Universal IELTS Task 2 structure",
+        "paragraphs": [
+          "Introduction: task frame, clear answer/position, preview main ideas.",
+          "Body 1: one main idea, explanation, specific example, link.",
+          "Body 2: one main idea, explanation, specific example, link.",
+          "Conclusion: summary + final answer. No new example or idea."
+        ]
+      }
+    ],
+    "body_paragraph_formula": [
+      "Topic sentence: say the paragraph's main idea.",
+      "Argument/reason: explain why the idea matters.",
+      "Development: add cause, effect, comparison, or consequence.",
+      "Specific example: place/actor + action/situation + result.",
+      "Link back: connect the example to the question or your position."
+    ],
+    "example_quality": {
+      "strong_example_rule": "Use a specific place/actor/programme/situation, show what happened, and link it to the argument.",
+      "weak_example_rule": "Avoid private family anecdotes or very general examples as the main evidence."
+    }
+  },
+  "student_visible_policy": {
+    "hide_internal_terms": true,
+    "student_facing_outputs": [
+      "markdown",
+      "html",
+      "student_view"
+    ],
+    "debug_terms_kept_only_in_json": true
+  },
+  "run_inputs": {
+    "detector": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_weak\\gold_20260712_100020_essay_weak_001_5e9ce811\\01_detector_output.json",
+    "errormap": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_weak\\gold_20260712_100020_essay_weak_001_5e9ce811\\01b_errormap_v3.json",
+    "score": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_weak\\gold_20260712_100020_essay_weak_001_5e9ce811\\02d_final_score_contract.json",
+    "evaluator": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_weak\\gold_20260712_100020_essay_weak_001_5e9ce811\\07_evaluator_output.json"
+  }
+}

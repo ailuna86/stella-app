@@ -1,0 +1,20 @@
+{
+  "schema_version": "EVALUATOR_BRIDGE_REQUEST_V1_4_3",
+  "bridge_engine_id": "VA_STELLA_EVALUATOR_CLI_BRIDGE",
+  "bridge_engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-08T12:36:46.403598+00:00",
+  "student_id": "student_123",
+  "essay_id": "essay_001",
+  "submission_id": null,
+  "prompt_text": "Do advantages of ageing population outweigh disadvantages?",
+  "essay_text": "One problem of an ageing population is that government has to spent more money on health care and pensions. Older people often need more medical help than young peoples. And they stop working, so they need modey from the goverment, for take care with they health. For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea.\n\nAnother issued is that the way be fewer young people working . If too many retire, there are not enough workers to do all the jobs. This can slow down the economy. Some companies may find it hard to find more new workers.\n\nOn the other hand, there are also some benefits. Older peoples have a lot of knowledge and experience than young ones. Even they can give good advice , working part-time or doing volunteer work as it possible. For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things.\n\nAlso, older people often help take care of their grandchildren, if parents should go to the work or some kinds of things. This make a family more stronger and friendly. They can teach a children about culture and family traditions , which is very important nowadays.\n\nIn conclusion, even though an ageing population can cause some problems, like a high costs and fewer workers, I believe that the advantages are also important. Older people still help society in many ways and situations. In many ways, if government makes good ability to older peoples, that will be the best plan to all countries.",
+  "detector_output_path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\student_123\\gold_20260708_143644_essay_001_9eb9e394\\01c_detector_for_evaluator.json",
+  "scorer_output_path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\student_123\\gold_20260708_143644_essay_001_9eb9e394\\02a_premium_scorer_v1_4_1_output.json",
+  "ontology_dir": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine",
+  "use_llm": false,
+  "max_llm_skills": 30,
+  "bridge_quality_context": {
+    "detector_rows_supplied_to_evaluator": 84,
+    "detector_schema_expected_by_evaluator": "diagnostic_rows under root/results[0]"
+  }
+}

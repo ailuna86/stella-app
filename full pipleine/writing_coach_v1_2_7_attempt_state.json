@@ -1,0 +1,274 @@
+{
+  "schema_version": "WRITING_COACH_STATE_V1_2_7",
+  "created_at": "2026-07-07T23:56:11.695738+00:00",
+  "generated_by_run_id": "run_56728b64d8681afc",
+  "identity": {
+    "student_id": "student_demo_001",
+    "institution_id": null,
+    "class_id": null,
+    "teacher_id": null,
+    "essay_id": "1",
+    "submission_id": "34cf3260-ed5d-4243-9df2-a205045d36cd",
+    "prompt_id": "prompt_492b59ba0e9d354d",
+    "batch_id": null,
+    "draft_id": null,
+    "parent_submission_id": null,
+    "session_id": "db6dce8e-b43c-4c21-a7ae-a2754dd75de9"
+  },
+  "cycle_id": "cycle_a27ec1dbaa45",
+  "active_coaching_cycle": {
+    "cycle_id": "cycle_a27ec1dbaa45",
+    "cycle_type": "proactive_adaptive_skill_cycle",
+    "status": "active",
+    "started_at": "2026-07-07T23:26:09.412566+00:00",
+    "last_updated_at": "2026-07-08T08:23:19.639024+00:00",
+    "started_from_submission_id": "34cf3260-ed5d-4243-9df2-a205045d36cd",
+    "requires_new_essay": false,
+    "active_skill": {
+      "skill_id": "verb_form_control",
+      "skill_name": "Verb Form Control",
+      "target_status": "functional",
+      "current_status": "developing",
+      "domain": "Grammar Production",
+      "mastery_estimate_snapshot": 0.417,
+      "selection_score_snapshot": 0.652
+    },
+    "active_move": {
+      "move_id": "MWM_ROUGH_IDEA_TO_CLEAR_SENTENCE_V1",
+      "move_name": "Rough Idea to Clear Academic Sentence",
+      "move_family": "clarity",
+      "training_mode": "production_transformation"
+    },
+    "goal_for_cycle": "Move Verb Form Control from developing/emerging control to functional use in short writing production.",
+    "success_rules": {
+      "functional_rule": "pass 2 of last 3 valid missions with average >= 0.75 and no critical failure",
+      "stable_rule": "pass 4 of last 5 valid missions with average >= 0.80 across at least 2 topics when topic data is available",
+      "unlock_rule": "unlock next queued skill after functional_rule is met, unless a new essay refreshes priorities"
+    },
+    "progress_snapshot": {
+      "valid_missions_for_active_skill": 0,
+      "recent_outcomes": [],
+      "recent_average": 0.0,
+      "functional_achieved": false,
+      "stable_achieved": false,
+      "last_result_outcome": "invalid_incomplete_output",
+      "last_attempt_mastery_update_allowed": false
+    },
+    "next_skill_queue": [
+      {
+        "skill_id": "simple_sentence_construction",
+        "skill_name": "Simple Sentence Construction",
+        "mastery_estimate": 0.6,
+        "selection_score": 0.603,
+        "priority_score": 0.541,
+        "dependency_ready": true,
+        "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_claim_generation",
+        "skill_name": "Claim Generation",
+        "mastery_estimate": 0.545,
+        "selection_score": 0.498,
+        "priority_score": 0.356,
+        "dependency_ready": true,
+        "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "paragraph_planning",
+        "skill_name": "Paragraph Planning",
+        "mastery_estimate": 0.846,
+        "selection_score": 0.426,
+        "priority_score": 0.307,
+        "dependency_ready": true,
+        "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "topic_sentence_control",
+        "skill_name": "Topic Sentence Control",
+        "mastery_estimate": 0.846,
+        "selection_score": 0.396,
+        "priority_score": 0.255,
+        "dependency_ready": true,
+        "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_reason_generation",
+        "skill_name": "Reason Generation",
+        "mastery_estimate": 0.438,
+        "selection_score": 0.45,
+        "priority_score": 0.541,
+        "dependency_ready": false,
+        "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "comparison_structure_control",
+        "skill_name": "Comparison Structure Control",
+        "mastery_estimate": 0.6,
+        "selection_score": 0.439,
+        "priority_score": 0.552,
+        "dependency_ready": false,
+        "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "semantic_compatibility",
+        "skill_name": "Semantic Compatibility",
+        "mastery_estimate": 0.579,
+        "selection_score": 0.434,
+        "priority_score": 0.535,
+        "dependency_ready": false,
+        "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "example_integration",
+        "skill_name": "Example Integration",
+        "mastery_estimate": 0.569,
+        "selection_score": 0.429,
+        "priority_score": 0.511,
+        "dependency_ready": false,
+        "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+      }
+    ]
+  },
+  "active_skill_id": "verb_form_control",
+  "active_skill_name": "Verb Form Control",
+  "active_move_id": "MWM_ROUGH_IDEA_TO_CLEAR_SENTENCE_V1",
+  "active_move_family": "clarity",
+  "last_assigned_mission_id": "wc_mission_e3266ae2ae",
+  "last_assigned_move_id": "MWM_ROUGH_IDEA_TO_CLEAR_SENTENCE_V1",
+  "mission_history": [
+    {
+      "result_id": "wc_result_07ec34be3345",
+      "mission_id": "wc_mission_e3266ae2ae",
+      "skill_id": "verb_form_control",
+      "skill_name": "Verb Form Control",
+      "move_id": "MWM_ROUGH_IDEA_TO_CLEAR_SENTENCE_V1",
+      "outcome": "invalid_incomplete_output",
+      "score": 0.0,
+      "confidence": 0.26,
+      "critical_failure": false,
+      "mastery_update_allowed": false,
+      "attempt_status": "invalid_incomplete_output",
+      "created_at": "2026-07-07T23:55:57.862551+00:00"
+    },
+    {
+      "result_id": "wc_result_848086d4bbf7",
+      "mission_id": "wc_mission_e3266ae2ae",
+      "skill_id": "verb_form_control",
+      "skill_name": "Verb Form Control",
+      "move_id": "MWM_ROUGH_IDEA_TO_CLEAR_SENTENCE_V1",
+      "outcome": "invalid_incomplete_output",
+      "score": 0.0,
+      "confidence": 0.26,
+      "critical_failure": false,
+      "mastery_update_allowed": false,
+      "attempt_status": "invalid_incomplete_output",
+      "created_at": "2026-07-08T08:23:19.610310+00:00"
+    }
+  ],
+  "next_skill_queue": [
+    {
+      "skill_id": "simple_sentence_construction",
+      "skill_name": "Simple Sentence Construction",
+      "mastery_estimate": 0.6,
+      "selection_score": 0.603,
+      "priority_score": 0.541,
+      "dependency_ready": true,
+      "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "arg_claim_generation",
+      "skill_name": "Claim Generation",
+      "mastery_estimate": 0.545,
+      "selection_score": 0.498,
+      "priority_score": 0.356,
+      "dependency_ready": true,
+      "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "paragraph_planning",
+      "skill_name": "Paragraph Planning",
+      "mastery_estimate": 0.846,
+      "selection_score": 0.426,
+      "priority_score": 0.307,
+      "dependency_ready": true,
+      "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "topic_sentence_control",
+      "skill_name": "Topic Sentence Control",
+      "mastery_estimate": 0.846,
+      "selection_score": 0.396,
+      "priority_score": 0.255,
+      "dependency_ready": true,
+      "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "arg_reason_generation",
+      "skill_name": "Reason Generation",
+      "mastery_estimate": 0.438,
+      "selection_score": 0.45,
+      "priority_score": 0.541,
+      "dependency_ready": false,
+      "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "comparison_structure_control",
+      "skill_name": "Comparison Structure Control",
+      "mastery_estimate": 0.6,
+      "selection_score": 0.439,
+      "priority_score": 0.552,
+      "dependency_ready": false,
+      "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "semantic_compatibility",
+      "skill_name": "Semantic Compatibility",
+      "mastery_estimate": 0.579,
+      "selection_score": 0.434,
+      "priority_score": 0.535,
+      "dependency_ready": false,
+      "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "example_integration",
+      "skill_name": "Example Integration",
+      "mastery_estimate": 0.569,
+      "selection_score": 0.429,
+      "priority_score": 0.511,
+      "dependency_ready": false,
+      "condition": "Unlock after Verb Form Control becomes functional or if a new essay refreshes priorities."
+    }
+  ],
+  "plan_horizon_days": 7,
+  "prompt_text": "In many countries today, the number of older people is increasing. Do the advantages of this outweigh the disadvantages?",
+  "topic_context": "ageing population",
+  "domain": "ielts_academic_writing",
+  "timebox_minutes": 10,
+  "selected_move_candidate_snapshot": [
+    {
+      "move_id": "MWM_ROUGH_IDEA_TO_CLEAR_SENTENCE_V1",
+      "move_name": "Rough Idea to Clear Academic Sentence",
+      "primary_microskill": "simple_sentence_construction",
+      "move_family": "clarity",
+      "selection_score": 0.856,
+      "fit_score": 0.992,
+      "difficulty_fit": 1.0,
+      "source_policy_ok": true,
+      "target_skill_role_in_move": "secondary_target",
+      "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+      "reason": "duration_fit=1.00; difficulty_fit=1.00; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+    }
+  ],
+  "daily_run_contract": {
+    "mode": "daily_continuation_no_new_essay",
+    "required_inputs": [
+      "coach_state_export",
+      "external_move_bank"
+    ],
+    "optional_inputs": [
+      "last_mission_result",
+      "ontology",
+      "clusters"
+    ]
+  }
+}

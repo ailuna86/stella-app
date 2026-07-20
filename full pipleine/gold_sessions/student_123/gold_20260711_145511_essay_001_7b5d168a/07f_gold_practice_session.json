@@ -1,0 +1,496 @@
+{
+  "schema_version": "GOLD_PRACTICE_SESSION_ADAPTIVE_V1",
+  "engine_id": "VA_STELLA_GOLD_PRACTICE_ENGINE_BRIDGE",
+  "engine_version": "1.0.0-wraps-practice_engine_v5b",
+  "created_at": "2026-07-11T12:55:19.128785+00:00",
+  "wrapped_engine": "PracticeEngineV5 (practice_engine_v5b.py)",
+  "student_id": "student_123",
+  "session_id": "ef69c508-fd40-4420-8c96-5c9a900c15fb",
+  "welcome": {
+    "session_id": "ef69c508-fd40-4420-8c96-5c9a900c15fb",
+    "student_id": "student_123",
+    "welcome_message": "Welcome back, student_123!\n\nThis is your first session — let's build your profile!\n\nToday's targets — chosen specifically for you:\n  1. grammar — Sentence Control\n  2. Vocabulary (LR) — Academic Style\n  3. task_response — Argument Development\n  4. Vocabulary (LR) — Lexical Precision\n  5. Coherence & Cohesion (CC) — Cohesion Control\n  6. Organization — Ws Proposition Clarity\n  7. Organization — Ws Proposition Completeness\n  8. Organization — Conclusion Construction\n  9. Organization — Introduction Construction\n  10. Organization — Ws Conclusion Alignment Struct\n  11. Argumentation — Arg Counterargument Development\n  12. Argumentation — Arg Reason Quality\n  13. Argumentation — Arg Rebuttal Quality\n  14. Argumentation — Arg Warrant Generation\n  15. Argumentation — Arg Warrant Quality\n",
+    "last_session_recap": {
+      "sessions_analyzed": 0,
+      "avg_completion_rate": null,
+      "avg_session_minutes": null,
+      "improving_criteria": [],
+      "slow_criteria": [],
+      "recommended_intent": "consolidation"
+    },
+    "targets": [
+      {
+        "rank": 1,
+        "criterion": "grammar",
+        "criterion_label": "grammar",
+        "skill_tag": "sentence_control",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+        "reason_text": "",
+        "difficulty": "controlled"
+      },
+      {
+        "rank": 2,
+        "criterion": "lexical_resource",
+        "criterion_label": "Vocabulary (LR)",
+        "skill_tag": "academic_style",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+        "reason_text": "",
+        "difficulty": "controlled"
+      },
+      {
+        "rank": 3,
+        "criterion": "task_response",
+        "criterion_label": "task_response",
+        "skill_tag": "argument_development",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+        "reason_text": "",
+        "difficulty": "controlled"
+      },
+      {
+        "rank": 4,
+        "criterion": "lexical_resource",
+        "criterion_label": "Vocabulary (LR)",
+        "skill_tag": "lexical_precision",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+        "reason_text": "",
+        "difficulty": "controlled"
+      },
+      {
+        "rank": 5,
+        "criterion": "coherence_cohesion",
+        "criterion_label": "Coherence & Cohesion (CC)",
+        "skill_tag": "cohesion_control",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+        "reason_text": "",
+        "difficulty": "guided"
+      },
+      {
+        "rank": 6,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_clarity",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 7,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_completeness",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 8,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "conclusion_construction",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 9,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "introduction_construction",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 10,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_conclusion_alignment_struct",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 11,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_counterargument_development",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 12,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_reason_quality",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 13,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_rebuttal_quality",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 14,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_generation",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 15,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_quality",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      }
+    ],
+    "cefr_floor": null,
+    "cefr_ceiling": null,
+    "_seen_ids_loaded": false,
+    "_cross_session_count": 0,
+    "session_length_options": [
+      {
+        "minutes": 5,
+        "estimated_exercises": 3
+      },
+      {
+        "minutes": 10,
+        "estimated_exercises": 6
+      },
+      {
+        "minutes": 15,
+        "estimated_exercises": 10
+      }
+    ]
+  },
+  "session_plan": {
+    "session_id": "ef69c508-fd40-4420-8c96-5c9a900c15fb",
+    "chosen_duration_minutes": 10,
+    "total_exercises": 3,
+    "cefr_floor": null,
+    "cefr_ceiling": null,
+    "cefr_levels_selected": [
+      "B1"
+    ],
+    "family_fallbacks_used": [],
+    "slots_skipped_no_stock": [
+      {
+        "criterion": "grammar",
+        "requested_family": "sentence_control",
+        "resolved_family": "sentence_control",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'grammar' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "task_response",
+        "requested_family": "argument_development",
+        "resolved_family": "argument_development",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'task_response' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "Organization",
+        "requested_family": "ws_proposition_clarity",
+        "resolved_family": "ws_proposition_clarity",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Organization' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "Organization",
+        "requested_family": "ws_proposition_completeness",
+        "resolved_family": "ws_proposition_completeness",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Organization' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "Organization",
+        "requested_family": "conclusion_construction",
+        "resolved_family": "conclusion_construction",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Organization' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "Organization",
+        "requested_family": "introduction_construction",
+        "resolved_family": "introduction_construction",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Organization' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "Organization",
+        "requested_family": "ws_conclusion_alignment_struct",
+        "resolved_family": "ws_conclusion_alignment_struct",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Organization' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "Argumentation",
+        "requested_family": "arg_counterargument_development",
+        "resolved_family": "arg_counterargument_development",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Argumentation' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "Argumentation",
+        "requested_family": "arg_reason_quality",
+        "resolved_family": "arg_reason_quality",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Argumentation' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "Argumentation",
+        "requested_family": "arg_rebuttal_quality",
+        "resolved_family": "arg_rebuttal_quality",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Argumentation' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "Argumentation",
+        "requested_family": "arg_warrant_generation",
+        "resolved_family": "arg_warrant_generation",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Argumentation' (any family). CEFR floor NOT relaxed."
+      },
+      {
+        "criterion": "Argumentation",
+        "requested_family": "arg_warrant_quality",
+        "resolved_family": "arg_warrant_quality",
+        "min_cefr": null,
+        "max_cefr": null,
+        "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Argumentation' (any family). CEFR floor NOT relaxed."
+      }
+    ],
+    "_cross_session_excluded": 0,
+    "allocation": [
+      {
+        "criterion": "grammar",
+        "criterion_label": "grammar",
+        "skill_tag": "sentence_control",
+        "difficulty": "controlled",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "lexical_resource",
+        "criterion_label": "Vocabulary (LR)",
+        "skill_tag": "academic_style",
+        "difficulty": "controlled",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "task_response",
+        "criterion_label": "task_response",
+        "skill_tag": "argument_development",
+        "difficulty": "controlled",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "lexical_resource",
+        "criterion_label": "Vocabulary (LR)",
+        "skill_tag": "lexical_precision",
+        "difficulty": "controlled",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "coherence_cohesion",
+        "criterion_label": "Coherence & Cohesion (CC)",
+        "skill_tag": "cohesion_control",
+        "difficulty": "guided",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_clarity",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_completeness",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "conclusion_construction",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "introduction_construction",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_conclusion_alignment_struct",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_counterargument_development",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_reason_quality",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_rebuttal_quality",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_generation",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 33
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_quality",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 33
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "exercise_number": 1,
+      "total_exercises": 3,
+      "exercise_id": "ex_c2f96943f39a",
+      "exercise_type": "error_correction",
+      "family": "IDIOMATIC_CONTROL",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "wrong_idiom",
+      "prompt": "Find the error: 'We need to be in the same book before the meeting.'",
+      "answer": "on the same page",
+      "explanation": "The correct idiom is 'on the same page'.",
+      "choices": null
+    },
+    {
+      "exercise_number": 2,
+      "total_exercises": 3,
+      "exercise_id": "ex_0a11a15479c3",
+      "exercise_type": "mcq",
+      "family": "PRECISION",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "precise_verb",
+      "prompt": "Which verb is most precise for 'to become better'?",
+      "answer": "improve",
+      "explanation": "'Improve' is the standard precise academic verb for progress.",
+      "choices": [
+        "improve",
+        "get better",
+        "develop",
+        "advance"
+      ]
+    },
+    {
+      "exercise_number": 3,
+      "total_exercises": 3,
+      "exercise_id": "ex_b718a6281a04",
+      "exercise_type": "paragraph_build",
+      "family": "DISCOURSE_LINKING",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "choose_connector",
+      "prompt": "Read: 'Digital technology has transformed access to information. Knowledge that once required specialist libraries is now available at a touch. ___, not all information available online is accurate or reliable, and critical evaluation skills have become more important than ever.' Which fits?",
+      "answer": "However",
+      "explanation": "'However' introduces the important qualification about information quality.",
+      "choices": [
+        "However",
+        "Furthermore",
+        "Consequently",
+        "In addition"
+      ]
+    }
+  ],
+  "exercise_count": 3,
+  "status": "ready_for_student",
+  "next_action": "student_answers_exercises_then_submit_answer_and_get_session_results"
+}

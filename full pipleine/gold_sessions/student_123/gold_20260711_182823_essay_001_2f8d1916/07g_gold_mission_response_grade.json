@@ -1,0 +1,577 @@
+{
+  "schema_version": "WRITING_COACH_MISSION_RESULT_V1_2_18",
+  "result_id": "wc_result_c927edd648a2",
+  "created_at": "2026-07-11T16:31:35.873245+00:00",
+  "mission_id": "wc_mission_2968810b80",
+  "target_skill_id": "article_control",
+  "target_skill_name": "Article Control",
+  "selected_move": {
+    "move_id": "MWM_ARTICLE_MEANING_TO_NOUN_PHRASE_V1",
+    "move_name": "Article Meaning to Noun Phrase",
+    "move_family": "accuracy_control",
+    "training_mode": "production",
+    "primary_microskill": "article_control",
+    "secondary_microskills": [
+      "lexical_precision",
+      "agreement_control"
+    ],
+    "target_skill_role_in_move": "primary_target",
+    "target_skill_role_explanation": "The selected move directly targets this microskill as its primary training focus."
+  },
+  "adaptive_variant": {
+    "schema_version": "WRITING_COACH_ADAPTIVE_VARIANT_V1_2_10",
+    "adaptation_type": "baseline_first_assignment",
+    "visible_change": "none_yet"
+  },
+  "response_summary": {
+    "line_count": 1,
+    "word_count": 40,
+    "required_items": 4,
+    "expected_item_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "completion_ratio": 0.25,
+    "submitted_item_numbers": [
+      1
+    ],
+    "missing_item_numbers": [
+      2,
+      3,
+      4
+    ],
+    "numbering_warnings": [
+      "unnumbered_response_assigned_sequentially"
+    ]
+  },
+  "completion_gate": {
+    "status": "invalid_incomplete_output",
+    "required_items": 4,
+    "expected_item_numbers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "submitted_items": 1,
+    "submitted_item_numbers": [
+      1
+    ],
+    "missing_item_numbers": [
+      2,
+      3,
+      4
+    ],
+    "completion_ratio": 0.25,
+    "hard_gate": true,
+    "mastery_update_allowed": false,
+    "numbering_warnings": [
+      "unnumbered_response_assigned_sequentially"
+    ],
+    "numbering_feedback": "You submitted item number(s) [1]. Missing required number(s): [2, 3, 4]. Keep the original item numbers so the Coach can match each sentence correctly.",
+    "message": "You submitted 1 item(s), but the mission requires 4. Complete all required items before this can count as skill evidence."
+  },
+  "observable_unit_scores": [
+    {
+      "unit_id": "article_choice_accurate",
+      "score": 0.65,
+      "weight": 0.25,
+      "critical": true,
+      "note": "No specialized rule for this observable unit; neutral partial score applied."
+    },
+    {
+      "unit_id": "noun_phrase_complete",
+      "score": 0.65,
+      "weight": 0.2,
+      "critical": true,
+      "note": "No specialized rule for this observable unit; neutral partial score applied."
+    },
+    {
+      "unit_id": "meaning_specific_vs_general_correct",
+      "score": 0.65,
+      "weight": 0.25,
+      "critical": true,
+      "note": "No specialized rule for this observable unit; neutral partial score applied."
+    },
+    {
+      "unit_id": "phrase_natural",
+      "score": 0.65,
+      "weight": 0.2,
+      "critical": true,
+      "note": "No specialized rule for this observable unit; neutral partial score applied."
+    },
+    {
+      "unit_id": "minimum_output_met",
+      "score": 0.25,
+      "weight": 0.1,
+      "critical": false,
+      "note": "Detected 1 expected item(s); required 4. Expected numbers: [1, 2, 3, 4]. This is a hard completion gate in V1.2.10."
+    }
+  ],
+  "raw_observable_score_before_gate": 0.61,
+  "mission_score": 0.0,
+  "outcome": "invalid_incomplete_output",
+  "attempt_status": "invalid_incomplete_output",
+  "confidence": 0.275,
+  "critical_failure": false,
+  "mastery_update_allowed": false,
+  "feedback": {
+    "summary": "You submitted 1/4 required items. I reviewed the submitted sentence(s), but complete all 4 items before this mission can count.",
+    "weakest_observable_units": [
+      {
+        "unit_id": "minimum_output_met",
+        "score": 0.25,
+        "weight": 0.1,
+        "critical": false,
+        "note": "Detected 1 expected item(s); required 4. Expected numbers: [1, 2, 3, 4]. This is a hard completion gate in V1.2.10."
+      },
+      {
+        "unit_id": "article_choice_accurate",
+        "score": 0.65,
+        "weight": 0.25,
+        "critical": true,
+        "note": "No specialized rule for this observable unit; neutral partial score applied."
+      }
+    ],
+    "next_action": "complete_missing_items"
+  },
+  "student_feedback": {
+    "overall_comment": "Good start. You wrote 1/4 sentence(s). I checked what you wrote, but the mission counts only after all 4 sentences are finished.",
+    "format_feedback": "You submitted 1 item(s), but the mission requires 4. Complete all required items before this can count as skill evidence.",
+    "feedback_quality_policy": "V1.2.12 uses a hint-before-answer revision ladder: below-heavy scaffold levels get a rule-pointing hint on the first wrong attempt (no answer shown), the correction is revealed on resubmission, and the academic upgrade is only offered once the sentence is actually correct.",
+    "what_went_well": [
+      "meaning_is_recoverable",
+      "finite_verb_present",
+      "subject_present",
+      "no_blocked_verb_pattern_detected"
+    ],
+    "what_to_fix_first": [
+      "complete_all_required_items"
+    ],
+    "feedback_layer_counts": {},
+    "item_feedback": [
+      {
+        "item_number": 1,
+        "rough_input": "general idea: pollution as a problem everywhere",
+        "student_sentence": "The government should raise the retirement age because people live longer now. This will help the economy stay strong. Older workers have valuable experience that younger people can learn from. However, physically demanding jobs may need exceptions for the elderly.",
+        "status": "submitted",
+        "explicit_number_used": false,
+        "assignment_reason": "sequential_expected_slot",
+        "strengths": [
+          "meaning_is_recoverable",
+          "finite_verb_present",
+          "subject_present",
+          "no_blocked_verb_pattern_detected"
+        ],
+        "issues": [],
+        "sentence_quality_level": "strong_for_current_move",
+        "local_feedback_split": {
+          "schema_version": "WRITING_COACH_LOCAL_FEEDBACK_SPLIT_V1_2_10",
+          "correctness_fix": {
+            "needed": false,
+            "issues": [],
+            "minimal_corrected_version": "The government should raise the retirement age because people live longer now. This will help the economy stay strong. Older workers have valuable experience that younger people can learn from. However, physically demanding jobs may need exceptions for the elderly.",
+            "explanation": "No major local accuracy error was detected in the submitted sentence."
+          },
+          "naturalness_fix": {
+            "needed": false,
+            "issues": [],
+            "natural_version": "The government should raise the retirement age because people live longer now. This will help the economy stay strong. Older workers have valuable experience that younger people can learn from. However, physically demanding jobs may need exceptions for the elderly.",
+            "explanation": "The sentence is reasonably natural at the local level."
+          },
+          "higher_band_upgrade": {
+            "needed": false,
+            "issues": [],
+            "upgraded_academic_version": "The government should raise the retirement age because people live longer now. This will help the economy stay strong. Older workers have valuable experience that younger people can learn from. However, physically demanding jobs may need exceptions for the elderly.",
+            "explanation": "This version expresses the same idea with clearer academic vocabulary, stronger cause-effect logic, and more natural collocation."
+          },
+          "recommended_learning_order": [],
+          "student_diagnostic_summary": {
+            "why_sentence_needs_work": [],
+            "why_better_version_is_better": [
+              "It is clearer, more natural, and more academic than the first version."
+            ]
+          },
+          "upgrade_scope": {
+            "declared_skills": [
+              "agreement_control",
+              "article_control",
+              "lexical_precision"
+            ],
+            "primary_microskill": "article_control",
+            "allows_complex_clauses": false,
+            "in_scope_for_full_upgrade": true
+          }
+        },
+        "minimal_corrected_version": "The government should raise the retirement age because people live longer now. This will help the economy stay strong. Older workers have valuable experience that younger people can learn from. However, physically demanding jobs may need exceptions for the elderly.",
+        "upgraded_academic_version": "The government should raise the retirement age because people live longer now. This will help the economy stay strong. Older workers have valuable experience that younger people can learn from. However, physically demanding jobs may need exceptions for the elderly.",
+        "suggested_revision": "The government should raise the retirement age because people live longer now. This will help the economy stay strong. Older workers have valuable experience that younger people can learn from. However, physically demanding jobs may need exceptions for the elderly.",
+        "is_acceptable_for_target_move": true,
+        "needs_local_fix": false,
+        "needs_higher_band_upgrade": false,
+        "explanation": "The sentence is clear and accurate enough for the target move. The Coach can still offer a higher-band version.",
+        "how_to_improve": "The sentence is accurate. Try a stronger academic version to raise the level.",
+        "student_friendly_feedback": {
+          "schema_version": "WRITING_COACH_STUDENT_FRIENDLY_DIAGNOSTIC_FEEDBACK_V1_2_10",
+          "level": "correct_ready_for_upgrade",
+          "main_message": "Correct. Optional: here's a stronger way to say it.",
+          "good": [
+            "I can understand your idea.",
+            "Your sentence has a verb.",
+            "Your sentence has a clear subject.",
+            "I do not see a major verb-form mistake."
+          ],
+          "fix_first": [],
+          "simple_fix": null,
+          "better_version": "The government should raise the retirement age because people live longer now. This will help the economy stay strong. Older workers have valuable experience that younger people can learn from. However, physically demanding jobs may need exceptions for the elderly.",
+          "why_your_sentence_needs_work": [],
+          "why_better_version_is_better": [
+            "It is clearer, more natural, and more academic than the first version."
+          ],
+          "next_step": "This sentence is correct as written. The 'better_version' below is optional -- try it if you want to push further.",
+          "revision_stage": "upgrade_offered"
+        }
+      },
+      {
+        "item_number": 2,
+        "rough_input": "specific: the pollution in this city last year",
+        "student_sentence": null,
+        "status": "missing",
+        "strengths": [],
+        "issues": [
+          "missing_required_item"
+        ],
+        "is_acceptable_for_target_move": false,
+        "minimal_corrected_version": "",
+        "upgraded_academic_version": "Write one complete sentence with a clear subject, verb, and natural word combination.",
+        "suggested_revision": "Write one complete sentence with a clear subject, verb, and natural word combination.",
+        "explanation": "This item was not submitted, so the Coach cannot evaluate the target skill for this part of the mission.",
+        "how_to_improve": "Write one complete sentence for this rough idea.",
+        "student_friendly_feedback": {
+          "schema_version": "WRITING_COACH_STUDENT_FRIENDLY_DIAGNOSTIC_FEEDBACK_V1_2_10",
+          "level": "missing",
+          "main_message": "You have not written this sentence yet. Try it yourself first.",
+          "good": [],
+          "fix_first": [
+            "Write one complete sentence for this idea: 'specific: the pollution in this city last year'."
+          ],
+          "simple_fix": null,
+          "better_version": null,
+          "production_prompt": "Write one complete sentence using this idea: specific: the pollution in this city last year. Use a clear subject and a main verb.",
+          "model_sentence_if_stuck": "Write one complete sentence with a clear subject, verb, and natural word combination.",
+          "why_your_sentence_needs_work": [
+            "The Coach cannot check this item until you write it."
+          ],
+          "why_better_version_is_better": [],
+          "next_step": "Write the sentence yourself first. Only look at 'model_sentence_if_stuck' if you get stuck."
+        }
+      },
+      {
+        "item_number": 3,
+        "rough_input": "first mention: a new recycling policy",
+        "student_sentence": null,
+        "status": "missing",
+        "strengths": [],
+        "issues": [
+          "missing_required_item"
+        ],
+        "is_acceptable_for_target_move": false,
+        "minimal_corrected_version": "",
+        "upgraded_academic_version": "Write one complete sentence with a clear subject, verb, and natural word combination.",
+        "suggested_revision": "Write one complete sentence with a clear subject, verb, and natural word combination.",
+        "explanation": "This item was not submitted, so the Coach cannot evaluate the target skill for this part of the mission.",
+        "how_to_improve": "Write one complete sentence for this rough idea.",
+        "student_friendly_feedback": {
+          "schema_version": "WRITING_COACH_STUDENT_FRIENDLY_DIAGNOSTIC_FEEDBACK_V1_2_10",
+          "level": "missing",
+          "main_message": "You have not written this sentence yet. Try it yourself first.",
+          "good": [],
+          "fix_first": [
+            "Write one complete sentence for this idea: 'first mention: a new recycling policy'."
+          ],
+          "simple_fix": null,
+          "better_version": null,
+          "production_prompt": "Write one complete sentence using this idea: first mention: a new recycling policy. Use a clear subject and a main verb.",
+          "model_sentence_if_stuck": "Write one complete sentence with a clear subject, verb, and natural word combination.",
+          "why_your_sentence_needs_work": [
+            "The Coach cannot check this item until you write it."
+          ],
+          "why_better_version_is_better": [],
+          "next_step": "Write the sentence yourself first. Only look at 'model_sentence_if_stuck' if you get stuck."
+        }
+      },
+      {
+        "item_number": 4,
+        "rough_input": "second mention: referring back to the same policy",
+        "student_sentence": null,
+        "status": "missing",
+        "strengths": [],
+        "issues": [
+          "missing_required_item"
+        ],
+        "is_acceptable_for_target_move": false,
+        "minimal_corrected_version": "",
+        "upgraded_academic_version": "Write one complete sentence with a clear subject, verb, and natural word combination.",
+        "suggested_revision": "Write one complete sentence with a clear subject, verb, and natural word combination.",
+        "explanation": "This item was not submitted, so the Coach cannot evaluate the target skill for this part of the mission.",
+        "how_to_improve": "Write one complete sentence for this rough idea.",
+        "student_friendly_feedback": {
+          "schema_version": "WRITING_COACH_STUDENT_FRIENDLY_DIAGNOSTIC_FEEDBACK_V1_2_10",
+          "level": "missing",
+          "main_message": "You have not written this sentence yet. Try it yourself first.",
+          "good": [],
+          "fix_first": [
+            "Write one complete sentence for this idea: 'second mention: referring back to the same policy'."
+          ],
+          "simple_fix": null,
+          "better_version": null,
+          "production_prompt": "Write one complete sentence using this idea: second mention: referring back to the same policy. Use a clear subject and a main verb.",
+          "model_sentence_if_stuck": "Write one complete sentence with a clear subject, verb, and natural word combination.",
+          "why_your_sentence_needs_work": [
+            "The Coach cannot check this item until you write it."
+          ],
+          "why_better_version_is_better": [],
+          "next_step": "Write the sentence yourself first. Only look at 'model_sentence_if_stuck' if you get stuck."
+        }
+      }
+    ],
+    "submitted_items_reviewed": [
+      1
+    ],
+    "missing_items": [
+      2,
+      3,
+      4
+    ],
+    "numbering_feedback": "Missing required item number(s): [2, 3, 4].",
+    "next_action": "complete_missing_items",
+    "try_again_instruction": "Finish the missing sentence(s): 2, 3, 4. Then submit all sentences together.",
+    "student_level_mode": "A2_B1_friendly_with_diagnostic_reason",
+    "simple_summary": "Good start. You wrote 1/4 sentence(s). I checked what you wrote, but the mission counts only after all 4 sentences are finished.",
+    "scaffold_level": "medium"
+  },
+  "teacher_feedback": {
+    "outcome": "invalid_incomplete_output",
+    "mastery_update_allowed": false,
+    "completion_gate": {
+      "status": "invalid_incomplete_output",
+      "required_items": 4,
+      "expected_item_numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "submitted_items": 1,
+      "submitted_item_numbers": [
+        1
+      ],
+      "missing_item_numbers": [
+        2,
+        3,
+        4
+      ],
+      "completion_ratio": 0.25,
+      "hard_gate": true,
+      "mastery_update_allowed": false,
+      "numbering_warnings": [
+        "unnumbered_response_assigned_sequentially"
+      ],
+      "numbering_feedback": "You submitted item number(s) [1]. Missing required number(s): [2, 3, 4]. Keep the original item numbers so the Coach can match each sentence correctly.",
+      "message": "You submitted 1 item(s), but the mission requires 4. Complete all required items before this can count as skill evidence."
+    },
+    "weakest_observable_units": [
+      {
+        "unit_id": "minimum_output_met",
+        "score": 0.25,
+        "weight": 0.1,
+        "critical": false,
+        "note": "Detected 1 expected item(s); required 4. Expected numbers: [1, 2, 3, 4]. This is a hard completion gate in V1.2.10."
+      },
+      {
+        "unit_id": "article_choice_accurate",
+        "score": 0.65,
+        "weight": 0.25,
+        "critical": true,
+        "note": "No specialized rule for this observable unit; neutral partial score applied."
+      }
+    ],
+    "feedback_layer_counts": {},
+    "interpretation": "Incomplete output is treated as non-mastery evidence in V1.2.10.",
+    "student_friendly_layer_present": true,
+    "student_level_mode": "A2_B1_friendly_with_diagnostic_reason",
+    "student_friendly_diagnostic_layer_present": true,
+    "upgrade_scope": {
+      "declared_skills": [
+        "agreement_control",
+        "article_control",
+        "lexical_precision"
+      ],
+      "primary_microskill": "article_control",
+      "allows_complex_clauses": false,
+      "in_scope_for_full_upgrade": true
+    },
+    "scaffold_level": "medium",
+    "show_model_on_first_attempt": true
+  },
+  "debug_evaluation": {
+    "raw_line_count": 1,
+    "required_items": 4,
+    "observable_unit_scores": [
+      {
+        "unit_id": "article_choice_accurate",
+        "score": 0.65,
+        "weight": 0.25,
+        "critical": true,
+        "note": "No specialized rule for this observable unit; neutral partial score applied."
+      },
+      {
+        "unit_id": "noun_phrase_complete",
+        "score": 0.65,
+        "weight": 0.2,
+        "critical": true,
+        "note": "No specialized rule for this observable unit; neutral partial score applied."
+      },
+      {
+        "unit_id": "meaning_specific_vs_general_correct",
+        "score": 0.65,
+        "weight": 0.25,
+        "critical": true,
+        "note": "No specialized rule for this observable unit; neutral partial score applied."
+      },
+      {
+        "unit_id": "phrase_natural",
+        "score": 0.65,
+        "weight": 0.2,
+        "critical": true,
+        "note": "No specialized rule for this observable unit; neutral partial score applied."
+      },
+      {
+        "unit_id": "minimum_output_met",
+        "score": 0.25,
+        "weight": 0.1,
+        "critical": false,
+        "note": "Detected 1 expected item(s); required 4. Expected numbers: [1, 2, 3, 4]. This is a hard completion gate in V1.2.10."
+      }
+    ],
+    "hard_gate_applied": true,
+    "submitted_item_numbers": [
+      1
+    ],
+    "missing_item_numbers": [
+      2,
+      3,
+      4
+    ],
+    "numbering_warnings": [
+      "unnumbered_response_assigned_sequentially"
+    ],
+    "local_feedback_schema": "WRITING_COACH_LOCAL_FEEDBACK_SPLIT_V1_2_10",
+    "score_policy": "mission_score is set to 0.0 when the hard completion gate fails; raw_observable_score_before_gate is kept for debugging.",
+    "upgrade_scope": {
+      "declared_skills": [
+        "agreement_control",
+        "article_control",
+        "lexical_precision"
+      ],
+      "primary_microskill": "article_control",
+      "allows_complex_clauses": false,
+      "in_scope_for_full_upgrade": true
+    },
+    "llm_judge_enabled": false,
+    "register_judge_enabled": false,
+    "correction_generator_enabled": false,
+    "upgrade_generator_enabled": false,
+    "lt_judge_enabled": true,
+    "lt_judge_call_log": [],
+    "response_quality_enabled": true
+  },
+  "lie_update_decision": {
+    "mastery_update_allowed": false,
+    "reason": "invalid_incomplete_output",
+    "emission_type": "attempt_record_only_not_mastery_evidence"
+  },
+  "learning_intelligence_payload": {
+    "source_engine_id": "WRITING_COACH",
+    "source_run_id": "wc_result_c927edd648a2",
+    "profile_type": "coaching_mission_result",
+    "emission_type": "attempt_record_only_not_mastery_evidence",
+    "mission_id": "wc_mission_2968810b80",
+    "mastery_update_allowed": false,
+    "attempt_status": "invalid_incomplete_output",
+    "completion_gate": {
+      "status": "invalid_incomplete_output",
+      "required_items": 4,
+      "expected_item_numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "submitted_items": 1,
+      "submitted_item_numbers": [
+        1
+      ],
+      "missing_item_numbers": [
+        2,
+        3,
+        4
+      ],
+      "completion_ratio": 0.25,
+      "hard_gate": true,
+      "mastery_update_allowed": false,
+      "numbering_warnings": [
+        "unnumbered_response_assigned_sequentially"
+      ],
+      "numbering_feedback": "You submitted item number(s) [1]. Missing required number(s): [2, 3, 4]. Keep the original item numbers so the Coach can match each sentence correctly.",
+      "message": "You submitted 1 item(s), but the mission requires 4. Complete all required items before this can count as skill evidence."
+    },
+    "skill_signals": [],
+    "metric_signals": [],
+    "behavioral_events": [
+      {
+        "event_id": "event_53de4501f7f1",
+        "event_type": "micromission_attempt_incomplete_or_invalid",
+        "mission_id": "wc_mission_2968810b80",
+        "outcome": "invalid_incomplete_output",
+        "created_at": "2026-07-11T16:31:35.873245+00:00"
+      }
+    ],
+    "privacy_classification": "learning_analytics",
+    "attempt_record": {
+      "skill_id": "article_control",
+      "skill_name": "Article Control",
+      "outcome": "invalid_incomplete_output",
+      "mission_score": 0.0,
+      "raw_observable_score_before_gate": 0.61,
+      "reason": "invalid_incomplete_output"
+    }
+  },
+  "evaluator_version": "writing_coach_v1_2_18_lt_grammar_and_response_quality",
+  "item_revision_ledger": {
+    "wc_mission_2968810b80:1": {
+      "attempts_with_issues": 0,
+      "corrected_confirmed": true
+    }
+  },
+  "response_quality_review": {
+    "enabled": true,
+    "reasoning_quality": 4,
+    "clarity": 4,
+    "relevance": 5,
+    "argumentation_quality": 3,
+    "strengths": [
+      "Addresses the prompt directly",
+      "Presents a clear rationale for raising the retirement age"
+    ],
+    "improvement_suggestions": [
+      "Provide specific examples or data to support claims about longevity and economic impact",
+      "Expand on the exceptions for physically demanding jobs to strengthen the argument",
+      "Clarify how older workers' experience benefits the economy"
+    ],
+    "source": "llm",
+    "model": "gpt-4o-mini"
+  }
+}

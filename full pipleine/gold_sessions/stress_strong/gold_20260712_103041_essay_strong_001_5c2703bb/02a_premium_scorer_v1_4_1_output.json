@@ -1,0 +1,1283 @@
+{
+  "schema_version": "premium_unified_tier_aware_v1_4_1",
+  "results": [
+    {
+      "essay_id": "essay_strong_001",
+      "scoring_version": "premium_unified_tier_aware_v1_4_1",
+      "score_profile": {
+        "overall_band_estimate": 5.5,
+        "official_criteria_bands": {
+          "task_response": 6,
+          "coherence_cohesion": 6,
+          "lexical_resource": 5,
+          "grammar": 5
+        },
+        "raw_criterion_bands": {
+          "task_response": 6,
+          "coherence_cohesion": 7,
+          "lexical_resource": 5,
+          "grammar": 5
+        },
+        "raw_criterion_quality": {
+          "task_response": 0.6426,
+          "coherence_cohesion": 0.8185,
+          "lexical_resource": 0.5645,
+          "grammar": 0.5809
+        },
+        "confidence": 0.708,
+        "score_status": "ready"
+      },
+      "tier_decision": {
+        "tier": "T4_MEDIUM",
+        "overall_upper_bound": 5.5,
+        "overall_lower_bound": 5.0,
+        "high_band_allowed": false,
+        "weak_safety_veto": false,
+        "strong_weak_safety_veto": false,
+        "task_schema_false_fail_possible": false,
+        "confidence": 0.8,
+        "reasons": [
+          "weak_band6_escape_guard"
+        ],
+        "features": {
+          "semantic_recoverability": 0.675,
+          "weak_writing_probability": 0.45,
+          "high_band_readiness": 0.55,
+          "local_language_damage_index": 0.0909,
+          "serious_error_sentence_ratio": 0.0,
+          "word_count": 325,
+          "paragraph_count": 5,
+          "task_schema_status": "complete",
+          "task_schema_confidence": 0.72,
+          "support_quality": 0.5167,
+          "idea_extension_depth": 0.8,
+          "relevance_ratio": 0.63,
+          "global_progression": 1.0,
+          "paragraphing_appropriacy": 0.9,
+          "raw_overall": 6.0,
+          "raw_min_criterion_band": 5.0,
+          "n_items": 1,
+          "chargeable_count": 1,
+          "n_spelling_weight": 0.0,
+          "local_root_weight": 1.0,
+          "grammar_weight": 0.0,
+          "lr_weight": 1.0,
+          "safe65_recovery": false,
+          "safe65_bridge": false,
+          "false_fail_bridge": false,
+          "task_ok_bridge_blocked": false,
+          "clean_soft_task_profile": false,
+          "strict7_recovery": false,
+          "task_resolution_state": "TASK_OK",
+          "task_resolution": {
+            "state": "TASK_OK",
+            "tr_cap": null,
+            "tr_floor": null,
+            "overall_floor": null,
+            "review_flag": null,
+            "evidence": {
+              "task_schema_status": "complete",
+              "task_schema_confidence": 0.72,
+              "support_quality": 0.5167,
+              "idea_extension_depth": 0.8,
+              "relevance_ratio": 0.63,
+              "semantic_recoverability": 0.675,
+              "weak_writing_probability": 0.45,
+              "local_language_damage_index": 0.0909,
+              "serious_error_sentence_ratio": 0.0,
+              "raw_overall": 6.0,
+              "raw_min_criterion_band": 5.0,
+              "word_count": 325,
+              "paragraph_count": 5
+            }
+          },
+          "task_schema_false_fail_possible": false,
+          "band6_eligible": false,
+          "weak_escape_risk": false,
+          "weak_band6_escape_guard": true,
+          "strict_band6_permission_guard": false,
+          "weak_low_overcredit_guard": false,
+          "middle_soft_floor_rescue": false,
+          "middle_false_demote_rescue": false,
+          "safety_signal_bundle": {
+            "severe_signals": {
+              "low_semantic_recoverability": false,
+              "high_local_language_damage": false,
+              "high_serious_sentence_ratio": false,
+              "catastrophic_short_response": false,
+              "very_heavy_local_root_evidence": false,
+              "extreme_spelling_cluster": false
+            },
+            "supporting_weak_signals": {
+              "weak_probability_high": false,
+              "local_damage_elevated": false,
+              "serious_sentence_ratio_elevated": false,
+              "semantic_below_medium": false,
+              "short_response": false,
+              "paragraphing_too_limited": false,
+              "spelling_cluster_with_weak_signal": false,
+              "raw_min_below_band5": false,
+              "task_development_weak": false,
+              "heavy_chargeable_local_damage": false
+            },
+            "positive_recovery_signals": {
+              "semantic_at_medium_plus": true,
+              "weak_probability_controlled": false,
+              "local_damage_controlled": true,
+              "serious_ratio_controlled": true,
+              "word_count_adequate": true,
+              "paragraphing_adequate": true,
+              "task_development_medium_plus": false,
+              "raw_min_band6": false,
+              "high_band_readiness_near": false
+            },
+            "severe_count": 0,
+            "supporting_weak_count": 0,
+            "positive_recovery_count": 5,
+            "weak_escape_risk": false,
+            "band6_eligible": false,
+            "safe65_bridge": false,
+            "heavy_chargeable_local_damage": false
+          },
+          "severe_signal_count": 0,
+          "supporting_weak_signal_count": 0,
+          "positive_recovery_count": 5
+        }
+      },
+      "tier_governor": {
+        "version": "tier_governor_v1_4_1",
+        "enabled": true,
+        "evidence_tier": "B2_MEDIUM",
+        "pre_governor_score_group": "B2_MEDIUM",
+        "released_score_tier": "B2_MEDIUM",
+        "allowed_overall_range": {
+          "min": 5.5,
+          "max": 6.5
+        },
+        "pre_governor_overall": 5.5,
+        "post_governor_overall": 5.5,
+        "action": "none",
+        "actions": [],
+        "features": {
+          "raw_overall": 6.0,
+          "raw_min_criterion_band": 5,
+          "semantic_recoverability": 0.675,
+          "weak_writing_probability": 0.45,
+          "local_language_damage_index": 0.0909,
+          "serious_error_sentence_ratio": 0.0,
+          "high_band_readiness": 0.55,
+          "support_quality": 0.5167,
+          "idea_extension_depth": 0.8,
+          "relevance_ratio": 0.63,
+          "word_count": 325.0,
+          "paragraph_count": 5.0,
+          "positive_recovery_count": 5,
+          "severe_signal_count": 0,
+          "source_tier": "T4_MEDIUM",
+          "pre_governor_overall": 5.5,
+          "pre_governor_score_group": "B2_MEDIUM",
+          "task_schema_status": "complete",
+          "task_resolution_state": "TASK_OK"
+        },
+        "diagnostics": {
+          "evidence_tier": "B2_MEDIUM",
+          "a2_extreme": false,
+          "b1_signal_count": 3,
+          "b1_signals": {
+            "raw_overall_weak": false,
+            "raw_min_weak": true,
+            "weak_probability_elevated": false,
+            "serious_ratio_elevated": false,
+            "semantic_not_strong": false,
+            "support_not_strong": true,
+            "idea_not_strong": false,
+            "limited_positive_recovery": true
+          },
+          "b1_recovery_ok": true,
+          "b1_recovery_count": 4,
+          "b1_recovery_signals": {
+            "semantic_recovery": true,
+            "support_recovery": false,
+            "idea_recovery": true,
+            "positive_recovery": true,
+            "local_controlled": true
+          },
+          "high_signal_count": 7,
+          "high_signals": {
+            "positive_recovery_high": false,
+            "no_severe_signals": true,
+            "semantic_high": true,
+            "weak_controlled": false,
+            "raw_overall_high_enough": false,
+            "raw_min_high_enough": false,
+            "hbr_high": false,
+            "support_high": false,
+            "idea_high": true,
+            "word_count_sufficient": true,
+            "paragraph_count_sufficient": true,
+            "local_damage_controlled": true,
+            "serious_ratio_controlled": true
+          },
+          "high_boundary_signal_count": 4,
+          "high_boundary_signals": {
+            "raw_overall_boundary": false,
+            "raw_min_boundary": false,
+            "hbr_boundary": false,
+            "semantic_boundary": true,
+            "support_boundary": false,
+            "idea_boundary": true,
+            "local_boundary_controlled": true,
+            "serious_boundary_controlled": true,
+            "weak_boundary_controlled": false
+          },
+          "high_hard_veto_count": 2,
+          "high_hard_vetoes": {
+            "task_true_fail": false,
+            "severe_signal_veto": false,
+            "serious_ratio_veto": false,
+            "local_damage_veto": false,
+            "weak_probability_veto": false,
+            "raw_min_veto": true,
+            "support_quality_veto": true,
+            "idea_extension_veto": false
+          },
+          "high_confirmed": false,
+          "high_boundary": false
+        },
+        "runtime_label_use": false,
+        "essay_specific_rule_use": false
+      },
+      "canonical_metric_profile": {
+        "contract_version": "premium_metric_schema_v1",
+        "metrics": {
+          "semantic_recoverability": {
+            "metric": "semantic_recoverability",
+            "value": 0.675,
+            "source": "detector_profiler_safety",
+            "confidence": 0.75,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "affected_discourse_ratio": {
+            "metric": "affected_discourse_ratio",
+            "value": 0.091,
+            "source": "detector_profiler_metadata",
+            "confidence": 0.72,
+            "evidence_count": 1,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "word_count": {
+            "metric": "word_count",
+            "value": 325,
+            "source": "detector_profiler_metadata",
+            "confidence": 0.72,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "sentence_count": {
+            "metric": "sentence_count",
+            "value": 11,
+            "source": "detector_profiler_metadata",
+            "confidence": 0.72,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "paragraph_count": {
+            "metric": "paragraph_count",
+            "value": 5,
+            "source": "detector_profiler_metadata",
+            "confidence": 0.72,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "task_schema_status": {
+            "metric": "task_schema_status",
+            "value": "complete",
+            "source": "detector_task_profile",
+            "confidence": 0.72,
+            "evidence_count": 1,
+            "polarity": "non_numeric",
+            "notes": []
+          },
+          "task_schema_confidence": {
+            "metric": "task_schema_confidence",
+            "value": 0.72,
+            "source": "detector_task_profile",
+            "confidence": 0.7,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "local_language_damage_index": {
+            "metric": "local_language_damage_index",
+            "value": 0.0909,
+            "source": "detector_profiler_safety",
+            "confidence": 0.75,
+            "evidence_count": 1,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "serious_error_sentence_ratio": {
+            "metric": "serious_error_sentence_ratio",
+            "value": 0.0,
+            "source": "semantic_recoverability_profile",
+            "confidence": 0.75,
+            "evidence_count": 1,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "TR1_prompt_part_coverage": {
+            "metric": "TR1_prompt_part_coverage",
+            "value": 0.85,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "TR2_position_clarity": {
+            "metric": "TR2_position_clarity",
+            "value": 0.0,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "TR3_position_consistency": {
+            "metric": "TR3_position_consistency",
+            "value": 0.8,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "TR4_relevance_ratio": {
+            "metric": "TR4_relevance_ratio",
+            "value": 0.63,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "TR5_idea_extension_depth": {
+            "metric": "TR5_idea_extension_depth",
+            "value": 0.8,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "TR6_support_quality": {
+            "metric": "TR6_support_quality",
+            "value": 0.5167,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "TR7_conclusion_alignment": {
+            "metric": "TR7_conclusion_alignment",
+            "value": 0.85,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "CC1_global_logical_progression": {
+            "metric": "CC1_global_logical_progression",
+            "value": 1.0,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "CC2_paragraph_topic_unity": {
+            "metric": "CC2_paragraph_topic_unity",
+            "value": 0.52,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "CC3_paragraphing_appropriacy": {
+            "metric": "CC3_paragraphing_appropriacy",
+            "value": 0.9,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "CC4_intra_paragraph_sequencing": {
+            "metric": "CC4_intra_paragraph_sequencing",
+            "value": 1.0,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "CC5_inter_paragraph_transition_quality": {
+            "metric": "CC5_inter_paragraph_transition_quality",
+            "value": 0.8333,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "CC6_reference_substitution_clarity": {
+            "metric": "CC6_reference_substitution_clarity",
+            "value": 0.45,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "CC7_cohesive_device_appropriacy": {
+            "metric": "CC7_cohesive_device_appropriacy",
+            "value": 1.0,
+            "source": "scorer_payload.premium_metric_profile_mapped_metrics",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "TR8_irrelevant_or_repetitive_content_rate": {
+            "metric": "TR8_irrelevant_or_repetitive_content_rate",
+            "value": 0.25,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "CC8_cohesive_device_overuse_mechanicality": {
+            "metric": "CC8_cohesive_device_overuse_mechanicality",
+            "value": 0.22,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "LR1_lexical_range": {
+            "metric": "LR1_lexical_range",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "LR2_topic_vocabulary_adequacy": {
+            "metric": "LR2_topic_vocabulary_adequacy",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "LR3_word_choice_precision": {
+            "metric": "LR3_word_choice_precision",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "LR4_collocation_control": {
+            "metric": "LR4_collocation_control",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "LR5_lexical_appropriacy_register": {
+            "metric": "LR5_lexical_appropriacy_register",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "LR6_repetition_simplification_rate": {
+            "metric": "LR6_repetition_simplification_rate",
+            "value": 0.25,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "LR7_word_formation_accuracy": {
+            "metric": "LR7_word_formation_accuracy",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "LR8_spelling_impact": {
+            "metric": "LR8_spelling_impact",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "LR9_semantic_phrase_naturalness": {
+            "metric": "LR9_semantic_phrase_naturalness",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "LR10_lexical_sophistication_index": {
+            "metric": "LR10_lexical_sophistication_index",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "LR11_dynamic_multiword_density": {
+            "metric": "LR11_dynamic_multiword_density",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "GRA1_structure_range": {
+            "metric": "GRA1_structure_range",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "GRA2_simple_sentence_accuracy": {
+            "metric": "GRA2_simple_sentence_accuracy",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "GRA3_compound_sentence_accuracy": {
+            "metric": "GRA3_compound_sentence_accuracy",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "GRA4_complex_sentence_accuracy": {
+            "metric": "GRA4_complex_sentence_accuracy",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "GRA5_severe_grammar_error_density": {
+            "metric": "GRA5_severe_grammar_error_density",
+            "value": 0.25,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "GRA6_overall_grammar_error_density_per_100w": {
+            "metric": "GRA6_overall_grammar_error_density_per_100w",
+            "value": 0.25,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "GRA7_punctuation_accuracy": {
+            "metric": "GRA7_punctuation_accuracy",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "GRA8_malformed_sentence_ratio": {
+            "metric": "GRA8_malformed_sentence_ratio",
+            "value": 0.0,
+            "source": "derived_from_serious_sentence_ratio",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "GRA9_communicative_effect_of_errors": {
+            "metric": "GRA9_communicative_effect_of_errors",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "proposition_stability": {
+            "metric": "proposition_stability",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "grammar_damage_index": {
+            "metric": "grammar_damage_index",
+            "value": 0.06362999999999999,
+            "source": "derived_from_local_damage",
+            "confidence": 0.65,
+            "evidence_count": 1,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "weak_writing_probability": {
+            "metric": "weak_writing_probability",
+            "value": 0.45,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "bad_rate",
+            "notes": []
+          },
+          "high_band_readiness": {
+            "metric": "high_band_readiness",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "error_free_sentence_ratio": {
+            "metric": "error_free_sentence_ratio",
+            "value": 0.55,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          },
+          "medium_quality_probability": {
+            "metric": "medium_quality_probability",
+            "value": 0.45,
+            "source": "fallback",
+            "confidence": 0.35,
+            "evidence_count": 0,
+            "polarity": "good_rate",
+            "notes": []
+          }
+        },
+        "validation_warnings": []
+      },
+      "evidence_ledger": {
+        "essay_id": "essay_strong_001",
+        "items": [
+          {
+            "rubric": "lexical_resource",
+            "family": "SEMANTIC_COMBINATION",
+            "operation": "REPLACE",
+            "root_or_symptom": "root",
+            "chargeable": true,
+            "severity": "moderate",
+            "confidence": 0.95,
+            "score_weight": 1.0,
+            "semantic_recoverability_impact": 0.0,
+            "provenance": "detector",
+            "quote": "civic equity",
+            "reason": ""
+          }
+        ],
+        "summary": {
+          "chargeable_count": 1,
+          "advisory_count": 0,
+          "weighted_by_rubric": {
+            "lexical_resource": 1.0
+          },
+          "weighted_by_family": {
+            "SEMANTIC_COMBINATION": 1.0
+          },
+          "severity_counts": {
+            "moderate": 1
+          },
+          "local_root_weight": 1.0
+        },
+        "audit": {
+          "raw_rows": 1,
+          "normalised_items": 1,
+          "root_cause_demotions": 0,
+          "spelling_locked_to_lr": true,
+          "direct_profiler_weight_keys_supported": true
+        }
+      },
+      "unified_score_audit": {
+        "scoring_version": "premium_unified_tier_aware_v1_4_1",
+        "raw_criterion_quality": {
+          "task_response": 0.6426,
+          "coherence_cohesion": 0.8185,
+          "lexical_resource": 0.5645,
+          "grammar": 0.5809
+        },
+        "raw_criterion_bands": {
+          "task_response": 6,
+          "coherence_cohesion": 7,
+          "lexical_resource": 5,
+          "grammar": 5
+        },
+        "tier_decision": {
+          "tier": "T4_MEDIUM",
+          "overall_upper_bound": 5.5,
+          "overall_lower_bound": 5.0,
+          "high_band_allowed": false,
+          "weak_safety_veto": false,
+          "strong_weak_safety_veto": false,
+          "task_schema_false_fail_possible": false,
+          "confidence": 0.8,
+          "reasons": [
+            "weak_band6_escape_guard"
+          ],
+          "features": {
+            "semantic_recoverability": 0.675,
+            "weak_writing_probability": 0.45,
+            "high_band_readiness": 0.55,
+            "local_language_damage_index": 0.0909,
+            "serious_error_sentence_ratio": 0.0,
+            "word_count": 325,
+            "paragraph_count": 5,
+            "task_schema_status": "complete",
+            "task_schema_confidence": 0.72,
+            "support_quality": 0.5167,
+            "idea_extension_depth": 0.8,
+            "relevance_ratio": 0.63,
+            "global_progression": 1.0,
+            "paragraphing_appropriacy": 0.9,
+            "raw_overall": 6.0,
+            "raw_min_criterion_band": 5.0,
+            "n_items": 1,
+            "chargeable_count": 1,
+            "n_spelling_weight": 0.0,
+            "local_root_weight": 1.0,
+            "grammar_weight": 0.0,
+            "lr_weight": 1.0,
+            "safe65_recovery": false,
+            "safe65_bridge": false,
+            "false_fail_bridge": false,
+            "task_ok_bridge_blocked": false,
+            "clean_soft_task_profile": false,
+            "strict7_recovery": false,
+            "task_resolution_state": "TASK_OK",
+            "task_resolution": {
+              "state": "TASK_OK",
+              "tr_cap": null,
+              "tr_floor": null,
+              "overall_floor": null,
+              "review_flag": null,
+              "evidence": {
+                "task_schema_status": "complete",
+                "task_schema_confidence": 0.72,
+                "support_quality": 0.5167,
+                "idea_extension_depth": 0.8,
+                "relevance_ratio": 0.63,
+                "semantic_recoverability": 0.675,
+                "weak_writing_probability": 0.45,
+                "local_language_damage_index": 0.0909,
+                "serious_error_sentence_ratio": 0.0,
+                "raw_overall": 6.0,
+                "raw_min_criterion_band": 5.0,
+                "word_count": 325,
+                "paragraph_count": 5
+              }
+            },
+            "task_schema_false_fail_possible": false,
+            "band6_eligible": false,
+            "weak_escape_risk": false,
+            "weak_band6_escape_guard": true,
+            "strict_band6_permission_guard": false,
+            "weak_low_overcredit_guard": false,
+            "middle_soft_floor_rescue": false,
+            "middle_false_demote_rescue": false,
+            "safety_signal_bundle": {
+              "severe_signals": {
+                "low_semantic_recoverability": false,
+                "high_local_language_damage": false,
+                "high_serious_sentence_ratio": false,
+                "catastrophic_short_response": false,
+                "very_heavy_local_root_evidence": false,
+                "extreme_spelling_cluster": false
+              },
+              "supporting_weak_signals": {
+                "weak_probability_high": false,
+                "local_damage_elevated": false,
+                "serious_sentence_ratio_elevated": false,
+                "semantic_below_medium": false,
+                "short_response": false,
+                "paragraphing_too_limited": false,
+                "spelling_cluster_with_weak_signal": false,
+                "raw_min_below_band5": false,
+                "task_development_weak": false,
+                "heavy_chargeable_local_damage": false
+              },
+              "positive_recovery_signals": {
+                "semantic_at_medium_plus": true,
+                "weak_probability_controlled": false,
+                "local_damage_controlled": true,
+                "serious_ratio_controlled": true,
+                "word_count_adequate": true,
+                "paragraphing_adequate": true,
+                "task_development_medium_plus": false,
+                "raw_min_band6": false,
+                "high_band_readiness_near": false
+              },
+              "severe_count": 0,
+              "supporting_weak_count": 0,
+              "positive_recovery_count": 5,
+              "weak_escape_risk": false,
+              "band6_eligible": false,
+              "safe65_bridge": false,
+              "heavy_chargeable_local_damage": false
+            },
+            "severe_signal_count": 0,
+            "supporting_weak_signal_count": 0,
+            "positive_recovery_count": 5
+          }
+        },
+        "constraints_generated": [
+          {
+            "constraint_id": "tier_overall_upper_bound",
+            "target": "overall",
+            "type": "upper_bound",
+            "value": 5.5,
+            "priority": 100,
+            "evidence": {
+              "semantic_recoverability": 0.675,
+              "weak_writing_probability": 0.45,
+              "high_band_readiness": 0.55,
+              "local_language_damage_index": 0.0909,
+              "serious_error_sentence_ratio": 0.0,
+              "word_count": 325,
+              "paragraph_count": 5,
+              "task_schema_status": "complete",
+              "task_schema_confidence": 0.72,
+              "support_quality": 0.5167,
+              "idea_extension_depth": 0.8,
+              "relevance_ratio": 0.63,
+              "global_progression": 1.0,
+              "paragraphing_appropriacy": 0.9,
+              "raw_overall": 6.0,
+              "raw_min_criterion_band": 5.0,
+              "n_items": 1,
+              "chargeable_count": 1,
+              "n_spelling_weight": 0.0,
+              "local_root_weight": 1.0,
+              "grammar_weight": 0.0,
+              "lr_weight": 1.0,
+              "safe65_recovery": false,
+              "safe65_bridge": false,
+              "false_fail_bridge": false,
+              "task_ok_bridge_blocked": false,
+              "clean_soft_task_profile": false,
+              "strict7_recovery": false,
+              "task_resolution_state": "TASK_OK",
+              "task_resolution": {
+                "state": "TASK_OK",
+                "tr_cap": null,
+                "tr_floor": null,
+                "overall_floor": null,
+                "review_flag": null,
+                "evidence": {
+                  "task_schema_status": "complete",
+                  "task_schema_confidence": 0.72,
+                  "support_quality": 0.5167,
+                  "idea_extension_depth": 0.8,
+                  "relevance_ratio": 0.63,
+                  "semantic_recoverability": 0.675,
+                  "weak_writing_probability": 0.45,
+                  "local_language_damage_index": 0.0909,
+                  "serious_error_sentence_ratio": 0.0,
+                  "raw_overall": 6.0,
+                  "raw_min_criterion_band": 5.0,
+                  "word_count": 325,
+                  "paragraph_count": 5
+                }
+              },
+              "task_schema_false_fail_possible": false,
+              "band6_eligible": false,
+              "weak_escape_risk": false,
+              "weak_band6_escape_guard": true,
+              "strict_band6_permission_guard": false,
+              "weak_low_overcredit_guard": false,
+              "middle_soft_floor_rescue": false,
+              "middle_false_demote_rescue": false,
+              "safety_signal_bundle": {
+                "severe_signals": {
+                  "low_semantic_recoverability": false,
+                  "high_local_language_damage": false,
+                  "high_serious_sentence_ratio": false,
+                  "catastrophic_short_response": false,
+                  "very_heavy_local_root_evidence": false,
+                  "extreme_spelling_cluster": false
+                },
+                "supporting_weak_signals": {
+                  "weak_probability_high": false,
+                  "local_damage_elevated": false,
+                  "serious_sentence_ratio_elevated": false,
+                  "semantic_below_medium": false,
+                  "short_response": false,
+                  "paragraphing_too_limited": false,
+                  "spelling_cluster_with_weak_signal": false,
+                  "raw_min_below_band5": false,
+                  "task_development_weak": false,
+                  "heavy_chargeable_local_damage": false
+                },
+                "positive_recovery_signals": {
+                  "semantic_at_medium_plus": true,
+                  "weak_probability_controlled": false,
+                  "local_damage_controlled": true,
+                  "serious_ratio_controlled": true,
+                  "word_count_adequate": true,
+                  "paragraphing_adequate": true,
+                  "task_development_medium_plus": false,
+                  "raw_min_band6": false,
+                  "high_band_readiness_near": false
+                },
+                "severe_count": 0,
+                "supporting_weak_count": 0,
+                "positive_recovery_count": 5,
+                "weak_escape_risk": false,
+                "band6_eligible": false,
+                "safe65_bridge": false,
+                "heavy_chargeable_local_damage": false
+              },
+              "severe_signal_count": 0,
+              "supporting_weak_signal_count": 0,
+              "positive_recovery_count": 5
+            },
+            "reason": "Tier T4_MEDIUM upper bound"
+          },
+          {
+            "constraint_id": "tier_overall_lower_bound",
+            "target": "overall",
+            "type": "lower_bound",
+            "value": 5.0,
+            "priority": 10,
+            "evidence": {
+              "semantic_recoverability": 0.675,
+              "weak_writing_probability": 0.45,
+              "high_band_readiness": 0.55,
+              "local_language_damage_index": 0.0909,
+              "serious_error_sentence_ratio": 0.0,
+              "word_count": 325,
+              "paragraph_count": 5,
+              "task_schema_status": "complete",
+              "task_schema_confidence": 0.72,
+              "support_quality": 0.5167,
+              "idea_extension_depth": 0.8,
+              "relevance_ratio": 0.63,
+              "global_progression": 1.0,
+              "paragraphing_appropriacy": 0.9,
+              "raw_overall": 6.0,
+              "raw_min_criterion_band": 5.0,
+              "n_items": 1,
+              "chargeable_count": 1,
+              "n_spelling_weight": 0.0,
+              "local_root_weight": 1.0,
+              "grammar_weight": 0.0,
+              "lr_weight": 1.0,
+              "safe65_recovery": false,
+              "safe65_bridge": false,
+              "false_fail_bridge": false,
+              "task_ok_bridge_blocked": false,
+              "clean_soft_task_profile": false,
+              "strict7_recovery": false,
+              "task_resolution_state": "TASK_OK",
+              "task_resolution": {
+                "state": "TASK_OK",
+                "tr_cap": null,
+                "tr_floor": null,
+                "overall_floor": null,
+                "review_flag": null,
+                "evidence": {
+                  "task_schema_status": "complete",
+                  "task_schema_confidence": 0.72,
+                  "support_quality": 0.5167,
+                  "idea_extension_depth": 0.8,
+                  "relevance_ratio": 0.63,
+                  "semantic_recoverability": 0.675,
+                  "weak_writing_probability": 0.45,
+                  "local_language_damage_index": 0.0909,
+                  "serious_error_sentence_ratio": 0.0,
+                  "raw_overall": 6.0,
+                  "raw_min_criterion_band": 5.0,
+                  "word_count": 325,
+                  "paragraph_count": 5
+                }
+              },
+              "task_schema_false_fail_possible": false,
+              "band6_eligible": false,
+              "weak_escape_risk": false,
+              "weak_band6_escape_guard": true,
+              "strict_band6_permission_guard": false,
+              "weak_low_overcredit_guard": false,
+              "middle_soft_floor_rescue": false,
+              "middle_false_demote_rescue": false,
+              "safety_signal_bundle": {
+                "severe_signals": {
+                  "low_semantic_recoverability": false,
+                  "high_local_language_damage": false,
+                  "high_serious_sentence_ratio": false,
+                  "catastrophic_short_response": false,
+                  "very_heavy_local_root_evidence": false,
+                  "extreme_spelling_cluster": false
+                },
+                "supporting_weak_signals": {
+                  "weak_probability_high": false,
+                  "local_damage_elevated": false,
+                  "serious_sentence_ratio_elevated": false,
+                  "semantic_below_medium": false,
+                  "short_response": false,
+                  "paragraphing_too_limited": false,
+                  "spelling_cluster_with_weak_signal": false,
+                  "raw_min_below_band5": false,
+                  "task_development_weak": false,
+                  "heavy_chargeable_local_damage": false
+                },
+                "positive_recovery_signals": {
+                  "semantic_at_medium_plus": true,
+                  "weak_probability_controlled": false,
+                  "local_damage_controlled": true,
+                  "serious_ratio_controlled": true,
+                  "word_count_adequate": true,
+                  "paragraphing_adequate": true,
+                  "task_development_medium_plus": false,
+                  "raw_min_band6": false,
+                  "high_band_readiness_near": false
+                },
+                "severe_count": 0,
+                "supporting_weak_count": 0,
+                "positive_recovery_count": 5,
+                "weak_escape_risk": false,
+                "band6_eligible": false,
+                "safe65_bridge": false,
+                "heavy_chargeable_local_damage": false
+              },
+              "severe_signal_count": 0,
+              "supporting_weak_signal_count": 0,
+              "positive_recovery_count": 5
+            },
+            "reason": "Tier T4_MEDIUM lower bound"
+          },
+          {
+            "constraint_id": "no_high_band_allowed_task_response_cap",
+            "target": "task_response",
+            "type": "upper_bound",
+            "value": 6.0,
+            "priority": 60,
+            "evidence": {
+              "tier": "T4_MEDIUM",
+              "high_band_allowed": false
+            },
+            "reason": "Global tier does not allow Band 7+ criterion credit"
+          },
+          {
+            "constraint_id": "no_high_band_allowed_coherence_cohesion_cap",
+            "target": "coherence_cohesion",
+            "type": "upper_bound",
+            "value": 6.0,
+            "priority": 60,
+            "evidence": {
+              "tier": "T4_MEDIUM",
+              "high_band_allowed": false
+            },
+            "reason": "Global tier does not allow Band 7+ criterion credit"
+          },
+          {
+            "constraint_id": "no_high_band_allowed_lexical_resource_cap",
+            "target": "lexical_resource",
+            "type": "upper_bound",
+            "value": 6.0,
+            "priority": 60,
+            "evidence": {
+              "tier": "T4_MEDIUM",
+              "high_band_allowed": false
+            },
+            "reason": "Global tier does not allow Band 7+ criterion credit"
+          },
+          {
+            "constraint_id": "no_high_band_allowed_grammar_cap",
+            "target": "grammar",
+            "type": "upper_bound",
+            "value": 6.0,
+            "priority": 60,
+            "evidence": {
+              "tier": "T4_MEDIUM",
+              "high_band_allowed": false
+            },
+            "reason": "Global tier does not allow Band 7+ criterion credit"
+          },
+          {
+            "constraint_id": "runtime_no_external_target_use",
+            "target": "system",
+            "type": "review_flag",
+            "value": "external_targets_not_used_at_runtime",
+            "priority": 1,
+            "evidence": {},
+            "reason": "Runtime scoring uses profiler/evidence inputs only"
+          }
+        ],
+        "constraints_applied": [
+          {
+            "constraint_id": "no_high_band_allowed_coherence_cohesion_cap",
+            "target": "coherence_cohesion",
+            "type": "upper_bound",
+            "value": 6.0,
+            "priority": 60,
+            "evidence": {
+              "tier": "T4_MEDIUM",
+              "high_band_allowed": false
+            },
+            "reason": "Global tier does not allow Band 7+ criterion credit",
+            "before": 7,
+            "after": 6,
+            "integer_bound_used": 6
+          }
+        ],
+        "constraints_suppressed": [],
+        "final_criterion_bands": {
+          "task_response": 6,
+          "coherence_cohesion": 6,
+          "lexical_resource": 5,
+          "grammar": 5
+        },
+        "overall_band": 5.5,
+        "confidence": 0.708,
+        "review_flags": [
+          "external_targets_not_used_at_runtime"
+        ],
+        "qa": {
+          "overall_equals_final_criterion_mean": true,
+          "no_post_solver_mutation": true,
+          "caps_dominate_floors": true,
+          "criteria_within_1_9": true,
+          "criterion_bands_integer_only": true,
+          "overall_half_band_only": true,
+          "no_external_target_fields": true,
+          "no_task_cap_floor_conflict": true,
+          "no_high_recovery_under_weak_veto": true,
+          "no_high_floor_with_no_high_cap": true,
+          "constraint_conflict_reasons": [],
+          "constraint_conflict_count": 0,
+          "overall_upper_bound": 5.5,
+          "overall_lower_bound": 5.0,
+          "harmonization_steps": 0,
+          "upper_harmonization_steps": 0,
+          "lower_harmonization_steps": 0,
+          "suppressed_lower_bound_count": 0,
+          "unresolved_overall_upper_bound": false,
+          "unresolved_overall_lower_bound": false,
+          "criterion_solver_integer_domain": true,
+          "TR8_bad_rate_contract_ok": true,
+          "positive_collocation_not_high_band_proof": true,
+          "low_error_count_not_gra_high_band_proof": true,
+          "external_targets_used_at_runtime": false,
+          "single_solver_final_score": true,
+          "direct_profiler_input_supported": true,
+          "evidence_ledger_score_charge_weight_supported": true,
+          "v1_3_2_policy_constraints_active": true,
+          "v1_3_2_bridge_tightening_active": true,
+          "v1_3_2_convergent_t1_routing_active": true,
+          "v1_3_2_soft_task_lift_active": true,
+          "v1_3_2_integer_rubric_contract_active": true,
+          "v1_3_2_large_gap_guardrails_active": true,
+          "rubric_scores_integer_only": true,
+          "tier_governor_active": true,
+          "tier_governor_action": "none",
+          "tier_governor_evidence_tier": "B2_MEDIUM",
+          "tier_governor_released_score_tier": "B2_MEDIUM"
+        }
+      },
+      "qa": {
+        "overall_equals_final_criterion_mean": true,
+        "no_post_solver_mutation": true,
+        "caps_dominate_floors": true,
+        "criteria_within_1_9": true,
+        "criterion_bands_integer_only": true,
+        "overall_half_band_only": true,
+        "no_external_target_fields": true,
+        "no_task_cap_floor_conflict": true,
+        "no_high_recovery_under_weak_veto": true,
+        "no_high_floor_with_no_high_cap": true,
+        "constraint_conflict_reasons": [],
+        "constraint_conflict_count": 0,
+        "overall_upper_bound": 5.5,
+        "overall_lower_bound": 5.0,
+        "harmonization_steps": 0,
+        "upper_harmonization_steps": 0,
+        "lower_harmonization_steps": 0,
+        "suppressed_lower_bound_count": 0,
+        "unresolved_overall_upper_bound": false,
+        "unresolved_overall_lower_bound": false,
+        "criterion_solver_integer_domain": true,
+        "TR8_bad_rate_contract_ok": true,
+        "positive_collocation_not_high_band_proof": true,
+        "low_error_count_not_gra_high_band_proof": true,
+        "external_targets_used_at_runtime": false,
+        "single_solver_final_score": true,
+        "direct_profiler_input_supported": true,
+        "evidence_ledger_score_charge_weight_supported": true,
+        "v1_3_2_policy_constraints_active": true,
+        "v1_3_2_bridge_tightening_active": true,
+        "v1_3_2_convergent_t1_routing_active": true,
+        "v1_3_2_soft_task_lift_active": true,
+        "v1_3_2_integer_rubric_contract_active": true,
+        "v1_3_2_large_gap_guardrails_active": true,
+        "rubric_scores_integer_only": true,
+        "tier_governor_active": true,
+        "tier_governor_action": "none",
+        "tier_governor_evidence_tier": "B2_MEDIUM",
+        "tier_governor_released_score_tier": "B2_MEDIUM"
+      }
+    }
+  ]
+}

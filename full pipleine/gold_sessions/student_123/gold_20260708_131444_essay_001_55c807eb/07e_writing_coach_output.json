@@ -1,0 +1,1488 @@
+{
+  "schema_version": "WRITING_COACH_OUTPUT_V1_2_7_PROACTIVE_ADAPTIVE_CLI",
+  "contract_compatibility": "WRITING_COACH_OUTPUT_V1_2_7",
+  "identity": {
+    "student_id": "student_123",
+    "institution_id": null,
+    "class_id": null,
+    "teacher_id": null,
+    "essay_id": "essay_001",
+    "submission_id": null,
+    "prompt_id": null,
+    "batch_id": null,
+    "draft_id": null,
+    "parent_submission_id": null,
+    "session_id": null
+  },
+  "student_id": "student_123",
+  "run": {
+    "run_id": "run_d8abea5c165617d0",
+    "engine_id": "WRITING_COACH",
+    "engine_version": "writing_coach_v1.2.7_proactive_adaptive_cli",
+    "created_at": "2026-07-08T11:14:49.565048+00:00",
+    "runtime_mode": "standalone_cli",
+    "model_used": null,
+    "move_bank_id": "gold_micro_writing_move_bank_v1",
+    "move_bank_schema_version": "MICRO_WRITING_MOVE_BANK_GOLD_V1",
+    "resource_version": "ontology=3.0.0;clusters=3.0.0",
+    "planner_mode": "after_essay_prescription_or_refresh",
+    "plan_horizon_days": 7
+  },
+  "coach_decision": {
+    "selected_skill_id": "arg_reason_generation",
+    "selected_skill_name": "Reason Generation",
+    "selected_move_id": "gold_move_013_arg_reason_generation",
+    "selected_move_name": "Claim Plus Reason",
+    "target_skill_role_in_move": "primary_target",
+    "target_skill_role_explanation": "The selected move directly targets this microskill as its primary training focus.",
+    "selection_policy": "move_based_dependency_aware_next_best_microskill_v1_2_7",
+    "student_essay_use_policy": "diagnostic_input_and_optional_noticing_only_not_default_repair_material",
+    "student_rationale": "Today you will practise reason generation through a short writing move: Claim Plus Reason. The goal is to produce new, clearer writing — not to rewrite the old essay.",
+    "teacher_rationale": "Selected by move-based Writing Coach V1.2.7. skill=arg_reason_generation; selection_score=0.629; priority_score=0.546; mastery_estimate=0.433; confidence=0.74; bucket=hybrid_essay_observable_plus_practice_required; selected_move=gold_move_013_arg_reason_generation; target_skill_role_in_move=primary_target; move_fit=0.897.",
+    "candidate_rankings": [
+      {
+        "skill_id": "arg_reason_generation",
+        "skill_name": "Reason Generation",
+        "domain": "Argumentation",
+        "mastery_estimate": 0.433,
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "pressure": 0.48,
+        "confidence": 0.74,
+        "evidence_count": 6,
+        "evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0003",
+          "ev_0004",
+          "ev_0005",
+          "ev_0014",
+          "ev_0015"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Moderate current learning priority.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_essay_observable_plus_practice_required."
+        ],
+        "prerequisites": [
+          "arg_claim_generation",
+          "generate_explanations"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "th_causal_reasoning",
+        "skill_name": "Causal Reasoning (Thinking)",
+        "domain": "Thinking Competence",
+        "mastery_estimate": 0.433,
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "pressure": 0.48,
+        "confidence": 0.74,
+        "evidence_count": 6,
+        "evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0003",
+          "ev_0004",
+          "ev_0005",
+          "ev_0014",
+          "ev_0015"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Moderate current learning priority.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_essay_observable_plus_practice_required."
+        ],
+        "prerequisites": [
+          "generate_causes",
+          "generate_consequences"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "th_tradeoff_analysis",
+        "skill_name": "Tradeoff Analysis",
+        "domain": "Thinking Competence",
+        "mastery_estimate": 0.433,
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "pressure": 0.48,
+        "confidence": 0.74,
+        "evidence_count": 6,
+        "evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0003",
+          "ev_0004",
+          "ev_0005",
+          "ev_0014",
+          "ev_0015"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Moderate current learning priority.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_essay_observable_plus_practice_required."
+        ],
+        "prerequisites": [
+          "th_comparison_reasoning",
+          "evaluation_of_alternatives"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "spelling_control",
+        "skill_name": "Spelling Control",
+        "domain": "Lexical Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.603,
+        "priority_score": 0.521,
+        "pressure": 0.48,
+        "confidence": 0.76,
+        "evidence_count": 8,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0004",
+          "ev_0015",
+          "ev_0017",
+          "ev_0019",
+          "ev_0021",
+          "ev_0022",
+          "ev_0023"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Moderate current learning priority.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "register_control",
+        "skill_name": "Register Control",
+        "domain": "Lexical Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.598,
+        "priority_score": 0.516,
+        "pressure": 0.483,
+        "confidence": 0.72,
+        "evidence_count": 44,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "dependency_from:academic_tone",
+          "dependency_from:formality_control",
+          "dependency_from:lx_academic_register_control",
+          "dependency_from:paraphrasing_ability",
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0004",
+          "ev_0015",
+          "ev_0017",
+          "ev_0019",
+          "ev_0021",
+          "ev_0022",
+          "ev_0023"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: dependency_from:academic_tone, dependency_from:formality_control, dependency_from:lx_academic_register_control, dependency_from:paraphrasing_ability, evaluator.",
+          "Moderate current learning priority.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [
+          "identify_audience",
+          "identify_genre"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "arg_claim_specificity",
+        "skill_name": "Claim Specificity",
+        "domain": "Argumentation",
+        "mastery_estimate": 0.521,
+        "selection_score": 0.579,
+        "priority_score": 0.468,
+        "pressure": 0.365,
+        "confidence": 0.81,
+        "evidence_count": 12,
+        "evaluation_bucket": "single_essay_observable",
+        "sources": [
+          "dependency_from:arg_claim_precision",
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0003",
+          "ev_0004",
+          "ev_0005",
+          "ev_0007",
+          "ev_0012"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: dependency_from:arg_claim_precision, evaluator.",
+          "Large mastery gap.",
+          "Evaluation bucket: single_essay_observable."
+        ],
+        "prerequisites": [
+          "arg_claim_generation"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "word_formation_control",
+        "skill_name": "Word Formation Control",
+        "domain": "Lexical Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.566,
+        "priority_score": 0.46,
+        "pressure": 0.365,
+        "confidence": 0.78,
+        "evidence_count": 16,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "dependency_from:lx_nominalization_control",
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0004",
+          "ev_0015",
+          "ev_0017",
+          "ev_0019",
+          "ev_0021",
+          "ev_0022",
+          "ev_0023"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: dependency_from:lx_nominalization_control, evaluator.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [
+          "topic_vocabulary_control"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "claim_construction",
+        "skill_name": "Claim Construction",
+        "domain": "Reasoning Competence",
+        "mastery_estimate": 0.539,
+        "selection_score": 0.519,
+        "priority_score": 0.371,
+        "pressure": 0.18,
+        "confidence": 0.88,
+        "evidence_count": 6,
+        "evaluation_bucket": "single_essay_observable",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0003",
+          "ev_0004",
+          "ev_0005",
+          "ev_0007",
+          "ev_0012"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Large mastery gap.",
+          "Evaluation bucket: single_essay_observable."
+        ],
+        "prerequisites": [
+          "identify_task_type",
+          "identify_purpose",
+          "generate_relevant_ideas"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "collocation_control",
+        "skill_name": "Collocation Control",
+        "domain": "Lexical Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.507,
+        "priority_score": 0.363,
+        "pressure": 0.18,
+        "confidence": 0.82,
+        "evidence_count": 8,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0004",
+          "ev_0015",
+          "ev_0017",
+          "ev_0019",
+          "ev_0021",
+          "ev_0022",
+          "ev_0023"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "simple_sentence_construction",
+        "skill_name": "Simple Sentence Construction",
+        "domain": "Grammar Production",
+        "mastery_estimate": 0.717,
+        "selection_score": 0.455,
+        "priority_score": 0.328,
+        "pressure": 0.232,
+        "confidence": 0.742,
+        "evidence_count": 10,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "detector_or_errormap",
+          "evaluator",
+          "priority_engine.family_map"
+        ],
+        "evidence_ids": [
+          "err_0301f05d0a66",
+          "err_6a5f2bf4b08e",
+          "err_a1a87170cee6",
+          "ev_0002",
+          "ev_0003",
+          "ev_0004",
+          "ev_0005",
+          "ev_0007"
+        ],
+        "families": [
+          "G_SV_AGREEMENT",
+          "G_VERB_PATTERN"
+        ],
+        "reasons": [
+          "Evidence sources: detector_or_errormap, evaluator, priority_engine.family_map.",
+          "Repeated signal families: G_VERB_PATTERN×2, G_SV_AGREEMENT×1.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [
+          "noun_form_control",
+          "agreement_control",
+          "tense_control"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "near_transfer",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "cohesion_without_overlinking",
+        "skill_name": "Cohesion Without Overlinking",
+        "domain": "Cohesion",
+        "mastery_estimate": 0.773,
+        "selection_score": 0.411,
+        "priority_score": 0.252,
+        "pressure": 0.091,
+        "confidence": 0.86,
+        "evidence_count": 5,
+        "evaluation_bucket": "single_essay_observable",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0005",
+          "ev_0012",
+          "ev_0015",
+          "ev_0017",
+          "ev_0021"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Evaluation bucket: single_essay_observable."
+        ],
+        "prerequisites": [
+          "transition_control",
+          "reference_management",
+          "progression_management"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "near_transfer",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "information_flow",
+        "skill_name": "Information Flow",
+        "domain": "Cohesion",
+        "mastery_estimate": 0.773,
+        "selection_score": 0.411,
+        "priority_score": 0.252,
+        "pressure": 0.091,
+        "confidence": 0.86,
+        "evidence_count": 5,
+        "evaluation_bucket": "single_essay_observable",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0005",
+          "ev_0012",
+          "ev_0015",
+          "ev_0017",
+          "ev_0021"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Evaluation bucket: single_essay_observable."
+        ],
+        "prerequisites": [
+          "logical_sequencing",
+          "reference_management"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "near_transfer",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      }
+    ],
+    "move_candidate_rankings": [
+      {
+        "move_id": "gold_move_013_arg_reason_generation",
+        "move_name": "Claim Plus Reason",
+        "primary_microskill": "arg_reason_generation",
+        "move_family": "argument_development",
+        "selection_score": 0.79,
+        "fit_score": 0.897,
+        "difficulty_fit": 1.0,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "primary_target",
+        "target_skill_role_explanation": "Move directly targets the selected microskill.",
+        "reason": "duration_fit=1.00; difficulty_fit=1.00; production_mode=0.68; observable_quality=0.75; target_role=primary_target"
+      }
+    ],
+    "dependency_ready": true,
+    "blocking_prerequisites": []
+  },
+  "today_mission": {
+    "mission_id": "wc_mission_f7c20a5ab4",
+    "mission_version": "writing_coach_v1_2_7_move_mission",
+    "target_skill_id": "arg_reason_generation",
+    "target_skill_name": "Reason Generation",
+    "target_domain": "Argumentation",
+    "target_skill_role_in_move": "primary_target",
+    "target_skill_role_explanation": "The selected move directly targets this microskill as its primary training focus.",
+    "selected_move": {
+      "move_id": "gold_move_013_arg_reason_generation",
+      "move_name": "Claim Plus Reason",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "primary_microskill": "arg_reason_generation",
+      "secondary_microskills": [],
+      "target_skill_role_in_move": "primary_target",
+      "target_skill_role_explanation": "The selected move directly targets this microskill as its primary training focus."
+    },
+    "timebox_minutes": 10,
+    "difficulty": "controlled",
+    "activity_category": "WRITING_COACH_MICRO_PRODUCTION",
+    "title": "Claim Plus Reason",
+    "student_goal": "Add a clear reason after a claim.",
+    "source_prompt": "the current writing topic",
+    "source_policy": {
+      "own_essay_use": "diagnostic_reference_only",
+      "copying_old_essay_fragments": "not_allowed"
+    },
+    "stimulus": {
+      "stimulus_type": "near_transfer_prompts",
+      "topic_context": "the current writing topic",
+      "own_essay_use": "diagnostic_reference_only",
+      "items": [
+        {
+          "rough_input": "public services / cost / taxpayers",
+          "expected_move": "write one clear academic sentence",
+          "topic_tags": [
+            "society",
+            "government"
+          ],
+          "original_item_number": 1
+        },
+        {
+          "rough_input": "technology / students / independent learning",
+          "expected_move": "write one clear academic sentence",
+          "topic_tags": [
+            "education",
+            "technology"
+          ],
+          "original_item_number": 2
+        },
+        {
+          "rough_input": "city life / transport / pollution",
+          "expected_move": "write one clear academic sentence",
+          "topic_tags": [
+            "environment",
+            "cities"
+          ],
+          "original_item_number": 3
+        }
+      ],
+      "noticing_example": null,
+      "full_source_items": [
+        {
+          "rough_input": "public services / cost / taxpayers",
+          "expected_move": "write one clear academic sentence",
+          "topic_tags": [
+            "society",
+            "government"
+          ],
+          "original_item_number": 1
+        },
+        {
+          "rough_input": "technology / students / independent learning",
+          "expected_move": "write one clear academic sentence",
+          "topic_tags": [
+            "education",
+            "technology"
+          ],
+          "original_item_number": 2
+        },
+        {
+          "rough_input": "city life / transport / pollution",
+          "expected_move": "write one clear academic sentence",
+          "topic_tags": [
+            "environment",
+            "cities"
+          ],
+          "original_item_number": 3
+        }
+      ]
+    },
+    "steps": [
+      "Read the near-transfer prompts.",
+      "Write new sentences; do not copy from the old essay.",
+      "Focus especially on claim plus reason.",
+      "Check each answer before submitting."
+    ],
+    "required_output": {
+      "type": "numbered_short_written_response",
+      "required_items": 3,
+      "line_rule": "Write one answer per numbered line.",
+      "length_guidance": "One sentence per item unless the mission asks for a chain.",
+      "expected_item_numbers": [
+        1,
+        2,
+        3
+      ]
+    },
+    "student_instruction": "Claim Plus Reason\nTime: 10 minutes\n\nWhat to do:\n1. Read the near-transfer prompts.\n2. Write new sentences; do not copy from the old essay.\n3. Focus especially on claim plus reason.\n4. Check each answer before submitting.\n\nWrite your answer:\n- 3 item(s)\n- Write one answer per numbered line.\n- One sentence per item unless the mission asks for a chain.",
+    "success_checklist": [
+      "I completed all required items.",
+      "Each answer is new, not copied from the old essay.",
+      "The target writing move is visible.",
+      "The meaning is clear."
+    ],
+    "observable_units": [
+      {
+        "unit_id": "complete_output",
+        "description": "The required number of items is complete.",
+        "weight": 0.25,
+        "critical": true,
+        "score_type": "0_1"
+      },
+      {
+        "unit_id": "arg_reason_generation",
+        "description": "Add a clear reason after a claim.",
+        "weight": 0.5,
+        "critical": true,
+        "score_type": "0_1"
+      },
+      {
+        "unit_id": "meaning_clarity",
+        "description": "The meaning is clear and recoverable.",
+        "weight": 0.25,
+        "critical": false,
+        "score_type": "0_1"
+      }
+    ],
+    "scoring": {
+      "pass_threshold": 0.8,
+      "partial_threshold": 0.6,
+      "critical_failure_policy": "critical observable-unit failure caps result at fail unless evidence is partial and recoverable",
+      "outcomes": {
+        "pass": "score >= pass_threshold and no critical failure",
+        "partial_pass": "partial_threshold <= score < pass_threshold or minor recoverable gap",
+        "fail": "score < partial_threshold or critical failure",
+        "invalid": "empty/off-task/not enough evidence"
+      }
+    },
+    "student_rationale": "Today you will practise reason generation through a short writing move: Claim Plus Reason. The goal is to produce new, clearer writing — not to rewrite the old essay.",
+    "teacher_rationale": "Selected by move-based Writing Coach V1.2.7. skill=arg_reason_generation; selection_score=0.629; priority_score=0.546; mastery_estimate=0.433; confidence=0.74; bucket=hybrid_essay_observable_plus_practice_required; selected_move=gold_move_013_arg_reason_generation; target_skill_role_in_move=primary_target; move_fit=0.897.",
+    "debug_rationale": {
+      "skill_reasons": [
+        "Evidence sources: evaluator.",
+        "Moderate current learning priority.",
+        "Large mastery gap.",
+        "Evaluation bucket: hybrid_essay_observable_plus_practice_required."
+      ],
+      "sources": [
+        "evaluator"
+      ],
+      "families": [],
+      "evidence_ids": [
+        "ev_0002",
+        "ev_0003",
+        "ev_0004",
+        "ev_0005",
+        "ev_0014",
+        "ev_0015"
+      ],
+      "move_candidate_rankings": [
+        {
+          "move_id": "gold_move_013_arg_reason_generation",
+          "move_name": "Claim Plus Reason",
+          "primary_microskill": "arg_reason_generation",
+          "move_family": "argument_development",
+          "selection_score": 0.79,
+          "fit_score": 0.897,
+          "difficulty_fit": 1.0,
+          "source_policy_ok": true,
+          "target_skill_role_in_move": "primary_target",
+          "target_skill_role_explanation": "Move directly targets the selected microskill.",
+          "reason": "duration_fit=1.00; difficulty_fit=1.00; production_mode=0.68; observable_quality=0.75; target_role=primary_target"
+        }
+      ]
+    },
+    "repeat_policy": {
+      "if_fail": "repeat same microskill with easier stimulus and heavier model support",
+      "if_partial_pass": "repeat same move family with one constraint reduced",
+      "if_pass": "repeat same microskill once in a new topic before unlocking dependent skill",
+      "functional_rule": "pass 2 of last 3 valid move missions with average >= 0.75 and no critical failure",
+      "stable_rule": "pass 4 of last 5 valid move missions with average >= 0.80 across at least 2 topics"
+    },
+    "domain_adapter": {
+      "domain": "ielts_academic_writing",
+      "adapter_role": "presentation_and_prompt_context_only",
+      "core_logic_dependency": false
+    },
+    "adaptive_variant": {
+      "schema_version": "WRITING_COACH_ADAPTIVE_VARIANT_V1_2_7",
+      "adaptation_type": "baseline_first_assignment",
+      "visible_change": "none_yet"
+    }
+  },
+  "next_steps": [
+    "Complete today_mission only; do not rewrite the full essay.",
+    "Submit the requested numbered output.",
+    "Use the mission result to decide repeat, scaffold, or upgrade."
+  ],
+  "practice_recommendations": [
+    {
+      "target_skill_id": "arg_reason_generation",
+      "move_id": "gold_move_013_arg_reason_generation",
+      "exercise_type": "micro_writing_move",
+      "difficulty": "controlled",
+      "duration_minutes": 10,
+      "routing_note": "Writing Coach prescription; Practice Engine may provide supporting drills but should not replace the move mission."
+    }
+  ],
+  "micro_lesson": {
+    "skill_id": "arg_reason_generation",
+    "title": "Mini-lesson: Claim Plus Reason",
+    "teaching_point": "Add a clear reason after a claim.",
+    "do": [],
+    "avoid": []
+  },
+  "mastery_state_snapshot": {
+    "selected_skill": {
+      "skill_id": "arg_reason_generation",
+      "skill_name": "Reason Generation",
+      "current_mastery_estimate": 0.433,
+      "status": "developing",
+      "confidence": 0.74,
+      "evidence_bucket": "hybrid_essay_observable_plus_practice_required",
+      "note": "Prescription snapshot only; not a mastery update."
+    },
+    "nearby_skills": [
+      {
+        "skill_id": "arg_reason_generation",
+        "skill_name": "Reason Generation",
+        "mastery_estimate": 0.433,
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "status": "developing",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "th_causal_reasoning",
+        "skill_name": "Causal Reasoning (Thinking)",
+        "mastery_estimate": 0.433,
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "status": "developing",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "th_tradeoff_analysis",
+        "skill_name": "Tradeoff Analysis",
+        "mastery_estimate": 0.433,
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "status": "developing",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "spelling_control",
+        "skill_name": "Spelling Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.603,
+        "priority_score": 0.521,
+        "status": "developing",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "register_control",
+        "skill_name": "Register Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.598,
+        "priority_score": 0.516,
+        "status": "developing",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "arg_claim_specificity",
+        "skill_name": "Claim Specificity",
+        "mastery_estimate": 0.521,
+        "selection_score": 0.579,
+        "priority_score": 0.468,
+        "status": "developing",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "word_formation_control",
+        "skill_name": "Word Formation Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.566,
+        "priority_score": 0.46,
+        "status": "developing",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "claim_construction",
+        "skill_name": "Claim Construction",
+        "mastery_estimate": 0.539,
+        "selection_score": 0.519,
+        "priority_score": 0.371,
+        "status": "developing",
+        "has_move_bank_entry": true
+      }
+    ]
+  },
+  "learning_intelligence_payload": {
+    "source_engine_id": "WRITING_COACH",
+    "source_run_id": "run_d8abea5c165617d0",
+    "submission_id": null,
+    "essay_id": "essay_001",
+    "student_id": "student_123",
+    "profile_type": "coaching_prescription",
+    "emission_type": "prescription_only_not_performance_evidence",
+    "prescription_signals": [
+      {
+        "skill_id": "arg_reason_generation",
+        "skill_name": "Reason Generation",
+        "move_id": "gold_move_013_arg_reason_generation",
+        "move_name": "Claim Plus Reason",
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "mastery_estimate_snapshot": 0.433,
+        "confidence": 0.74,
+        "status_snapshot": "developing",
+        "evidence_bucket": "hybrid_essay_observable_plus_practice_required",
+        "mission_id": "wc_mission_f7c20a5ab4"
+      }
+    ],
+    "skill_performance_signals": [],
+    "metric_signals": [
+      {
+        "metric_id": "complete_output",
+        "target_skill_id": "arg_reason_generation",
+        "expected_evidence_type": "0_1",
+        "weight": 0.25
+      },
+      {
+        "metric_id": "arg_reason_generation",
+        "target_skill_id": "arg_reason_generation",
+        "expected_evidence_type": "0_1",
+        "weight": 0.5
+      },
+      {
+        "metric_id": "meaning_clarity",
+        "target_skill_id": "arg_reason_generation",
+        "expected_evidence_type": "0_1",
+        "weight": 0.25
+      }
+    ],
+    "behavioral_events": [
+      {
+        "event_id": "event_1d7582fd7aab",
+        "student_id": "student_123",
+        "submission_id": null,
+        "session_id": null,
+        "event_type": "micromission_assigned",
+        "skill_ids": [
+          "arg_reason_generation"
+        ],
+        "move_id": "gold_move_013_arg_reason_generation",
+        "mission_id": "wc_mission_f7c20a5ab4",
+        "outcome": "assigned",
+        "created_at": "2026-07-08T11:14:49.565048+00:00"
+      },
+      {
+        "event_id": "event_b9e5de136659",
+        "student_id": "student_123",
+        "submission_id": null,
+        "session_id": null,
+        "event_type": "coaching_cycle_planned",
+        "cycle_id": "cycle_2847257ddd46",
+        "mission_id": "wc_mission_f7c20a5ab4",
+        "outcome": "planned",
+        "created_at": "2026-07-08T11:14:49.565048+00:00"
+      }
+    ],
+    "confidence": 0.74,
+    "privacy_classification": "learning_analytics",
+    "notes": [
+      "Prescription only; mastery update requires mission submission and evaluation."
+    ],
+    "active_cycle_id": "cycle_2847257ddd46",
+    "plan_horizon_days": 7
+  },
+  "qa": {
+    "status": "ok",
+    "warnings": [],
+    "errors": [],
+    "confidence": 0.74,
+    "source_audit": {
+      "evaluator": true,
+      "detector": true,
+      "errormap": true,
+      "scorer": true,
+      "verifier": true,
+      "adjudicated": true,
+      "scorer_metrics": false,
+      "score_contract": true,
+      "priority": true,
+      "directive": true,
+      "feedback": true,
+      "feedback_report": true,
+      "intake": false,
+      "move_bank": true,
+      "ontology": true,
+      "clusters": true
+    },
+    "move_bank_audit": {
+      "bank_id": "gold_micro_writing_move_bank_v1",
+      "schema_version": "MICRO_WRITING_MOVE_BANK_GOLD_V1",
+      "move_count": 40,
+      "warnings": [],
+      "errors": []
+    },
+    "planner_audit": {
+      "active_cycle_created": true,
+      "rolling_plan_created": true,
+      "coach_state_export_created": true,
+      "student_home_card_created": true,
+      "daily_continuation_supported": true
+    },
+    "semantic_consistency_audit": {
+      "version_labels_v1_2_7": true,
+      "selected_skill_domain_known": true,
+      "target_skill_role_declared": true,
+      "move_bank_production_ready": true,
+      "lie_policy_platform_preferred": true
+    }
+  },
+  "active_coaching_cycle": {
+    "cycle_id": "cycle_2847257ddd46",
+    "cycle_type": "proactive_adaptive_skill_cycle",
+    "status": "active",
+    "started_at": "2026-07-08T11:14:49.565048+00:00",
+    "last_updated_at": "2026-07-08T11:14:49.565048+00:00",
+    "started_from_submission_id": null,
+    "requires_new_essay": false,
+    "active_skill": {
+      "skill_id": "arg_reason_generation",
+      "skill_name": "Reason Generation",
+      "target_status": "functional",
+      "current_status": "developing",
+      "domain": "Argumentation",
+      "mastery_estimate_snapshot": 0.433,
+      "selection_score_snapshot": 0.629
+    },
+    "active_move": {
+      "move_id": "gold_move_013_arg_reason_generation",
+      "move_name": "Claim Plus Reason",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production"
+    },
+    "goal_for_cycle": "Move Reason Generation from developing/emerging control to functional use in short writing production.",
+    "success_rules": {
+      "functional_rule": "pass 2 of last 3 valid missions with average >= 0.75 and no critical failure",
+      "stable_rule": "pass 4 of last 5 valid missions with average >= 0.80 across at least 2 topics when topic data is available",
+      "unlock_rule": "unlock next queued skill after functional_rule is met, unless a new essay refreshes priorities"
+    },
+    "progress_snapshot": {
+      "valid_missions_for_active_skill": 0,
+      "recent_outcomes": [],
+      "recent_average": 0.0,
+      "functional_achieved": false,
+      "stable_achieved": false,
+      "last_result_outcome": null
+    },
+    "next_skill_queue": [
+      {
+        "skill_id": "th_causal_reasoning",
+        "skill_name": "Causal Reasoning (Thinking)",
+        "mastery_estimate": 0.433,
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "th_tradeoff_analysis",
+        "skill_name": "Tradeoff Analysis",
+        "mastery_estimate": 0.433,
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "spelling_control",
+        "skill_name": "Spelling Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.603,
+        "priority_score": 0.521,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "register_control",
+        "skill_name": "Register Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.598,
+        "priority_score": 0.516,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_claim_specificity",
+        "skill_name": "Claim Specificity",
+        "mastery_estimate": 0.521,
+        "selection_score": 0.579,
+        "priority_score": 0.468,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "word_formation_control",
+        "skill_name": "Word Formation Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.566,
+        "priority_score": 0.46,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "claim_construction",
+        "skill_name": "Claim Construction",
+        "mastery_estimate": 0.539,
+        "selection_score": 0.519,
+        "priority_score": 0.371,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "collocation_control",
+        "skill_name": "Collocation Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.507,
+        "priority_score": 0.363,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      }
+    ]
+  },
+  "coaching_plan": {
+    "plan_id": "plan_ecbb8e747bea",
+    "plan_type": "adaptive_rolling_plan",
+    "horizon_days": 7,
+    "fixed_or_adaptive": "adaptive_not_fixed",
+    "student_visible_summary": "This cycle trains Reason Generation through short writing moves. Today: Claim Plus Reason.",
+    "system_goal": "Move Reason Generation from developing/emerging control to functional use in short writing production.",
+    "daily_slots": [
+      {
+        "day_index": 1,
+        "status": "assigned",
+        "skill_id": "arg_reason_generation",
+        "skill_name": "Reason Generation",
+        "move_id": "gold_move_013_arg_reason_generation",
+        "move_family": "argument_development",
+        "mission_id": "wc_mission_f7c20a5ab4",
+        "student_task": "Claim Plus Reason",
+        "timebox_minutes": 10
+      },
+      {
+        "day_index": 2,
+        "status": "conditional",
+        "if_previous_pass": "repeat same active skill with a new near-transfer topic or slightly less scaffold",
+        "if_previous_partial_pass": "repeat same move family with one extra model/scaffold",
+        "if_previous_fail": "repeat same microskill with fewer items and heavier support"
+      },
+      {
+        "day_index": 3,
+        "status": "conditional",
+        "if_two_recent_passes": "mark active skill functional and unlock the next queued skill if no new essay changes priorities",
+        "otherwise": "continue active skill until functional_rule is met"
+      },
+      {
+        "day_index": 4,
+        "status": "planned_policy",
+        "action": "near_transfer_or_upgrade",
+        "rule": "use a new topic or a harder transformation only if the previous result was pass/partial_pass"
+      },
+      {
+        "day_index": 5,
+        "status": "planned_policy",
+        "action": "mini_review_or_mixed_transfer",
+        "rule": "brief review of active skill plus one contrast with a nearby skill"
+      },
+      {
+        "day_index": 6,
+        "status": "optional",
+        "action": "essay_application_checkpoint",
+        "rule": "apply the active skill to one paragraph or one essay-plan component, not a full rewrite"
+      },
+      {
+        "day_index": 7,
+        "status": "review",
+        "action": "weekly_mastery_review",
+        "rule": "summarize outcomes, decide continue/unlock/refresh from new essay"
+      }
+    ],
+    "do_not_pre_generate_all_missions": true,
+    "why_not_fixed": "Future missions depend on pass/partial/fail results, new essay evidence, and LIE mastery updates."
+  },
+  "skill_priority_queue": [
+    {
+      "priority": 1,
+      "skill_id": "arg_reason_generation",
+      "skill_name": "Reason Generation",
+      "message": "Train Reason Generation through one production/transformation writing move.",
+      "timebox_minutes": 10,
+      "success_measure": "Pass/partial/fail from observable units, not essay score."
+    },
+    {
+      "priority": 2,
+      "skill_id": "th_causal_reasoning",
+      "skill_name": "Causal Reasoning (Thinking)",
+      "message": "Monitor next: Causal Reasoning (Thinking).",
+      "condition": "Train after Reason Generation becomes functional or if new evidence raises priority."
+    },
+    {
+      "priority": 3,
+      "skill_id": "th_tradeoff_analysis",
+      "skill_name": "Tradeoff Analysis",
+      "message": "Monitor next: Tradeoff Analysis.",
+      "condition": "Train after Reason Generation becomes functional or if new evidence raises priority."
+    },
+    {
+      "priority": 4,
+      "skill_id": "spelling_control",
+      "skill_name": "Spelling Control",
+      "message": "Monitor next: Spelling Control.",
+      "condition": "Train after Reason Generation becomes functional or if new evidence raises priority."
+    },
+    {
+      "priority": 5,
+      "skill_id": "register_control",
+      "skill_name": "Register Control",
+      "message": "Monitor next: Register Control.",
+      "condition": "Train after Reason Generation becomes functional or if new evidence raises priority."
+    }
+  ],
+  "student_home_card": {
+    "title": "Today’s 10-minute Writing Coach",
+    "message": "Practise reason generation through one short writing move.",
+    "button_text": "Start today’s mission",
+    "mission_title": "Claim Plus Reason",
+    "timebox_minutes": 10,
+    "weekly_focus": "Reason Generation",
+    "streak_goal": "Complete 3 Writing Coach missions this week.",
+    "student_visible_plan_summary": "This cycle trains Reason Generation through short writing moves. Today: Claim Plus Reason."
+  },
+  "next_run_trigger": {
+    "trigger_type": "after_mission_submission_or_next_scheduled_day",
+    "default_frequency": "daily_when_student_is_active",
+    "minimum_interval_hours": 20,
+    "requires_new_essay": false,
+    "requires_lie_profile": "platform_preferred_standalone_optional",
+    "requires_coach_state": true,
+    "requires_previous_mission_result": "preferred_but_not_required_for_first_daily_continuation",
+    "next_mode": "daily_continuation_no_new_essay",
+    "input_contract": [
+      "coach_state_export",
+      "latest_mission_result_optional",
+      "external_move_bank"
+    ]
+  },
+  "daily_coach_policy": {
+    "student_should_run_manually": false,
+    "product_should_assign_proactively": true,
+    "new_essay_required_each_day": false,
+    "lie_profile_policy": "preferred in platform mode; optional in standalone CLI mode",
+    "daily_decision_order": [
+      "read coach_state_export",
+      "read latest mission result if available",
+      "check functional/stable rules",
+      "repeat, scaffold, upgrade, or unlock next skill",
+      "generate one new today_mission"
+    ]
+  },
+  "mission_result_routing": {
+    "on_pass": "record performance evidence; repeat same skill once with new topic or unlock if functional_rule is met",
+    "on_partial_pass": "record partial evidence; repeat same move family with one more scaffold",
+    "on_fail": "record weak evidence; repeat same microskill with easier stimulus and fewer items",
+    "on_invalid": "do not update mastery; reassign the same mission or clarify output format",
+    "after_functional": "unlock next skill from next_skill_queue unless new essay refreshes priorities"
+  },
+  "weekly_review_policy": {
+    "review_after_valid_missions": 5,
+    "review_after_days": 7,
+    "outputs": [
+      "student_progress_summary",
+      "active_skill_status",
+      "unlock_or_continue_decision",
+      "next_week_focus"
+    ],
+    "requires_human_review": false
+  },
+  "plan_refresh_policy": {
+    "refresh_when_new_essay_scored": true,
+    "refresh_when_revision_result_available": true,
+    "refresh_when_lie_detects_regression": true,
+    "preserve_cycle_if_same_skill_remains_top_priority": true,
+    "do_not_discard_history": true
+  },
+  "coach_state_export": {
+    "schema_version": "WRITING_COACH_STATE_V1_2_7",
+    "created_at": "2026-07-08T11:14:49.565048+00:00",
+    "generated_by_run_id": "run_d8abea5c165617d0",
+    "identity": {
+      "student_id": "student_123",
+      "institution_id": null,
+      "class_id": null,
+      "teacher_id": null,
+      "essay_id": "essay_001",
+      "submission_id": null,
+      "prompt_id": null,
+      "batch_id": null,
+      "draft_id": null,
+      "parent_submission_id": null,
+      "session_id": null
+    },
+    "cycle_id": "cycle_2847257ddd46",
+    "active_coaching_cycle": {
+      "cycle_id": "cycle_2847257ddd46",
+      "cycle_type": "proactive_adaptive_skill_cycle",
+      "status": "active",
+      "started_at": "2026-07-08T11:14:49.565048+00:00",
+      "last_updated_at": "2026-07-08T11:14:49.565048+00:00",
+      "started_from_submission_id": null,
+      "requires_new_essay": false,
+      "active_skill": {
+        "skill_id": "arg_reason_generation",
+        "skill_name": "Reason Generation",
+        "target_status": "functional",
+        "current_status": "developing",
+        "domain": "Argumentation",
+        "mastery_estimate_snapshot": 0.433,
+        "selection_score_snapshot": 0.629
+      },
+      "active_move": {
+        "move_id": "gold_move_013_arg_reason_generation",
+        "move_name": "Claim Plus Reason",
+        "move_family": "argument_development",
+        "training_mode": "near_transfer_micro_production"
+      },
+      "goal_for_cycle": "Move Reason Generation from developing/emerging control to functional use in short writing production.",
+      "success_rules": {
+        "functional_rule": "pass 2 of last 3 valid missions with average >= 0.75 and no critical failure",
+        "stable_rule": "pass 4 of last 5 valid missions with average >= 0.80 across at least 2 topics when topic data is available",
+        "unlock_rule": "unlock next queued skill after functional_rule is met, unless a new essay refreshes priorities"
+      },
+      "progress_snapshot": {
+        "valid_missions_for_active_skill": 0,
+        "recent_outcomes": [],
+        "recent_average": 0.0,
+        "functional_achieved": false,
+        "stable_achieved": false,
+        "last_result_outcome": null
+      },
+      "next_skill_queue": [
+        {
+          "skill_id": "th_causal_reasoning",
+          "skill_name": "Causal Reasoning (Thinking)",
+          "mastery_estimate": 0.433,
+          "selection_score": 0.629,
+          "priority_score": 0.546,
+          "dependency_ready": true,
+          "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "th_tradeoff_analysis",
+          "skill_name": "Tradeoff Analysis",
+          "mastery_estimate": 0.433,
+          "selection_score": 0.629,
+          "priority_score": 0.546,
+          "dependency_ready": true,
+          "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "spelling_control",
+          "skill_name": "Spelling Control",
+          "mastery_estimate": 0.533,
+          "selection_score": 0.603,
+          "priority_score": 0.521,
+          "dependency_ready": true,
+          "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "register_control",
+          "skill_name": "Register Control",
+          "mastery_estimate": 0.533,
+          "selection_score": 0.598,
+          "priority_score": 0.516,
+          "dependency_ready": true,
+          "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "arg_claim_specificity",
+          "skill_name": "Claim Specificity",
+          "mastery_estimate": 0.521,
+          "selection_score": 0.579,
+          "priority_score": 0.468,
+          "dependency_ready": true,
+          "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "word_formation_control",
+          "skill_name": "Word Formation Control",
+          "mastery_estimate": 0.533,
+          "selection_score": 0.566,
+          "priority_score": 0.46,
+          "dependency_ready": true,
+          "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "claim_construction",
+          "skill_name": "Claim Construction",
+          "mastery_estimate": 0.539,
+          "selection_score": 0.519,
+          "priority_score": 0.371,
+          "dependency_ready": true,
+          "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "collocation_control",
+          "skill_name": "Collocation Control",
+          "mastery_estimate": 0.533,
+          "selection_score": 0.507,
+          "priority_score": 0.363,
+          "dependency_ready": true,
+          "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+        }
+      ]
+    },
+    "active_skill_id": "arg_reason_generation",
+    "active_skill_name": "Reason Generation",
+    "active_move_id": "gold_move_013_arg_reason_generation",
+    "active_move_family": "argument_development",
+    "last_assigned_mission_id": "wc_mission_f7c20a5ab4",
+    "last_assigned_move_id": "gold_move_013_arg_reason_generation",
+    "mission_history": [],
+    "next_skill_queue": [
+      {
+        "skill_id": "th_causal_reasoning",
+        "skill_name": "Causal Reasoning (Thinking)",
+        "mastery_estimate": 0.433,
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "th_tradeoff_analysis",
+        "skill_name": "Tradeoff Analysis",
+        "mastery_estimate": 0.433,
+        "selection_score": 0.629,
+        "priority_score": 0.546,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "spelling_control",
+        "skill_name": "Spelling Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.603,
+        "priority_score": 0.521,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "register_control",
+        "skill_name": "Register Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.598,
+        "priority_score": 0.516,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_claim_specificity",
+        "skill_name": "Claim Specificity",
+        "mastery_estimate": 0.521,
+        "selection_score": 0.579,
+        "priority_score": 0.468,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "word_formation_control",
+        "skill_name": "Word Formation Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.566,
+        "priority_score": 0.46,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "claim_construction",
+        "skill_name": "Claim Construction",
+        "mastery_estimate": 0.539,
+        "selection_score": 0.519,
+        "priority_score": 0.371,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "collocation_control",
+        "skill_name": "Collocation Control",
+        "mastery_estimate": 0.533,
+        "selection_score": 0.507,
+        "priority_score": 0.363,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Reason Generation becomes functional or if a new essay refreshes priorities."
+      }
+    ],
+    "plan_horizon_days": 7,
+    "prompt_text": "the current writing topic",
+    "topic_context": "the current writing topic",
+    "domain": "ielts_academic_writing",
+    "timebox_minutes": 10,
+    "selected_move_candidate_snapshot": [
+      {
+        "move_id": "gold_move_013_arg_reason_generation",
+        "move_name": "Claim Plus Reason",
+        "primary_microskill": "arg_reason_generation",
+        "move_family": "argument_development",
+        "selection_score": 0.79,
+        "fit_score": 0.897,
+        "difficulty_fit": 1.0,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "primary_target",
+        "target_skill_role_explanation": "Move directly targets the selected microskill.",
+        "reason": "duration_fit=1.00; difficulty_fit=1.00; production_mode=0.68; observable_quality=0.75; target_role=primary_target"
+      }
+    ],
+    "daily_run_contract": {
+      "mode": "daily_continuation_no_new_essay",
+      "required_inputs": [
+        "coach_state_export",
+        "external_move_bank"
+      ],
+      "optional_inputs": [
+        "last_mission_result",
+        "ontology",
+        "clusters"
+      ]
+    }
+  }
+}

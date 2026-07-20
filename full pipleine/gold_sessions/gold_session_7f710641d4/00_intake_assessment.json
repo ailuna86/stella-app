@@ -1,0 +1,15 @@
+{
+  "schema_version": "GOLD_INTAKE_V1_2",
+  "student_id": "student_123",
+  "essay_id": "essay_001",
+  "task_type": "WT2",
+  "topic": "Submitted essay",
+  "word_count": 272,
+  "sentence_count": 18,
+  "paragraph_count": 5,
+  "prompt_present": true,
+  "submission_source_shape": "batch.essays",
+  "valid_for_full_pipeline": true,
+  "warnings": [],
+  "created_at": "2026-07-08T07:58:01.407058+00:00"
+}

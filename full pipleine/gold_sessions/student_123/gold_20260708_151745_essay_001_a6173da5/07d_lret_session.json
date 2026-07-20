@@ -1,0 +1,1325 @@
+{
+  "schema_version": "LRET_OUTPUT_V1.1",
+  "identity": {
+    "student_id": "student_123",
+    "essay_id": "essay_001",
+    "submission_id": "2082498b-706d-4519-89b6-3130b3b206c1"
+  },
+  "run": {
+    "run_id": "run_befdfeab3958b4e1",
+    "engine_id": "LRET",
+    "engine_version": "lret-engine-v1.4.6-lexical-only-reconstruction-gated",
+    "created_at": "2026-07-08T13:17:55.014685Z",
+    "contract_version": "LRET_OUTPUT_V1.1",
+    "input_schema_version": "LRET_INPUT_V1.1"
+  },
+  "fix_units": [
+    {
+      "unit_id": "fix_0001",
+      "class_label": "FIX",
+      "unit_text": "more stronger",
+      "unit_norm": "more stronger",
+      "unit_type": "lexical_repair_span",
+      "replacement_scope": "whole_phrase",
+      "error_family": "WORD_FORM_LEXICAL",
+      "detector_family": "WORD_FORM_LEXICAL",
+      "issue_code": "WORD_FORM_LEXICAL",
+      "occurrence_count": 1,
+      "source_sentence_index": 13,
+      "source_paragraph_index": null,
+      "context": "This make a family more stronger and friendly.",
+      "locations": [
+        {
+          "start": 1083,
+          "end": 1096,
+          "paragraph_idx": null
+        }
+      ],
+      "requires_full_contextual_check": true,
+      "safety_level": "must_repair_final_lexical_error",
+      "suggestions": [
+        {
+          "text": "stronger",
+          "validation": {
+            "accepted": true,
+            "gates": [
+              "span_fit",
+              "grammar_role_preserved",
+              "meaning_link_detected",
+              "claim_strength_preserved",
+              "register_preserved_or_improved",
+              "context_specificity_ok",
+              "no_topic_drift",
+              "no_unsafe_word"
+            ],
+            "reason": "passed external_resource contextual-fit check"
+          }
+        }
+      ],
+      "suggestion_source_quality": "concrete replacement candidate",
+      "repair_source": "resource_or_deterministic_repair",
+      "span_expansion_note": null,
+      "covered_subunits": [],
+      "dedup_role": "survivor_phrase",
+      "reveal_policy": {
+        "mode": "produce_before_reveal",
+        "attempt_required_before_suggestions_shown": true,
+        "suggestions_role": "reveal_phase_model_answer_for_comparison"
+      },
+      "phase1_prompt": "This part may not be correct: [more stronger]. How would you fix it?",
+      "phase1_options": [
+        {
+          "option_id": "WRITE_MY_OWN",
+          "label": "Write my own answer"
+        }
+      ],
+      "recurs_across_essays": false,
+      "recurrence_note": null
+    }
+  ],
+  "enhance_units": [],
+  "clarify_units": [
+    {
+      "unit_id": "clar_0001",
+      "class_label": "CLARIFY",
+      "unit_text": "excited things",
+      "unit_norm": "excited things",
+      "unit_type": "clarify_span",
+      "replacement_scope": "meaning_clarification",
+      "source_sentence_index": 11,
+      "source_paragraph_index": 2,
+      "context": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things.",
+      "axis_candidates": [
+        "semantic_specificity",
+        "meaning_clarity"
+      ],
+      "extraction_signal": "visible_clarify_candidate",
+      "extraction_flags": [
+        "clarify_visible",
+        "not_safe_for_paraphrase_yet"
+      ],
+      "candidate_value": 0.74,
+      "frequency": 1,
+      "safety_level": "needs_meaning_clarification_before_enhancement",
+      "suggestions": [],
+      "clarification_guidance": [
+        "State the exact idea you mean.",
+        "Replace vague words with a concrete action, reason, object, or situation.",
+        "After the meaning is clear, the phrase can be paraphrased safely."
+      ],
+      "risk_flags": [
+        "vague_reference"
+      ],
+      "reason": "vague_placeholder_phrase_requires_student_clarification",
+      "source_kind": "v144_pre_llm_clarify_gate",
+      "covered_subunits": [],
+      "dedup_role": "survivor_clarify",
+      "reveal_policy": {
+        "mode": "produce_before_reveal",
+        "attempt_required_before_suggestions_shown": false,
+        "suggestions_role": "clarification_guidance_not_model_answer"
+      },
+      "phase1_prompt": "This phrase is unclear or too vague: [excited things]. Rewrite it with a more specific meaning before trying to paraphrase it.",
+      "phase1_options": [
+        {
+          "option_id": "WRITE_MY_OWN",
+          "label": "Write my own clearer version"
+        }
+      ],
+      "recurs_across_essays": false,
+      "recurrence_note": null
+    },
+    {
+      "unit_id": "clar_0002",
+      "class_label": "CLARIFY",
+      "unit_text": "kinds of things",
+      "unit_norm": "kinds of things",
+      "unit_type": "clarify_span",
+      "replacement_scope": "meaning_clarification",
+      "source_sentence_index": 12,
+      "source_paragraph_index": 3,
+      "context": "Also, older people often help take care of their grandchildren, if parents should go to the work or some kinds of things.",
+      "axis_candidates": [
+        "semantic_specificity",
+        "meaning_clarity"
+      ],
+      "extraction_signal": "visible_clarify_candidate",
+      "extraction_flags": [
+        "clarify_visible",
+        "not_safe_for_paraphrase_yet"
+      ],
+      "candidate_value": 0.74,
+      "frequency": 1,
+      "safety_level": "needs_meaning_clarification_before_enhancement",
+      "suggestions": [],
+      "clarification_guidance": [
+        "State the exact idea you mean.",
+        "Replace vague words with a concrete action, reason, object, or situation.",
+        "After the meaning is clear, the phrase can be paraphrased safely."
+      ],
+      "risk_flags": [
+        "vague_reference"
+      ],
+      "reason": "vague_placeholder_phrase_requires_student_clarification",
+      "source_kind": "v144_pre_llm_clarify_gate",
+      "covered_subunits": [],
+      "dedup_role": "survivor_clarify",
+      "reveal_policy": {
+        "mode": "produce_before_reveal",
+        "attempt_required_before_suggestions_shown": false,
+        "suggestions_role": "clarification_guidance_not_model_answer"
+      },
+      "phase1_prompt": "This phrase is unclear or too vague: [kinds of things]. Rewrite it with a more specific meaning before trying to paraphrase it.",
+      "phase1_options": [
+        {
+          "option_id": "WRITE_MY_OWN",
+          "label": "Write my own clearer version"
+        }
+      ],
+      "recurs_across_essays": false,
+      "recurrence_note": null
+    }
+  ],
+  "keep_units": [
+    {
+      "unit_id": "lu_0007",
+      "class_label": "KEEP",
+      "unit_text": "cause some problems",
+      "unit_norm": "cause some problems",
+      "unit_type": "verb_phrase_or_predicate_chunk",
+      "keep_type": "keep_topic_vocabulary",
+      "positive_evidence_role": "topic_control",
+      "student_facing_task": false,
+      "replacement_scope": "none",
+      "source_sentence_index": 15,
+      "source_paragraph_index": 4,
+      "context": "In conclusion, even though an ageing population can cause some problems, like a high costs and fewer workers, I believe that the advantages are also important.",
+      "axis_candidates": [
+        "collocation_naturalness",
+        "predicate_argument",
+        "semantic_specificity",
+        "topic_vocabulary"
+      ],
+      "extraction_signal": "high_value_lret_candidate",
+      "extraction_flags": [
+        "collocation_candidate",
+        "predicate_argument_candidate",
+        "topic_relevant"
+      ],
+      "candidate_value": 0.88,
+      "evidence_ids": [
+        "ev_0021"
+      ],
+      "frequency": 2,
+      "safety_level": "positive_lexical_evidence",
+      "covered_by_task": null,
+      "covered_subunits": [],
+      "dedup_role": "independent_keep",
+      "reason": "Positive lexical evidence preserved in KEEP inventory."
+    },
+    {
+      "unit_id": "lu_0003",
+      "class_label": "KEEP",
+      "unit_text": "give good advice",
+      "unit_norm": "give good advice",
+      "unit_type": "verb_phrase_or_predicate_chunk",
+      "keep_type": "keep_collocation",
+      "positive_evidence_role": "collocation_control",
+      "student_facing_task": false,
+      "replacement_scope": "none",
+      "source_sentence_index": 10,
+      "source_paragraph_index": 2,
+      "context": "Even they can give good advice , working part-time or doing volunteer work as it possible.",
+      "axis_candidates": [
+        "collocation_naturalness",
+        "predicate_argument",
+        "register_control"
+      ],
+      "extraction_signal": "high_value_lret_candidate",
+      "extraction_flags": [
+        "collocation_candidate",
+        "informal_register",
+        "predicate_argument_candidate"
+      ],
+      "candidate_value": 0.86,
+      "evidence_ids": [
+        "ev_0014"
+      ],
+      "frequency": 2,
+      "safety_level": "positive_lexical_evidence",
+      "covered_by_task": null,
+      "covered_subunits": [],
+      "dedup_role": "independent_keep",
+      "reason": "Positive lexical evidence preserved in KEEP inventory."
+    },
+    {
+      "unit_id": "lu_0006",
+      "class_label": "KEEP",
+      "unit_text": "family traditions",
+      "unit_norm": "family traditions",
+      "unit_type": "noun_phrase",
+      "keep_type": "keep_collocation",
+      "positive_evidence_role": "collocation_control",
+      "student_facing_task": false,
+      "replacement_scope": "none",
+      "source_sentence_index": 14,
+      "source_paragraph_index": 3,
+      "context": "They can teach a children about culture and family traditions , which is very important nowadays.",
+      "axis_candidates": [
+        "collocation_naturalness"
+      ],
+      "extraction_signal": "medium_value_lret_candidate",
+      "extraction_flags": [
+        "collocation_candidate"
+      ],
+      "candidate_value": 0.6,
+      "evidence_ids": [
+        "ev_0019"
+      ],
+      "frequency": 1,
+      "safety_level": "positive_lexical_evidence",
+      "covered_by_task": null,
+      "covered_subunits": [],
+      "dedup_role": "independent_keep",
+      "reason": "Positive lexical evidence preserved in KEEP inventory."
+    },
+    {
+      "unit_id": "lu_0001",
+      "class_label": "KEEP",
+      "unit_text": "need care",
+      "unit_norm": "need care",
+      "unit_type": "verb_phrase_or_predicate_chunk",
+      "keep_type": "keep_collocation",
+      "positive_evidence_role": "collocation_control",
+      "student_facing_task": false,
+      "replacement_scope": "none",
+      "source_sentence_index": 3,
+      "source_paragraph_index": 0,
+      "context": "For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea.",
+      "axis_candidates": [
+        "collocation_naturalness",
+        "predicate_argument"
+      ],
+      "extraction_signal": "high_value_lret_candidate",
+      "extraction_flags": [
+        "collocation_candidate",
+        "predicate_argument_candidate"
+      ],
+      "candidate_value": 0.76,
+      "evidence_ids": [
+        "ev_0005"
+      ],
+      "frequency": 2,
+      "safety_level": "positive_lexical_evidence",
+      "covered_by_task": null,
+      "covered_subunits": [],
+      "dedup_role": "independent_keep",
+      "reason": "Positive lexical evidence preserved in KEEP inventory."
+    }
+  ],
+  "lexical_profile": {
+    "fix_count": 1,
+    "enhance_count": 0,
+    "keep_count": 4,
+    "dropped_count": 0,
+    "classification_distribution": {
+      "FIX": 1,
+      "ENHANCE": 0,
+      "KEEP": 4,
+      "CLARIFY": 2
+    },
+    "fix_family_counts": {
+      "WORD_FORM_LEXICAL": 1
+    },
+    "enhance_tier_breakdown": {},
+    "axis_coverage": {
+      "collocation_naturalness": 4,
+      "predicate_argument": 3,
+      "semantic_specificity": 1,
+      "topic_vocabulary": 1,
+      "register_control": 1
+    },
+    "extraction_signal_distribution": {
+      "high_value_lret_candidate": 3,
+      "medium_value_lret_candidate": 1
+    },
+    "extraction_flag_distribution": {
+      "collocation_candidate": 4,
+      "predicate_argument_candidate": 3,
+      "topic_relevant": 1,
+      "informal_register": 1
+    },
+    "candidate_value_stats": {
+      "count": 4,
+      "min": 0.6,
+      "max": 0.88,
+      "mean": 0.775
+    },
+    "phrase_first_policy_enabled": true,
+    "enhance_multiword_count": 0,
+    "enhance_single_word_count": 0,
+    "enhance_multiword_share": 0.0,
+    "student_facing_single_words_suppressed_by_phrase": 0,
+    "single_words_suppressed_by_phrase": 0,
+    "keep_single_word_count": 0,
+    "keep_phrase_count": 4,
+    "keep_collocation_count": 3,
+    "keep_type_counts": {
+      "keep_collocation": 3,
+      "keep_topic_vocabulary": 1
+    },
+    "keep_units_covered_by_task_count": 0,
+    "grammar_only_fix_candidates_suppressed": 0,
+    "fix_candidates_without_concrete_solution_suppressed": 0,
+    "unresolved_internal_count": 2,
+    "essay_specific_rules_detected": false,
+    "dedup_audit_available": true,
+    "recurring_pattern_count": 0,
+    "writing_coach_routing": {
+      "send_only_this_profile": true,
+      "do_not_send_raw_units_to_writing_coach": true
+    },
+    "enhance_candidate_count_before_validation": 0,
+    "enhance_candidate_count_after_validation": 0,
+    "enhance_precision_estimate": 0.0,
+    "overlap_with_fix_block_count": 0,
+    "semantic_recoverability_block_count": 0,
+    "parenthetical_meta_suggestion_rejections": 0,
+    "claim_strength_shift_rejections": 0,
+    "keep_noise_removed_count": 0,
+    "keep_noise_rate": 0.0,
+    "fix_recovery_count": 1,
+    "recurring_fix_recovery_count": 0,
+    "llm_classification_counts": {},
+    "suggestion_rejection_reason_counts": {},
+    "clarify_count": 2,
+    "visible_clarify_task_count": 2,
+    "evaluator_input_quality": {
+      "total_units": 8,
+      "single_word_units": 0,
+      "multiword_units": 8,
+      "meaningful_unit_estimate": 6,
+      "fragment_or_noise_estimate": 0,
+      "fragment_or_noise_rate": 0.0,
+      "vague_or_unclear_estimate": 2,
+      "partial_span_estimate": 0,
+      "malformed_context_unit_estimate": 0,
+      "examples": {
+        "fragment_or_noise": [],
+        "vague_or_unclear": [
+          "excited things",
+          "kinds of things"
+        ],
+        "partial_span": []
+      },
+      "recommended_action": "acceptable"
+    },
+    "expand_span_recommendation_count": 0,
+    "expand_span_accepted_count": 0,
+    "low_value_candidate_block_count": 0,
+    "llm_decision_counts": {},
+    "v144_preclassification": {
+      "eligible_for_llm_count": 8,
+      "pre_llm_clarify_count": 2,
+      "pre_llm_reject_count": 25,
+      "pre_llm_keep_only_count": 2,
+      "preclassification_reason_counts": {
+        "partial_span_has_stronger_complete_container": 24,
+        "complete_recoverable_reconstructed_or_original_candidate": 8,
+        "formulaic_or_discourse_keep_not_enhance": 2,
+        "vague_placeholder_phrase_requires_student_clarification": 2,
+        "truncated_or_incomplete_predicate_span": 1
+      }
+    },
+    "v145_candidate_reconstruction": {
+      "raw_unit_count": 8,
+      "reconstructed_candidate_count": 29,
+      "augmented_unit_count": 37,
+      "eligible_after_reconstruction_count": 8,
+      "reconstruction_reason_counts": {
+        "structural_container_reconstruction": 29
+      }
+    },
+    "v146_lexical_only_gate": {
+      "grammar_repair_blocked_from_enhance": 0,
+      "malformed_clause_blocked_from_enhance": 0,
+      "sentence_rewrite_blocked_from_enhance": 0,
+      "clarify_units_suppressed_as_grammar_breakdown": 0,
+      "final_enhance_after_v146_gate": 0,
+      "final_clarify_after_v146_gate": 2
+    },
+    "canonical_resource_stats": {
+      "canonical_loaded": true,
+      "canonical_path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine",
+      "enhance_thesaurus_entries": 0,
+      "positive_collocations_loaded": 0,
+      "discourse_markers_loaded": 0,
+      "lexical_entries_loaded": 0
+    },
+    "llm_suggestion_stats": {
+      "enabled": false,
+      "model": null,
+      "calls": 0,
+      "candidates_sent": 0,
+      "results_received": 0,
+      "accepted_enhance_units": 0,
+      "suggestions_validated": 0,
+      "suggestions_rejected": 0,
+      "warnings": []
+    }
+  },
+  "replacement_options": [
+    {
+      "unit_id": "fix_0001",
+      "unit_text": "more stronger",
+      "class_label": "FIX",
+      "replacement_scope": "whole_phrase",
+      "suggestions": [
+        {
+          "text": "stronger",
+          "validation": {
+            "accepted": true,
+            "gates": [
+              "span_fit",
+              "grammar_role_preserved",
+              "meaning_link_detected",
+              "claim_strength_preserved",
+              "register_preserved_or_improved",
+              "context_specificity_ok",
+              "no_topic_drift",
+              "no_unsafe_word"
+            ],
+            "reason": "passed external_resource contextual-fit check"
+          }
+        }
+      ],
+      "reveal_policy": {
+        "mode": "produce_before_reveal",
+        "attempt_required_before_suggestions_shown": true,
+        "suggestions_role": "reveal_phase_model_answer_for_comparison"
+      }
+    }
+  ],
+  "clarification_options": [
+    {
+      "unit_id": "clar_0001",
+      "unit_text": "excited things",
+      "class_label": "CLARIFY",
+      "replacement_scope": "meaning_clarification",
+      "phase1_prompt": "This phrase is unclear or too vague: [excited things]. Rewrite it with a more specific meaning before trying to paraphrase it.",
+      "clarification_guidance": [
+        "State the exact idea you mean.",
+        "Replace vague words with a concrete action, reason, object, or situation.",
+        "After the meaning is clear, the phrase can be paraphrased safely."
+      ],
+      "reveal_policy": {
+        "mode": "produce_before_reveal",
+        "attempt_required_before_suggestions_shown": false,
+        "suggestions_role": "clarification_guidance_not_model_answer"
+      }
+    },
+    {
+      "unit_id": "clar_0002",
+      "unit_text": "kinds of things",
+      "class_label": "CLARIFY",
+      "replacement_scope": "meaning_clarification",
+      "phase1_prompt": "This phrase is unclear or too vague: [kinds of things]. Rewrite it with a more specific meaning before trying to paraphrase it.",
+      "clarification_guidance": [
+        "State the exact idea you mean.",
+        "Replace vague words with a concrete action, reason, object, or situation.",
+        "After the meaning is clear, the phrase can be paraphrased safely."
+      ],
+      "reveal_policy": {
+        "mode": "produce_before_reveal",
+        "attempt_required_before_suggestions_shown": false,
+        "suggestions_role": "clarification_guidance_not_model_answer"
+      }
+    }
+  ],
+  "lret_practice_targets": [
+    {
+      "unit_id": "fix_0001",
+      "unit_text": "more stronger",
+      "category": "fix",
+      "family": "WORD_FORM_LEXICAL",
+      "priority_weight": 3.5,
+      "history_count": 0,
+      "recommended_practice_type": "repair_before_polish"
+    },
+    {
+      "unit_id": "clar_0001",
+      "unit_text": "excited things",
+      "category": "clarify",
+      "tier": "visible_meaning_clarification",
+      "priority_weight": 2.0,
+      "history_count": 0,
+      "recommended_practice_type": "clarify_before_paraphrase"
+    },
+    {
+      "unit_id": "clar_0002",
+      "unit_text": "kinds of things",
+      "category": "clarify",
+      "tier": "visible_meaning_clarification",
+      "priority_weight": 2.0,
+      "history_count": 0,
+      "recommended_practice_type": "clarify_before_paraphrase"
+    }
+  ],
+  "qa": {
+    "status": "ok",
+    "warnings": [],
+    "errors": [],
+    "confidence": 0.85,
+    "source_audit": {
+      "dropped_units": [],
+      "dropped_counts": {},
+      "suppressed_fix_candidates": [],
+      "suppressed_fix_counts": {},
+      "context_fit_check_failures": [],
+      "expected_enhance_suppressions": [],
+      "keep_inventory_audit": [
+        {
+          "unit": "excited things",
+          "unit_id": "lu_0004",
+          "reason": "exact_student_facing_task_not_duplicated_in_keep",
+          "surviving_unit": "excited things",
+          "surviving_unit_id": "clar_0001",
+          "stage": "keep_inventory",
+          "visibility": "hidden_from_keep_only"
+        },
+        {
+          "unit": "kinds of things",
+          "unit_id": "lu_0005",
+          "reason": "exact_student_facing_task_not_duplicated_in_keep",
+          "surviving_unit": "kinds of things",
+          "surviving_unit_id": "clar_0002",
+          "stage": "keep_inventory",
+          "visibility": "hidden_from_keep_only"
+        }
+      ],
+      "unresolved_internal": [
+        {
+          "unit": "on the other hand",
+          "unit_id": "lu_0002",
+          "reason": "not_positive_lexical_evidence",
+          "stage": "keep_inventory"
+        },
+        {
+          "unit": "in conclusion",
+          "unit_id": "lu_0008",
+          "reason": "not_positive_lexical_evidence",
+          "stage": "keep_inventory"
+        }
+      ],
+      "unresolved_internal_counts": {
+        "not_positive_lexical_evidence": 2
+      }
+    },
+    "contract_checks": {
+      "no_empty_fix_suggestions": true,
+      "no_grammar_only_fix_units": true,
+      "all_suggestions_context_validated": true,
+      "produce_before_reveal_enforced": true,
+      "phase1_suggestions_withheld": true,
+      "suppressed_candidates_logged": true,
+      "history_does_not_change_classification": true,
+      "phrase_first_policy_enabled": true,
+      "essay_specific_rules_detected": false,
+      "keep_has_single_words": false,
+      "keep_has_phrases_or_collocations": true,
+      "keep_not_used_as_unresolved_dump": true,
+      "no_enhance_overlapping_fix": true,
+      "no_parenthetical_meta_suggestions_accepted": true,
+      "no_claim_strength_shift_suggestions_accepted": true,
+      "word_thesaurus_phrase_suggestions_not_final_output": true,
+      "no_embedded_topic_whitelist": true,
+      "no_plural_subject_need_regex": true,
+      "clarify_is_visible_student_task": true,
+      "llm_adjudicates_before_suggestion": true,
+      "llm_expand_span_exact_substring_only": true,
+      "no_embedded_topic_or_essay_specific_lists": true,
+      "no_internal_phrase_enhance_bank": true,
+      "malformed_fragments_filtered_before_llm_classification": true,
+      "only_valid_candidates_reach_llm_classification": true,
+      "vague_units_routed_to_visible_clarify_before_llm": true,
+      "preclassification_uses_no_topic_or_essay_word_lists": true,
+      "candidate_reconstruction_runs_before_preclassification": true,
+      "expanded_spans_are_preclassified_after_reconstruction": true,
+      "edge_started_complete_spans_not_rejected_by_default": true,
+      "reconstruction_uses_no_topic_or_essay_word_lists": true,
+      "no_internal_phrase_or_topic_bank_v145": true,
+      "v146_lexical_only_final_gate_enabled": true,
+      "grammar_repairs_not_released_as_enhance": true,
+      "malformed_clause_repairs_not_released_as_enhance": true,
+      "clarify_visible_but_bounded": true,
+      "no_topic_or_essay_specific_rules_v146": true,
+      "llm_does_not_create_new_spans": true,
+      "llm_suggestions_deterministically_validated": true,
+      "no_embedded_phrase_enhance_bank": true,
+      "canonical_resources_external_only": true
+    },
+    "v1_3_2_metrics": {
+      "phrase_first_policy_enabled": true,
+      "essay_specific_rules_detected": false,
+      "student_facing_single_words_suppressed_by_phrase": 0,
+      "keep_single_word_count": 0,
+      "keep_phrase_count": 4,
+      "keep_collocation_count": 3,
+      "keep_type_counts": {
+        "keep_collocation": 3,
+        "keep_topic_vocabulary": 1
+      },
+      "grammar_only_fix_candidates_suppressed": 0,
+      "fix_candidates_without_concrete_solution_suppressed": 0,
+      "unresolved_internal_count": 2,
+      "dedup_audit_available": true
+    },
+    "v1_4_2_metrics": {
+      "enhance_precision_estimate": 0.0,
+      "enhance_candidate_count_before_validation": 0,
+      "enhance_candidate_count_after_validation": 0,
+      "suggestion_rejection_reason_counts": {},
+      "suggestion_acceptance_reason_counts": {},
+      "parenthetical_meta_suggestion_rejections": 0,
+      "claim_strength_shift_rejections": 0,
+      "overlap_with_fix_block_count": 0,
+      "semantic_recoverability_block_count": 0,
+      "keep_noise_rate": 0.0,
+      "keep_noise_removed_count": 0,
+      "llm_classification_counts": {},
+      "essay_specific_rules_detected": false
+    },
+    "v1_4_3_metrics": {
+      "clarify_count": 2,
+      "visible_clarify_task_count": 2,
+      "expand_span_recommendation_count": 0,
+      "expand_span_accepted_count": 0,
+      "partial_span_block_count": 0,
+      "llm_decision_counts": {},
+      "evaluator_input_quality": {
+        "total_units": 8,
+        "single_word_units": 0,
+        "multiword_units": 8,
+        "meaningful_unit_estimate": 6,
+        "fragment_or_noise_estimate": 0,
+        "fragment_or_noise_rate": 0.0,
+        "vague_or_unclear_estimate": 2,
+        "partial_span_estimate": 0,
+        "malformed_context_unit_estimate": 0,
+        "examples": {
+          "fragment_or_noise": [],
+          "vague_or_unclear": [
+            "excited things",
+            "kinds of things"
+          ],
+          "partial_span": []
+        },
+        "recommended_action": "acceptable"
+      },
+      "accepted_enhance_count": 0,
+      "accepted_clarify_count": 2,
+      "low_value_candidate_block_count": 0
+    },
+    "v1_4_4_metrics": {
+      "llm_receives_only_preclassified_valid_candidates": true,
+      "eligible_for_llm_count": 8,
+      "pre_llm_clarify_count": 2,
+      "pre_llm_reject_count": 25,
+      "pre_llm_keep_only_count": 2,
+      "preclassification_reason_counts": {
+        "partial_span_has_stronger_complete_container": 24,
+        "complete_recoverable_reconstructed_or_original_candidate": 8,
+        "formulaic_or_discourse_keep_not_enhance": 2,
+        "vague_placeholder_phrase_requires_student_clarification": 2,
+        "truncated_or_incomplete_predicate_span": 1
+      },
+      "preclassification_audit_sample": [
+        {
+          "unit_text": "need care",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=people need care"
+          ],
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "people need care",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=old people need care"
+          ],
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "old people need care",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=many old people need care"
+          ],
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "many old people need care",
+          "reason": "complete_recoverable_reconstructed_or_original_candidate",
+          "route": "ENHANCE_ELIGIBLE",
+          "flags": [],
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "many old",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=many old people need care"
+          ],
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "many old people",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=many old people need care"
+          ],
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "many old people need",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=many old people need care"
+          ],
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "old people",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=old people need care"
+          ],
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "old people need",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=old people need care"
+          ],
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "on the other hand",
+          "reason": "formulaic_or_discourse_keep_not_enhance",
+          "route": "KEEP_ONLY",
+          "flags": [
+            "formulaic_keep"
+          ],
+          "source_sentence_index": 8
+        },
+        {
+          "unit_text": "the other hand",
+          "reason": "complete_recoverable_reconstructed_or_original_candidate",
+          "route": "ENHANCE_ELIGIBLE",
+          "flags": [],
+          "source_sentence_index": 8
+        },
+        {
+          "unit_text": "other hand",
+          "reason": "complete_recoverable_reconstructed_or_original_candidate",
+          "route": "ENHANCE_ELIGIBLE",
+          "flags": [],
+          "source_sentence_index": 8
+        },
+        {
+          "unit_text": "give good advice",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=they can give good advice"
+          ],
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "can give good advice",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=they can give good advice"
+          ],
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "they can give good advice",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=Even they can give good advice"
+          ],
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "Even they can give good advice",
+          "reason": "complete_recoverable_reconstructed_or_original_candidate",
+          "route": "ENHANCE_ELIGIBLE",
+          "flags": [],
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "Even they",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=Even they can give good advice"
+          ],
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "Even they can give",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=Even they can give good advice"
+          ],
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "they can give",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=they can give good advice"
+          ],
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "can give",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=can give good advice"
+          ],
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "good advice",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=give good advice"
+          ],
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "working part-time",
+          "reason": "complete_recoverable_reconstructed_or_original_candidate",
+          "route": "ENHANCE_ELIGIBLE",
+          "flags": [],
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "excited things",
+          "reason": "vague_placeholder_phrase_requires_student_clarification",
+          "route": "CLARIFY_VISIBLE",
+          "flags": [
+            "vague_reference"
+          ],
+          "source_sentence_index": 11
+        },
+        {
+          "unit_text": "kinds of things",
+          "reason": "vague_placeholder_phrase_requires_student_clarification",
+          "route": "CLARIFY_VISIBLE",
+          "flags": [
+            "vague_reference"
+          ],
+          "source_sentence_index": 12
+        },
+        {
+          "unit_text": "family traditions",
+          "reason": "truncated_or_incomplete_predicate_span",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span"
+          ],
+          "source_sentence_index": 14
+        },
+        {
+          "unit_text": "which is very",
+          "reason": "complete_recoverable_reconstructed_or_original_candidate",
+          "route": "ENHANCE_ELIGIBLE",
+          "flags": [],
+          "source_sentence_index": 14
+        },
+        {
+          "unit_text": "is very",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=which is very"
+          ],
+          "source_sentence_index": 14
+        },
+        {
+          "unit_text": "cause some problems",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=population can cause some problems"
+          ],
+          "source_sentence_index": 15
+        },
+        {
+          "unit_text": "can cause some problems",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=population can cause some problems"
+          ],
+          "source_sentence_index": 15
+        },
+        {
+          "unit_text": "population can cause some problems",
+          "reason": "partial_span_has_stronger_complete_container",
+          "route": "REJECT_PRE_LLM",
+          "flags": [
+            "partial_span",
+            "container=ageing population can cause some problems"
+          ],
+          "source_sentence_index": 15
+        }
+      ]
+    },
+    "v1_4_5_metrics": {
+      "candidate_reconstruction_before_preclassification": true,
+      "raw_unit_count": 8,
+      "reconstructed_candidate_count": 29,
+      "augmented_unit_count": 37,
+      "eligible_after_reconstruction_count": 8,
+      "reconstruction_reason_counts": {
+        "structural_container_reconstruction": 29
+      },
+      "reconstruction_audit_sample": [
+        {
+          "unit_text": "people need care",
+          "source_text": "need care",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "old people need care",
+          "source_text": "need care",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "many old people need care",
+          "source_text": "need care",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "many old",
+          "source_text": "need care",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "many old people",
+          "source_text": "need care",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "many old people need",
+          "source_text": "need care",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "old people",
+          "source_text": "need care",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "old people need",
+          "source_text": "need care",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 3
+        },
+        {
+          "unit_text": "the other hand",
+          "source_text": "on the other hand",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 8
+        },
+        {
+          "unit_text": "other hand",
+          "source_text": "on the other hand",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 8
+        },
+        {
+          "unit_text": "can give good advice",
+          "source_text": "give good advice",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "they can give good advice",
+          "source_text": "give good advice",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "Even they can give good advice",
+          "source_text": "give good advice",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "Even they",
+          "source_text": "give good advice",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "Even they can give",
+          "source_text": "give good advice",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "they can give",
+          "source_text": "give good advice",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "can give",
+          "source_text": "give good advice",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "good advice",
+          "source_text": "give good advice",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "working part-time",
+          "source_text": "give good advice",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 10
+        },
+        {
+          "unit_text": "which is very",
+          "source_text": "family traditions",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 14
+        },
+        {
+          "unit_text": "is very",
+          "source_text": "family traditions",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 14
+        },
+        {
+          "unit_text": "can cause some problems",
+          "source_text": "cause some problems",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 15
+        },
+        {
+          "unit_text": "population can cause some problems",
+          "source_text": "cause some problems",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 15
+        },
+        {
+          "unit_text": "ageing population can cause some problems",
+          "source_text": "cause some problems",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 15
+        },
+        {
+          "unit_text": "ageing population",
+          "source_text": "cause some problems",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 15
+        },
+        {
+          "unit_text": "ageing population can cause",
+          "source_text": "cause some problems",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 15
+        },
+        {
+          "unit_text": "population can cause",
+          "source_text": "cause some problems",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 15
+        },
+        {
+          "unit_text": "can cause",
+          "source_text": "cause some problems",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 15
+        },
+        {
+          "unit_text": "like a high",
+          "source_text": "cause some problems",
+          "reason": "structural_container_reconstruction",
+          "source_sentence_index": 15
+        }
+      ]
+    },
+    "v1_4_6_metrics": {
+      "grammar_repair_blocked_from_enhance": 0,
+      "malformed_clause_blocked_from_enhance": 0,
+      "sentence_rewrite_blocked_from_enhance": 0,
+      "clarify_units_suppressed_as_grammar_breakdown": 0,
+      "final_enhance_after_v146_gate": 0,
+      "final_clarify_after_v146_gate": 2,
+      "blocked_enhance_samples": [],
+      "suppressed_clarify_samples": []
+    }
+  },
+  "learning_intelligence_payload": {
+    "source_engine_id": "LRET",
+    "source_run_id": "run_befdfeab3958b4e1",
+    "submission_id": "2082498b-706d-4519-89b6-3130b3b206c1",
+    "essay_id": "essay_001",
+    "student_id": "student_123",
+    "profile_type": "lexical_learning",
+    "skill_signals": [
+      {
+        "skill_id": "lexical_repair_need",
+        "skill_name": "Lexical Repair Need",
+        "domain_id": "lexical_resource",
+        "score": 0.2,
+        "confidence": 0.8,
+        "evidence_count": 1,
+        "status": "monitor"
+      },
+      {
+        "skill_id": "phrase_level_paraphrase_opportunity",
+        "skill_name": "Phrase-Level Paraphrase Opportunity",
+        "domain_id": "lexical_resource",
+        "score": 0.0,
+        "confidence": 0.78,
+        "evidence_count": 0,
+        "status": "low_current_signal"
+      },
+      {
+        "skill_id": "positive_lexical_control",
+        "skill_name": "Positive Lexical Control",
+        "domain_id": "lexical_resource",
+        "score": 0.8,
+        "confidence": 0.72,
+        "evidence_count": 4,
+        "status": "functional"
+      },
+      {
+        "skill_id": "collocation_control",
+        "skill_name": "Collocation Control",
+        "domain_id": "lexical_resource",
+        "score": 0.75,
+        "confidence": 0.7,
+        "evidence_count": 3,
+        "status": "functional"
+      },
+      {
+        "skill_id": "single_word_control",
+        "skill_name": "Single-Word Lexical Control",
+        "domain_id": "lexical_resource",
+        "score": 0.0,
+        "confidence": 0.68,
+        "evidence_count": 0,
+        "status": "low_current_signal"
+      },
+      {
+        "skill_id": "lexical_meaning_clarification_need",
+        "skill_name": "Lexical Meaning Clarification Need",
+        "domain_id": "lexical_resource",
+        "score": 0.4,
+        "confidence": 0.74,
+        "evidence_count": 2,
+        "status": "trainable"
+      }
+    ],
+    "metric_signals": [
+      {
+        "metric_id": "lret_fix_count",
+        "value": 1
+      },
+      {
+        "metric_id": "lret_enhance_count",
+        "value": 0
+      },
+      {
+        "metric_id": "lret_keep_count",
+        "value": 4
+      },
+      {
+        "metric_id": "lret_enhance_multiword_count",
+        "value": 0
+      },
+      {
+        "metric_id": "lret_keep_single_word_count",
+        "value": 0
+      },
+      {
+        "metric_id": "lret_keep_phrase_count",
+        "value": 4
+      },
+      {
+        "metric_id": "lret_keep_collocation_count",
+        "value": 3
+      },
+      {
+        "metric_id": "lret_clarify_count",
+        "value": 2
+      }
+    ],
+    "pattern_signals": [
+      {
+        "pattern_id": "lexical_fix_family::WORD_FORM_LEXICAL",
+        "count": 1
+      }
+    ],
+    "behavioral_events": [],
+    "confidence": 0.77,
+    "privacy_classification": "learning_analytics",
+    "notes": [
+      "History affects ranking/framing only; classification is based on current text and context.",
+      "KEEP preserves positive single-word and phrase evidence separately from student-facing task deduplication."
+    ]
+  }
+}

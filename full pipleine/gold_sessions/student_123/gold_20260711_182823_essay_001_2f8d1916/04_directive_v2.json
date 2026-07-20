@@ -1,0 +1,262 @@
+{
+  "schema_version": "DIRECTIVE_ADAPTER_STANDALONE_V1_4_3",
+  "engine_id": "VA_STELLA_DIRECTIVE_ADAPTER_CLI",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-11T16:31:28.350639+00:00",
+  "boundary": "Directive adapter converts upstream priority and score contract into routing metadata only.",
+  "source_priority_schema": "PRIORITY_NORMALIZED_V1_4_3",
+  "focus_source": "priority_normalized",
+  "focus_areas": [
+    {
+      "rank": 1,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "criterion": "grammar",
+      "evidence_count": 11,
+      "weighted_pressure": 11.0,
+      "priority_level": "very_high",
+      "top_families": [
+        "COMPARATIVE_FORM",
+        "CLAUSE_STRUCTURE",
+        "ARTICLE_DETERMINER",
+        "VERB_FORM",
+        "PRONOUN_CASE"
+      ],
+      "family_counts": {
+        "COMPARATIVE_FORM": 3,
+        "CLAUSE_STRUCTURE": 3,
+        "ARTICLE_DETERMINER": 2,
+        "VERB_FORM": 1,
+        "PRONOUN_CASE": 1,
+        "SUBJECT_VERB_AGREEMENT": 1
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_9e31b1e36d2dedce",
+          "source_row_id": "row_9e31b1e36d2dedce",
+          "family": "VERB_FORM",
+          "surface_quote": "has to spent",
+          "sentence_index": 1,
+          "severity": "moderate",
+          "confidence": 0.93
+        },
+        {
+          "error_id": "row_22095069141d55dd",
+          "source_row_id": "row_22095069141d55dd",
+          "family": "COMPARATIVE_FORM",
+          "surface_quote": "a lot of knowledge and experience than",
+          "sentence_index": 10,
+          "severity": "moderate",
+          "confidence": 0.9
+        },
+        {
+          "error_id": "row_e0997d86e3b847ab",
+          "source_row_id": "row_e0997d86e3b847ab",
+          "family": "CLAUSE_STRUCTURE",
+          "surface_quote": "can give",
+          "sentence_index": 11,
+          "severity": "moderate",
+          "confidence": 0.88
+        },
+        {
+          "error_id": "row_82bcbee38f563ba6",
+          "source_row_id": "row_82bcbee38f563ba6",
+          "family": "COMPARATIVE_FORM",
+          "surface_quote": "so older",
+          "sentence_index": 12,
+          "severity": "moderate",
+          "confidence": 0.91
+        },
+        {
+          "error_id": "row_272266c62eb41fad",
+          "source_row_id": "row_272266c62eb41fad",
+          "family": "COMPARATIVE_FORM",
+          "surface_quote": "more stronger",
+          "sentence_index": 14,
+          "severity": "moderate",
+          "confidence": 0.91
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "skill_id": "lexical_precision",
+      "student_label": "Lexical Precision",
+      "criterion": "lexical_resource",
+      "evidence_count": 4,
+      "weighted_pressure": 4.0,
+      "priority_level": "medium",
+      "top_families": [
+        "SPELLING",
+        "WORD_FORM"
+      ],
+      "family_counts": {
+        "SPELLING": 3,
+        "WORD_FORM": 1
+      },
+      "recommended_service": "lret",
+      "recommended_difficulty": "guided",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_b221ea0095235132",
+          "source_row_id": "row_b221ea0095235132",
+          "family": "SPELLING",
+          "surface_quote": "modey",
+          "sentence_index": 3,
+          "severity": "moderate",
+          "confidence": 0.82
+        },
+        {
+          "error_id": "row_82dda92274fbaf24",
+          "source_row_id": "row_82dda92274fbaf24",
+          "family": "SPELLING",
+          "surface_quote": "goverment",
+          "sentence_index": 3,
+          "severity": "moderate",
+          "confidence": 0.82
+        },
+        {
+          "error_id": "row_d7e1664b4b1eb15a",
+          "source_row_id": "row_d7e1664b4b1eb15a",
+          "family": "SPELLING",
+          "surface_quote": "contries",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.82
+        },
+        {
+          "error_id": "row_8c15d89e3176796f",
+          "source_row_id": "row_8c15d89e3176796f",
+          "family": "WORD_FORM",
+          "surface_quote": "Another issued is",
+          "sentence_index": 5,
+          "severity": "moderate",
+          "confidence": 0.8
+        }
+      ]
+    }
+  ],
+  "primary_focus": {
+    "rank": 1,
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "skill_id": "sentence_control",
+    "student_label": "Sentence Control",
+    "criterion": "grammar",
+    "evidence_count": 11,
+    "weighted_pressure": 11.0,
+    "priority_level": "very_high",
+    "top_families": [
+      "COMPARATIVE_FORM",
+      "CLAUSE_STRUCTURE",
+      "ARTICLE_DETERMINER",
+      "VERB_FORM",
+      "PRONOUN_CASE"
+    ],
+    "family_counts": {
+      "COMPARATIVE_FORM": 3,
+      "CLAUSE_STRUCTURE": 3,
+      "ARTICLE_DETERMINER": 2,
+      "VERB_FORM": 1,
+      "PRONOUN_CASE": 1,
+      "SUBJECT_VERB_AGREEMENT": 1
+    },
+    "recommended_service": "writing_coach",
+    "recommended_difficulty": "controlled",
+    "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+    "evidence_samples": [
+      {
+        "error_id": "row_9e31b1e36d2dedce",
+        "source_row_id": "row_9e31b1e36d2dedce",
+        "family": "VERB_FORM",
+        "surface_quote": "has to spent",
+        "sentence_index": 1,
+        "severity": "moderate",
+        "confidence": 0.93
+      },
+      {
+        "error_id": "row_22095069141d55dd",
+        "source_row_id": "row_22095069141d55dd",
+        "family": "COMPARATIVE_FORM",
+        "surface_quote": "a lot of knowledge and experience than",
+        "sentence_index": 10,
+        "severity": "moderate",
+        "confidence": 0.9
+      },
+      {
+        "error_id": "row_e0997d86e3b847ab",
+        "source_row_id": "row_e0997d86e3b847ab",
+        "family": "CLAUSE_STRUCTURE",
+        "surface_quote": "can give",
+        "sentence_index": 11,
+        "severity": "moderate",
+        "confidence": 0.88
+      },
+      {
+        "error_id": "row_82bcbee38f563ba6",
+        "source_row_id": "row_82bcbee38f563ba6",
+        "family": "COMPARATIVE_FORM",
+        "surface_quote": "so older",
+        "sentence_index": 12,
+        "severity": "moderate",
+        "confidence": 0.91
+      },
+      {
+        "error_id": "row_272266c62eb41fad",
+        "source_row_id": "row_272266c62eb41fad",
+        "family": "COMPARATIVE_FORM",
+        "surface_quote": "more stronger",
+        "sentence_index": 14,
+        "severity": "moderate",
+        "confidence": 0.91
+      }
+    ]
+  },
+  "score_context": {
+    "released_score": {
+      "overall_band": 5.0,
+      "criteria_bands": {
+        "task_response": 5,
+        "coherence_cohesion": 5,
+        "lexical_resource": 5,
+        "grammar": 5
+      },
+      "score_family": "B1_WEAK",
+      "score_released": true
+    },
+    "score_confidence": "normal",
+    "score_status": "ready",
+    "verifier_status": "pass",
+    "adjudication_status": "confirmed",
+    "progress_tracking_allowed": true,
+    "lie_update_allowed": true
+  },
+  "score_confidence": "normal",
+  "adjudication_status": "confirmed",
+  "progress_tracking_allowed": true,
+  "gold_learning_directive": {
+    "next_best_skill": "sentence_control",
+    "next_best_capacity_domain": "sentence_control",
+    "recommended_service": "writing_coach",
+    "learning_update_allowed": true,
+    "mastery_update_allowed": false,
+    "recommended_difficulty": "controlled",
+    "reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus."
+  },
+  "learner_profile_context": {
+    "profile_supplied": true,
+    "profile_version": "GOLD_PRIOR_CONTEXT_V1"
+  },
+  "quality_flags": {
+    "has_primary_focus": true,
+    "has_recommended_service": true
+  }
+}

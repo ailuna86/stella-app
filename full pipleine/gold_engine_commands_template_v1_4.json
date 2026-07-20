@@ -1,0 +1,24 @@
+{
+  "schema_version": "GOLD_ENGINE_COMMANDS_TEMPLATE_V1_4",
+  "note": "Edit paths if the files are not in the same folder as the orchestrator. Commands are orchestration templates only.",
+  "commands": {
+    "detector": ["{python}", "detector_cli.py", "--input", "{submission}", "--output", "{detector}", "--pretty"],
+    "errormap": ["{python}", "detector_to_errormap_v3_standalone.py", "--input", "{detector}", "--output", "{errormap}", "--pretty"],
+    "directive": ["{python}", "directive_adapter_cli.py", "--priority", "{priority}", "--score-contract", "{score_contract}", "--output", "{directive}", "--pretty"],
+    "feedback_engine": ["{python}", "feedback_engine_v6c_cli.py", "--directive", "{directive}", "--errormap", "{errormap}", "--score-contract", "{score_contract}", "--output", "{feedback_engine}", "--report-output", "{feedback_report}", "--pretty"]
+  },
+  "external_engines_to_add_or_configure": {
+    "metric_profile": "premium_metric_profiler_v1.py or final metric profiler CLI",
+    "scorer": "premium_unified_scorer_v1_4_1_fixed.py with exact expected input",
+    "verifier": "premium_verifier_v1_4_3.py with merged scorer/verifier input",
+    "adjudicator": "premium_automated_adjudicator_v1_2.py",
+    "score_contract": "final score contract builder CLI if separate",
+    "priority": "priority_engine_v4_4_selfcontained.py",
+    "evaluator": "va_premium_evaluator_v7_3b_wke_v7_3b_3.py with request JSON builder",
+    "lret_session": "lret_engine_v1_3_1.py",
+    "writing_coach": "writing_coach_v1_2_7_cli.py with move bank/ontology/clusters",
+    "practice_session": "practice_engine_v5b.py CLI or wrapper if needed",
+    "learner_profile": "Gold LIE CLI or li_engine_v4 standalone replacement",
+    "revision_workspace": "gold_revision_universal_engine_v1_7_1.py"
+  }
+}

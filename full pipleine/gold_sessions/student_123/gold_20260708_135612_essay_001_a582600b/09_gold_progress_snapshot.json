@@ -1,0 +1,25 @@
+{
+  "schema_version": "GOLD_PROGRESS_SNAPSHOT_STANDALONE_V1_4_3",
+  "created_at": "2026-07-08T11:56:17.846950+00:00",
+  "student_id": "student_123",
+  "latest_score": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "task_response": 5,
+      "coherence_cohesion": 5,
+      "lexical_resource": 6,
+      "grammar": 5
+    },
+    "score_confidence": "reduced",
+    "score_status": "ready",
+    "progress_tracking_allowed": false,
+    "lie_update_allowed": false
+  },
+  "next_best_action": {
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "recommended_service": "writing_coach",
+    "source": "directive"
+  },
+  "boundary": "Snapshot only; no scoring or mastery update beyond aggregation."
+}

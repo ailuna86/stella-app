@@ -1,0 +1,475 @@
+{
+  "session_id": "3793ee44-637f-48dc-8165-ed9f8cf42757",
+  "student_id": "stress_weak",
+  "directive_id": "",
+  "focus_areas": [
+    {
+      "rank": 1,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "criterion": "grammar",
+      "evidence_count": 11,
+      "weighted_pressure": 11.0,
+      "priority_level": "very_high",
+      "top_families": [
+        "SUBJECT_VERB_AGREEMENT",
+        "NOUN_NUMBER_COUNTABILITY"
+      ],
+      "family_counts": {
+        "SUBJECT_VERB_AGREEMENT": 9,
+        "NOUN_NUMBER_COUNTABILITY": 2
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_676548d49a6838ac",
+          "source_row_id": "row_676548d49a6838ac",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "it compulsory",
+          "sentence_index": 3,
+          "severity": "moderate",
+          "confidence": 0.95
+        },
+        {
+          "error_id": "row_b247d87ede2f1fcd",
+          "source_row_id": "row_b247d87ede2f1fcd",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "many",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.78
+        },
+        {
+          "error_id": "row_c2d7794db51021c4",
+          "source_row_id": "row_c2d7794db51021c4",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "think",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.78
+        },
+        {
+          "error_id": "row_c09ddb5b7942644a",
+          "source_row_id": "row_c09ddb5b7942644a",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "they meets",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.72
+        },
+        {
+          "error_id": "row_ac22dbde7aae5a47",
+          "source_row_id": "row_ac22dbde7aae5a47",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "students will learns",
+          "sentence_index": 3,
+          "severity": "moderate",
+          "confidence": 0.72
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "skill_id": "lexical_precision",
+      "student_label": "Lexical Precision",
+      "criterion": "lexical_resource",
+      "evidence_count": 10,
+      "weighted_pressure": 10.0,
+      "priority_level": "very_high",
+      "top_families": [
+        "COLLOCATION",
+        "SPELLING"
+      ],
+      "family_counts": {
+        "COLLOCATION": 8,
+        "SPELLING": 2
+      },
+      "recommended_service": "lret",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_74ca7a2759e6c7d3",
+          "source_row_id": "row_74ca7a2759e6c7d3",
+          "family": "SPELLING",
+          "surface_quote": "dont",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.86
+        },
+        {
+          "error_id": "row_b10b868020e0a09c",
+          "source_row_id": "row_b10b868020e0a09c",
+          "family": "SPELLING",
+          "surface_quote": "dont",
+          "sentence_index": 11,
+          "severity": "moderate",
+          "confidence": 0.86
+        },
+        {
+          "error_id": "row_60d44c8a2d1d75d7",
+          "source_row_id": "row_60d44c8a2d1d75d7",
+          "family": "COLLOCATION",
+          "surface_quote": "doing community service",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.85
+        },
+        {
+          "error_id": "row_d5ae6b0f75212904",
+          "source_row_id": "row_d5ae6b0f75212904",
+          "family": "COLLOCATION",
+          "surface_quote": "old peoples",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.9
+        },
+        {
+          "error_id": "row_11d08edcd0ccf341",
+          "source_row_id": "row_11d08edcd0ccf341",
+          "family": "COLLOCATION",
+          "surface_quote": "homeless peoples",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.9
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "capacity_domain": "conclusion_construction",
+      "skill_tag": "conclusion_construction",
+      "skill_id": "conclusion_construction",
+      "student_label": "Conclusion Construction",
+      "criterion": "Organization",
+      "evidence_count": 0,
+      "priority_level": "monitor",
+      "source": "evaluator_practice_engine_payload_gap_target"
+    },
+    {
+      "rank": 4,
+      "capacity_domain": "ws_conclusion_alignment_struct",
+      "skill_tag": "ws_conclusion_alignment_struct",
+      "skill_id": "ws_conclusion_alignment_struct",
+      "student_label": "Conclusion Alignment (Structure)",
+      "criterion": "Organization",
+      "evidence_count": 0,
+      "priority_level": "monitor",
+      "source": "evaluator_practice_engine_payload_gap_target"
+    },
+    {
+      "rank": 5,
+      "capacity_domain": "arg_warrant_generation",
+      "skill_tag": "arg_warrant_generation",
+      "skill_id": "arg_warrant_generation",
+      "student_label": "Warrant Generation",
+      "criterion": "Argumentation",
+      "evidence_count": 0,
+      "priority_level": "monitor",
+      "source": "evaluator_practice_engine_payload_gap_target"
+    },
+    {
+      "rank": 6,
+      "capacity_domain": "arg_warrant_quality",
+      "skill_tag": "arg_warrant_quality",
+      "skill_id": "arg_warrant_quality",
+      "student_label": "Warrant Quality",
+      "criterion": "Argumentation",
+      "evidence_count": 0,
+      "priority_level": "monitor",
+      "source": "evaluator_practice_engine_payload_gap_target"
+    },
+    {
+      "rank": 7,
+      "capacity_domain": "arg_counterargument_development",
+      "skill_tag": "arg_counterargument_development",
+      "skill_id": "arg_counterargument_development",
+      "student_label": "Counterargument Development (Argumentation)",
+      "criterion": "Argumentation",
+      "evidence_count": 0,
+      "priority_level": "monitor",
+      "source": "evaluator_practice_engine_payload_gap_target"
+    },
+    {
+      "rank": 8,
+      "capacity_domain": "arg_rebuttal_quality",
+      "skill_tag": "arg_rebuttal_quality",
+      "skill_id": "arg_rebuttal_quality",
+      "student_label": "Rebuttal Quality (Argumentation)",
+      "criterion": "Argumentation",
+      "evidence_count": 0,
+      "priority_level": "monitor",
+      "source": "evaluator_practice_engine_payload_gap_target"
+    },
+    {
+      "rank": 9,
+      "capacity_domain": "counterargument_development",
+      "skill_tag": "counterargument_development",
+      "skill_id": "counterargument_development",
+      "student_label": "Counterargument Development",
+      "criterion": "Reasoning Competence",
+      "evidence_count": 0,
+      "priority_level": "monitor",
+      "source": "evaluator_practice_engine_payload_gap_target"
+    },
+    {
+      "rank": 10,
+      "capacity_domain": "evaluation_of_alternatives",
+      "skill_tag": "evaluation_of_alternatives",
+      "skill_id": "evaluation_of_alternatives",
+      "student_label": "Evaluation of Alternatives",
+      "criterion": "Reasoning Competence",
+      "evidence_count": 0,
+      "priority_level": "monitor",
+      "source": "evaluator_practice_engine_payload_gap_target"
+    },
+    {
+      "rank": 11,
+      "capacity_domain": "rebuttal_quality",
+      "skill_tag": "rebuttal_quality",
+      "skill_id": "rebuttal_quality",
+      "student_label": "Rebuttal Quality",
+      "criterion": "Reasoning Competence",
+      "evidence_count": 0,
+      "priority_level": "monitor",
+      "source": "evaluator_practice_engine_payload_gap_target"
+    }
+  ],
+  "band_gap_summary": {},
+  "state": "in_progress",
+  "started_at": "2026-07-11T18:06:38.392760+00:00",
+  "exercise_queue": [
+    "ex_41ed9f916881"
+  ],
+  "exercise_details": {
+    "ex_41ed9f916881": {
+      "exercise_id": "ex_41ed9f916881",
+      "family": "PRECISION",
+      "cefr_level": "B1",
+      "exercise_type": "error_correction",
+      "micro_skill": "vague_word",
+      "difficulty": "hard",
+      "domain": "academic",
+      "prompt": "Find the imprecise expression: 'Climate change is a really bad thing for the environment.'",
+      "choices": null,
+      "answer": "poses a serious/severe threat to",
+      "explanation": "'Really bad thing' is informal and imprecise.",
+      "prompt_hash": "a9a66d336c4fba29",
+      "topo_hash": "6063ad04fa73b54e",
+      "source": "VA_original_v11b",
+      "quality_tier": "v11b"
+    }
+  },
+  "exercise_index": 0,
+  "completed_exercises": [],
+  "correct_count": 0,
+  "results_by_criterion": {},
+  "seen_exercise_ids": [],
+  "_cefr_floor": null,
+  "_cefr_ceiling": null,
+  "family_fallbacks_used": [],
+  "slots_skipped_no_stock": [
+    {
+      "criterion": "grammar",
+      "requested_family": "sentence_control",
+      "resolved_family": "sentence_control",
+      "min_cefr": null,
+      "max_cefr": null,
+      "note": "Slot skipped — no exercises at CEFR None–None for criterion 'grammar' (any family). CEFR floor NOT relaxed."
+    },
+    {
+      "criterion": "Organization",
+      "requested_family": "conclusion_construction",
+      "resolved_family": "conclusion_construction",
+      "min_cefr": null,
+      "max_cefr": null,
+      "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Organization' (any family). CEFR floor NOT relaxed."
+    },
+    {
+      "criterion": "Organization",
+      "requested_family": "ws_conclusion_alignment_struct",
+      "resolved_family": "ws_conclusion_alignment_struct",
+      "min_cefr": null,
+      "max_cefr": null,
+      "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Organization' (any family). CEFR floor NOT relaxed."
+    },
+    {
+      "criterion": "Argumentation",
+      "requested_family": "arg_warrant_generation",
+      "resolved_family": "arg_warrant_generation",
+      "min_cefr": null,
+      "max_cefr": null,
+      "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Argumentation' (any family). CEFR floor NOT relaxed."
+    },
+    {
+      "criterion": "Argumentation",
+      "requested_family": "arg_warrant_quality",
+      "resolved_family": "arg_warrant_quality",
+      "min_cefr": null,
+      "max_cefr": null,
+      "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Argumentation' (any family). CEFR floor NOT relaxed."
+    },
+    {
+      "criterion": "Argumentation",
+      "requested_family": "arg_counterargument_development",
+      "resolved_family": "arg_counterargument_development",
+      "min_cefr": null,
+      "max_cefr": null,
+      "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Argumentation' (any family). CEFR floor NOT relaxed."
+    },
+    {
+      "criterion": "Argumentation",
+      "requested_family": "arg_rebuttal_quality",
+      "resolved_family": "arg_rebuttal_quality",
+      "min_cefr": null,
+      "max_cefr": null,
+      "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Argumentation' (any family). CEFR floor NOT relaxed."
+    },
+    {
+      "criterion": "Reasoning Competence",
+      "requested_family": "counterargument_development",
+      "resolved_family": "counterargument_development",
+      "min_cefr": null,
+      "max_cefr": null,
+      "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Reasoning Competence' (any family). CEFR floor NOT relaxed."
+    },
+    {
+      "criterion": "Reasoning Competence",
+      "requested_family": "evaluation_of_alternatives",
+      "resolved_family": "evaluation_of_alternatives",
+      "min_cefr": null,
+      "max_cefr": null,
+      "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Reasoning Competence' (any family). CEFR floor NOT relaxed."
+    },
+    {
+      "criterion": "Reasoning Competence",
+      "requested_family": "rebuttal_quality",
+      "resolved_family": "rebuttal_quality",
+      "min_cefr": null,
+      "max_cefr": null,
+      "note": "Slot skipped — no exercises at CEFR None–None for criterion 'Reasoning Competence' (any family). CEFR floor NOT relaxed."
+    }
+  ],
+  "_seen_ids_loaded": false,
+  "_cross_session_count": 0,
+  "chosen_minutes": 10,
+  "allocation": [
+    {
+      "rank": 1,
+      "criterion": "grammar",
+      "skill_tag": "sentence_control",
+      "difficulty": "controlled",
+      "count": 1,
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "current_band": null,
+      "target_band": null
+    },
+    {
+      "rank": 2,
+      "criterion": "lexical_resource",
+      "skill_tag": "lexical_precision",
+      "difficulty": "controlled",
+      "count": 1,
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "current_band": null,
+      "target_band": null
+    },
+    {
+      "rank": 3,
+      "criterion": "Organization",
+      "skill_tag": "conclusion_construction",
+      "difficulty": "consolidation",
+      "count": 1,
+      "priority_reason": "",
+      "current_band": null,
+      "target_band": null
+    },
+    {
+      "rank": 4,
+      "criterion": "Organization",
+      "skill_tag": "ws_conclusion_alignment_struct",
+      "difficulty": "consolidation",
+      "count": 1,
+      "priority_reason": "",
+      "current_band": null,
+      "target_band": null
+    },
+    {
+      "rank": 5,
+      "criterion": "Argumentation",
+      "skill_tag": "arg_warrant_generation",
+      "difficulty": "consolidation",
+      "count": 1,
+      "priority_reason": "",
+      "current_band": null,
+      "target_band": null
+    },
+    {
+      "rank": 6,
+      "criterion": "Argumentation",
+      "skill_tag": "arg_warrant_quality",
+      "difficulty": "consolidation",
+      "count": 1,
+      "priority_reason": "",
+      "current_band": null,
+      "target_band": null
+    },
+    {
+      "rank": 7,
+      "criterion": "Argumentation",
+      "skill_tag": "arg_counterargument_development",
+      "difficulty": "consolidation",
+      "count": 1,
+      "priority_reason": "",
+      "current_band": null,
+      "target_band": null
+    },
+    {
+      "rank": 8,
+      "criterion": "Argumentation",
+      "skill_tag": "arg_rebuttal_quality",
+      "difficulty": "consolidation",
+      "count": 1,
+      "priority_reason": "",
+      "current_band": null,
+      "target_band": null
+    },
+    {
+      "rank": 9,
+      "criterion": "Reasoning Competence",
+      "skill_tag": "counterargument_development",
+      "difficulty": "consolidation",
+      "count": 1,
+      "priority_reason": "",
+      "current_band": null,
+      "target_band": null
+    },
+    {
+      "rank": 10,
+      "criterion": "Reasoning Competence",
+      "skill_tag": "evaluation_of_alternatives",
+      "difficulty": "consolidation",
+      "count": 1,
+      "priority_reason": "",
+      "current_band": null,
+      "target_band": null
+    },
+    {
+      "rank": 11,
+      "criterion": "Reasoning Competence",
+      "skill_tag": "rebuttal_quality",
+      "difficulty": "consolidation",
+      "count": 1,
+      "priority_reason": "",
+      "current_band": null,
+      "target_band": null
+    }
+  ],
+  "_cross_session_excluded": 0
+}

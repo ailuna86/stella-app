@@ -1,0 +1,90 @@
+{
+  "schema_version": "FEEDBACK_REPORT_V6C_CLI_STANDALONE",
+  "engine_id": "VA_STELLA_FEEDBACK_ENGINE_V6C_CLI",
+  "engine_version": "1.0.0-standalone-no-imports",
+  "created_at": "2026-07-12T08:15:08.422507+00:00",
+  "performance_summary": {
+    "overall_band": 5.5,
+    "criteria_bands": {
+      "task_response": 6,
+      "coherence_cohesion": 6,
+      "lexical_resource": 5,
+      "grammar": 5
+    },
+    "score_confidence": "normal",
+    "adjudication_status": "confirmed"
+  },
+  "top_learning_priorities": [
+    {
+      "capacity_domain": "lexical_precision",
+      "title": "Lexical precision",
+      "why_this_matters": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "next_step": "Repair unclear or imprecise word choices before upgrading style.",
+      "example_count": 1
+    },
+    {
+      "capacity_domain": "sentence_control",
+      "title": "Sentence control",
+      "why_this_matters": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "next_step": "Practise accurate clauses before writing longer paragraphs.",
+      "example_count": 1
+    }
+  ],
+  "focus_area_feedback": [
+    {
+      "status": "ok",
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "criterion": "lexical_resource",
+      "title": "Lexical precision",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "summary": "1 chargeable signal(s) are linked to this area in the current ErrorMap.",
+      "examples": [
+        {
+          "error_id": "row_007a601bbbee4cf8",
+          "source_row_id": "row_007a601bbbee4cf8",
+          "essay_id": "essay_medium_001",
+          "sentence_index": 11,
+          "criterion": "lexical_resource",
+          "family": "SPELLING",
+          "capacity_domain": "lexical_precision",
+          "surface_quote": "downsides",
+          "suggested_revision": "downsizes",
+          "severity": "moderate",
+          "confidence": 0.82,
+          "student_message": "Detect likely spelling error using resource-valid word and edit-distance candidate; resource absence is never an error.",
+          "chargeable": true
+        }
+      ],
+      "next_step": "Repair unclear or imprecise word choices before upgrading style."
+    },
+    {
+      "status": "ok",
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "criterion": "grammar",
+      "title": "Sentence control",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "summary": "1 chargeable signal(s) are linked to this area in the current ErrorMap.",
+      "examples": [
+        {
+          "error_id": "row_4a78e3983f5e8914",
+          "source_row_id": "row_4a78e3983f5e8914",
+          "essay_id": "essay_medium_001",
+          "sentence_index": 2,
+          "criterion": "grammar",
+          "family": "CLAUSE_STRUCTURE",
+          "capacity_domain": "sentence_control",
+          "surface_quote": "it compulsory",
+          "suggested_revision": "it is + adjective",
+          "severity": "moderate",
+          "confidence": 0.82,
+          "student_message": "Finite clause with 'it + adjective' requires copula 'is/was' unless valid ellipsis.",
+          "chargeable": true
+        }
+      ],
+      "next_step": "Practise accurate clauses before writing longer paragraphs."
+    }
+  ],
+  "boundary": "Student-facing feedback is generated from upstream directive and errormap evidence only."
+}

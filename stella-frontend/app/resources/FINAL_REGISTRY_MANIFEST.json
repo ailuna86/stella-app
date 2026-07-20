@@ -1,0 +1,53 @@
+{
+  "version": "final_app_registries_v3_consolidated_canonical",
+  "created_from": "final_app_registries_v1_CANONICAL_CLEANED - Copy.zip",
+  "policy": "Single canonical runtime package. Duplicated source lists are merged into consolidated registries. Positive phrase/collocation resources are support/LRET KEEP only; absence is never an error.",
+  "core_files": {
+    "lexical_registry": "lexical_registry.json",
+    "morphology_registry": "morphology_registry.json",
+    "noun_governance_registry": "noun_governance_registry.json",
+    "discourse_registry": "discourse_registry.json",
+    "positive_collocations_registry": "positive_collocations_registry.tsv",
+    "preposition_governance_registry": "preposition_governance_registry.tsv",
+    "verb_complement_registry": "verb_complement_registry.tsv",
+    "verb_governance_registry": "verb_governance_registry.json",
+    "clause_frame_registry": "clause_frame_registry.json",
+    "irregular_noun_registry": "irregular_noun_registry.json",
+    "locale_variants": "locale_variants.tsv",
+    "contractions": "contraction_full_forms.tsv",
+    "lret_enhance_thesaurus": "enhance_thesaurus.json",
+    "quarantine_audit": "quarantined_rows.tsv"
+  },
+  "runtime_roles": {
+    "lexical_registry": "single source for valid words, CEFR, register, academic signal, frequency, spelling veto, and LRET word metadata",
+    "discourse_registry": "single source for discourse markers/functions; replaces discourse_markers.txt at runtime",
+    "noun_governance_registry": "single source for countability/mass/collective noun support; replaces mass_abstract_nouns.txt and collective_singular.txt at runtime",
+    "positive_collocations_registry": "single source for collocation/phrase positive evidence and LRET KEEP; merges OCD positive TSVs, ACL, phrase list, and legacy pairs",
+    "preposition_governance_registry": "single source for governed preposition support; requires dependency/governor validation before charge",
+    "verb_complement_registry": "single source for verb complement support; requires observed complement mismatch before charge"
+  },
+  "counts": {
+    "lexical_registry": 76334,
+    "morphology_registry": 22596,
+    "noun_governance_registry": 4364,
+    "discourse_registry": 102,
+    "positive_collocations_registry": 17629,
+    "preposition_governance_registry": 6335,
+    "verb_complement_registry": 11941
+  },
+  "conflict_rules": {
+    "within_registry_duplicates": "merged by normalized key",
+    "cefr_conflicts": "lower CEFR retained",
+    "pos_conflicts": "explicit POS union retained; unknown loses to explicit POS",
+    "source_conflicts": "sources unioned",
+    "confidence": "max confidence retained",
+    "collocation_absence": "never an error",
+    "governance_absence": "never an error"
+  },
+  "ignored_runtime_sources": [
+    "raw PDFs/XLS/ODS/XLSX",
+    "Copy duplicates",
+    "raw UniMorph/VerbNet research dumps already represented in consolidated TSV/JSON",
+    "old separate text lists after merge"
+  ]
+}

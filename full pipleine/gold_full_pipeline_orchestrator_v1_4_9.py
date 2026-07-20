@@ -1,0 +1,1185 @@
+#!/usr/bin/env python3
+"""
+VA / ST.ELLA Gold Full Pipeline Orchestrator v1.4.9
+==================================================
+
+ORCHESTRATION-ONLY DESIGN
+-------------------------
+This file coordinates independent engines. It does not implement Detector,
+Scorer, Verifier, Adjudicator, Feedback, Evaluator/WKE, LRET, Priority
+Engine, Writing Coach, Practice, Progress Tracker, Revision, or Learning
+Intelligence logic.
+
+Changes from v1.4.8, found by analyzing a real run (student_123, essay_001)
+rather than assumed:
+
+1. Progress Tracker continuity was broken. v1.4.8 wired the
+   "progress_tracker" stage's --profile at {prior_context} (the continuity
+   loader's combined wrapper), not at Progress Tracker's own prior output.
+   Two consequences, both fixed here:
+   a) progress_tracker_v2_scorer_feed.py used profile.setdefault(...) for
+      its own schema_version/engine_id/engine_version, so when fed
+      prior_context.json (which already has those keys set to the
+      continuity loader's identity), Progress Tracker's output silently
+      reported itself as VA_STELLA_GOLD_SESSION_CONTINUITY_LOADER instead
+      of its own engine id. Fixed in progress_tracker_v2_scorer_feed.py
+      (now force-overwrites its identity every run; bumped to 2.0.1).
+   b) Nothing ever persisted Progress Tracker's own accumulated
+      score_events to a fixed per-student path, so history could never
+      actually accumulate across essays -- every run started over. New
+      "progress_tracker_persist" stage (wrapping the new
+      gold_progress_tracker_persist_v1.py) closes this loop, writing to
+      {student_id}_gold_progress_profile.json. The "progress_tracker"
+      stage's --profile now points directly at that fixed path instead of
+      at prior_context.
+2. New "canonical_resources_dir" CLI arg / template variable. LRET's
+   --canonical-resources was pointed at {project_root} in v1.4.8, which
+   does not contain the real lexical registry files
+   (enhance_thesaurus.json, discourse_registry.json,
+   positive_collocations_registry.tsv, lexical_registry.json) -- confirmed
+   by LRET's own stderr warning and canonical_loaded:false in a real run.
+   --canonical-resources-dir now defaults to the actual registry location
+   and is threaded through as {canonical_resources_dir}.
+3. New quality gates: Progress Tracker output must self-identify with its
+   own engine_id (catches a recurrence of bug 1a); Progress Tracker
+   history must actually accumulate session-over-session once more than
+   one session exists for a student; LRET's canonical_loaded flag is
+   checked and flagged if false.
+
+Changes carried over from v1.4.7 -> v1.4.8 (see the master blueprint's
+target-architecture section for the full rationale):
+
+1. Evaluator now runs right after Score Contract, before Priority Engine,
+   instead of after Feedback.
+2. New "prior_context" stage at the very start, wrapping
+   gold_session_continuity_loader_v1.py.
+3. New "progress_tracker" stage right after Score Contract, wrapping
+   progress_tracker_v2_scorer_feed.py.
+4. New "persisted_profile" stage right after learner_profile, wrapping
+   gold_profile_persist_v1.py.
+5. LRET quality gate now checks for engine version "1.12.0" instead of
+   "1.4.6".
+
+No essay-specific patterns. No lexical upgrade lists. No collocation banks.
+No LRET labels. No Writing Coach task generation. No previous-version imports.
+
+Engine commands are supplied via a JSON config. Each command may be either a
+string or a list of arguments. Template variables are expanded, for example:
+
+{
+  "detector": ["python", "detector_cli.py", "--input", "{submission}", "--output", "{detector}", "--pretty"]
+}
+
+Typical usage:
+python gold_full_pipeline_orchestrator_v1_4_9.py --input submission.json --engine-config gold_engine_commands_full_v1_4_9.json --output-root gold_sessions --pretty
+
+For development, you can copy existing artifacts instead of running engines:
+python gold_full_pipeline_orchestrator_v1_4_9.py --input submission.json --copy-from-session previous_session_dir --output-root gold_sessions --pretty
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import shutil
+import subprocess
+import sys
+import time
+import uuid
+from dataclasses import dataclass, asdict
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple, Union
+
+ENGINE_ID = "VA_STELLA_GOLD_ORCHESTRATOR"
+ENGINE_VERSION = "1.4.13-evaluator-before-scorer-rubric-bridge"
+SCHEMA_VERSION = "GOLD_ORCHESTRATOR_MANIFEST_V1_4"
+
+# v1.4.13 change: "evaluator" moved to run BEFORE "scorer" (previously it ran
+# after score_contract/progress_tracker). This closes stress-test Problem 2:
+# the scorer's task_response/coherence_cohesion content-quality sub-metrics
+# were never populated by anything upstream and sat at a hardcoded 0.55
+# default on every run regardless of essay content -- verified flat across a
+# 3-essay weak/medium/strong stress test. The Evaluator's skill_observation_profile
+# already carries real per-essay signal for this; a new "evaluator_rubric_bridge"
+# stage (evaluator_rubric_bridge_v1.py) maps it into scorer-readable fields.
+# The Evaluator's own --scorer input is now optional (evaluator_cli_bridge_standalone_v1_4_3.py
+# v1.4.13 patch) since no scorer artifact exists yet at this point in the run;
+# the underlying evaluator engine already has a graceful
+# scorer_available=False fallback path for exactly this case.
+ARTIFACTS: Dict[str, str] = {
+    "prior_context": "00a_prior_context.json",
+    "submission": "00_submission.json",
+    "intake": "00_intake_assessment.json",
+    "detector": "01_detector_output.json",
+    "detector_for_scorer": "01d_detector_for_scorer.json",
+    "errormap": "01b_errormap_v3.json",
+    "detector_for_evaluator": "01c_detector_for_evaluator.json",
+    "metric_profile": "02_metric_profile.json",
+    "evaluator_rubric_bridge": "01e_detector_for_scorer_rubric_enriched.json",
+    "scorer": "02a_premium_scorer_v1_4_1_output.json",
+    "verifier": "02b_premium_verifier_v1_4_3_output.json",
+    "adjudicator": "02c_final_adjudicated_v1_2.json",
+    "score_contract": "02d_final_score_contract.json",
+    "progress_tracker": "02e_gold_progress_tracker.json",
+    "progress_tracker_persist": "02f_gold_progress_tracker_persisted.json",
+    "evaluator": "07_evaluator_output.json",
+    "priority_input": "03a_priority_input_v1_4_8.json",
+    "priority": "03_pe_output.json",
+    "priority_normalized": "03b_priority_normalized_v1_4_3.json",
+    "directive": "04_directive_v2.json",
+    "feedback_engine": "05_fe_output.json",
+    "feedback_report": "06_feedback_report_v6c.json",
+    "evidence_fusion": "07b_gold_evidence_fusion.json",
+    "lret_session": "07d_lret_session.json",
+    "writing_coach_raw": "07e_writing_coach_raw.json",
+    "writing_coach": "07e_writing_coach_output.json",
+    "practice_session": "07f_gold_practice_session.json",
+    "mission_response_grading": "07g_gold_mission_response_grade.json",
+    "learner_profile": "08_gold_learner_profile.json",
+    "persisted_profile": "08a_gold_persisted_profile.json",
+    "skills_progress": "08b_gold_skills_progress_report.json",
+    "learning_roadmap": "08c_gold_learning_roadmap.json",
+    "service_routing": "08d_gold_service_routing.json",
+    "progress_snapshot": "09_gold_progress_snapshot.json",
+    "revision_workspace": "10_revision_workspace.json",
+    "revision_launch_packet": "revision_launch_packet.json",
+    "qa_report": "QA_gold_report.json",
+    "manifest": "gold_run_manifest.json",
+}
+
+# Stage order is orchestration order only. Stages are skipped unless a command is
+# configured or an artifact is copied from --copy-from-session.
+STAGE_ORDER: List[str] = [
+    "prior_context",
+    "intake",
+    "detector",
+    "detector_for_scorer",
+    "errormap",
+    "detector_for_evaluator",
+    "metric_profile",
+    "evaluator",
+    "evaluator_rubric_bridge",
+    "scorer",
+    "verifier",
+    "adjudicator",
+    "score_contract",
+    "progress_tracker",
+    "progress_tracker_persist",
+    "priority_input",
+    "priority",
+    "priority_normalized",
+    "directive",
+    "feedback_engine",
+    "feedback_report",
+    "lret_session",
+    "writing_coach_raw",
+    "writing_coach",
+    "practice_session",
+    "mission_response_grading",
+    "learner_profile",
+    "persisted_profile",
+    "skills_progress",
+    "learning_roadmap",
+    "service_routing",
+    "progress_snapshot",
+    "revision_workspace",
+    "revision_launch_packet",
+    "evidence_fusion",
+]
+
+# "mission_response_grading" is optional and NOT in REQUIRED_FOR_COMPLETE_GOLD:
+# most Gold runs are essay-only and have no student mission response to grade
+# yet (the mission this run generates is written to going forward, not
+# answered in the same run). It only executes when --mission-to-grade plus
+# --student-mission-response-text/--student-mission-response-file are passed
+# on the CLI; see main() for the conditional command-injection guard.
+
+# Stages whose failure must never block the rest of the run. Found via a real
+# run: a bad --mission-to-grade path failed mission_response_grading, and
+# because the stage loop breaks on any failure unless --continue-on-error is
+# passed, that ALSO silently skipped learner_profile, persisted_profile,
+# service_routing, and evidence_fusion -- mandatory deliverables that have
+# nothing to do with the optional grading stage. An optional/experimental
+# stage failing must not be able to take down the core essay report.
+NON_BLOCKING_STAGES = {"mission_response_grading"}
+
+# Minimal product-critical artifacts for a complete Gold report. Development
+# runs may be partial unless --strict is used.
+REQUIRED_FOR_COMPLETE_GOLD: List[str] = [
+    "prior_context",
+    "submission",
+    "detector",
+    "detector_for_scorer",
+    "errormap",
+    "detector_for_evaluator",
+    "evaluator",
+    "evaluator_rubric_bridge",
+    "scorer",
+    "verifier",
+    "adjudicator",
+    "score_contract",
+    "progress_tracker",
+    "progress_tracker_persist",
+    "priority_input",
+    "priority",
+    "priority_normalized",
+    "directive",
+    "feedback_engine",
+    "feedback_report",
+    "evidence_fusion",
+    "lret_session",
+    "writing_coach_raw",
+    "writing_coach",
+    "practice_session",
+    "learner_profile",
+    "persisted_profile",
+    "service_routing",
+]
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def read_json(path: Union[str, Path], required: bool = True) -> Any:
+    p = Path(path)
+    if not p.exists():
+        if required:
+            raise FileNotFoundError(str(p))
+        return None
+    with p.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def write_json(path: Union[str, Path], data: Any, pretty: bool = False) -> None:
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with p.open("w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2 if pretty else None)
+        f.write("\n")
+
+
+def stable_safe_id(text: str, fallback: str) -> str:
+    s = "".join(ch if ch.isalnum() or ch in "_-" else "_" for ch in str(text or "").strip())
+    s = s.strip("_")
+    return s or fallback
+
+
+def normalize_submission(raw: Any, essay_index: int = 0) -> Dict[str, Any]:
+    """Accept either top-level essay JSON or batch JSON with essays[]."""
+    if isinstance(raw, dict) and isinstance(raw.get("essays"), list):
+        essays = raw.get("essays") or []
+        if not essays:
+            raise ValueError("Input contains essays=[], but no essay submission.")
+        if essay_index < 0 or essay_index >= len(essays):
+            raise IndexError(f"essay_index {essay_index} out of range for {len(essays)} essays")
+        rec = dict(essays[essay_index] or {})
+    elif isinstance(raw, dict):
+        rec = dict(raw)
+    else:
+        raise ValueError("Input JSON must be an object or an object with essays[].")
+
+    essay_text = str(rec.get("essay_text") or rec.get("text") or "").strip()
+    prompt_text = str(rec.get("prompt_text") or rec.get("prompt") or "").strip()
+    if not essay_text:
+        raise ValueError("Submission JSON must contain non-empty essay_text.")
+    if not prompt_text:
+        raise ValueError("Submission JSON must contain non-empty prompt_text.")
+
+    essay_id = stable_safe_id(rec.get("essay_id") or rec.get("submission_id"), "essay_001")
+    student_id = stable_safe_id(rec.get("student_id") or rec.get("learner_id"), "student_unknown")
+    task_type = str(rec.get("task_type") or "WT2").strip() or "WT2"
+
+    out = {
+        "schema_version": "GOLD_SUBMISSION_NORMALIZED_V1_4",
+        "essay_id": essay_id,
+        "student_id": student_id,
+        "task_type": task_type,
+        "prompt_text": prompt_text,
+        "essay_text": essay_text,
+        "topic_keywords": rec.get("topic_keywords", []),
+        "source_metadata": {
+            k: v for k, v in rec.items()
+            if k not in {"essay_text", "text", "prompt_text", "prompt"}
+        },
+    }
+    return out
+
+
+def make_session_dir(output_root: Path, student_id: str, essay_id: str) -> Path:
+    stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    session_id = f"gold_{stamp}_{essay_id}_{uuid.uuid4().hex[:8]}"
+    return output_root / student_id / session_id
+
+
+def template_value(value: Any, mapping: Dict[str, str]) -> Any:
+    if isinstance(value, str):
+        try:
+            return value.format(**mapping)
+        except KeyError as e:
+            raise KeyError(f"Unknown template variable {e} in command value: {value}")
+    if isinstance(value, list):
+        return [template_value(v, mapping) for v in value]
+    if isinstance(value, dict):
+        return {k: template_value(v, mapping) for k, v in value.items()}
+    return value
+
+
+def is_probable_local_script(token: str) -> bool:
+    """Return True only for tokens that look like executable project scripts.
+
+    This is orchestration support, not targeted engine logic. It prevents a
+    relative script name such as detector_cli.py from being looked up in the
+    generated session folder or another accidental working directory.
+    """
+    if not isinstance(token, str) or not token.strip():
+        return False
+    t = token.strip().strip('"')
+    if t.startswith("{") and t.endswith("}"):
+        return False
+    if t.startswith("-"):
+        return False
+    suffix = Path(t).suffix.lower()
+    return suffix in {".py", ".pyw", ".cmd", ".bat", ".ps1"}
+
+
+def resolve_command_paths(command: Union[str, List[str]], config_dir: Path, orchestrator_dir: Path) -> Union[str, List[str]]:
+    """Resolve relative engine script paths while preserving artifact paths.
+
+    Rules:
+    - Shell-string commands are left unchanged and executed with cwd=config_dir.
+    - List commands are safer; relative script tokens are expanded to absolute
+      paths if they exist next to the config file or next to this orchestrator.
+    - Ordinary arguments and artifact paths are not rewritten.
+    """
+    if isinstance(command, str):
+        return command
+    resolved: List[str] = []
+    for idx, raw in enumerate(command):
+        token = str(raw)
+        cleaned = token.strip().strip('"')
+        if is_probable_local_script(cleaned) and not Path(cleaned).is_absolute():
+            candidates = [config_dir / cleaned, orchestrator_dir / cleaned, Path.cwd() / cleaned]
+            found = next((c.resolve() for c in candidates if c.exists()), None)
+            if found is not None:
+                resolved.append(str(found))
+            else:
+                # Preserve the original token so subprocess reports the real missing script.
+                resolved.append(token)
+        else:
+            resolved.append(token)
+    return resolved
+
+
+@dataclass
+class StageResult:
+    stage: str
+    status: str
+    output_path: str
+    command: Optional[Union[str, List[str]]] = None
+    returncode: Optional[int] = None
+    started_at: Optional[str] = None
+    finished_at: Optional[str] = None
+    error: Optional[str] = None
+    copied_from: Optional[str] = None
+    stdout_log: Optional[str] = None
+    stderr_log: Optional[str] = None
+
+
+def run_command(stage: str, command: Union[str, List[str]], cwd: Path, stdout_log: Path, stderr_log: Path) -> Tuple[int, Optional[str]]:
+    stdout_log.parent.mkdir(parents=True, exist_ok=True)
+    stderr_log.parent.mkdir(parents=True, exist_ok=True)
+    with stdout_log.open("w", encoding="utf-8") as out, stderr_log.open("w", encoding="utf-8") as err:
+        if isinstance(command, str):
+            proc = subprocess.run(command, cwd=str(cwd), stdout=out, stderr=err, shell=True)
+        else:
+            proc = subprocess.run([str(x) for x in command], cwd=str(cwd), stdout=out, stderr=err, shell=False)
+    if proc.returncode != 0:
+        try:
+            msg = stderr_log.read_text(encoding="utf-8")[-2000:]
+        except Exception:
+            msg = f"Stage {stage} failed with return code {proc.returncode}."
+        return proc.returncode, msg
+    return proc.returncode, None
+
+
+def copy_artifact_if_available(stage: str, copy_from: Optional[Path], dest: Path) -> Optional[str]:
+    if not copy_from:
+        return None
+    src = copy_from / ARTIFACTS[stage]
+    if src.exists():
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dest)
+        return str(src)
+    return None
+
+
+def json_status(path: Path) -> Dict[str, Any]:
+    if not path.exists():
+        return {"exists": False, "valid_json": False}
+    try:
+        obj = read_json(path)
+        schema = obj.get("schema_version") if isinstance(obj, dict) else None
+        return {"exists": True, "valid_json": True, "schema_version": schema}
+    except Exception as e:
+        return {"exists": True, "valid_json": False, "error": str(e)}
+
+
+def build_evidence_fusion(paths: Dict[str, Path], pretty: bool = False) -> Dict[str, Any]:
+    """Metadata-level fusion only. Does not classify, score, or teach."""
+    def maybe(path_key: str) -> Optional[Any]:
+        p = paths.get(path_key)
+        if p and p.exists():
+            try:
+                return read_json(p)
+            except Exception:
+                return None
+        return None
+
+    score_contract = maybe("score_contract") or {}
+    errormap = maybe("errormap") or {}
+    evaluator = maybe("evaluator") or {}
+    lret = maybe("lret_session") or {}
+    coach = maybe("writing_coach") or {}
+    practice = maybe("practice_session") or {}
+    progress_tracker = maybe("progress_tracker") or {}
+    persisted_profile = maybe("persisted_profile") or {}
+
+    fusion = {
+        "schema_version": "GOLD_EVIDENCE_FUSION_METADATA_V1_4_8",
+        "created_at": now_iso(),
+        "boundary": "Metadata-level orchestration record only; targeted engines own scoring, detection, LRET classification, coaching, practice, revision, and learner-model logic.",
+        "performance_evidence": {
+            "source_artifact": ARTIFACTS["score_contract"],
+            "present": bool(score_contract),
+            "score_status": score_contract.get("score_status") if isinstance(score_contract, dict) else None,
+            "score_confidence": score_contract.get("score_confidence") if isinstance(score_contract, dict) else None,
+            "progress_tracking_allowed": score_contract.get("progress_tracking_allowed") if isinstance(score_contract, dict) else None,
+            "lie_update_allowed": score_contract.get("lie_update_allowed") if isinstance(score_contract, dict) else None,
+        },
+        "error_pattern_evidence": {
+            "source_artifact": ARTIFACTS["errormap"],
+            "present": bool(errormap),
+            "error_count": len(errormap.get("errors", [])) if isinstance(errormap, dict) else None,
+            "counts_present": isinstance(errormap, dict) and isinstance(errormap.get("counts"), dict),
+        },
+        "writing_capacity_evidence": {
+            "source_artifact": ARTIFACTS["evaluator"],
+            "present": bool(evaluator),
+            "profile_present": isinstance(evaluator, dict) and "skill_observation_profile" in evaluator,
+            "consumer_payloads_present": isinstance(evaluator, dict) and "consumer_payloads" in evaluator,
+        },
+        "service_outputs": {
+            "lret_present": bool(lret),
+            "writing_coach_present": bool(coach),
+            "practice_present": bool(practice),
+        },
+        "continuity_evidence": {
+            "progress_tracker_present": bool(progress_tracker),
+            "progress_tracker_event_count": len(progress_tracker.get("score_events", [])) if isinstance(progress_tracker, dict) else 0,
+            "persisted_profile_present": bool(persisted_profile),
+            "persisted_profile_action": (persisted_profile.get("_persist") or {}).get("action") if isinstance(persisted_profile, dict) else None,
+        },
+    }
+    write_json(paths["evidence_fusion"], fusion, pretty=pretty)
+    return fusion
+
+
+def validate_boundaries(paths: Dict[str, Path]) -> List[Dict[str, str]]:
+    """Non-invasive checks for orchestration boundaries."""
+    issues: List[Dict[str, str]] = []
+
+    ef_path = paths.get("evidence_fusion")
+    if ef_path and ef_path.exists():
+        text = ef_path.read_text(encoding="utf-8", errors="replace").lower()
+        forbidden_fragments = [
+            "general_single_word_upgrades", "academic_single_word_upgrades",
+            "collocation_keep", "collocation_fix", "collocation_enhance",
+            "suggestions_academic", "suggestions_general",
+        ]
+        for frag in forbidden_fragments:
+            if frag in text:
+                issues.append({"severity": "high", "artifact": "evidence_fusion", "issue": f"forbidden_engine_logic_fragment:{frag}"})
+
+    sc = paths.get("score_contract")
+    if sc and sc.exists():
+        try:
+            obj = read_json(sc)
+            if isinstance(obj, dict) and "released_score" not in obj and "final_score_profile" not in obj:
+                issues.append({"severity": "medium", "artifact": "score_contract", "issue": "score_contract_missing_released_score_or_final_score_profile"})
+        except Exception as e:
+            issues.append({"severity": "high", "artifact": "score_contract", "issue": f"invalid_json:{e}"})
+
+    return issues
+
+
+def _safe_obj(paths: Dict[str, Path], key: str) -> Any:
+    p = paths.get(key)
+    if not p or not p.exists():
+        return None
+    try:
+        return read_json(p, required=False)
+    except Exception:
+        return None
+
+
+def _detector_row_count(obj: Any) -> int:
+    if not isinstance(obj, dict):
+        return 0
+    root = obj
+    if isinstance(obj.get("results"), list) and obj["results"]:
+        root = obj["results"][0] if isinstance(obj["results"][0], dict) else {}
+    total = 0
+    for key in ("diagnostic_rows", "student_rows", "survived_candidates", "validated_rows", "rows", "errors"):
+        value = root.get(key) if isinstance(root, dict) else None
+        if isinstance(value, list):
+            total += len(value)
+    payload = root.get("evaluator_payload") if isinstance(root, dict) else None
+    if isinstance(payload, dict) and isinstance(payload.get("all_detector_evidence"), list):
+        total += len(payload["all_detector_evidence"])
+    return total
+
+
+def _evaluator_detector_row_count(obj: Any) -> int:
+    if not isinstance(obj, dict):
+        return 0
+    return int(((obj.get("input_summary") or {}).get("detector_row_count")) or 0)
+
+
+def _focus_areas(obj: Any) -> List[Dict[str, Any]]:
+    if not isinstance(obj, dict):
+        return []
+    focus = obj.get("focus_areas")
+    if isinstance(focus, list):
+        return [x for x in focus if isinstance(x, dict)]
+    primary = obj.get("primary_focus")
+    return [primary] if isinstance(primary, dict) else []
+
+
+def _has_unknown_skill(focus: List[Dict[str, Any]]) -> bool:
+    for item in focus:
+        values = [item.get("skill"), item.get("skill_tag"), item.get("skill_id"), item.get("student_label"), item.get("criterion"), item.get("rubric")]
+        if any(str(v or "").upper().startswith("UNKNOWN") for v in values):
+            return True
+    return False
+
+
+def _first_result(obj: Any) -> Dict[str, Any]:
+    if isinstance(obj, dict) and isinstance(obj.get("results"), list) and obj["results"]:
+        first = obj["results"][0]
+        return first if isinstance(first, dict) else {}
+    return obj if isinstance(obj, dict) else {}
+
+
+def _as_positive_int(value: Any) -> int:
+    try:
+        out = int(float(value))
+        return out if out > 0 else 0
+    except Exception:
+        return 0
+
+
+def _nested(obj: Dict[str, Any], path: List[str]) -> Any:
+    cur: Any = obj
+    for key in path:
+        if not isinstance(cur, dict):
+            return None
+        cur = cur.get(key)
+    return cur
+
+
+def _metadata_counts(obj: Any) -> Dict[str, int]:
+    """Extract scorer length metadata from every location the scorer can read."""
+    rec = _first_result(obj)
+    counts = {"word_count": 0, "sentence_count": 0, "paragraph_count": 0}
+    locations: List[List[str]] = [
+        [],
+        ["metadata"],
+        ["generated_metadata"],
+        ["detector_metric_profile", "shared"],
+        ["scorer_payload", "metadata"],
+        ["scorer_payload", "premium_metric_profile_mapped_metrics", "shared"],
+    ]
+    for field in counts:
+        for path in locations:
+            src = rec if not path else _nested(rec, path)
+            if isinstance(src, dict):
+                value = _as_positive_int(src.get(field))
+                if value:
+                    counts[field] = value
+                    break
+    return counts
+
+
+def _scorer_feature_counts(obj: Any) -> Dict[str, int]:
+    rec = _first_result(obj)
+    features = _nested(rec, ["tier_decision", "features"])
+    evidence = _nested(rec, ["tier_decision", "features", "task_resolution", "evidence"])
+    out = {"word_count": 0, "sentence_count": 0, "paragraph_count": 0}
+    for field in out:
+        if isinstance(features, dict):
+            out[field] = _as_positive_int(features.get(field))
+        if not out[field] and isinstance(evidence, dict):
+            out[field] = _as_positive_int(evidence.get(field))
+    return out
+
+
+def _scorer_false_short_signal(obj: Any, detector_counts: Dict[str, int]) -> bool:
+    rec = _first_result(obj)
+    features = _nested(rec, ["tier_decision", "features"]) or {}
+    reasons = _nested(rec, ["tier_decision", "reasons"]) or []
+    bundle = features.get("safety_signal_bundle") if isinstance(features, dict) else {}
+    severe = bundle.get("severe_signals") if isinstance(bundle, dict) else {}
+    wc = int(detector_counts.get("word_count") or 0)
+    false_catastrophic = wc >= 120 and isinstance(severe, dict) and severe.get("catastrophic_short_response") is True
+    false_reason = wc >= 180 and isinstance(reasons, list) and any("short_response" in str(r) for r in reasons)
+    return bool(false_catastrophic or false_reason)
+
+
+def _as_float(value: Any) -> float:
+    try:
+        return float(value)
+    except Exception:
+        return 0.0
+
+
+def _errormap_error_count(obj: Any) -> int:
+    if not isinstance(obj, dict):
+        return 0
+    summary = obj.get("summary") if isinstance(obj.get("summary"), dict) else {}
+    if summary.get("error_count") is not None:
+        return _as_positive_int(summary.get("error_count"))
+    errors = obj.get("errors")
+    return len(errors) if isinstance(errors, list) else 0
+
+
+def _errormap_has_local_errors(obj: Any) -> bool:
+    if not isinstance(obj, dict):
+        return False
+    counts = obj.get("counts") if isinstance(obj.get("counts"), dict) else {}
+    for fam, count in counts.items():
+        f = str(fam or "").upper()
+        if _as_positive_int(count) > 0 and (f.startswith("G_") or f.startswith("L_") or f.startswith("S_") or f in {"REGISTER", "LEXICAL_PRECISION", "VERB_PATTERN", "GRAMMAR_PUNCTUATION"}):
+            return True
+    return False
+
+
+def _scorer_evidence_features(obj: Any) -> Dict[str, float]:
+    rec = _first_result(obj)
+    features = _nested(rec, ["tier_decision", "features"])
+    out = {
+        "n_items": 0.0,
+        "chargeable_count": 0.0,
+        "local_root_weight": 0.0,
+        "grammar_weight": 0.0,
+        "lr_weight": 0.0,
+    }
+    if isinstance(features, dict):
+        for k in out:
+            out[k] = _as_float(features.get(k))
+    ledger = rec.get("evidence_ledger") if isinstance(rec, dict) else None
+    if isinstance(ledger, dict):
+        summary = ledger.get("summary") if isinstance(ledger.get("summary"), dict) else {}
+        if out["chargeable_count"] <= 0:
+            out["chargeable_count"] = _as_float(summary.get("chargeable_count"))
+        if out["local_root_weight"] <= 0:
+            out["local_root_weight"] = _as_float(summary.get("local_root_weight"))
+        by_rub = summary.get("weighted_by_rubric") if isinstance(summary.get("weighted_by_rubric"), dict) else {}
+        if out["grammar_weight"] <= 0:
+            out["grammar_weight"] = _as_float(by_rub.get("grammar"))
+        if out["lr_weight"] <= 0:
+            out["lr_weight"] = _as_float(by_rub.get("lexical_resource"))
+    return out
+
+
+def _priority_raw_unknown(obj: Any) -> bool:
+    if not isinstance(obj, dict):
+        return False
+    rec = _first_result(obj)
+    primary = rec.get("primary_limiter") if isinstance(rec.get("primary_limiter"), dict) else {}
+    vals = [primary.get("skill"), primary.get("rubric"), primary.get("student_label")]
+    if any(str(v or "").upper().startswith("UNKNOWN") for v in vals):
+        return True
+    profiles = rec.get("skill_profiles") if isinstance(rec.get("skill_profiles"), list) else []
+    if profiles and all(str((p or {}).get("skill") or "").upper().startswith("UNKNOWN") for p in profiles if isinstance(p, dict)):
+        return True
+    return False
+
+
+def _priority_input_ready(obj: Any) -> bool:
+    if not isinstance(obj, dict):
+        return False
+    guard = obj.get("priority_input_builder") if isinstance(obj.get("priority_input_builder"), dict) else {}
+    if guard.get("all_records_priority_ready") is True:
+        return True
+    rec = _first_result(obj)
+    meta_prompt = bool(_nested(rec, ["meta", "prompt_present"]) or rec.get("prompt_text"))
+    task_type = bool(_nested(rec, ["task_profile", "task_type"]) or rec.get("task_type"))
+    rows = rec.get("student_rows") if isinstance(rec.get("student_rows"), list) else []
+    unknown_rows = [r for r in rows if isinstance(r, dict) and str(r.get("family") or "").upper().startswith("UNKNOWN")]
+    return meta_prompt and task_type and bool(rows) and not unknown_rows
+
+
+def _coach_alignment_status(obj: Any) -> str:
+    if not isinstance(obj, dict):
+        return ""
+    align = obj.get("directive_alignment") if isinstance(obj.get("directive_alignment"), dict) else {}
+    return str(align.get("status") or "")
+
+
+def _score_contract_restricted(obj: Any) -> bool:
+    if not isinstance(obj, dict):
+        return False
+    return obj.get("progress_tracking_allowed") is False or obj.get("lie_update_allowed") is False or str(obj.get("score_confidence") or "").lower() in {"reduced", "low"}
+
+
+def _lret_engine_version(obj: Any) -> str:
+    if not isinstance(obj, dict):
+        return ""
+    run = obj.get("run") or {}
+    return str(run.get("engine_version") or obj.get("engine_version") or "")
+
+
+def _writing_coach_selected_skill(obj: Any) -> str:
+    if not isinstance(obj, dict):
+        return ""
+    cd = obj.get("coach_decision") or {}
+    return str(cd.get("selected_skill_id") or cd.get("selected_skill_name") or "")
+
+
+def _progress_tracker_has_event_for_essay(obj: Any, essay_id: str) -> bool:
+    if not isinstance(obj, dict):
+        return False
+    events = obj.get("score_events") if isinstance(obj.get("score_events"), list) else []
+    return any(isinstance(e, dict) and e.get("essay_id") == essay_id for e in events)
+
+
+def _progress_tracker_self_identifies(obj: Any) -> bool:
+    """v1.4.9 gate: catches a recurrence of the setdefault identity bug found
+    in a real run, where progress_tracker's output reported
+    VA_STELLA_GOLD_SESSION_CONTINUITY_LOADER's identity instead of its own
+    because it was fed prior_context.json as --profile."""
+    if not isinstance(obj, dict):
+        return False
+    return obj.get("engine_id") == "VA_STELLA_PROGRESS_TRACKER_SCORER_FEED"
+
+
+def _lret_canonical_loaded(obj: Any) -> Optional[bool]:
+    """LRET does not expose a top-level canonical_loaded flag in its JSON
+    artifact (confirmed by reading a real run's 07d_lret_session.json in
+    full) -- it only prints "canonical_loaded: False" to stdout. The closest
+    JSON-visible proxy is qa.v1_5_metrics.active_resource_indexing_enabled,
+    which is false whenever none of the four expected registry files
+    (enhance_thesaurus.json, discourse_registry.json,
+    positive_collocations_registry.tsv, lexical_registry.json) were found
+    under --canonical-resources."""
+    if not isinstance(obj, dict):
+        return None
+    qa = obj.get("qa") if isinstance(obj.get("qa"), dict) else {}
+    v15 = qa.get("v1_5_metrics") if isinstance(qa.get("v1_5_metrics"), dict) else {}
+    if "active_resource_indexing_enabled" not in v15:
+        return None
+    return bool(v15.get("active_resource_indexing_enabled"))
+
+
+def _evaluator_input_supplied(priority_input: Any) -> bool:
+    if not isinstance(priority_input, dict):
+        return False
+    guard = priority_input.get("priority_input_builder") if isinstance(priority_input.get("priority_input_builder"), dict) else {}
+    return bool(guard.get("evaluator_input_supplied"))
+
+
+def validate_quality_gates(paths: Dict[str, Path], essay_id: str) -> List[Dict[str, str]]:
+    """Quality gates for v1.4.8.
+
+    These are orchestration-level contract checks only. They do not score,
+    detect, teach, or classify. They verify that the full chain did not fall
+    back to unsafe metadata defaults, that v1.12.0 LRET is actually used,
+    that Evaluator's evidence actually reaches Priority Engine, and that the
+    continuity loop (progress tracker + persisted profile) actually ran.
+    """
+    issues: List[Dict[str, str]] = []
+    detector = _safe_obj(paths, "detector")
+    detector_scorer = _safe_obj(paths, "detector_for_scorer")
+    detector_eval = _safe_obj(paths, "detector_for_evaluator")
+    errormap = _safe_obj(paths, "errormap")
+    scorer = _safe_obj(paths, "scorer")
+    evaluator = _safe_obj(paths, "evaluator")
+    priority_input = _safe_obj(paths, "priority_input")
+    priority_raw = _safe_obj(paths, "priority")
+    priority_norm = _safe_obj(paths, "priority_normalized")
+    directive = _safe_obj(paths, "directive")
+    lret = _safe_obj(paths, "lret_session")
+    coach = _safe_obj(paths, "writing_coach")
+    practice = _safe_obj(paths, "practice_session")
+    score_contract = _safe_obj(paths, "score_contract")
+    evidence_fusion = _safe_obj(paths, "evidence_fusion")
+    service_routing = _safe_obj(paths, "service_routing")
+    progress_tracker = _safe_obj(paths, "progress_tracker")
+    progress_tracker_persist = _safe_obj(paths, "progress_tracker_persist")
+    persisted_profile = _safe_obj(paths, "persisted_profile")
+    prior_context = _safe_obj(paths, "prior_context")
+
+    # v1.4.3 gates preserved.
+    source_detector_rows = _detector_row_count(detector)
+    bridge_detector_rows = _detector_row_count(detector_eval)
+    evaluator_rows = _evaluator_detector_row_count(evaluator)
+    if source_detector_rows > 0 and bridge_detector_rows <= 0:
+        issues.append({"severity": "high", "artifact": "detector_for_evaluator", "issue": "detector_rows_not_exported_for_evaluator"})
+    if source_detector_rows > 0 and evaluator_rows <= 0:
+        issues.append({"severity": "high", "artifact": "evaluator", "issue": "evaluator_detector_row_count_zero_despite_detector_evidence"})
+
+    focus = _focus_areas(priority_norm)
+    if not focus:
+        issues.append({"severity": "high", "artifact": "priority_normalized", "issue": "no_focus_areas"})
+    elif _has_unknown_skill(focus):
+        issues.append({"severity": "high", "artifact": "priority_normalized", "issue": "unknown_skill_remaining_after_normalization"})
+
+    d_primary = directive.get("primary_focus") if isinstance(directive, dict) else None
+    gld = directive.get("gold_learning_directive") if isinstance(directive, dict) else {}
+    if not isinstance(d_primary, dict):
+        issues.append({"severity": "high", "artifact": "directive", "issue": "primary_focus_missing"})
+    if not isinstance(gld, dict) or not gld.get("recommended_service") or not gld.get("next_best_capacity_domain"):
+        issues.append({"severity": "high", "artifact": "directive", "issue": "routing_fields_missing"})
+
+    p_primary = practice.get("primary_focus") if isinstance(practice, dict) else None
+    p_count = int((practice.get("exercise_count") if isinstance(practice, dict) else 0) or 0)
+    if not isinstance(p_primary, dict) and p_count <= 0:
+        issues.append({"severity": "high", "artifact": "practice_session", "issue": "primary_focus_missing"})
+    if p_count <= 0:
+        issues.append({"severity": "high", "artifact": "practice_session", "issue": "no_exercises"})
+
+    # v1.4.4 scorer metadata gates.
+    detector_counts = _metadata_counts(detector_scorer or detector)
+    for field in ("word_count", "sentence_count", "paragraph_count"):
+        if detector_counts.get(field, 0) <= 0:
+            issues.append({"severity": "high", "artifact": "detector_for_scorer", "issue": f"{field}_missing_or_zero"})
+
+    scorer_counts = _scorer_feature_counts(scorer)
+    for field in ("word_count", "paragraph_count"):
+        if scorer_counts.get(field, 0) <= 0:
+            issues.append({"severity": "high", "artifact": "scorer", "issue": f"scorer_{field}_still_zero"})
+    if detector_counts.get("word_count", 0) > 0 and scorer_counts.get("word_count", 0) > 0:
+        if abs(detector_counts["word_count"] - scorer_counts["word_count"]) > 3:
+            issues.append({"severity": "medium", "artifact": "scorer", "issue": "scorer_word_count_differs_from_detector_metadata"})
+    if detector_counts.get("paragraph_count", 0) > 0 and scorer_counts.get("paragraph_count", 0) > 0:
+        if detector_counts["paragraph_count"] != scorer_counts["paragraph_count"]:
+            issues.append({"severity": "medium", "artifact": "scorer", "issue": "scorer_paragraph_count_differs_from_detector_metadata"})
+    if _scorer_false_short_signal(scorer, detector_counts):
+        issues.append({"severity": "high", "artifact": "scorer", "issue": "false_short_response_signal_after_metadata_guard"})
+
+    scorer_ev = _scorer_evidence_features(scorer)
+    if _errormap_error_count(errormap) > 0 and scorer_ev.get("n_items", 0) <= 0:
+        issues.append({"severity": "high", "artifact": "scorer", "issue": "scorer_evidence_items_zero_despite_errormap_errors"})
+    if _errormap_error_count(errormap) > 0 and scorer_ev.get("chargeable_count", 0) <= 0:
+        issues.append({"severity": "high", "artifact": "scorer", "issue": "scorer_chargeable_count_zero_despite_errormap_errors"})
+    if _errormap_has_local_errors(errormap) and scorer_ev.get("local_root_weight", 0) <= 0:
+        issues.append({"severity": "high", "artifact": "scorer", "issue": "scorer_local_root_weight_zero_despite_local_errors"})
+    if _errormap_has_local_errors(errormap) and (scorer_ev.get("grammar_weight", 0) + scorer_ev.get("lr_weight", 0)) <= 0:
+        issues.append({"severity": "high", "artifact": "scorer", "issue": "scorer_grammar_lr_weights_zero_despite_local_errors"})
+
+    if not _priority_input_ready(priority_input):
+        issues.append({"severity": "high", "artifact": "priority_input", "issue": "priority_input_not_ready"})
+    if _priority_raw_unknown(priority_raw):
+        issues.append({"severity": "high", "artifact": "priority", "issue": "raw_priority_unknown_skill_after_priority_input"})
+
+    # v1.4.8: Priority input should carry Evaluator evidence now that Evaluator
+    # runs before it. If Evaluator artifact exists but priority_input never
+    # received it, that is a real wiring regression, not a soft warning.
+    if evaluator and not _evaluator_input_supplied(priority_input):
+        issues.append({"severity": "high", "artifact": "priority_input", "issue": "evaluator_available_but_not_supplied_to_priority_input"})
+
+    if _score_contract_restricted(score_contract):
+        issues.append({"severity": "medium", "artifact": "score_contract", "issue": "score_released_but_progress_or_lie_update_restricted"})
+
+    # v1.4.8 LRET routing gate: canonical version moved from 1.4.6 to 1.12.0.
+    lret_version = _lret_engine_version(lret)
+    if lret and "1.12.0" not in lret_version:
+        issues.append({"severity": "high", "artifact": "lret_session", "issue": f"wrong_lret_engine_version:{lret_version or 'missing'}"})
+    if isinstance(lret, dict) and "clarify_units" not in lret:
+        issues.append({"severity": "medium", "artifact": "lret_session", "issue": "lret_clarify_units_field_missing"})
+
+    # v1.4.9: LRET's real enhancement/fix output depends on --canonical-resources
+    # actually finding the lexical registries. A real run surfaced this as a
+    # silent zero-resource fallback (fix_units/main_enhance_units both 0,
+    # qa_status: needs_tuning) with no QA gate catching it. Flag it explicitly.
+    canonical_loaded = _lret_canonical_loaded(lret)
+    if canonical_loaded is False:
+        issues.append({"severity": "medium", "artifact": "lret_session", "issue": "canonical_resources_not_loaded_zero_resource_run"})
+
+    coach_align = _coach_alignment_status(coach)
+    if not coach_align:
+        issues.append({"severity": "high", "artifact": "writing_coach", "issue": "coach_directive_alignment_missing"})
+    elif coach_align not in {"aligned", "explained_override"}:
+        issues.append({"severity": "high", "artifact": "writing_coach", "issue": f"coach_directive_alignment_invalid:{coach_align}"})
+
+    if isinstance(evidence_fusion, dict):
+        services = evidence_fusion.get("service_outputs") or {}
+        for service_key in ("lret_present", "writing_coach_present", "practice_present"):
+            if services.get(service_key) is not True:
+                issues.append({"severity": "medium", "artifact": "evidence_fusion", "issue": f"{service_key}_false_after_full_run"})
+
+    if isinstance(service_routing, dict):
+        if not (service_routing.get("next_best_service") or service_routing.get("primary_next_service")):
+            issues.append({"severity": "medium", "artifact": "service_routing", "issue": "next_best_service_missing"})
+
+    # v1.4.8 continuity-loop gates.
+    if progress_tracker and not _progress_tracker_has_event_for_essay(progress_tracker, essay_id):
+        issues.append({"severity": "high", "artifact": "progress_tracker", "issue": "no_score_event_recorded_for_this_essay"})
+
+    # v1.4.9: catches a recurrence of the real setdefault identity bug found
+    # by inspecting an actual run -- progress_tracker's output must
+    # self-identify as VA_STELLA_PROGRESS_TRACKER_SCORER_FEED, not inherit
+    # whatever --profile input it was given.
+    if progress_tracker and not _progress_tracker_self_identifies(progress_tracker):
+        issues.append({"severity": "high", "artifact": "progress_tracker", "issue": f"wrong_engine_identity:{progress_tracker.get('engine_id') if isinstance(progress_tracker, dict) else None}"})
+
+    # v1.4.9: progress_tracker_persist must exist and record that it wrote to
+    # the fixed per-student path, otherwise score history silently resets
+    # every session (the exact bug this stage was added to close).
+    if isinstance(progress_tracker_persist, dict):
+        pt_persist_meta = progress_tracker_persist.get("_persist") or {}
+        if not pt_persist_meta:
+            issues.append({"severity": "high", "artifact": "progress_tracker_persist", "issue": "persist_metadata_missing"})
+
+    # v1.4.9 fix (found via a real run against student_123): this gate
+    # originally checked prior_context.sessions_analyzed > 0, but that
+    # tracks the separate LIE profile's continuity (gold_profile_persist_v1.py),
+    # not Progress Tracker's own. On the first-ever run of Progress
+    # Tracker's new persistence for an existing student, LIE already had
+    # sessions_analyzed=1 from an earlier v1.4.8 run while Progress
+    # Tracker's own persisted file legitimately did not exist yet (v1.4.8
+    # never wrote it) -- that produced a false positive here. The correct
+    # signal is whether Progress Tracker itself has a prior persisted
+    # profile to accumulate onto.
+    prior_progress_profile = prior_context.get("prior_progress_profile") if isinstance(prior_context, dict) else None
+    if prior_progress_profile is not None:
+        pt_event_count = len(progress_tracker.get("score_events") or []) if isinstance(progress_tracker, dict) else 0
+        if pt_event_count <= 1:
+            issues.append({"severity": "medium", "artifact": "progress_tracker", "issue": "score_events_not_accumulating_across_sessions"})
+
+    if isinstance(persisted_profile, dict):
+        persist_meta = persisted_profile.get("_persist") or {}
+        if not persist_meta.get("action"):
+            issues.append({"severity": "medium", "artifact": "persisted_profile", "issue": "persist_action_missing"})
+    if isinstance(prior_context, dict) and "cold_start" not in prior_context:
+        issues.append({"severity": "medium", "artifact": "prior_context", "issue": "cold_start_flag_missing"})
+
+    return issues
+
+
+def load_engine_config(path: Optional[str]) -> Dict[str, Any]:
+    if not path:
+        return {}
+    obj = read_json(path)
+    if not isinstance(obj, dict):
+        raise ValueError("Engine config must be a JSON object.")
+    return obj.get("commands", obj)
+
+
+def main(argv: Optional[List[str]] = None) -> int:
+    ap = argparse.ArgumentParser(description="Gold full pipeline orchestrator v1.4.8 — standalone orchestration only, with the continuity loop and Evaluator-before-Priority ordering.")
+    ap.add_argument("--input", required=True, help="Submission JSON, either one essay or {essays:[...]}.")
+    ap.add_argument("--essay-index", type=int, default=0, help="Essay index when input has essays[].")
+    ap.add_argument("--output-root", default="gold_sessions", help="Root folder for Gold sessions.")
+    ap.add_argument("--learner-profiles-dir", help="Fixed directory for persisted per-student profiles. Defaults to {output-root}/learner_profiles.")
+    ap.add_argument(
+        "--canonical-resources-dir",
+        # Portability fix: this used to be a hardcoded absolute Windows path
+        # tied to one specific machine/user account, which silently breaks
+        # on any other machine, any deployment host, or any container --
+        # the path simply wouldn't exist there. Reads from
+        # STELLA_CANONICAL_RESOURCES_DIR first (the frontend now passes this
+        # explicitly too, see goldPipeline.ts); the old absolute path is kept
+        # only as a last-resort default so this machine's existing local
+        # setup keeps working unchanged without requiring the env var.
+        default=os.environ.get(
+            "STELLA_CANONICAL_RESOURCES_DIR",
+            r"C:\Users\Ailuna Shamurzaeva\OneDrive\Desktop\AGART\VA English, IELTS\va_resources_canonical\final_app_registries_v3_CONSOLIDATED_CANONICAL\final_app_registries_v3_CONSOLIDATED_CANONICAL",
+        ),
+        help="Directory containing LRET's canonical lexical registries (enhance_thesaurus.json, discourse_registry.json, positive_collocations_registry.tsv, lexical_registry.json). Available in commands as {canonical_resources_dir}. Defaults to STELLA_CANONICAL_RESOURCES_DIR if set.",
+    )
+    ap.add_argument("--engine-config", help="JSON file with stage command templates.")
+    ap.add_argument("--mission-to-grade", help="Path to a previously generated Writing Coach output JSON (e.g. a prior session's 07e_writing_coach_output.json) containing the mission the student is responding to. Together with --student-mission-response-text or --student-mission-response-file, and a 'mission_response_grading' command in --engine-config, enables the optional mission_response_grading stage for this run.")
+    ap.add_argument("--student-mission-response-text", help="Student's response to the mission named in --mission-to-grade, as a direct string.")
+    ap.add_argument("--student-mission-response-file", help="Text file containing the student's response to the mission named in --mission-to-grade.")
+    ap.add_argument("--copy-from-session", help="Existing session folder to copy artifacts from for QA/development.")
+    ap.add_argument("--strict", action="store_true", help="Exit non-zero unless all product-critical Gold artifacts are present and valid JSON.")
+    ap.add_argument("--continue-on-error", action="store_true", help="Continue running later stages after a configured command fails.")
+    ap.add_argument("--pretty", action="store_true")
+    args = ap.parse_args(argv)
+
+    input_path = Path(args.input).resolve()
+    output_root = Path(args.output_root).resolve()
+    copy_from = Path(args.copy_from_session).resolve() if args.copy_from_session else None
+    raw = read_json(input_path)
+    submission = normalize_submission(raw, essay_index=args.essay_index)
+
+    session_dir = make_session_dir(output_root, submission["student_id"], submission["essay_id"])
+    session_dir.mkdir(parents=True, exist_ok=True)
+
+    learner_profiles_dir = Path(args.learner_profiles_dir).resolve() if args.learner_profiles_dir else (output_root / "learner_profiles")
+    learner_profiles_dir.mkdir(parents=True, exist_ok=True)
+
+    paths = {key: session_dir / filename for key, filename in ARTIFACTS.items()}
+    write_json(paths["submission"], submission, pretty=args.pretty)
+
+    template_map = {key: str(path) for key, path in paths.items()}
+    template_map.update({
+        "session_dir": str(session_dir),
+        "session_id": session_dir.name,
+        "output_root": str(output_root),
+        "learner_profiles_dir": str(learner_profiles_dir),
+        "canonical_resources_dir": str(args.canonical_resources_dir),
+        "input": str(input_path),
+        "essay_id": submission["essay_id"],
+        "student_id": submission["student_id"],
+        "task_type": submission["task_type"],
+        "python": sys.executable,
+    })
+
+    # Optional mission-response-grading input. Normalizes whichever of
+    # --student-mission-response-text / --student-mission-response-file was
+    # given into one fixed session-local text file, the same pattern already
+    # used for --input/submission above, so the engine-config command
+    # template only ever needs one variable ({student_mission_response_file})
+    # regardless of which CLI form the caller used.
+    mission_response_input_path = session_dir / "00b_student_mission_response.txt"
+    has_mission_response = bool(args.student_mission_response_text or args.student_mission_response_file)
+    if has_mission_response:
+        if args.student_mission_response_text:
+            response_text_value = args.student_mission_response_text
+        else:
+            response_text_value = Path(args.student_mission_response_file).resolve().read_text(encoding="utf-8")
+        mission_response_input_path.write_text(response_text_value, encoding="utf-8")
+    template_map.update({
+        "mission_to_grade": str(Path(args.mission_to_grade).resolve()) if args.mission_to_grade else "",
+        "student_mission_response_file": str(mission_response_input_path),
+    })
+
+    commands = load_engine_config(args.engine_config)
+    if "mission_response_grading" in commands and not (args.mission_to_grade and has_mission_response):
+        # Configured in the engine-config JSON, but this run has no student
+        # response to grade (most Gold runs are essay-only) -- drop the
+        # command rather than templating it with an empty --mission-to-grade,
+        # so it cleanly reports as skipped_no_command like any other
+        # unconfigured stage.
+        commands = {k: v for k, v in commands.items() if k != "mission_response_grading"}
+    if args.engine_config:
+        engine_working_dir = Path(args.engine_config).resolve().parent
+    else:
+        engine_working_dir = Path.cwd().resolve()
+    orchestrator_dir = Path(__file__).resolve().parent
+    template_map.update({
+        "project_root": str(engine_working_dir),
+        "config_dir": str(engine_working_dir),
+        "engine_working_dir": str(engine_working_dir),
+        "orchestrator_dir": str(orchestrator_dir),
+    })
+    stage_results: List[StageResult] = []
+
+    for stage in STAGE_ORDER:
+        dest = paths[stage]
+        copied = copy_artifact_if_available(stage, copy_from, dest)
+        if copied:
+            stage_results.append(StageResult(stage=stage, status="copied", output_path=str(dest), copied_from=copied))
+
+    for stage in STAGE_ORDER:
+        if stage == "evidence_fusion" and stage not in commands:
+            started = now_iso()
+            try:
+                build_evidence_fusion(paths, pretty=args.pretty)
+                stage_results.append(StageResult(stage=stage, status="built_metadata", output_path=str(paths[stage]), started_at=started, finished_at=now_iso()))
+            except Exception as e:
+                stage_results.append(StageResult(stage=stage, status="failed", output_path=str(paths[stage]), started_at=started, finished_at=now_iso(), error=str(e)))
+                if not args.continue_on_error:
+                    break
+            continue
+
+        if stage not in commands:
+            if not paths[stage].exists():
+                stage_results.append(StageResult(stage=stage, status="skipped_no_command", output_path=str(paths[stage])))
+            continue
+
+        command = template_value(commands[stage], template_map)
+        command = resolve_command_paths(command, config_dir=engine_working_dir, orchestrator_dir=orchestrator_dir)
+        started = now_iso()
+        stdout_log = session_dir / "logs" / f"{stage}_stdout.log"
+        stderr_log = session_dir / "logs" / f"{stage}_stderr.log"
+        try:
+            rc, err = run_command(stage, command, cwd=engine_working_dir, stdout_log=stdout_log, stderr_log=stderr_log)
+            status = "ok" if rc == 0 else "failed"
+            stage_results.append(StageResult(
+                stage=stage,
+                status=status,
+                output_path=str(paths[stage]),
+                command=command,
+                returncode=rc,
+                started_at=started,
+                finished_at=now_iso(),
+                error=err,
+                stdout_log=str(stdout_log),
+                stderr_log=str(stderr_log),
+            ))
+            if rc != 0 and not args.continue_on_error and stage not in NON_BLOCKING_STAGES:
+                break
+        except Exception as e:
+            stage_results.append(StageResult(stage=stage, status="failed", output_path=str(paths[stage]), command=command, started_at=started, finished_at=now_iso(), error=str(e)))
+            if not args.continue_on_error and stage not in NON_BLOCKING_STAGES:
+                break
+
+    artifact_status = {key: json_status(path) for key, path in paths.items() if key not in {"manifest", "qa_report"}}
+    boundary_issues = validate_boundaries(paths)
+    quality_gate_issues = validate_quality_gates(paths, essay_id=submission["essay_id"])
+    missing_required = [k for k in REQUIRED_FOR_COMPLETE_GOLD if not artifact_status.get(k, {}).get("exists")]
+    invalid_required = [k for k in REQUIRED_FOR_COMPLETE_GOLD if artifact_status.get(k, {}).get("exists") and not artifact_status.get(k, {}).get("valid_json")]
+
+    qa_status = "passed" if not missing_required and not invalid_required and not boundary_issues and not quality_gate_issues else "needs_attention"
+    if args.strict and qa_status != "passed":
+        exit_code = 2
+    else:
+        exit_code = 0
+
+    qa = {
+        "schema_version": "GOLD_QA_REPORT_V1_4_8",
+        "engine_id": ENGINE_ID,
+        "engine_version": ENGINE_VERSION,
+        "created_at": now_iso(),
+        "qa_status": qa_status,
+        "strict_mode": bool(args.strict),
+        "missing_required_artifacts": missing_required,
+        "invalid_required_artifacts": invalid_required,
+        "boundary_issues": boundary_issues,
+        "quality_gate_issues": quality_gate_issues,
+        "artifact_status": artifact_status,
+    }
+    write_json(paths["qa_report"], qa, pretty=args.pretty)
+
+    manifest = {
+        "schema_version": SCHEMA_VERSION,
+        "engine_id": ENGINE_ID,
+        "engine_version": ENGINE_VERSION,
+        "created_at": now_iso(),
+        "input_path": str(input_path),
+        "session_dir": str(session_dir),
+        "student_id": submission["student_id"],
+        "essay_id": submission["essay_id"],
+        "learner_profiles_dir": str(learner_profiles_dir),
+        "orchestration_boundary": "This orchestrator does not implement targeted engine logic. It only coordinates external engines and validates artifacts.",
+        "engine_config_path": str(Path(args.engine_config).resolve()) if args.engine_config else None,
+        "engine_working_dir": str(engine_working_dir),
+        "orchestrator_dir": str(orchestrator_dir),
+        "copy_from_session": str(copy_from) if copy_from else None,
+        "qa_status": qa_status,
+        "artifacts": {key: str(path) for key, path in paths.items()},
+        "stage_results": [asdict(r) for r in stage_results],
+    }
+    write_json(paths["manifest"], manifest, pretty=args.pretty)
+
+    print(json.dumps({"qa_status": qa_status, "session_dir": str(session_dir), "manifest": str(paths["manifest"]), "qa_report": str(paths["qa_report"])}, ensure_ascii=False, indent=2 if args.pretty else None))
+    return exit_code
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

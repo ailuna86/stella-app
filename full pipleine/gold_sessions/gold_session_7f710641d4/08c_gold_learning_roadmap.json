@@ -1,0 +1,18 @@
+{
+  "schema_version": "GOLD_LEARNING_ROADMAP_V1_2",
+  "primary_skill": "sentence_control",
+  "weeks": {
+    "week_1": {
+      "focus": "clear subject + main verb"
+    },
+    "week_2": {
+      "focus": "verb pattern repair"
+    },
+    "week_3": {
+      "focus": "article/noun phrase control"
+    },
+    "week_4": {
+      "focus": "short controlled paragraph"
+    }
+  }
+}

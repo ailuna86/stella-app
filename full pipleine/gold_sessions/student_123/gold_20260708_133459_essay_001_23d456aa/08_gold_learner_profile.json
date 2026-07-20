@@ -1,0 +1,410 @@
+{
+  "schema_version": "GOLD_LEARNER_PROFILE_STANDALONE_V1_4_3",
+  "engine_id": "VA_STELLA_GOLD_LIE_PROFILE_BUILDER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-08T11:35:04.024015+00:00",
+  "student_id": "student_123",
+  "latest_essay_id": "essay_001",
+  "latest_score": {
+    "overall_band": 4.5,
+    "criteria_bands": {
+      "task_response": 4,
+      "coherence_cohesion": 4,
+      "lexical_resource": 5,
+      "grammar": 5
+    },
+    "score_confidence": "normal",
+    "score_status": "ready",
+    "progress_tracking_allowed": true,
+    "lie_update_allowed": true
+  },
+  "latest_error_profile": {
+    "by_family": {
+      "A_UNDERDEVELOPED": 7,
+      "G_VERB_PATTERN": 2,
+      "G_SPACING": 4,
+      "G_COMMA_TRANSITION": 2,
+      "L_INFORMAL_VOCAB": 6,
+      "S_INFORMAL_TONE": 6,
+      "L_REPETITION": 3,
+      "L_LIMITED_VOCAB": 7,
+      "G_MISSING_VERB": 2,
+      "G_SV_AGREEMENT": 1,
+      "G_COMPARATIVE_FORM": 1,
+      "G_ARTICLE": 1,
+      "C_SIMPLE_CONNECTORS": 1,
+      "A_OVERGENERALIZATION": 1
+    },
+    "by_capacity": {
+      "argument_development": 8,
+      "sentence_control": 13,
+      "academic_style": 12,
+      "lexical_precision": 10,
+      "cohesion_control": 1
+    },
+    "by_criterion": {
+      "argumentation": 8,
+      "grammar": 13,
+      "lexical_resource": 16,
+      "academic_style": 6,
+      "cohesion_coherence": 1
+    },
+    "total_chargeable": 44
+  },
+  "latest_priority_focus": [
+    {
+      "rank": 1,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "criterion": "grammar",
+      "evidence_count": 13,
+      "weighted_pressure": 12.05,
+      "priority_level": "very_high",
+      "top_families": [
+        "G_SPACING",
+        "G_VERB_PATTERN",
+        "G_COMMA_TRANSITION",
+        "G_MISSING_VERB",
+        "G_SV_AGREEMENT"
+      ],
+      "family_counts": {
+        "G_SPACING": 4,
+        "G_VERB_PATTERN": 2,
+        "G_COMMA_TRANSITION": 2,
+        "G_MISSING_VERB": 2,
+        "G_SV_AGREEMENT": 1,
+        "G_COMPARATIVE_FORM": 1,
+        "G_ARTICLE": 1
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "err_6a5f2bf4b08e",
+          "source_row_id": "det_f0463c9513a1",
+          "family": "G_VERB_PATTERN",
+          "surface_quote": "for take",
+          "sentence_index": 3,
+          "severity": "high",
+          "confidence": "medium"
+        },
+        {
+          "error_id": "err_c441fd9c09b3",
+          "source_row_id": "det_1d63582154cf",
+          "family": "G_SPACING",
+          "surface_quote": " ,",
+          "sentence_index": 4,
+          "severity": "low",
+          "confidence": "high"
+        },
+        {
+          "error_id": "err_e5da45eff45e",
+          "source_row_id": "det_39c224ecc2a6",
+          "family": "G_COMMA_TRANSITION",
+          "surface_quote": "For example",
+          "sentence_index": 4,
+          "severity": "low",
+          "confidence": "high"
+        },
+        {
+          "error_id": "err_63f292eef63b",
+          "source_row_id": "det_cf959aeeea17",
+          "family": "G_SPACING",
+          "surface_quote": " .",
+          "sentence_index": 5,
+          "severity": "low",
+          "confidence": "high"
+        },
+        {
+          "error_id": "err_5c2cdd918ab5",
+          "source_row_id": "det_42ea5ad1b1b2",
+          "family": "G_MISSING_VERB",
+          "surface_quote": "the way be",
+          "sentence_index": 5,
+          "severity": "high",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "capacity_domain": "academic_style",
+      "skill_tag": "academic_style",
+      "skill_id": "academic_style",
+      "student_label": "Academic Style",
+      "criterion": "lexical_resource",
+      "evidence_count": 12,
+      "weighted_pressure": 9.3,
+      "priority_level": "high",
+      "top_families": [
+        "L_INFORMAL_VOCAB",
+        "S_INFORMAL_TONE"
+      ],
+      "family_counts": {
+        "L_INFORMAL_VOCAB": 6,
+        "S_INFORMAL_TONE": 6
+      },
+      "recommended_service": "lret",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "err_4e52ad9949e1",
+          "source_row_id": "det_b1bf817ea0e7",
+          "family": "L_INFORMAL_VOCAB",
+          "surface_quote": "a lot",
+          "sentence_index": 4,
+          "severity": "low",
+          "confidence": "medium"
+        },
+        {
+          "error_id": "err_d4b629803354",
+          "source_row_id": "det_4143a8627b43",
+          "family": "S_INFORMAL_TONE",
+          "surface_quote": "a lot",
+          "sentence_index": 4,
+          "severity": "medium",
+          "confidence": "medium"
+        },
+        {
+          "error_id": "err_5167efc38b1f",
+          "source_row_id": "det_f60f6b860ffa",
+          "family": "L_INFORMAL_VOCAB",
+          "surface_quote": "a lot",
+          "sentence_index": 10,
+          "severity": "low",
+          "confidence": "medium"
+        },
+        {
+          "error_id": "err_c0fc9aef8cbc",
+          "source_row_id": "det_ef0c519dd414",
+          "family": "S_INFORMAL_TONE",
+          "surface_quote": "a lot",
+          "sentence_index": 10,
+          "severity": "medium",
+          "confidence": "medium"
+        },
+        {
+          "error_id": "err_b72187d02f6d",
+          "source_row_id": "det_557a5a28c526",
+          "family": "L_INFORMAL_VOCAB",
+          "surface_quote": "things",
+          "sentence_index": 12,
+          "severity": "low",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "capacity_domain": "argument_development",
+      "skill_tag": "argument_development",
+      "skill_id": "argument_development",
+      "student_label": "Argument Development",
+      "criterion": "task_response",
+      "evidence_count": 8,
+      "weighted_pressure": 7.55,
+      "priority_level": "high",
+      "top_families": [
+        "A_UNDERDEVELOPED",
+        "A_OVERGENERALIZATION"
+      ],
+      "family_counts": {
+        "A_UNDERDEVELOPED": 7,
+        "A_OVERGENERALIZATION": 1
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "err_f9143db3daca",
+          "source_row_id": "det_f992bdb74411",
+          "family": "A_UNDERDEVELOPED",
+          "surface_quote": "Older people often need more medical help than young peoples.",
+          "sentence_index": 2,
+          "severity": "medium",
+          "confidence": "low"
+        },
+        {
+          "error_id": "err_73ce9b615721",
+          "source_row_id": "det_05f05540499b",
+          "family": "A_UNDERDEVELOPED",
+          "surface_quote": "Another issued is that the way be fewer young people working .",
+          "sentence_index": 5,
+          "severity": "medium",
+          "confidence": "low"
+        },
+        {
+          "error_id": "err_0c6c8b5c3c58",
+          "source_row_id": "det_1d3ff5ad7d54",
+          "family": "A_UNDERDEVELOPED",
+          "surface_quote": "This can slow down the economy.",
+          "sentence_index": 7,
+          "severity": "medium",
+          "confidence": "low"
+        },
+        {
+          "error_id": "err_aa45636fa20e",
+          "source_row_id": "det_460346051c76",
+          "family": "A_UNDERDEVELOPED",
+          "surface_quote": "Some companies may find it hard to find more new workers.",
+          "sentence_index": 8,
+          "severity": "medium",
+          "confidence": "low"
+        },
+        {
+          "error_id": "err_d2a6b01f75f7",
+          "source_row_id": "det_ee6c4a25fbd5",
+          "family": "A_UNDERDEVELOPED",
+          "surface_quote": "On the other hand, there are also some benefits.",
+          "sentence_index": 9,
+          "severity": "medium",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "skill_id": "lexical_precision",
+      "student_label": "Lexical Precision",
+      "criterion": "lexical_resource",
+      "evidence_count": 10,
+      "weighted_pressure": 6.85,
+      "priority_level": "high",
+      "top_families": [
+        "L_LIMITED_VOCAB",
+        "L_REPETITION"
+      ],
+      "family_counts": {
+        "L_LIMITED_VOCAB": 7,
+        "L_REPETITION": 3
+      },
+      "recommended_service": "lret",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "err_ad95aef7b8fa",
+          "source_row_id": "det_4d8ec5d5d2e2",
+          "family": "L_REPETITION",
+          "surface_quote": "example",
+          "sentence_index": 4,
+          "severity": "medium",
+          "confidence": "medium"
+        },
+        {
+          "error_id": "err_03f136b2bb13",
+          "source_row_id": "det_57ba44530448",
+          "family": "L_LIMITED_VOCAB",
+          "surface_quote": "many",
+          "sentence_index": 4,
+          "severity": "low",
+          "confidence": "medium"
+        },
+        {
+          "error_id": "err_78f1f4372717",
+          "source_row_id": "det_230cf7e034b4",
+          "family": "L_LIMITED_VOCAB",
+          "surface_quote": "many",
+          "sentence_index": 6,
+          "severity": "low",
+          "confidence": "medium"
+        },
+        {
+          "error_id": "err_76ec61b3bfbe",
+          "source_row_id": "det_f02cd2851232",
+          "family": "L_REPETITION",
+          "surface_quote": "find",
+          "sentence_index": 8,
+          "severity": "medium",
+          "confidence": "medium"
+        },
+        {
+          "error_id": "err_71c0aca761a5",
+          "source_row_id": "det_7387ebdd6344",
+          "family": "L_LIMITED_VOCAB",
+          "surface_quote": "good",
+          "sentence_index": 11,
+          "severity": "low",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "capacity_domain": "cohesion_control",
+      "skill_tag": "cohesion_control",
+      "skill_id": "cohesion_control",
+      "student_label": "Cohesion Control",
+      "criterion": "coherence_cohesion",
+      "evidence_count": 1,
+      "weighted_pressure": 0.55,
+      "priority_level": "monitor",
+      "top_families": [
+        "C_SIMPLE_CONNECTORS"
+      ],
+      "family_counts": {
+        "C_SIMPLE_CONNECTORS": 1
+      },
+      "recommended_service": "practice",
+      "recommended_difficulty": "guided",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "err_116868736cad",
+          "source_row_id": "det_cc9536d1ae9b",
+          "family": "C_SIMPLE_CONNECTORS",
+          "surface_quote": "for example, for example, for example, but, and, and, and, and",
+          "sentence_index": 0,
+          "severity": "low",
+          "confidence": "medium"
+        }
+      ]
+    }
+  ],
+  "service_artifact_status": {
+    "feedback": {
+      "available": true,
+      "schema_version": "FEEDBACK_REPORT_V6C_CLI_STANDALONE",
+      "engine_id": "VA_STELLA_FEEDBACK_ENGINE_V6C_CLI"
+    },
+    "evaluator": {
+      "available": true,
+      "schema_version": "WKM_OUTPUT_V7.3B",
+      "engine_id": null
+    },
+    "lret": {
+      "available": true,
+      "schema_version": "LRET_OUTPUT_V1.1",
+      "engine_id": null
+    },
+    "writing_coach": {
+      "available": true,
+      "schema_version": "WRITING_COACH_OUTPUT_V1_2_7_PROACTIVE_ADAPTIVE_CLI",
+      "engine_id": null
+    },
+    "practice": {
+      "available": true,
+      "schema_version": "GOLD_PRACTICE_SESSION_STANDALONE_V1_4_3",
+      "engine_id": "VA_STELLA_GOLD_PRACTICE_SESSION_BUILDER"
+    }
+  },
+  "next_best_action": {
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "recommended_service": "writing_coach",
+    "source": "directive"
+  },
+  "learning_state": {
+    "profile_update_allowed": true,
+    "trend_update_allowed": true,
+    "mastery_update_policy": "evidence_accumulation_only_until_student_attempts_practice_or_coach_tasks"
+  },
+  "boundary": "LIE profile aggregates completed Gold artifacts only; no scoring, detection, feedback generation, or exercise generation is performed here."
+}

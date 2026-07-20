@@ -1,0 +1,460 @@
+{
+  "schema_version": "GOLD_PRACTICE_SESSION_ADAPTIVE_V1",
+  "engine_id": "VA_STELLA_GOLD_PRACTICE_ENGINE_BRIDGE",
+  "engine_version": "1.0.0-wraps-practice_engine_v5b",
+  "created_at": "2026-07-12T08:22:31.691996+00:00",
+  "wrapped_engine": "PracticeEngineV5 (practice_engine_v5b.py)",
+  "student_id": "stress_medium",
+  "session_id": "790cc66f-9dbc-487d-a275-49491c056c70",
+  "welcome": {
+    "session_id": "790cc66f-9dbc-487d-a275-49491c056c70",
+    "student_id": "stress_medium",
+    "welcome_message": "Welcome back, stress_medium!\n\nThis is your first session — let's build your profile!\n\nToday's targets — chosen specifically for you:\n  1. Vocabulary (LR) — Lexical Precision\n  2. grammar — Sentence Control\n  3. Organization — Ws Proposition Clarity\n  4. Organization — Ws Proposition Completeness\n  5. Organization — Introduction Construction\n  6. Argumentation — Arg Reason Quality\n  7. Argumentation — Arg Warrant Generation\n  8. Argumentation — Arg Warrant Quality\n  9. Reasoning Competence — Causal Reasoning\n  10. Reasoning Competence — Reasoning Depth\n  11. Reasoning Competence — Evaluation Of Alternatives\n",
+    "last_session_recap": {
+      "sessions_analyzed": 0,
+      "avg_completion_rate": null,
+      "avg_session_minutes": null,
+      "improving_criteria": [],
+      "slow_criteria": [],
+      "recommended_intent": "consolidation"
+    },
+    "targets": [
+      {
+        "rank": 1,
+        "criterion": "lexical_resource",
+        "criterion_label": "Vocabulary (LR)",
+        "skill_tag": "lexical_precision",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+        "reason_text": "",
+        "difficulty": "guided"
+      },
+      {
+        "rank": 2,
+        "criterion": "grammar",
+        "criterion_label": "grammar",
+        "skill_tag": "sentence_control",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+        "reason_text": "",
+        "difficulty": "guided"
+      },
+      {
+        "rank": 3,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_clarity",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 4,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_completeness",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 5,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "introduction_construction",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 6,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_reason_quality",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 7,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_generation",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 8,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_quality",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 9,
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "causal_reasoning",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 10,
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "reasoning_depth",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 11,
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "evaluation_of_alternatives",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      }
+    ],
+    "cefr_floor": null,
+    "cefr_ceiling": null,
+    "_seen_ids_loaded": false,
+    "_cross_session_count": 0,
+    "session_length_options": [
+      {
+        "minutes": 5,
+        "estimated_exercises": 3
+      },
+      {
+        "minutes": 10,
+        "estimated_exercises": 6
+      },
+      {
+        "minutes": 15,
+        "estimated_exercises": 10
+      }
+    ]
+  },
+  "session_plan": {
+    "session_id": "790cc66f-9dbc-487d-a275-49491c056c70",
+    "chosen_duration_minutes": 10,
+    "total_exercises": 11,
+    "cefr_floor": null,
+    "cefr_ceiling": null,
+    "cefr_levels_selected": [
+      "B1"
+    ],
+    "family_fallbacks_used": [],
+    "slots_skipped_no_stock": [],
+    "_cross_session_excluded": 0,
+    "allocation": [
+      {
+        "criterion": "lexical_resource",
+        "criterion_label": "Vocabulary (LR)",
+        "skill_tag": "lexical_precision",
+        "difficulty": "guided",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "grammar",
+        "criterion_label": "grammar",
+        "skill_tag": "sentence_control",
+        "difficulty": "guided",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_clarity",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_completeness",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "introduction_construction",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_reason_quality",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_generation",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_quality",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "causal_reasoning",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "reasoning_depth",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "evaluation_of_alternatives",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "exercise_number": 1,
+      "total_exercises": 11,
+      "exercise_id": "ex_26903296ffb8",
+      "exercise_type": "fill_gap",
+      "family": "LEXICAL_PRECISION",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "false_friend",
+      "prompt": "He is very ___ to her feelings — he always knows when she is upset. (sensitive/sensible/empathetic)",
+      "answer": "sensitive",
+      "explanation": "'Sensitive to' means aware of and responsive to others' feelings.",
+      "choices": null
+    },
+    {
+      "exercise_number": 2,
+      "total_exercises": 11,
+      "exercise_id": "CONDITIONALS_B1_v10_00012",
+      "exercise_type": "error_correction",
+      "family": "CONDITIONALS",
+      "family_label": "Conditional structures",
+      "cefr_level": "B1",
+      "micro_skill": "discourse_logic",
+      "prompt": "Complete the conditional: If schools provide clearer feedback, students ___ faster. Context: when social expectations change; skill variant 159.",
+      "answer": "may improve",
+      "explanation": "For discourse logic and flow (variant 1): The correct conditional form is 'may improve'. English conditionals require precise tense pairing between the if-clause and result clause. Conditional accuracy is assessed directly under IELTS Grammatical Range. [Key: 'may improve'].",
+      "choices": []
+    },
+    {
+      "exercise_number": 3,
+      "total_exercises": 11,
+      "exercise_id": "ex_4ec9d8961246",
+      "exercise_type": "cohesion_repair",
+      "family": "PARAGRAPH_PROGRESS",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "abrupt_end",
+      "prompt": "Find the problem: 'Artificial intelligence is transforming healthcare diagnostics. AI systems can detect patterns in medical imaging that humans might miss. This could save lives. More research.'",
+      "answer": "'More research.' is an incomplete sentence that fails to close the paragraph coherently.",
+      "explanation": "Replace with: 'More research and regulatory clarity are needed before these systems can be deployed at scale with confidence in their accuracy and safety.'",
+      "choices": null
+    },
+    {
+      "exercise_number": 4,
+      "total_exercises": 11,
+      "exercise_id": "TRANSITIONS_B1_v10_00112",
+      "exercise_type": "mcq",
+      "family": "TRANSITIONS",
+      "family_label": "Transitions",
+      "cefr_level": "B1",
+      "micro_skill": "production",
+      "prompt": "Choose the best transition: Many people value convenience. ___, private car use can increase pollution. Context: in the first year of university; skill variant 192.",
+      "answer": "However",
+      "explanation": "When producing this structure (variant 2): 'However' is a transition connector: it links two related ideas. Here it links 'Choose the best transition: Many people value' and 'private car use can increase pollution'. Always punctuate 'However' correctly — it raises IELTS Coherence and Cohesion. [Key: 'However'].",
+      "choices": [
+        "However",
+        "There are many examples of this in daily life.",
+        "This is an important topic that many people think about.",
+        "People have different views on this issue."
+      ]
+    },
+    {
+      "exercise_number": 5,
+      "total_exercises": 11,
+      "exercise_id": "ex_fea664af1121",
+      "exercise_type": "paragraph_build",
+      "family": "DISCOURSE_LINKING",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "choose_connector",
+      "prompt": "Read: 'The globalisation of food supply chains has reduced costs and increased variety for consumers. ___, it has created significant vulnerabilities, as disruptions in one part of the world — pandemic, conflict, drought — rapidly propagate through the entire system.' Which fits?",
+      "answer": "However",
+      "explanation": "'However' introduces the key limitation of globally integrated supply chains.",
+      "choices": [
+        "However",
+        "Furthermore",
+        "Consequently",
+        "In addition"
+      ]
+    },
+    {
+      "exercise_number": 6,
+      "total_exercises": 11,
+      "exercise_id": "ex_ba072f3a14fd",
+      "exercise_type": "short_rewrite",
+      "family": "DATA_DESCRIPTION",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "write_trend_description",
+      "prompt": "Describe this trend: Unemployment rose from 5% in 2007 to 12% in 2009, then fell gradually to 6% by 2015.",
+      "answer": "Write two sentences covering the full period.",
+      "explanation": "Unemployment rose sharply from 5% in 2007 to a peak of 12% in 2009. Following this peak, there was a gradual decline, and by 2015 the figure had fallen to 6%.",
+      "choices": null
+    },
+    {
+      "exercise_number": 7,
+      "total_exercises": 11,
+      "exercise_id": "ex_b73070946168",
+      "exercise_type": "mcq",
+      "family": "BALANCED_DISCUSSION",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "concession",
+      "prompt": "'Although renewable energy has significant upfront costs, the long-term savings and environmental benefits make it a sound investment.' What is the ROLE of 'Although'?",
+      "answer": "It introduces a concession before the main argument.",
+      "explanation": "'Although' is a concession marker — it acknowledges the opposing point before presenting the stronger claim.",
+      "choices": [
+        "It introduces a concession before the main argument.",
+        "It introduces the main argument.",
+        "It provides an example.",
+        "It introduces a conclusion."
+      ]
+    },
+    {
+      "exercise_number": 8,
+      "total_exercises": 11,
+      "exercise_id": "ex_9812df1a812c",
+      "exercise_type": "order_selection",
+      "family": "CLAIM_SUPPORT",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "claim_support_order",
+      "prompt": "Order: A: Furthermore, areas with strong public transport networks attract more investment and skilled workers than car-dependent cities. B: Investment in public transport produces economic returns that significantly exceed the cost of infrastructure. C: For every pound invested in public transport, economic analysis estimates a return of £2.50 to £3 in reduced congestion, lower emissions, and increased productivity. D: Governments that treat transport spending as an expense rather than an investment misunderstand the economics of infrastructure.",
+      "answer": "B-C-A-D",
+      "explanation": "B is the claim; C gives the multiplier evidence; A gives the additional investment benefit; D is the conclusion.",
+      "choices": [
+        "B-C-A-D",
+        "A-D-B-C",
+        "C-B-D-A",
+        "D-A-B-C"
+      ]
+    },
+    {
+      "exercise_number": 9,
+      "total_exercises": 11,
+      "exercise_id": "ex_a43c56f4a164",
+      "exercise_type": "mcq",
+      "family": "HEDGING",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "hedge_function",
+      "prompt": "What is the purpose of hedging in academic writing?",
+      "answer": "To limit the scope or express appropriate uncertainty, making arguments more credible by being honest about their limits.",
+      "explanation": "Hedging signals intellectual honesty — it shows the writer knows the limits of the evidence.",
+      "choices": [
+        "To make the writing more informal and friendly.",
+        "To protect the writer's claims by limiting their scope or expressing appropriate uncertainty, making arguments more credible by being honest about their limits.",
+        "To avoid giving a clear opinion.",
+        "To make sentences longer."
+      ]
+    },
+    {
+      "exercise_number": 10,
+      "total_exercises": 11,
+      "exercise_id": "ex_13454c378844",
+      "exercise_type": "order_selection",
+      "family": "EXAMPLE_QUALITY",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "example_integration_order",
+      "prompt": "Order: A: A single well-chosen example can do more argumentative work than five weak ones if it precisely illustrates the mechanism, the scale, and the conditions under which the claim holds. B: Quantity of examples does not substitute for quality. C: However, single examples — even strong ones — should be presented as illustrations of a pattern rather than as proof, and supplemented with reference to the broader evidence base. D: Academic argument is most persuasive when specific examples and general evidence reinforce each other rather than standing alone.",
+      "answer": "B-A-C-D",
+      "explanation": "B states the quantity-quality principle; A gives the positive case for quality examples; C qualifies with the pattern claim; D draws the conclusion.",
+      "choices": [
+        "B-A-C-D",
+        "A-D-C-B",
+        "C-B-D-A",
+        "D-B-C-A"
+      ]
+    },
+    {
+      "exercise_number": 11,
+      "total_exercises": 11,
+      "exercise_id": "ex_676c84b8f4dc",
+      "exercise_type": "mcq",
+      "family": "POSITION_CLARITY",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "thesis_identification",
+      "prompt": "Which sentence most clearly states a debatable position?",
+      "answer": "Standardised testing should be removed from primary schools because it increases anxiety without improving learning outcomes.",
+      "explanation": "This makes a specific, arguable claim that someone could reasonably disagree with.",
+      "choices": [
+        "Education is important.",
+        "Many countries have national education systems.",
+        "Standardised testing should be removed from primary schools because it increases anxiety without improving learning outcomes.",
+        "Education has changed significantly in the past 50 years."
+      ]
+    }
+  ],
+  "exercise_count": 11,
+  "status": "ready_for_student",
+  "next_action": "student_answers_exercises_then_submit_answer_and_get_session_results"
+}

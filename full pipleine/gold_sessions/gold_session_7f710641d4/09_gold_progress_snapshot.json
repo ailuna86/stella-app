@@ -1,0 +1,30 @@
+{
+  "schema_version": "GOLD_PROGRESS_SNAPSHOT_V1_2",
+  "latest_score": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "TR": 5,
+      "CC": 6,
+      "LR": 4,
+      "GRA": 4
+    }
+  },
+  "next_best_action": {
+    "service": "writing_coach",
+    "skill_id": "sentence_control",
+    "reason": "It is the best next target according to the current essay evidence and skill dependency logic."
+  },
+  "main_bottleneck": {
+    "skill_id": "sentence_control",
+    "skill_name": "Sentence control",
+    "reason": "This is the strongest current bottleneck because it has the largest concentration of chargeable evidence.",
+    "root_cause": "sentence_control",
+    "secondary_effects": [
+      "reduced recoverability",
+      "lower discourse reliability",
+      "weaker argument clarity"
+    ]
+  },
+  "stable_score_count": 1,
+  "released_score_count": 1
+}

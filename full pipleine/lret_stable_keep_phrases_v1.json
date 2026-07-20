@@ -1,0 +1,6 @@
+{
+  "_status": "UNUSED / not wired into any command config",
+  "_note": "This was an initial attempt at fixing the LRET CLARIFY false-positive bug (see gold_revision/LRET investigation notes) via a hand-picked phrase allowlist. Superseded by a universal fix instead: _v165_promote_free_modifier_swaps in lret_engine_v1_12_0_meaning_sensitive_detector_families.py was retired entirely, because the mechanism it implemented is structurally guaranteed to only ever fire on phrases that are already registry-attested, standard collocations -- an allowlist approach only patches phrases someone happened to notice, and would keep missing the same failure on every other essay's equally standard vocabulary. This file is kept only for reference and is not referenced by gold_engine_commands_full_v1_4_13.json or any other config.",
+  "stable_keep_phrases": [],
+  "formulaic_keep": []
+}

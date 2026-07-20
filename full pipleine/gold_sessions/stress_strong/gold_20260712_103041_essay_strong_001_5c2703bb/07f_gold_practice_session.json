@@ -1,0 +1,465 @@
+{
+  "schema_version": "GOLD_PRACTICE_SESSION_ADAPTIVE_V1",
+  "engine_id": "VA_STELLA_GOLD_PRACTICE_ENGINE_BRIDGE",
+  "engine_version": "1.0.0-wraps-practice_engine_v5b",
+  "created_at": "2026-07-12T08:38:41.632292+00:00",
+  "wrapped_engine": "PracticeEngineV5 (practice_engine_v5b.py)",
+  "student_id": "stress_strong",
+  "session_id": "575f4e01-d33f-46c7-9199-80a1b4de506c",
+  "welcome": {
+    "session_id": "575f4e01-d33f-46c7-9199-80a1b4de506c",
+    "student_id": "stress_strong",
+    "welcome_message": "Welcome back, stress_strong!\n\nThis is your first session — let's build your profile!\n\nToday's targets — chosen specifically for you:\n  1. Vocabulary (LR) — Lexical Precision\n  2. Organization — Ws Proposition Clarity\n  3. Organization — Ws Proposition Completeness\n  4. Organization — Conclusion Construction\n  5. Organization — Introduction Construction\n  6. Organization — Ws Conclusion Alignment Struct\n  7. Argumentation — Arg Counterargument Development\n  8. Argumentation — Arg Rebuttal Quality\n  9. Argumentation — Arg Warrant Generation\n  10. Argumentation — Arg Warrant Quality\n  11. Reasoning Competence — Counterargument Development\n",
+    "last_session_recap": {
+      "sessions_analyzed": 0,
+      "avg_completion_rate": null,
+      "avg_session_minutes": null,
+      "improving_criteria": [],
+      "slow_criteria": [],
+      "recommended_intent": "consolidation"
+    },
+    "targets": [
+      {
+        "rank": 1,
+        "criterion": "lexical_resource",
+        "criterion_label": "Vocabulary (LR)",
+        "skill_tag": "lexical_precision",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+        "reason_text": "",
+        "difficulty": "guided"
+      },
+      {
+        "rank": 2,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_clarity",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 3,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_completeness",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 4,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "conclusion_construction",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 5,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "introduction_construction",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 6,
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_conclusion_alignment_struct",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 7,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_counterargument_development",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 8,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_rebuttal_quality",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 9,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_generation",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 10,
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_quality",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      },
+      {
+        "rank": 11,
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "counterargument_development",
+        "current_band": null,
+        "target_band": null,
+        "priority_reason": "",
+        "reason_text": "",
+        "difficulty": "consolidation"
+      }
+    ],
+    "cefr_floor": null,
+    "cefr_ceiling": null,
+    "_seen_ids_loaded": false,
+    "_cross_session_count": 0,
+    "session_length_options": [
+      {
+        "minutes": 5,
+        "estimated_exercises": 3
+      },
+      {
+        "minutes": 10,
+        "estimated_exercises": 6
+      },
+      {
+        "minutes": 15,
+        "estimated_exercises": 10
+      }
+    ]
+  },
+  "session_plan": {
+    "session_id": "575f4e01-d33f-46c7-9199-80a1b4de506c",
+    "chosen_duration_minutes": 10,
+    "total_exercises": 11,
+    "cefr_floor": null,
+    "cefr_ceiling": null,
+    "cefr_levels_selected": [
+      "B1"
+    ],
+    "family_fallbacks_used": [],
+    "slots_skipped_no_stock": [],
+    "_cross_session_excluded": 0,
+    "allocation": [
+      {
+        "criterion": "lexical_resource",
+        "criterion_label": "Vocabulary (LR)",
+        "skill_tag": "lexical_precision",
+        "difficulty": "guided",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_clarity",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_proposition_completeness",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "conclusion_construction",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "introduction_construction",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Organization",
+        "criterion_label": "Organization",
+        "skill_tag": "ws_conclusion_alignment_struct",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_counterargument_development",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_rebuttal_quality",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_generation",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Argumentation",
+        "criterion_label": "Argumentation",
+        "skill_tag": "arg_warrant_quality",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      },
+      {
+        "criterion": "Reasoning Competence",
+        "criterion_label": "Reasoning Competence",
+        "skill_tag": "counterargument_development",
+        "difficulty": "consolidation",
+        "exercise_count": 1,
+        "percentage": 9
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "exercise_number": 1,
+      "total_exercises": 11,
+      "exercise_id": "ex_a3698e155ee2",
+      "exercise_type": "fill_gap",
+      "family": "PRECISION",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "precise_verb",
+      "prompt": "The board ___ that the merger should proceed. (resolved/decided/agreed)",
+      "answer": "resolved",
+      "explanation": "'Resolved' is the most formal and precise word for a group decision.",
+      "choices": null
+    },
+    {
+      "exercise_number": 2,
+      "total_exercises": 11,
+      "exercise_id": "ex_4877c4189756",
+      "exercise_type": "cohesion_repair",
+      "family": "PARAGRAPH_PROGRESS",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "missing_link",
+      "prompt": "Find the problem: 'Remote work has many advantages for employees. Workers gain flexibility. Productivity can increase. Companies save on office costs.'",
+      "answer": "The paragraph consists of disconnected short claims without transitions or development — it reads like a bullet list.",
+      "explanation": "Add transitions and develop: 'First, workers gain flexibility over their working hours and location. Furthermore, productivity can increase without the distractions of an open-plan office. Companies also save significantly on office costs.'",
+      "choices": null
+    },
+    {
+      "exercise_number": 3,
+      "total_exercises": 11,
+      "exercise_id": "TRANSITIONS_B1_v10_00080",
+      "exercise_type": "cohesion_repair",
+      "family": "TRANSITIONS",
+      "family_label": "Transitions",
+      "cefr_level": "B1",
+      "micro_skill": "exam_application",
+      "prompt": "Choose the best transition: Many people value convenience. ___, private car use can increase pollution. Context: when resources are limited; skill variant 160.",
+      "answer": "However",
+      "explanation": "Applying this in exam conditions (variant 1): 'However' is a transition connector: it links two related ideas. Here it links 'Choose the best transition: Many people value' and 'private car use can increase pollution'. Always punctuate 'However' correctly — it raises IELTS Coherence and Cohesion. [Key: 'However'].",
+      "choices": [
+        "Therefore",
+        "Nevertheless",
+        "However",
+        "For example"
+      ]
+    },
+    {
+      "exercise_number": 4,
+      "total_exercises": 11,
+      "exercise_id": "ex_d5889840a9ab",
+      "exercise_type": "mcq",
+      "family": "CAUSAL_REASONING",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "correlation_causation",
+      "prompt": "'Students who own more books score higher in reading tests.' Which explanation shows the MOST careful causal reasoning?",
+      "answer": "Students who own more books read more, developing reading skills, though family income and parental education are important confounders.",
+      "explanation": "This explanation proposes a mechanism while acknowledging confounders.",
+      "choices": [
+        "Students who own more books read more, which develops their reading skills, though family income and parental education — which determine both book ownership and educational outcomes — are important confounders.",
+        "More books cause better reading — so everyone should own more books.",
+        "Students who read more buy more books.",
+        "Books are correlated with academic success."
+      ]
+    },
+    {
+      "exercise_number": 5,
+      "total_exercises": 11,
+      "exercise_id": "ex_5e9ad57bbd7f",
+      "exercise_type": "paragraph_build",
+      "family": "DISCOURSE_LINKING",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "choose_connector",
+      "prompt": "Read: 'Remote working offers significant benefits in terms of flexibility and work-life balance. ___, it presents real challenges for team cohesion and organisational culture, which depend on regular face-to-face interaction.' Which fits?",
+      "answer": "However",
+      "explanation": "'However' correctly introduces the contrasting limitation after the benefits.",
+      "choices": [
+        "However",
+        "Furthermore",
+        "Consequently",
+        "In addition"
+      ]
+    },
+    {
+      "exercise_number": 6,
+      "total_exercises": 11,
+      "exercise_id": "ex_74e80c761938",
+      "exercise_type": "gap_bridge_sentence",
+      "family": "PARAGRAPH_PROGRESS",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "paragraph_progress",
+      "prompt": "Read: 'The proliferation of ultra-processed foods in global diets has significant public health implications. ___. These products are also heavily marketed to children, creating brand loyalties and dietary habits that are difficult to change.' Which fits?",
+      "answer": "High in sugar, salt, and artificial additives, they are associated with obesity, type 2 diabetes, and cardiovascular disease.",
+      "explanation": "This gives the first health implication before the marketing point.",
+      "choices": [
+        "High in sugar, salt, and artificial additives, they are associated with obesity, type 2 diabetes, and cardiovascular disease.",
+        "Fast food is popular worldwide.",
+        "Some countries have introduced sugar taxes.",
+        "Food labelling laws vary by country."
+      ]
+    },
+    {
+      "exercise_number": 7,
+      "total_exercises": 11,
+      "exercise_id": "ex_f5b46a044597",
+      "exercise_type": "mcq",
+      "family": "COUNTERARGUMENT",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "concession_refutation",
+      "prompt": "What is the difference between a CONCESSION and a REFUTATION in argument?",
+      "answer": "A concession grants that the counterargument has some validity; a refutation argues that it is entirely wrong.",
+      "explanation": "Acknowledging partial validity (concession) before showing why your main claim still stands is often more persuasive than outright dismissal.",
+      "choices": [
+        "A concession grants that the counterargument has some validity; a refutation argues that it is entirely wrong.",
+        "A concession ends the debate; a refutation continues it.",
+        "A concession is used in formal debates; a refutation in essays.",
+        "A concession is a stronger response; a refutation is weaker."
+      ]
+    },
+    {
+      "exercise_number": 8,
+      "total_exercises": 11,
+      "exercise_id": "ex_319c8eabf11c",
+      "exercise_type": "argument_repair",
+      "family": "EXAMPLE_QUALITY",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "cherry_picking",
+      "prompt": "Identify the cherry-picking and improve: Claim: 'Voucher schemes for school choice improve educational outcomes.' Examples used: 'The Milwaukee Parental Choice Programme showed modest positive effects; the DC Opportunity Scholarship showed positive effects on graduation rates.'",
+      "answer": "Identify missing disconfirming evidence.",
+      "explanation": "Problem: These are two programmes with positive results. Several significant voucher evaluations — including Louisiana, Indiana, and Ohio — found negative or null effects, with some showing lower performance in participating schools. Improved evidence use: 'The evidence on school choice vouchers is mixed. Studies of Milwaukee and Washington DC found positive graduation effects, but randomised evaluations in Louisiana and Indiana found that students using vouchers showed lower achievement than comparable students remaining in public schools. A comprehensive assessment requires engaging with this variation rather than selecting positive cases.'",
+      "choices": null
+    },
+    {
+      "exercise_number": 9,
+      "total_exercises": 11,
+      "exercise_id": "ex_db1492f8145c",
+      "exercise_type": "support_selection",
+      "family": "ARGUMENT_STRUCTURE",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "evidence_choice",
+      "prompt": "Claim: 'Air pollution is damaging public health in cities.' Which evidence BEST supports this?",
+      "answer": "The WHO estimates that air pollution causes 7 million premature deaths annually, with urban populations disproportionately affected.",
+      "explanation": "This provides authoritative, quantified evidence from the WHO directly linking pollution to health outcomes.",
+      "choices": [
+        "The WHO estimates that air pollution causes 7 million premature deaths annually, with urban populations disproportionately affected.",
+        "Cities have higher populations than rural areas.",
+        "Some cities have introduced low-emission zones.",
+        "Air quality varies by weather conditions."
+      ]
+    },
+    {
+      "exercise_number": 10,
+      "total_exercises": 11,
+      "exercise_id": "ex_0a2dea805732",
+      "exercise_type": "mcq",
+      "family": "CONCLUSION_LOGIC",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "non_sequitur",
+      "prompt": "Identify the non sequitur: 'Young people today are more politically engaged than any previous generation. Social media allows rapid communication of ideas.'",
+      "answer": "Therefore, social media is the primary driver of all democratic progress.",
+      "explanation": "'Primary driver of all democratic progress' goes far beyond what the two premises support.",
+      "choices": [
+        "Therefore, social media is the primary driver of all democratic progress.",
+        "Therefore, social media has contributed to young people's political engagement.",
+        "Therefore, political engagement among young people merits further study.",
+        "Therefore, digital communication tools deserve consideration in civic education."
+      ]
+    },
+    {
+      "exercise_number": 11,
+      "total_exercises": 11,
+      "exercise_id": "ex_c7fb1f17833f",
+      "exercise_type": "support_selection",
+      "family": "COUNTERARGUMENT",
+      "family_label": "",
+      "cefr_level": "B1",
+      "micro_skill": "select_best_rebuttal",
+      "prompt": "Main claim: 'Remote working is better for employees.' Counterargument: 'Remote working leads to overwork, isolation, and career disadvantage for those who do not come into the office regularly.' Which rebuttal is BEST?",
+      "answer": "These are genuine risks of poorly managed remote work. Hybrid models with clear boundaries, mandatory team time, and equal performance evaluation address these specific concerns — rather than a full return to office attendance.",
+      "explanation": "This rebuttal concedes the legitimacy of the concerns while redirecting to a design solution.",
+      "choices": [
+        "Many employees prefer remote work.",
+        "These are genuine risks of poorly managed remote work, which is why hybrid models with clear boundaries, mandatory in-person time for team collaboration, and equal performance evaluation criteria for remote and in-person employees address the specific concerns raised — rather than a return to full office attendance.",
+        "People can work from anywhere with internet.",
+        "Office environments have their own problems."
+      ]
+    }
+  ],
+  "exercise_count": 11,
+  "status": "ready_for_student",
+  "next_action": "student_answers_exercises_then_submit_answer_and_get_session_results"
+}

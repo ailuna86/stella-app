@@ -1,0 +1,1124 @@
+[
+  {
+    "marker": "above all",
+    "function": "cohesion",
+    "cefr": "A1",
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.92
+  },
+  {
+    "marker": "additionally",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "admittedly",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "also",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "although",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "as a consequence",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "as a result",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "as a result of this",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "as discussed earlier",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "as for",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "as noted above",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "as previously mentioned",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "as regards",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "at the same time",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "because of",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "building on this",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "by comparison",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "by contrast",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "consequently",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "conversely",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "crucially",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "despite",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "despite this",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "due to",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "even so",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "even though",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "finally",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "firstly",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "for example",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "for instance",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "for this reason",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "furthermore",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "given that",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "granted",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "however",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in a similar fashion",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in addition",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in comparison",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in conclusion",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in contrast",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in light of",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in other words",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in particular",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in short",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in spite of",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in summary",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in terms of",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in the first place",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in the following section",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "in the same way",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "interestingly",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "ironically",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "it is clear that",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "it is evident that",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "it is noteworthy that",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "it is worth noting",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "likewise",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "meanwhile",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "moreover",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "most importantly",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "nevertheless",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "nonetheless",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "notably",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "on balance",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "on condition that",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "on the contrary",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "on the other hand",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "overall",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "owing to",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "paradoxically",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "provided that",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "remarkably",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "secondly",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "significantly",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "similarly",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "strikingly",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "subsequently",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "that said",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "therefore",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "thirdly",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "this causes",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "this implies",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "this indicates",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "this leads",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "this means",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "this suggests",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "to begin with",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "to clarify",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "to conclude",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "to demonstrate",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "to illustrate",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "to start with",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "to summarise",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "to summarize",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "turning to",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "what is more",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "what is particularly",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "whereas",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "which means",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "while",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": false,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "with regard to",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  },
+  {
+    "marker": "with respect to",
+    "function": "cohesion",
+    "cefr": null,
+    "register": "neutral",
+    "is_multiword": true,
+    "sources": [
+      "discourse_markers_txt"
+    ],
+    "confidence": 0.88
+  }
+]

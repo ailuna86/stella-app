@@ -1,0 +1,137 @@
+{
+  "schema_version": "GOLD_PRIOR_CONTEXT_V1",
+  "engine_id": "VA_STELLA_GOLD_SESSION_CONTINUITY_LOADER",
+  "engine_version": "1.0.0-standalone-no-imports",
+  "created_at": "2026-07-11T12:55:11.991577+00:00",
+  "student_id": "student_123",
+  "cold_start": false,
+  "sessions_analyzed": 0,
+  "prior_learner_profile": {
+    "student_id": "student_123",
+    "profile_version": "gold_lie_unified_v1_2",
+    "performance_profile": {
+      "released_scores": [
+        {
+          "essay_id": "essay_001",
+          "created_at": "2026-07-08T07:58:01.535836+00:00",
+          "released_score": {
+            "overall_band": 5.0,
+            "criteria_bands": {
+              "TR": 5,
+              "CC": 6,
+              "LR": 4,
+              "GRA": 4
+            }
+          },
+          "score_confidence": "normal",
+          "stable_for_trend": true
+        }
+      ],
+      "stable_scores": [
+        {
+          "essay_id": "essay_001",
+          "created_at": "2026-07-08T07:58:01.535836+00:00",
+          "released_score": {
+            "overall_band": 5.0,
+            "criteria_bands": {
+              "TR": 5,
+              "CC": 6,
+              "LR": 4,
+              "GRA": 4
+            }
+          },
+          "score_confidence": "normal",
+          "stable_for_trend": true
+        }
+      ]
+    },
+    "error_pattern_profile": {
+      "family_totals": {
+        "C_SIMPLE_CONNECTORS": 1,
+        "A_OVERGENERALIZATION": 1,
+        "A_UNDERDEVELOPED": 1,
+        "G_COMMA_TRANSITION": 2,
+        "L_INFORMAL_VOCAB": 4,
+        "L_REPETITION": 3,
+        "S_INFORMAL_TONE": 2,
+        "S_HEDGING": 1,
+        "G_VERB_FORM": 1,
+        "L_SPELLING": 7,
+        "G_NOUN_NUMBER": 3,
+        "G_VERB_PATTERN": 1,
+        "G_SPACING": 4,
+        "G_MISSING_VERB": 2,
+        "L_WORD_FORM": 1,
+        "L_WORD_CHOICE": 1,
+        "L_LIMITED_VOCAB": 2,
+        "G_ARTICLE": 2,
+        "G_SV_AGREEMENT": 1,
+        "G_COMPARATIVE_FORM": 1,
+        "L_COLLOCATION": 1
+      },
+      "capacity_totals": {
+        "cohesion_control": 1,
+        "argument_development": 2,
+        "sentence_control": 17,
+        "academic_style": 7,
+        "lexical_precision": 15
+      }
+    },
+    "skill_capacity_profile": {
+      "sentence_control": {
+        "evidence_count": 17,
+        "sessions": 1,
+        "status": "active_gap",
+        "last_observation_status": "gap"
+      },
+      "lexical_precision": {
+        "evidence_count": 15,
+        "sessions": 1,
+        "status": "active_gap",
+        "last_observation_status": "gap"
+      },
+      "cohesion_control": {
+        "evidence_count": 1,
+        "sessions": 1,
+        "status": "building",
+        "last_observation_status": "monitor"
+      },
+      "argument_development": {
+        "evidence_count": 2,
+        "sessions": 1,
+        "status": "building",
+        "last_observation_status": "monitor"
+      },
+      "task_response_control": {
+        "evidence_count": 0,
+        "sessions": 1,
+        "status": "building",
+        "last_observation_status": "not_negatively_observed"
+      },
+      "academic_style": {
+        "evidence_count": 7,
+        "sessions": 1,
+        "status": "active_gap",
+        "last_observation_status": "gap"
+      }
+    },
+    "lexical_profile": {
+      "sessions": []
+    },
+    "writing_coach_profile": {
+      "mission_history": []
+    },
+    "practice_profile": {
+      "sessions": []
+    },
+    "next_best_action": {
+      "service": "writing_coach",
+      "skill_id": "sentence_control",
+      "reason": "It is the best next target according to the current essay evidence and skill dependency logic."
+    },
+    "last_updated_at": "2026-07-08T07:58:01.535836+00:00"
+  },
+  "prior_progress_profile": null,
+  "previous_directive": null,
+  "note": "cold_start=true means no persisted profile was found for this student_id; downstream engines should behave cautiously (cold-start mode) rather than assume high-confidence history."
+}

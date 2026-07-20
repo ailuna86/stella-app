@@ -1,0 +1,152 @@
+{
+  "__comment": "VA21 A8 — CEFR-banded substitutions for LRET ENHANCE channel",
+  "__note": "Stub with representative entries. Populate fully with build_data.py",
+  "big": [
+    {"replacement": "substantial", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "considerable", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "significant", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "extensive", "cefr": "C1", "context_tags": ["formal", "academic"]}
+  ],
+  "small": [
+    {"replacement": "limited", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "modest", "cefr": "B2", "context_tags": ["formal"]},
+    {"replacement": "marginal", "cefr": "C1", "context_tags": ["formal", "academic"]}
+  ],
+  "important": [
+    {"replacement": "crucial", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "significant", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "pivotal", "cefr": "C1", "context_tags": ["formal", "academic"]},
+    {"replacement": "fundamental", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "good": [
+    {"replacement": "beneficial", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "advantageous", "cefr": "C1", "context_tags": ["formal"]},
+    {"replacement": "favourable", "cefr": "B2", "context_tags": ["formal"]}
+  ],
+  "bad": [
+    {"replacement": "detrimental", "cefr": "C1", "context_tags": ["formal", "academic"]},
+    {"replacement": "harmful", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "adverse", "cefr": "C1", "context_tags": ["formal", "academic"]}
+  ],
+  "show": [
+    {"replacement": "demonstrate", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "illustrate", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "reveal", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "indicate", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "use": [
+    {"replacement": "utilise", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "employ", "cefr": "C1", "context_tags": ["formal", "academic"]},
+    {"replacement": "implement", "cefr": "B2", "context_tags": ["formal"]}
+  ],
+  "help": [
+    {"replacement": "facilitate", "cefr": "C1", "context_tags": ["formal", "academic"]},
+    {"replacement": "enable", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "support", "cefr": "B1", "context_tags": ["formal"]}
+  ],
+  "cause": [
+    {"replacement": "give rise to", "cefr": "C1", "context_tags": ["formal", "academic", "idiom"]},
+    {"replacement": "generate", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "trigger", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "happen": [
+    {"replacement": "occur", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "arise", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "emerge", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "change": [
+    {"replacement": "transform", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "alter", "cefr": "B2", "context_tags": ["formal"]},
+    {"replacement": "shift", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "problem": [
+    {"replacement": "challenge", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "issue", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "concern", "cefr": "B2", "context_tags": ["formal"]}
+  ],
+  "many": [
+    {"replacement": "numerous", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "a wide range of", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "a variety of", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "think": [
+    {"replacement": "argue", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "contend", "cefr": "C1", "context_tags": ["formal", "academic"]},
+    {"replacement": "maintain", "cefr": "C1", "context_tags": ["formal", "academic"]}
+  ],
+  "because": [
+    {"replacement": "due to", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "owing to", "cefr": "C1", "context_tags": ["formal", "academic"]},
+    {"replacement": "as a result of", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "also": [
+    {"replacement": "furthermore", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "moreover", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "in addition", "cefr": "B1", "context_tags": ["formal", "academic"]}
+  ],
+  "but": [
+    {"replacement": "however", "cefr": "B1", "context_tags": ["formal", "academic"]},
+    {"replacement": "nevertheless", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "nonetheless", "cefr": "C1", "context_tags": ["formal", "academic"]}
+  ],
+  "so": [
+    {"replacement": "therefore", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "consequently", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "thus", "cefr": "C1", "context_tags": ["formal", "academic"]}
+  ],
+  "get": [
+    {"replacement": "obtain", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "acquire", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "achieve", "cefr": "B1", "context_tags": ["formal", "academic"]}
+  ],
+  "make": [
+    {"replacement": "create", "cefr": "A2", "context_tags": ["formal"]},
+    {"replacement": "generate", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "produce", "cefr": "B1", "context_tags": ["formal", "academic"]}
+  ],
+  "find": [
+    {"replacement": "identify", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "discover", "cefr": "B1", "context_tags": ["formal"]},
+    {"replacement": "determine", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "look at": [
+    {"replacement": "examine", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "investigate", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "analyse", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "talk about": [
+    {"replacement": "discuss", "cefr": "B1", "context_tags": ["formal", "academic"]},
+    {"replacement": "address", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "consider", "cefr": "B1", "context_tags": ["formal", "academic"]}
+  ],
+  "a lot of": [
+    {"replacement": "numerous", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "a considerable number of", "cefr": "C1", "context_tags": ["formal", "academic"]},
+    {"replacement": "a significant proportion of", "cefr": "C1", "context_tags": ["formal", "academic"]}
+  ],
+  "nowadays": [
+    {"replacement": "in contemporary society", "cefr": "C1", "context_tags": ["formal", "academic"]},
+    {"replacement": "in the modern era", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "at present", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "very": [
+    {"replacement": "extremely", "cefr": "B1", "context_tags": ["formal"]},
+    {"replacement": "particularly", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "considerably", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "more and more": [
+    {"replacement": "increasingly", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "an increasing number of", "cefr": "B2", "context_tags": ["formal", "academic"]},
+    {"replacement": "a growing number of", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ],
+  "in my opinion": [
+    {"replacement": "it could be argued that", "cefr": "C1", "context_tags": ["formal", "academic", "hedging"]},
+    {"replacement": "from this perspective", "cefr": "C1", "context_tags": ["formal", "academic"]},
+    {"replacement": "it is my contention that", "cefr": "C2", "context_tags": ["formal", "academic"]}
+  ],
+  "I think": [
+    {"replacement": "it is arguable that", "cefr": "C1", "context_tags": ["formal", "academic", "hedging"]},
+    {"replacement": "it could be suggested that", "cefr": "C1", "context_tags": ["formal", "academic"]},
+    {"replacement": "this essay argues that", "cefr": "B2", "context_tags": ["formal", "academic"]}
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "DIRECTIVE_ADAPTER_STANDALONE_V1",
+  "engine_id": "VA_STELLA_DIRECTIVE_ADAPTER_CLI",
+  "engine_version": "1.0.0-standalone-no-imports",
+  "created_at": "2026-07-08T11:14:45.948858+00:00",
+  "boundary": "Directive adapter converts upstream priority and score contract into routing metadata only.",
+  "focus_areas": [],
+  "primary_focus": null,
+  "score_context": {
+    "released_score": {
+      "overall_band": 4.5,
+      "criteria_bands": {
+        "task_response": 4,
+        "coherence_cohesion": 4,
+        "lexical_resource": 5,
+        "grammar": 5
+      },
+      "score_family": "B1_WEAK",
+      "score_released": true
+    },
+    "score_confidence": "normal",
+    "score_status": "ready",
+    "verifier_status": "pass",
+    "adjudication_status": "confirmed",
+    "progress_tracking_allowed": true,
+    "lie_update_allowed": true
+  },
+  "score_confidence": "normal",
+  "adjudication_status": "confirmed",
+  "progress_tracking_allowed": true,
+  "gold_learning_directive": {
+    "next_best_skill": null,
+    "next_best_capacity_domain": null,
+    "recommended_service": null,
+    "learning_update_allowed": true,
+    "mastery_update_allowed": false,
+    "reason": "No primary focus available."
+  },
+  "learner_profile_context": {
+    "profile_supplied": false,
+    "profile_version": null
+  }
+}

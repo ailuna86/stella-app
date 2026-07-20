@@ -1,0 +1,447 @@
+{
+  "schema_version": "ERRORMAP_V3_STANDALONE",
+  "engine_id": "VA_STELLA_DETECTOR_TO_ERRORMAP_STANDALONE",
+  "engine_version": "3.0.0-standalone-no-imports",
+  "created_at": "2026-07-11T17:56:30.200794+00:00",
+  "errors": [
+    {
+      "error_id": "row_676548d49a6838ac",
+      "source_row_id": "row_676548d49a6838ac",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 3,
+      "criterion": "grammar",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "it compulsory",
+      "suggested_revision": "this/that/it + verb-s",
+      "severity": "moderate",
+      "confidence": 0.95,
+      "student_message": "Singular demonstrative/it subject followed by base lexical verb requires 3rd-person singular form.",
+      "chargeable": true,
+      "location": {
+        "char_start": 231,
+        "char_end": 244,
+        "sentence": "If school make it compulsory, students will learns responsibility and become more helpful person."
+      }
+    },
+    {
+      "error_id": "row_b247d87ede2f1fcd",
+      "source_row_id": "row_b247d87ede2f1fcd",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 2,
+      "criterion": "grammar",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "many",
+      "suggested_revision": "many teenagers",
+      "severity": "moderate",
+      "confidence": 0.78,
+      "student_message": "Subject-verb agreement issue",
+      "chargeable": true,
+      "location": {
+        "char_start": 115,
+        "char_end": 119,
+        "sentence": "Nowadays many teenager only think about their phone and games, they dont care about other peoples in society."
+      }
+    },
+    {
+      "error_id": "row_c2d7794db51021c4",
+      "source_row_id": "row_c2d7794db51021c4",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 2,
+      "criterion": "grammar",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "think",
+      "suggested_revision": "thinks",
+      "severity": "moderate",
+      "confidence": 0.78,
+      "student_message": "Subject-verb agreement issue",
+      "chargeable": true,
+      "location": {
+        "char_start": 134,
+        "char_end": 139,
+        "sentence": "Nowadays many teenager only think about their phone and games, they dont care about other peoples in society."
+      }
+    },
+    {
+      "error_id": "row_74ca7a2759e6c7d3",
+      "source_row_id": "row_74ca7a2759e6c7d3",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 2,
+      "criterion": "lexical_resource",
+      "family": "SPELLING",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "dont",
+      "suggested_revision": "don't",
+      "severity": "moderate",
+      "confidence": 0.86,
+      "student_message": "Possible spelling issue",
+      "chargeable": true,
+      "location": {
+        "char_start": 174,
+        "char_end": 178,
+        "sentence": "Nowadays many teenager only think about their phone and games, they dont care about other peoples in society."
+      }
+    },
+    {
+      "error_id": "row_c09ddb5b7942644a",
+      "source_row_id": "row_c09ddb5b7942644a",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 4,
+      "criterion": "grammar",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "they meets",
+      "suggested_revision": null,
+      "severity": "moderate",
+      "confidence": 0.72,
+      "student_message": "SVA mismatch: plural subject with 3sg verb",
+      "chargeable": true,
+      "location": {
+        "char_start": 362,
+        "char_end": 372,
+        "sentence": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples."
+      }
+    },
+    {
+      "error_id": "row_b10b868020e0a09c",
+      "source_row_id": "row_b10b868020e0a09c",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 11,
+      "criterion": "lexical_resource",
+      "family": "SPELLING",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "dont",
+      "suggested_revision": "don't",
+      "severity": "moderate",
+      "confidence": 0.86,
+      "student_message": "Possible spelling issue",
+      "chargeable": true,
+      "location": {
+        "char_start": 1058,
+        "char_end": 1062,
+        "sentence": "This is true but I think school can organize it in weekend so it dont effect their study to much."
+      }
+    },
+    {
+      "error_id": "row_ac22dbde7aae5a47",
+      "source_row_id": "row_ac22dbde7aae5a47",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 3,
+      "criterion": "grammar",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "students will learns",
+      "suggested_revision": null,
+      "severity": "moderate",
+      "confidence": 0.72,
+      "student_message": "SVA mismatch: plural subject with 3sg verb",
+      "chargeable": true,
+      "location": {
+        "char_start": 246,
+        "char_end": 266,
+        "sentence": "If school make it compulsory, students will learns responsibility and become more helpful person."
+      }
+    },
+    {
+      "error_id": "row_60d44c8a2d1d75d7",
+      "source_row_id": "row_60d44c8a2d1d75d7",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 4,
+      "criterion": "lexical_resource",
+      "family": "COLLOCATION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "doing community service",
+      "suggested_revision": "do community service",
+      "severity": "moderate",
+      "confidence": 0.85,
+      "student_message": "wrong verb form",
+      "chargeable": true,
+      "location": {
+        "char_start": 337,
+        "char_end": 360,
+        "sentence": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples."
+      }
+    },
+    {
+      "error_id": "row_d5ae6b0f75212904",
+      "source_row_id": "row_d5ae6b0f75212904",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 4,
+      "criterion": "lexical_resource",
+      "family": "COLLOCATION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "old peoples",
+      "suggested_revision": "old people",
+      "severity": "moderate",
+      "confidence": 0.9,
+      "student_message": "incorrect plural form",
+      "chargeable": true,
+      "location": {
+        "char_start": 410,
+        "char_end": 421,
+        "sentence": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples."
+      }
+    },
+    {
+      "error_id": "row_11d08edcd0ccf341",
+      "source_row_id": "row_11d08edcd0ccf341",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 4,
+      "criterion": "lexical_resource",
+      "family": "COLLOCATION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "homeless peoples",
+      "suggested_revision": "homeless people",
+      "severity": "moderate",
+      "confidence": 0.9,
+      "student_message": "incorrect plural form",
+      "chargeable": true,
+      "location": {
+        "char_start": 425,
+        "char_end": 441,
+        "sentence": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples."
+      }
+    },
+    {
+      "error_id": "row_2e1ea2dca8f55098",
+      "source_row_id": "row_2e1ea2dca8f55098",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 5,
+      "criterion": "lexical_resource",
+      "family": "COLLOCATION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "teach them empathy",
+      "suggested_revision": "teaches them empathy",
+      "severity": "moderate",
+      "confidence": 0.85,
+      "student_message": "wrong verb form",
+      "chargeable": true,
+      "location": {
+        "char_start": 459,
+        "char_end": 477,
+        "sentence": "This experience teach them empathy that they cannot learn it from books."
+      }
+    },
+    {
+      "error_id": "row_68fe84144439b91d",
+      "source_row_id": "row_68fe84144439b91d",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 1,
+      "criterion": "lexical_resource",
+      "family": "COLLOCATION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "community service teach",
+      "suggested_revision": "community service teaches",
+      "severity": "moderate",
+      "confidence": 0.85,
+      "student_message": "wrong verb collocate",
+      "chargeable": true,
+      "location": {
+        "char_start": 50,
+        "char_end": 73,
+        "sentence": "In my opinion I agree with this statement because community service teach students many important things."
+      }
+    },
+    {
+      "error_id": "row_7d783a70f9bb6918",
+      "source_row_id": "row_7d783a70f9bb6918",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 2,
+      "criterion": "lexical_resource",
+      "family": "COLLOCATION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "other peoples in society",
+      "suggested_revision": "other people in society",
+      "severity": "moderate",
+      "confidence": 0.9,
+      "student_message": "wrong noun collocate",
+      "chargeable": true,
+      "location": {
+        "char_start": 190,
+        "char_end": 214,
+        "sentence": "Nowadays many teenager only think about their phone and games, they dont care about other peoples in society."
+      }
+    },
+    {
+      "error_id": "row_1856af4f55596f6b",
+      "source_row_id": "row_1856af4f55596f6b",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 3,
+      "criterion": "lexical_resource",
+      "family": "COLLOCATION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "more helpful person",
+      "suggested_revision": "more helpful people",
+      "severity": "moderate",
+      "confidence": 0.82,
+      "student_message": "wrong noun collocate",
+      "chargeable": true,
+      "location": {
+        "char_start": 293,
+        "char_end": 312,
+        "sentence": "If school make it compulsory, students will learns responsibility and become more helpful person."
+      }
+    },
+    {
+      "error_id": "row_7bfa9be3226860d1",
+      "source_row_id": "row_7bfa9be3226860d1",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 4,
+      "criterion": "lexical_resource",
+      "family": "COLLOCATION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "student doing community service",
+      "suggested_revision": "students doing community service",
+      "severity": "moderate",
+      "confidence": 0.85,
+      "student_message": "wrong verb collocate",
+      "chargeable": true,
+      "location": {
+        "char_start": 329,
+        "char_end": 360,
+        "sentence": "Firstly, when student doing community service, they meets different peoples from society, like old peoples or homeless peoples."
+      }
+    },
+    {
+      "error_id": "row_c39477d3600dd947",
+      "source_row_id": "row_c39477d3600dd947",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 5,
+      "criterion": "grammar",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "This experience teach them empathy",
+      "suggested_revision": "This experience teaches them empathy",
+      "severity": "moderate",
+      "confidence": 0.88,
+      "student_message": "wrong verb collocate",
+      "chargeable": true,
+      "location": {
+        "char_start": 443,
+        "char_end": 477,
+        "sentence": "This experience teach them empathy that they cannot learn it from books."
+      }
+    },
+    {
+      "error_id": "row_8bf590516930d5de",
+      "source_row_id": "row_8bf590516930d5de",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 7,
+      "criterion": "grammar",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "this activity",
+      "suggested_revision": "this/that/it + verb-s",
+      "severity": "moderate",
+      "confidence": 0.95,
+      "student_message": "Singular demonstrative/it subject followed by base lexical verb requires 3rd-person singular form.",
+      "chargeable": true,
+      "location": {
+        "char_start": 657,
+        "char_end": 670,
+        "sentence": "Secondly, this activity also good for students resume when they applying to university."
+      }
+    },
+    {
+      "error_id": "row_a0ff8e4d4462127e",
+      "source_row_id": "row_a0ff8e4d4462127e",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 1,
+      "criterion": "grammar",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "this statement",
+      "suggested_revision": "this/that/it + verb-s",
+      "severity": "moderate",
+      "confidence": 0.95,
+      "student_message": "Singular demonstrative/it subject followed by base lexical verb requires 3rd-person singular form.",
+      "chargeable": true,
+      "location": {
+        "char_start": 27,
+        "char_end": 41,
+        "sentence": "In my opinion I agree with this statement because community service teach students many important things."
+      }
+    },
+    {
+      "error_id": "row_5abc3d2f64af066d",
+      "source_row_id": "row_5abc3d2f64af066d",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 8,
+      "criterion": "grammar",
+      "family": "NOUN_NUMBER_COUNTABILITY",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "Many universities want to",
+      "suggested_revision": "quantifier + plural noun",
+      "severity": "moderate",
+      "confidence": 0.9,
+      "student_message": "Quantifiers many/several/various/few require plural count noun.",
+      "chargeable": true,
+      "location": {
+        "char_start": 735,
+        "char_end": 760,
+        "sentence": "Many universities want to see student who have real experience, not only good grades."
+      }
+    },
+    {
+      "error_id": "row_e7bcaf70ca43186d",
+      "source_row_id": "row_e7bcaf70ca43186d",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 11,
+      "criterion": "grammar",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "it dont",
+      "suggested_revision": "this/that/it + verb-s",
+      "severity": "moderate",
+      "confidence": 0.95,
+      "student_message": "Singular demonstrative/it subject followed by base lexical verb requires 3rd-person singular form.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1055,
+        "char_end": 1062,
+        "sentence": "This is true but I think school can organize it in weekend so it dont effect their study to much."
+      }
+    },
+    {
+      "error_id": "row_1db258b1f56dbe6c",
+      "source_row_id": "row_1db258b1f56dbe6c",
+      "essay_id": "essay_weak_001",
+      "sentence_index": 12,
+      "criterion": "grammar",
+      "family": "NOUN_NUMBER_COUNTABILITY",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "many benefit for both",
+      "suggested_revision": "quantifier + plural noun",
+      "severity": "moderate",
+      "confidence": 0.9,
+      "student_message": "Quantifiers many/several/various/few require plural count noun.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1193,
+        "char_end": 1214,
+        "sentence": "In conclusion, I believe unpaid community service must be compulsory in high school because it bring many benefit for both student and society, even though there is some challenge to manage the time."
+      }
+    }
+  ],
+  "broken_sentences_raw": [],
+  "counts": {
+    "SUBJECT_VERB_AGREEMENT": 9,
+    "SPELLING": 2,
+    "COLLOCATION": 8,
+    "NOUN_NUMBER_COUNTABILITY": 2
+  },
+  "counts_by_capacity": {
+    "sentence_control": 11,
+    "lexical_precision": 10
+  },
+  "counts_by_criterion": {
+    "grammar": 11,
+    "lexical_resource": 10
+  },
+  "summary": {
+    "error_count": 21,
+    "broken_sentence_signal_count": 0
+  }
+}

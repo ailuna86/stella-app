@@ -1,0 +1,16 @@
+=== LRET v1.12.0 summary (meaning-sensitive detector families) ===
+output: C:\Users\Ailuna Shamurzaeva\OneDrive\Desktop\AGART\VA English, IELTS\gold\full pipleine\gold_sessions\stress_strong\gold_20260712_081853_essay_strong_001_c5105d43\07d_lret_session.json
+fix_units: 1
+main_enhance_units: 4
+contextual_synonym_tasks: 0
+clarify_units: 8
+keep_units: 64
+free_pass_yield: 0
+llm_triggered: True
+canonical_loaded: True
+repeated_words_flagged: 0
+collocation_menus_flagged_total: 0
+malformed_sentences_flagged: 2
+truncated_vp_moved_from_keep: 0
+qa_status: needs_tuning
+qa_warnings: 5

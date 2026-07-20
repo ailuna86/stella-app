@@ -1,0 +1,103 @@
+{
+  "schema_version": "premium_automated_adjudicator_v1_2_batch",
+  "adjudicator_version": "premium_automated_adjudicator_v1_2",
+  "score_change_allowed": true,
+  "n_results": 1,
+  "summary": {
+    "selected_for_adjudication": 0,
+    "not_selected": 1,
+    "score_changed": 0,
+    "criteria_changed": 0,
+    "criteria_preserved": 1,
+    "final_score_released": 1,
+    "rescore_required_before_adjudication": 0,
+    "adjudication_status_counts": {
+      "confirmed": 1
+    },
+    "final_score_family_counts": {
+      "B1_WEAK": 1
+    },
+    "confidence_counts": {
+      "normal": 1
+    },
+    "reason_code_counts": {},
+    "student_score_release_counts": {
+      "True": 1
+    },
+    "progress_tracking_allowed_counts": {
+      "True": 1
+    },
+    "lie_update_allowed_counts": {
+      "True": 1
+    }
+  },
+  "results": [
+    {
+      "essay_id": "essay_001",
+      "adjudicator_version": "premium_automated_adjudicator_v1_2",
+      "selected_for_adjudication": false,
+      "selection_reasons": [],
+      "adjudication_status": "confirmed",
+      "input_score": {
+        "overall_band": 4.5,
+        "criteria_bands": {
+          "task_response": 4,
+          "coherence_cohesion": 4,
+          "lexical_resource": 5,
+          "grammar": 5
+        },
+        "score_family": "B1_WEAK"
+      },
+      "final_score": {
+        "overall_band": 4.5,
+        "criteria_bands": {
+          "task_response": 4,
+          "coherence_cohesion": 4,
+          "lexical_resource": 5,
+          "grammar": 5
+        },
+        "score_family": "B1_WEAK",
+        "score_released": true
+      },
+      "score_changed": false,
+      "score_change_allowed": true,
+      "final_score_released": true,
+      "criteria_preserved": true,
+      "confidence": "normal",
+      "reason_codes": [],
+      "evidence_balance": {
+        "evidence_family": "B1_WEAK",
+        "released_family": "B1_WEAK",
+        "input_family": "B1_WEAK",
+        "review_flags": [],
+        "warnings": [],
+        "high_rescue_confirmation_count": 0,
+        "hard_veto_count": 0,
+        "antiweak_high_gate_failed_count": 0,
+        "anti_b2_overpromotion_gate_ok": true,
+        "weak_profile_override": false,
+        "b2_to_b1_underrelease_guard": false,
+        "pre_governor_overall": 4.5,
+        "post_governor_overall": 4.5
+      },
+      "downstream_policy": {
+        "student_score_release": true,
+        "progress_tracking_allowed": true,
+        "priority_engine_allowed": true,
+        "lie_update_allowed": true,
+        "practice_engine_allowed": true,
+        "score_confidence": "normal"
+      },
+      "rescore_required_before_adjudication": false,
+      "audit": {
+        "runtime_label_use": false,
+        "record_specific_rule_use": false,
+        "scored_runtime_diagnostics_loaded": true,
+        "automated_only": true,
+        "criteria_math_valid": true,
+        "criteria_preserved": true,
+        "explicit_adjustment": false
+      }
+    }
+  ]
+}

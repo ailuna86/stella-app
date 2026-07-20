@@ -1,0 +1,14 @@
+=== LRET v1.4.4 universal preclassification-gated LLM summary ===
+output: C:\Users\Ailuna Shamurzaeva\OneDrive\Desktop\AGART\VA English, IELTS\gold\full pipleine\gold_sessions\student_123\gold_20260708_135612_essay_001_a582600b\07d_lret_session.json
+fix_units: 0
+enhance_units: 0
+clarify_units: 6
+keep_units: 14
+dropped_units: 12
+enhance_multiword_count: 0
+enhance_single_word_count: 0
+enhance_multiword_share: 0.0
+canonical_loaded: True
+llm_enabled: False
+llm_calls: 0
+qa_warnings: 1

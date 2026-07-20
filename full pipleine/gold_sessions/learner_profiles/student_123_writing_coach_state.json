@@ -1,0 +1,244 @@
+{
+  "schema_version": "WRITING_COACH_STATE_V1_2_10",
+  "created_at": "2026-07-11T16:31:35.094715+00:00",
+  "generated_by_run_id": "run_cd3393f857a67921",
+  "identity": {
+    "student_id": "student_123",
+    "institution_id": null,
+    "class_id": null,
+    "teacher_id": null,
+    "essay_id": "essay_001",
+    "submission_id": null,
+    "prompt_id": null,
+    "batch_id": null,
+    "draft_id": null,
+    "parent_submission_id": null,
+    "session_id": null
+  },
+  "cycle_id": "cycle_1866a8b9ad60",
+  "active_coaching_cycle": {
+    "cycle_id": "cycle_1866a8b9ad60",
+    "cycle_type": "proactive_adaptive_skill_cycle",
+    "status": "active",
+    "started_at": "2026-07-11T12:55:18.499509+00:00",
+    "last_updated_at": "2026-07-11T16:31:35.094715+00:00",
+    "started_from_submission_id": null,
+    "requires_new_essay": false,
+    "active_skill": {
+      "skill_id": "article_control",
+      "skill_name": "Article Control",
+      "target_status": "functional",
+      "current_status": "developing",
+      "domain": "Grammar Production",
+      "mastery_estimate_snapshot": 0.503,
+      "selection_score_snapshot": 0.605
+    },
+    "active_move": {
+      "move_id": "MWM_ARTICLE_MEANING_TO_NOUN_PHRASE_V1",
+      "move_name": "Article Meaning to Noun Phrase",
+      "move_family": "accuracy_control",
+      "training_mode": "production"
+    },
+    "goal_for_cycle": "Move Article Control from developing/emerging control to functional use in short writing production.",
+    "success_rules": {
+      "functional_rule": "pass 2 of last 3 valid missions with average >= 0.75 and no critical failure",
+      "stable_rule": "pass 4 of last 5 valid missions with average >= 0.80 across at least 2 topics when topic data is available",
+      "unlock_rule": "unlock next queued skill after functional_rule is met, unless a new essay refreshes priorities"
+    },
+    "progress_snapshot": {
+      "valid_missions_for_active_skill": 0,
+      "recent_outcomes": [],
+      "recent_average": 0.0,
+      "functional_achieved": false,
+      "stable_achieved": false,
+      "last_result_outcome": null
+    },
+    "next_skill_queue": [
+      {
+        "skill_id": "agreement_control",
+        "skill_name": "Agreement Control",
+        "mastery_estimate": 0.503,
+        "selection_score": 0.6,
+        "priority_score": 0.512,
+        "dependency_ready": true,
+        "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "verb_form_control",
+        "skill_name": "Verb Form Control",
+        "mastery_estimate": 0.566,
+        "selection_score": 0.537,
+        "priority_score": 0.425,
+        "dependency_ready": true,
+        "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_support_alignment",
+        "skill_name": "Support Alignment",
+        "mastery_estimate": 0.66,
+        "selection_score": 0.535,
+        "priority_score": 0.429,
+        "dependency_ready": true,
+        "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "collocation_control",
+        "skill_name": "Collocation Control",
+        "mastery_estimate": 0.526,
+        "selection_score": 0.509,
+        "priority_score": 0.365,
+        "dependency_ready": true,
+        "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_claim_generation",
+        "skill_name": "Claim Generation",
+        "mastery_estimate": 0.539,
+        "selection_score": 0.5,
+        "priority_score": 0.358,
+        "dependency_ready": true,
+        "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "formality_control",
+        "skill_name": "Formality Control",
+        "mastery_estimate": 0.628,
+        "selection_score": 0.493,
+        "priority_score": 0.377,
+        "dependency_ready": true,
+        "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "hedging_control",
+        "skill_name": "Hedging Control",
+        "mastery_estimate": 0.628,
+        "selection_score": 0.493,
+        "priority_score": 0.377,
+        "dependency_ready": true,
+        "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "paragraph_planning",
+        "skill_name": "Paragraph Planning",
+        "mastery_estimate": 0.834,
+        "selection_score": 0.434,
+        "priority_score": 0.302,
+        "dependency_ready": true,
+        "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+      }
+    ]
+  },
+  "active_skill_id": "article_control",
+  "active_skill_name": "Article Control",
+  "active_move_id": "MWM_ARTICLE_MEANING_TO_NOUN_PHRASE_V1",
+  "active_move_family": "accuracy_control",
+  "last_assigned_mission_id": "wc_mission_5182d674c5",
+  "last_assigned_move_id": "MWM_ARTICLE_MEANING_TO_NOUN_PHRASE_V1",
+  "mission_history": [],
+  "next_skill_queue": [
+    {
+      "skill_id": "agreement_control",
+      "skill_name": "Agreement Control",
+      "mastery_estimate": 0.503,
+      "selection_score": 0.6,
+      "priority_score": 0.512,
+      "dependency_ready": true,
+      "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "verb_form_control",
+      "skill_name": "Verb Form Control",
+      "mastery_estimate": 0.566,
+      "selection_score": 0.537,
+      "priority_score": 0.425,
+      "dependency_ready": true,
+      "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "arg_support_alignment",
+      "skill_name": "Support Alignment",
+      "mastery_estimate": 0.66,
+      "selection_score": 0.535,
+      "priority_score": 0.429,
+      "dependency_ready": true,
+      "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "collocation_control",
+      "skill_name": "Collocation Control",
+      "mastery_estimate": 0.526,
+      "selection_score": 0.509,
+      "priority_score": 0.365,
+      "dependency_ready": true,
+      "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "arg_claim_generation",
+      "skill_name": "Claim Generation",
+      "mastery_estimate": 0.539,
+      "selection_score": 0.5,
+      "priority_score": 0.358,
+      "dependency_ready": true,
+      "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "formality_control",
+      "skill_name": "Formality Control",
+      "mastery_estimate": 0.628,
+      "selection_score": 0.493,
+      "priority_score": 0.377,
+      "dependency_ready": true,
+      "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "hedging_control",
+      "skill_name": "Hedging Control",
+      "mastery_estimate": 0.628,
+      "selection_score": 0.493,
+      "priority_score": 0.377,
+      "dependency_ready": true,
+      "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "paragraph_planning",
+      "skill_name": "Paragraph Planning",
+      "mastery_estimate": 0.834,
+      "selection_score": 0.434,
+      "priority_score": 0.302,
+      "dependency_ready": true,
+      "condition": "Unlock after Article Control becomes functional or if a new essay refreshes priorities."
+    }
+  ],
+  "plan_horizon_days": 7,
+  "prompt_text": "the current writing topic",
+  "topic_context": "the current writing topic",
+  "domain": "ielts_academic_writing",
+  "timebox_minutes": 10,
+  "selected_move_candidate_snapshot": [
+    {
+      "move_id": "MWM_ARTICLE_MEANING_TO_NOUN_PHRASE_V1",
+      "move_name": "Article Meaning to Noun Phrase",
+      "primary_microskill": "article_control",
+      "move_family": "accuracy_control",
+      "selection_score": 0.813,
+      "fit_score": 0.952,
+      "difficulty_fit": 1.0,
+      "source_policy_ok": true,
+      "target_skill_role_in_move": "primary_target",
+      "target_skill_role_explanation": "Move directly targets the selected microskill.",
+      "reason": "duration_fit=0.80; difficulty_fit=1.00; production_mode=1.00; observable_quality=1.00; target_role=primary_target"
+    }
+  ],
+  "daily_run_contract": {
+    "mode": "daily_continuation_no_new_essay",
+    "required_inputs": [
+      "coach_state_export",
+      "external_move_bank"
+    ],
+    "optional_inputs": [
+      "last_mission_result",
+      "ontology",
+      "clusters"
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "GOLD_SERVICE_ROUTING_STANDALONE_V1_4_3",
+  "engine_id": "VA_STELLA_SERVICE_ROUTING_BUILDER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-11T18:26:50.827985+00:00",
+  "student_id": "stress_medium",
+  "essay_id": "essay_medium_001",
+  "released_score": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "task_response": 5,
+      "coherence_cohesion": 5,
+      "lexical_resource": 6,
+      "grammar": 5
+    },
+    "score_family": "B1_WEAK",
+    "score_released": true
+  },
+  "score_status": "ready",
+  "student_score_release": true,
+  "next_best_service": "lret",
+  "next_best_capacity_domain": "lexical_precision",
+  "next_best_skill": "lexical_precision",
+  "primary_focus": {
+    "rank": 1,
+    "capacity_domain": "lexical_precision",
+    "skill_tag": "lexical_precision",
+    "skill_id": "lexical_precision",
+    "student_label": "Lexical Precision",
+    "criterion": "lexical_resource",
+    "evidence_count": 1,
+    "weighted_pressure": 1.0,
+    "priority_level": "monitor",
+    "top_families": [
+      "SPELLING"
+    ],
+    "family_counts": {
+      "SPELLING": 1
+    },
+    "recommended_service": "lret",
+    "recommended_difficulty": "guided",
+    "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+    "evidence_samples": [
+      {
+        "error_id": "row_3c69dec1720b2a58",
+        "source_row_id": "row_3c69dec1720b2a58",
+        "family": "SPELLING",
+        "surface_quote": "downsides",
+        "sentence_index": 11,
+        "severity": "moderate",
+        "confidence": 0.82
+      }
+    ]
+  },
+  "available_service_outputs": {
+    "lret_session": {
+      "path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_medium\\gold_20260711_201118_essay_medium_001_0e429cd0\\07d_lret_session.json",
+      "exists": true,
+      "schema_version": "LRET_OUTPUT_V1.5",
+      "engine_id": null
+    },
+    "writing_coach": {
+      "path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_medium\\gold_20260711_201118_essay_medium_001_0e429cd0\\07e_writing_coach_output.json",
+      "exists": true,
+      "schema_version": "WRITING_COACH_OUTPUT_V1_2_10_PROACTIVE_ADAPTIVE_CLI",
+      "engine_id": null
+    },
+    "practice_session": {
+      "path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_medium\\gold_20260711_201118_essay_medium_001_0e429cd0\\07f_gold_practice_session.json",
+      "exists": true,
+      "schema_version": "GOLD_PRACTICE_SESSION_ADAPTIVE_V1",
+      "engine_id": "VA_STELLA_GOLD_PRACTICE_ENGINE_BRIDGE"
+    },
+    "revision_workspace": {
+      "path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_medium\\gold_20260711_201118_essay_medium_001_0e429cd0\\10_revision_workspace.json",
+      "exists": false,
+      "schema_version": null,
+      "engine_id": null
+    }
+  },
+  "recommended_sequence": [
+    "read_feedback_report",
+    "lret",
+    "practice_session",
+    "essay_revision",
+    "revision_comparison"
+  ],
+  "quality_flags": {
+    "has_next_service": true,
+    "has_next_capacity_domain": true,
+    "has_service_outputs": true
+  },
+  "boundary": "Routing artifact only; all educational/service outputs are produced by their own engines."
+}

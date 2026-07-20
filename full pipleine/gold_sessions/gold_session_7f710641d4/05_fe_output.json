@@ -1,0 +1,260 @@
+{
+  "schema_version": "FEEDBACK_ENGINE_COMPAT_GOLD_V1_2",
+  "bundles": [
+    {
+      "status": "ok",
+      "capacity_domain": "sentence_control",
+      "title": "Sentence control",
+      "summary": "This area has 17 detected signal(s).",
+      "examples": [
+        {
+          "error_id": "err_dfe7ed922f9c",
+          "source_row_id": "det_995519617293",
+          "essay_id": "essay_001",
+          "sentence_index": 4,
+          "criterion": "grammar",
+          "family": "G_COMMA_TRANSITION",
+          "capacity_domain": "sentence_control",
+          "surface_quote": "For example",
+          "suggested_revision": "For example, in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea.",
+          "severity": "low",
+          "confidence": "high",
+          "student_message": "Add the missing comma after the introductory transition.",
+          "chargeable": true
+        },
+        {
+          "error_id": "err_8a93ea46a4b4",
+          "source_row_id": "det_2293f6ab07c5",
+          "essay_id": "essay_001",
+          "sentence_index": 12,
+          "criterion": "grammar",
+          "family": "G_COMMA_TRANSITION",
+          "capacity_domain": "sentence_control",
+          "surface_quote": "For example",
+          "suggested_revision": "For example, my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things.",
+          "severity": "low",
+          "confidence": "high",
+          "student_message": "Add the missing comma after the introductory transition.",
+          "chargeable": true
+        },
+        {
+          "error_id": "err_8360be309832",
+          "source_row_id": "detx_8d0d6df394cc",
+          "essay_id": "essay_001",
+          "sentence_index": 1,
+          "criterion": "grammar",
+          "family": "G_VERB_FORM",
+          "capacity_domain": "sentence_control",
+          "surface_quote": "has to spent",
+          "suggested_revision": null,
+          "severity": "high",
+          "confidence": "high",
+          "student_message": "Use base verb after 'have/has to'.",
+          "chargeable": true
+        },
+        {
+          "error_id": "err_a1d043ba9736",
+          "source_row_id": "detx_a54ce3c8adbc",
+          "essay_id": "essay_001",
+          "sentence_index": 2,
+          "criterion": "grammar",
+          "family": "G_NOUN_NUMBER",
+          "capacity_domain": "sentence_control",
+          "surface_quote": "young peoples",
+          "suggested_revision": null,
+          "severity": "high",
+          "confidence": "high",
+          "student_message": "Use 'people' for the general plural noun.",
+          "chargeable": true
+        }
+      ],
+      "next_step": "clear subject + main verb"
+    },
+    {
+      "status": "ok",
+      "capacity_domain": "lexical_precision",
+      "title": "Lexical precision",
+      "summary": "This area has 15 detected signal(s).",
+      "examples": [
+        {
+          "error_id": "err_ed84a5842356",
+          "source_row_id": "det_c8e809025e17",
+          "essay_id": "essay_001",
+          "sentence_index": 4,
+          "criterion": "lexical_resource",
+          "family": "L_REPETITION",
+          "capacity_domain": "lexical_precision",
+          "surface_quote": "example",
+          "suggested_revision": null,
+          "severity": "medium",
+          "confidence": "medium",
+          "student_message": "Rewrite the sentence to reduce repetition of this word.",
+          "chargeable": true
+        },
+        {
+          "error_id": "err_b2552200f95b",
+          "source_row_id": "det_effda2f8c741",
+          "essay_id": "essay_001",
+          "sentence_index": 8,
+          "criterion": "lexical_resource",
+          "family": "L_REPETITION",
+          "capacity_domain": "lexical_precision",
+          "surface_quote": "find",
+          "suggested_revision": null,
+          "severity": "medium",
+          "confidence": "medium",
+          "student_message": "Rewrite the sentence to reduce repetition of this word.",
+          "chargeable": true
+        },
+        {
+          "error_id": "err_4b97758a86d6",
+          "source_row_id": "det_b5db589af605",
+          "essay_id": "essay_001",
+          "sentence_index": 12,
+          "criterion": "lexical_resource",
+          "family": "L_REPETITION",
+          "capacity_domain": "lexical_precision",
+          "surface_quote": "things",
+          "suggested_revision": null,
+          "severity": "medium",
+          "confidence": "medium",
+          "student_message": "Rewrite the sentence to reduce repetition of this word.",
+          "chargeable": true
+        },
+        {
+          "error_id": "err_5253a8a75ce3",
+          "source_row_id": "detx_62bd902957a6",
+          "essay_id": "essay_001",
+          "sentence_index": 2,
+          "criterion": "lexical_resource",
+          "family": "L_SPELLING",
+          "capacity_domain": "lexical_precision",
+          "surface_quote": "peoples",
+          "suggested_revision": "people",
+          "severity": "medium",
+          "confidence": "high",
+          "student_message": "Spelling problem: use 'people'.",
+          "chargeable": true
+        }
+      ],
+      "next_step": "repair unnatural phrases"
+    },
+    {
+      "status": "ok",
+      "capacity_domain": "academic_style",
+      "title": "Academic style",
+      "summary": "This area has 7 detected signal(s).",
+      "examples": [
+        {
+          "error_id": "err_a4c72fe26539",
+          "source_row_id": "det_621846cc6880",
+          "essay_id": "essay_001",
+          "sentence_index": 4,
+          "criterion": "lexical_resource",
+          "family": "L_INFORMAL_VOCAB",
+          "capacity_domain": "academic_style",
+          "surface_quote": "a lot",
+          "suggested_revision": null,
+          "severity": "low",
+          "confidence": "medium",
+          "student_message": "Replace the informal word with a more precise alternative.",
+          "chargeable": true
+        },
+        {
+          "error_id": "err_d4879c1f2f53",
+          "source_row_id": "det_19c8b5c5ef30",
+          "essay_id": "essay_001",
+          "sentence_index": 4,
+          "criterion": "academic_style",
+          "family": "S_INFORMAL_TONE",
+          "capacity_domain": "academic_style",
+          "surface_quote": "a lot",
+          "suggested_revision": null,
+          "severity": "medium",
+          "confidence": "medium",
+          "student_message": "Rewrite the sentence in a more formal style.",
+          "chargeable": true
+        },
+        {
+          "error_id": "err_386e2e76f01f",
+          "source_row_id": "det_90364414bd5c",
+          "essay_id": "essay_001",
+          "sentence_index": 10,
+          "criterion": "lexical_resource",
+          "family": "L_INFORMAL_VOCAB",
+          "capacity_domain": "academic_style",
+          "surface_quote": "a lot",
+          "suggested_revision": null,
+          "severity": "low",
+          "confidence": "medium",
+          "student_message": "Replace the informal word with a more precise alternative.",
+          "chargeable": true
+        },
+        {
+          "error_id": "err_bfd0fa714a3a",
+          "source_row_id": "det_67bf0f168f5a",
+          "essay_id": "essay_001",
+          "sentence_index": 10,
+          "criterion": "academic_style",
+          "family": "S_INFORMAL_TONE",
+          "capacity_domain": "academic_style",
+          "surface_quote": "a lot",
+          "suggested_revision": null,
+          "severity": "medium",
+          "confidence": "medium",
+          "student_message": "Rewrite the sentence in a more formal style.",
+          "chargeable": true
+        }
+      ],
+      "next_step": "formal tone"
+    },
+    {
+      "status": "ok",
+      "capacity_domain": "argument_development",
+      "title": "Argument development",
+      "summary": "This area has 2 detected signal(s).",
+      "examples": [
+        {
+          "error_id": "err_ace516a301c9",
+          "source_row_id": "det_df44332c6fee",
+          "essay_id": "essay_001",
+          "sentence_index": 1,
+          "criterion": "argumentation",
+          "family": "A_OVERGENERALIZATION",
+          "capacity_domain": "argument_development",
+          "surface_quote": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things",
+          "suggested_revision": null,
+          "severity": "low",
+          "confidence": "medium",
+          "student_message": "Rewrite the claim using more precise or qualified language.",
+          "chargeable": true
+        },
+        {
+          "error_id": "err_a50c62dafbd7",
+          "source_row_id": "det_d2beb3f3586b",
+          "essay_id": "essay_001",
+          "sentence_index": 2,
+          "criterion": "argumentation",
+          "family": "A_UNDERDEVELOPED",
+          "capacity_domain": "argument_development",
+          "surface_quote": "Older people often need more medical help than young peoples",
+          "suggested_revision": null,
+          "severity": "medium",
+          "confidence": "medium",
+          "student_message": "Develop this idea with more explanation or support.",
+          "chargeable": true
+        }
+      ],
+      "next_step": "claim + reason"
+    }
+  ],
+  "score": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "TR": 5,
+      "CC": 6,
+      "LR": 4,
+      "GRA": 4
+    }
+  }
+}

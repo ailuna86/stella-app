@@ -1,0 +1,331 @@
+{
+  "schema_version": "ERRORMAP_V3_STANDALONE",
+  "engine_id": "VA_STELLA_DETECTOR_TO_ERRORMAP_STANDALONE",
+  "engine_version": "3.0.0-standalone-no-imports",
+  "created_at": "2026-07-11T14:31:09.020744+00:00",
+  "errors": [
+    {
+      "error_id": "row_001d97c6eb25d4f0",
+      "source_row_id": "row_001d97c6eb25d4f0",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "criterion": "grammar",
+      "family": "VERB_FORM",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "has to spent",
+      "suggested_revision": "have/has/had to + base verb",
+      "severity": "moderate",
+      "confidence": 0.93,
+      "student_message": "After have/has/had to, use base verb, not past/participle/ing.",
+      "chargeable": true,
+      "location": {
+        "char_start": 55,
+        "char_end": 67,
+        "sentence": "One problem of an ageing population is that government has to spent more money on health care and pensions."
+      }
+    },
+    {
+      "error_id": "row_d341b0c7588563fc",
+      "source_row_id": "row_d341b0c7588563fc",
+      "essay_id": "essay_001",
+      "sentence_index": 3,
+      "criterion": "lexical_resource",
+      "family": "SPELLING",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "modey",
+      "suggested_revision": "mode",
+      "severity": "moderate",
+      "confidence": 0.82,
+      "student_message": "Detect likely spelling error using resource-valid word and edit-distance candidate; resource absence is never an error.",
+      "chargeable": true,
+      "location": {
+        "char_start": 206,
+        "char_end": 211,
+        "sentence": "And they stop working, so they need modey from the goverment, for take care with they health."
+      }
+    },
+    {
+      "error_id": "row_1ccc8b886911bbd4",
+      "source_row_id": "row_1ccc8b886911bbd4",
+      "essay_id": "essay_001",
+      "sentence_index": 3,
+      "criterion": "lexical_resource",
+      "family": "SPELLING",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "goverment",
+      "suggested_revision": "government",
+      "severity": "moderate",
+      "confidence": 0.82,
+      "student_message": "Detect likely spelling error using resource-valid word and edit-distance candidate; resource absence is never an error.",
+      "chargeable": true,
+      "location": {
+        "char_start": 221,
+        "char_end": 230,
+        "sentence": "And they stop working, so they need modey from the goverment, for take care with they health."
+      }
+    },
+    {
+      "error_id": "row_f57857d96106bbe7",
+      "source_row_id": "row_f57857d96106bbe7",
+      "essay_id": "essay_001",
+      "sentence_index": 4,
+      "criterion": "lexical_resource",
+      "family": "SPELLING",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "contries",
+      "suggested_revision": "contrives",
+      "severity": "moderate",
+      "confidence": 0.82,
+      "student_message": "Detect likely spelling error using resource-valid word and edit-distance candidate; resource absence is never an error.",
+      "chargeable": true,
+      "location": {
+        "char_start": 279,
+        "char_end": 287,
+        "sentence": "For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea."
+      }
+    },
+    {
+      "error_id": "row_bacfe23972ce38dd",
+      "source_row_id": "row_bacfe23972ce38dd",
+      "essay_id": "essay_001",
+      "sentence_index": 5,
+      "criterion": "lexical_resource",
+      "family": "WORD_FORM",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "Another issued is",
+      "suggested_revision": "change derivative to required noun/adjective form",
+      "severity": "moderate",
+      "confidence": 0.8,
+      "student_message": "Derivative ending in -ed/-ing/-ly after determiner before copula may be wrong word form.",
+      "chargeable": true,
+      "location": {
+        "char_start": 382,
+        "char_end": 399,
+        "sentence": "Another issued is that the way be fewer young people working ."
+      }
+    },
+    {
+      "error_id": "row_9e84bd7a83f73038",
+      "source_row_id": "row_9e84bd7a83f73038",
+      "essay_id": "essay_001",
+      "sentence_index": 10,
+      "criterion": "grammar",
+      "family": "COMPARATIVE_FORM",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "a lot of knowledge and experience than",
+      "suggested_revision": "more knowledge and experience than",
+      "severity": "moderate",
+      "confidence": 0.9,
+      "student_message": "Wrong comparative phrase",
+      "chargeable": true,
+      "location": {
+        "char_start": 673,
+        "char_end": 711,
+        "sentence": "Older peoples have a lot of knowledge and experience than young ones."
+      }
+    },
+    {
+      "error_id": "row_2042a11a4c1b1fa6",
+      "source_row_id": "row_2042a11a4c1b1fa6",
+      "essay_id": "essay_001",
+      "sentence_index": 11,
+      "criterion": "grammar",
+      "family": "CLAUSE_STRUCTURE",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "can give",
+      "suggested_revision": "modal + be + adjective",
+      "severity": "moderate",
+      "confidence": 0.88,
+      "student_message": "Modal followed directly by predicative adjective requires 'be'.",
+      "chargeable": true,
+      "location": {
+        "char_start": 734,
+        "char_end": 742,
+        "sentence": "Even they can give good advice , working part-time or doing volunteer work as it possible."
+      }
+    },
+    {
+      "error_id": "row_b8ce192c62894970",
+      "source_row_id": "row_b8ce192c62894970",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "grammar",
+      "family": "COMPARATIVE_FORM",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "so older",
+      "suggested_revision": "use positive adjective or single comparative form",
+      "severity": "moderate",
+      "confidence": 0.91,
+      "student_message": "Do not combine more/most/so with comparative -er form.",
+      "chargeable": true,
+      "location": {
+        "char_start": 845,
+        "char_end": 853,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "row_5ebde8f095cb5460",
+      "source_row_id": "row_5ebde8f095cb5460",
+      "essay_id": "essay_001",
+      "sentence_index": 14,
+      "criterion": "grammar",
+      "family": "COMPARATIVE_FORM",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "more stronger",
+      "suggested_revision": "use positive adjective or single comparative form",
+      "severity": "moderate",
+      "confidence": 0.91,
+      "student_message": "Do not combine more/most/so with comparative -er form.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1084,
+        "char_end": 1097,
+        "sentence": "This make a family more stronger and friendly."
+      }
+    },
+    {
+      "error_id": "row_31a20dd61891f52a",
+      "source_row_id": "row_31a20dd61891f52a",
+      "essay_id": "essay_001",
+      "sentence_index": 16,
+      "criterion": "grammar",
+      "family": "ARTICLE_DETERMINER",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "a high costs",
+      "suggested_revision": "delete article or change noun to singular depending meaning",
+      "severity": "moderate",
+      "confidence": 0.88,
+      "student_message": "Indefinite article a/an is incompatible with plural noun head.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1289,
+        "char_end": 1301,
+        "sentence": "In conclusion, even though an ageing population can cause some problems, like a high costs and fewer workers, I believe that the advantages are also important."
+      }
+    },
+    {
+      "error_id": "row_88d512512c6c2a47",
+      "source_row_id": "row_88d512512c6c2a47",
+      "essay_id": "essay_001",
+      "sentence_index": 11,
+      "criterion": "grammar",
+      "family": "CLAUSE_STRUCTURE",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "it possible",
+      "suggested_revision": "Add the missing verb: 'it is difficult' or 'find it difficult'.",
+      "severity": "moderate",
+      "confidence": 0.78,
+      "student_message": "Missing copula or governing verb",
+      "chargeable": true,
+      "location": {
+        "char_start": 802,
+        "char_end": 813,
+        "sentence": "Even they can give good advice , working part-time or doing volunteer work as it possible."
+      }
+    },
+    {
+      "error_id": "row_9fe17d3c5119591b",
+      "source_row_id": "row_9fe17d3c5119591b",
+      "essay_id": "essay_001",
+      "sentence_index": 14,
+      "criterion": "grammar",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "This make",
+      "suggested_revision": "this/that/it + verb-s",
+      "severity": "moderate",
+      "confidence": 0.95,
+      "student_message": "Singular demonstrative/it subject followed by base lexical verb requires 3rd-person singular form.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1065,
+        "char_end": 1074,
+        "sentence": "This make a family more stronger and friendly."
+      }
+    },
+    {
+      "error_id": "row_9924d3ff9bffd6e8",
+      "source_row_id": "row_9924d3ff9bffd6e8",
+      "essay_id": "essay_001",
+      "sentence_index": 15,
+      "criterion": "grammar",
+      "family": "ARTICLE_DETERMINER",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "a children",
+      "suggested_revision": "Remove 'a/an' or use a singular noun.",
+      "severity": "moderate",
+      "confidence": 0.86,
+      "student_message": "Article/number mismatch",
+      "chargeable": true,
+      "location": {
+        "char_start": 1127,
+        "char_end": 1137,
+        "sentence": "They can teach a children about culture and family traditions , which is very important nowadays."
+      }
+    },
+    {
+      "error_id": "row_bbedd11b771a8426",
+      "source_row_id": "row_bbedd11b771a8426",
+      "essay_id": "essay_001",
+      "sentence_index": 18,
+      "criterion": "grammar",
+      "family": "CLAUSE_STRUCTURE",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "In many ways, if government makes good ability to older peop",
+      "suggested_revision": "Add a coordinator or split into two sentences.",
+      "severity": "moderate",
+      "confidence": 0.72,
+      "student_message": "Comma splice — two independent clauses joined without coordinator",
+      "chargeable": true,
+      "location": {
+        "char_start": 1432,
+        "char_end": 1492,
+        "sentence": "In many ways, if government makes good ability to older peoples, that will be the best plan to all countries."
+      }
+    },
+    {
+      "error_id": "row_b19808d985820c76",
+      "source_row_id": "row_b19808d985820c76",
+      "essay_id": "essay_001",
+      "sentence_index": 18,
+      "criterion": "lexical_resource",
+      "family": "COLLOCATION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "good ability to",
+      "suggested_revision": "ability to / capacity to",
+      "severity": "moderate",
+      "confidence": 0.82,
+      "student_message": "'Good ability to' is non-standard; 'ability to' or 'capacity to' is correct",
+      "chargeable": true,
+      "location": {
+        "char_start": 1466,
+        "char_end": 1481,
+        "sentence": "In many ways, if government makes good ability to older peoples, that will be the best plan to all countries."
+      }
+    }
+  ],
+  "broken_sentences_raw": [],
+  "counts": {
+    "VERB_FORM": 1,
+    "SPELLING": 3,
+    "WORD_FORM": 1,
+    "COMPARATIVE_FORM": 3,
+    "CLAUSE_STRUCTURE": 3,
+    "ARTICLE_DETERMINER": 2,
+    "SUBJECT_VERB_AGREEMENT": 1,
+    "COLLOCATION": 1
+  },
+  "counts_by_capacity": {
+    "sentence_control": 10,
+    "lexical_precision": 5
+  },
+  "counts_by_criterion": {
+    "grammar": 10,
+    "lexical_resource": 5
+  },
+  "summary": {
+    "error_count": 15,
+    "broken_sentence_signal_count": 0
+  }
+}

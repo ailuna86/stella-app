@@ -1,0 +1,132 @@
+{
+  "schema_version": "PRIORITY_NORMALIZED_V1_4_3",
+  "engine_id": "VA_STELLA_PRIORITY_OUTPUT_NORMALIZER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-12T08:15:08.134216+00:00",
+  "boundary": "Priority contract normalization only; no new scoring, detection, teaching, or exercise generation.",
+  "source_priority_schema": "PRIORITY_ENGINE_OUTPUT_V4",
+  "source_priority_usable_without_repair": true,
+  "normalization_reason": "raw_priority_usable",
+  "score_context": {
+    "released_score": {
+      "overall_band": 5.5,
+      "criteria_bands": {
+        "task_response": 6,
+        "coherence_cohesion": 6,
+        "lexical_resource": 5,
+        "grammar": 5
+      },
+      "score_family": "B2_MEDIUM",
+      "score_released": true
+    },
+    "score_status": "ready",
+    "score_confidence": "normal",
+    "progress_tracking_allowed": true,
+    "lie_update_allowed": true
+  },
+  "focus_areas": [
+    {
+      "rank": 1,
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "skill_id": "lexical_precision",
+      "student_label": "Lexical Precision",
+      "criterion": "lexical_resource",
+      "evidence_count": 1,
+      "weighted_pressure": 1.0,
+      "priority_level": "monitor",
+      "top_families": [
+        "SPELLING"
+      ],
+      "family_counts": {
+        "SPELLING": 1
+      },
+      "recommended_service": "lret",
+      "recommended_difficulty": "guided",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_007a601bbbee4cf8",
+          "source_row_id": "row_007a601bbbee4cf8",
+          "family": "SPELLING",
+          "surface_quote": "downsides",
+          "sentence_index": 11,
+          "severity": "moderate",
+          "confidence": 0.82
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "criterion": "grammar",
+      "evidence_count": 1,
+      "weighted_pressure": 1.0,
+      "priority_level": "monitor",
+      "top_families": [
+        "CLAUSE_STRUCTURE"
+      ],
+      "family_counts": {
+        "CLAUSE_STRUCTURE": 1
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "guided",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_4a78e3983f5e8914",
+          "source_row_id": "row_4a78e3983f5e8914",
+          "family": "CLAUSE_STRUCTURE",
+          "surface_quote": "it compulsory",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.82
+        }
+      ]
+    }
+  ],
+  "primary_focus": {
+    "rank": 1,
+    "capacity_domain": "lexical_precision",
+    "skill_tag": "lexical_precision",
+    "skill_id": "lexical_precision",
+    "student_label": "Lexical Precision",
+    "criterion": "lexical_resource",
+    "evidence_count": 1,
+    "weighted_pressure": 1.0,
+    "priority_level": "monitor",
+    "top_families": [
+      "SPELLING"
+    ],
+    "family_counts": {
+      "SPELLING": 1
+    },
+    "recommended_service": "lret",
+    "recommended_difficulty": "guided",
+    "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+    "evidence_samples": [
+      {
+        "error_id": "row_007a601bbbee4cf8",
+        "source_row_id": "row_007a601bbbee4cf8",
+        "family": "SPELLING",
+        "surface_quote": "downsides",
+        "sentence_index": 11,
+        "severity": "moderate",
+        "confidence": 0.82
+      }
+    ]
+  },
+  "gold_learning_directive_seed": {
+    "next_best_skill": "lexical_precision",
+    "next_best_capacity_domain": "lexical_precision",
+    "recommended_service": "lret",
+    "priority_level": "monitor"
+  },
+  "quality_flags": {
+    "has_focus_areas": true,
+    "unknown_skill_remaining": false
+  }
+}

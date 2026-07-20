@@ -1,0 +1,21 @@
+{
+  "schema_version": "GOLD_SKILLS_PROGRESS_STANDALONE_V1_4_3",
+  "created_at": "2026-07-11T18:26:50.590538+00:00",
+  "student_id": "stress_medium",
+  "latest_essay_id": "essay_medium_001",
+  "skills": [
+    {
+      "capacity_domain": "lexical_precision",
+      "latest_error_count": 1,
+      "status": "monitor",
+      "recommended_next_service": "lret"
+    },
+    {
+      "capacity_domain": "sentence_control",
+      "latest_error_count": 1,
+      "status": "monitor",
+      "recommended_next_service": "writing_coach"
+    }
+  ],
+  "boundary": "Progress view derived from latest profile evidence only."
+}

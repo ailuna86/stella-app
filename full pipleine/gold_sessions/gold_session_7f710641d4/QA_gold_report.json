@@ -1,0 +1,21 @@
+{
+  "schema_version": "QA_GOLD_UNIFIED_V1_2",
+  "status": "passed",
+  "checks": {
+    "single_file_pipeline": true,
+    "does_not_call_previous_premium_runner": true,
+    "does_not_import_adapter_files": true,
+    "submission_normalized": true,
+    "detector_output_present": true,
+    "errormap_present": true,
+    "final_score_contract_present": true,
+    "evaluator_present": true,
+    "evaluator_has_consumer_payloads": true,
+    "no_evaluator_score_leak": true,
+    "lret_labels_owned_by_lret": true,
+    "no_mastery_update_from_assignment": true,
+    "no_human_review_route": true,
+    "no_essay_specific_rule_declared": true
+  },
+  "created_at": "2026-07-08T07:58:01.542964+00:00"
+}

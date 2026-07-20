@@ -1,0 +1,105 @@
+{
+  "schema_version": "GOLD_LEARNER_PROFILE_STANDALONE_V1_4_3",
+  "engine_id": "VA_STELLA_GOLD_LIE_PROFILE_BUILDER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-12T08:38:41.824605+00:00",
+  "student_id": "stress_strong",
+  "latest_essay_id": "essay_strong_001",
+  "latest_score": {
+    "overall_band": 5.5,
+    "criteria_bands": {
+      "task_response": 6,
+      "coherence_cohesion": 6,
+      "lexical_resource": 5,
+      "grammar": 5
+    },
+    "score_confidence": "normal",
+    "score_status": "ready",
+    "progress_tracking_allowed": true,
+    "lie_update_allowed": true
+  },
+  "latest_error_profile": {
+    "by_family": {
+      "SEMANTIC_COMBINATION": 1
+    },
+    "by_capacity": {
+      "lexical_precision": 1
+    },
+    "by_criterion": {
+      "lexical_resource": 1
+    },
+    "total_chargeable": 1
+  },
+  "latest_priority_focus": [
+    {
+      "rank": 1,
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "skill_id": "lexical_precision",
+      "student_label": "Lexical Precision",
+      "criterion": "lexical_resource",
+      "evidence_count": 1,
+      "weighted_pressure": 1.0,
+      "priority_level": "monitor",
+      "top_families": [
+        "SEMANTIC_COMBINATION"
+      ],
+      "family_counts": {
+        "SEMANTIC_COMBINATION": 1
+      },
+      "recommended_service": "lret",
+      "recommended_difficulty": "guided",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_03a52cf1d48c8a26",
+          "source_row_id": "row_03a52cf1d48c8a26",
+          "family": "SEMANTIC_COMBINATION",
+          "surface_quote": "civic equity",
+          "sentence_index": 11,
+          "severity": "moderate",
+          "confidence": 0.95
+        }
+      ]
+    }
+  ],
+  "service_artifact_status": {
+    "feedback": {
+      "available": true,
+      "schema_version": "FEEDBACK_REPORT_V6C_CLI_STANDALONE",
+      "engine_id": "VA_STELLA_FEEDBACK_ENGINE_V6C_CLI"
+    },
+    "evaluator": {
+      "available": true,
+      "schema_version": "WKM_OUTPUT_V8.3",
+      "engine_id": null
+    },
+    "lret": {
+      "available": true,
+      "schema_version": "LRET_OUTPUT_V1.5",
+      "engine_id": null
+    },
+    "writing_coach": {
+      "available": true,
+      "schema_version": "WRITING_COACH_OUTPUT_V1_2_10_PROACTIVE_ADAPTIVE_CLI",
+      "engine_id": null
+    },
+    "practice": {
+      "available": true,
+      "schema_version": "GOLD_PRACTICE_SESSION_ADAPTIVE_V1",
+      "engine_id": "VA_STELLA_GOLD_PRACTICE_ENGINE_BRIDGE"
+    }
+  },
+  "next_best_action": {
+    "capacity_domain": "lexical_precision",
+    "skill_tag": "lexical_precision",
+    "recommended_service": "lret",
+    "source": "directive"
+  },
+  "learning_state": {
+    "profile_update_allowed": true,
+    "trend_update_allowed": true,
+    "mastery_update_policy": "evidence_accumulation_only_until_student_attempts_practice_or_coach_tasks"
+  },
+  "boundary": "LIE profile aggregates completed Gold artifacts only; no scoring, detection, feedback generation, or exercise generation is performed here."
+}

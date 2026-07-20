@@ -1,0 +1,39 @@
+{
+  "schema_version": "GOLD_SKILLS_PROGRESS_STANDALONE_V1_4_3",
+  "created_at": "2026-07-08T13:17:57.206485+00:00",
+  "student_id": "student_123",
+  "latest_essay_id": "essay_001",
+  "skills": [
+    {
+      "capacity_domain": "sentence_control",
+      "latest_error_count": 13,
+      "status": "priority_gap",
+      "recommended_next_service": "writing_coach"
+    },
+    {
+      "capacity_domain": "academic_style",
+      "latest_error_count": 10,
+      "status": "priority_gap",
+      "recommended_next_service": "lret"
+    },
+    {
+      "capacity_domain": "lexical_precision",
+      "latest_error_count": 10,
+      "status": "priority_gap",
+      "recommended_next_service": "lret"
+    },
+    {
+      "capacity_domain": "argument_development",
+      "latest_error_count": 8,
+      "status": "priority_gap",
+      "recommended_next_service": "writing_coach"
+    },
+    {
+      "capacity_domain": "cohesion_control",
+      "latest_error_count": 1,
+      "status": "monitor",
+      "recommended_next_service": "practice"
+    }
+  ],
+  "boundary": "Progress view derived from latest profile evidence only."
+}

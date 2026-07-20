@@ -1,0 +1,1396 @@
+{
+  "schema_version": "GOLD_REVISION_WORKSPACE_V1_7_1",
+  "engine_id": "VA_GOLD_REVISION_UNIVERSAL_ENGINE",
+  "engine_version": "1.7.1-student-safe-prewrite-guidance-stabilized",
+  "created_at": "2026-07-11T14:31:36.560509+00:00",
+  "revision_mode": "upstream_only_annotated_dual_pane_workspace",
+  "upstream_signal_integrity": {
+    "status": "complete",
+    "evaluator_sentence_control_available": true,
+    "evaluator_paragraph_function_available": true,
+    "missing_sentence_control_count": 1,
+    "green_blocked_by_missing_evaluator_signal": 0,
+    "green_blocked_by_detector_rows": 11,
+    "message": "ER V1.7.1 does not mark green unless upstream language/function control permits it."
+  },
+  "source_summary": {
+    "score_summary": {
+      "overall_band": null,
+      "criteria_bands": {},
+      "score_confidence": "normal"
+    },
+    "original_word_count": 272,
+    "original_paragraph_count": 5,
+    "original_sentence_count": 18,
+    "displayed_sentence_status_counts": {
+      "yellow": 14,
+      "red": 4
+    },
+    "displayed_error_family_counts": {
+      "VERB_FORM": 1,
+      "SPELLING": 3,
+      "WORD_FORM": 1,
+      "COMPARATIVE_FORM": 3,
+      "CLAUSE_STRUCTURE": 3,
+      "ARTICLE_DETERMINER": 2,
+      "SUBJECT_VERB_AGREEMENT": 1,
+      "COLLOCATION": 1
+    },
+    "displayed_criterion_counts": {
+      "GRA": 10,
+      "LR": 5
+    },
+    "evaluator_required": true,
+    "evaluator_status": {
+      "available": true,
+      "source_engine": "VA_PREMIUM_EVALUATOR_WKE_V8_3",
+      "source_version": "8.3.0-comma-boundary-aware-ngram-extraction",
+      "sentence_control_available": true,
+      "paragraph_function_available": true,
+      "essay_function_available": true
+    }
+  },
+  "ui_contract": {
+    "layout": "left_annotated_essay_right_revision_editor",
+    "default_explanations_collapsed": true,
+    "copy_clean_text_available": true,
+    "controls": [
+      "show_all_highlights",
+      "show_only_red",
+      "show_yellow_and_red",
+      "show_only_yellow",
+      "show_hide_hints",
+      "copy_clean_essay_to_editor",
+      "submit_revised_essay"
+    ],
+    "color_legend": {
+      "green": "Keep: upstream engines confirm good enough language and useful IELTS function.",
+      "yellow": "Improve/check: upstream engines found repair need or sentence-control confirmation is missing.",
+      "red": "Rewrite: upstream engines show low control, multiple local problems, or paragraph-function pressure."
+    }
+  },
+  "annotated_essay": {
+    "paragraphs": [
+      {
+        "paragraph_index": 1,
+        "paragraph_number": 1,
+        "paragraph_role": "introduction",
+        "paragraph_status": "red",
+        "paragraph_status_label": "Rewrite",
+        "paragraph_function_status": "yellow",
+        "paragraph_function_label": "Improve",
+        "criterion_tags": [
+          "TR"
+        ],
+        "criterion_labels": [
+          "Answer / ideas"
+        ],
+        "paragraph_hint": "Use the introduction to frame the task, state the position, and preview the main arguments. Do not add examples.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [
+          {
+            "level": "yellow",
+            "text": "Explain why this point is true or important.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Explain why this point is true or important."
+          },
+          {
+            "level": "yellow",
+            "text": "Add a specific example to support your point.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Add a specific example to support your point."
+          }
+        ],
+        "revision_instructions": [
+          "For an introduction, use only task framing, position, and main-argument preview. Do not add examples here."
+        ],
+        "text": "One problem of an ageing population is that government has to spent more money on health care and pensions. Older people often need more medical help than young peoples. And they stop working, so they need modey from the goverment, for take care with they health. For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea.",
+        "sentences": [
+          {
+            "sentence_index": 1,
+            "sentence_number": 1,
+            "paragraph_index": 1,
+            "text": "One problem of an ageing population is that government has to spent more money on health care and pensions.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "GRA"
+            ],
+            "criterion_labels": [
+              "Grammar"
+            ],
+            "student_hint": "Upstream engines flagged a verb form problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "has to spent",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "VERB_FORM",
+                "learner_label": "verb form",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_001d97c6eb25d4f0",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_001d97c6eb25d4f0"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a verb form issue to fix before you keep it."
+          },
+          {
+            "sentence_index": 2,
+            "sentence_number": 2,
+            "paragraph_index": 1,
+            "text": "Older people often need more medical help than young peoples.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 3,
+            "sentence_number": 3,
+            "paragraph_index": 1,
+            "text": "And they stop working, so they need modey from the goverment, for take care with they health.",
+            "status": "red",
+            "status_label": "Rewrite",
+            "language_status": "red",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "red",
+            "criterion_tags": [
+              "LR"
+            ],
+            "criterion_labels": [
+              "Vocabulary"
+            ],
+            "student_hint": "This sentence has 2 upstream local-control signals. Rewrite or revise it carefully; do not mark it as keep.",
+            "span_annotations": [
+              {
+                "span_text": "modey",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "SPELLING",
+                "learner_label": "spelling",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_d341b0c7588563fc",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "goverment",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "SPELLING",
+                "learner_label": "spelling",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_1ccc8b886911bbd4",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [
+              {
+                "level": "yellow",
+                "alert_type": "none",
+                "text": "Make sure the example is connected to your main point.",
+                "source": "evaluator_example_quality",
+                "text_public": "Make sure the example is connected to your main point."
+              }
+            ],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_d341b0c7588563fc",
+                "row_1ccc8b886911bbd4"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has 2 highlighted language problems. Rewrite or revise it carefully before keeping it."
+          },
+          {
+            "sentence_index": 4,
+            "sentence_number": 4,
+            "paragraph_index": 1,
+            "text": "For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "LR"
+            ],
+            "criterion_labels": [
+              "Vocabulary"
+            ],
+            "student_hint": "Upstream engines flagged a spelling problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "contries",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "SPELLING",
+                "learner_label": "spelling",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_f57857d96106bbe7",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_f57857d96106bbe7"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a spelling issue to fix before you keep it."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0
+        },
+        "paragraph_hint_public": "Use the introduction to frame the task, state the position, and preview the main arguments. Do not add examples."
+      },
+      {
+        "paragraph_index": 2,
+        "paragraph_number": 2,
+        "paragraph_role": "body",
+        "paragraph_status": "yellow",
+        "paragraph_status_label": "Improve",
+        "paragraph_function_status": "yellow",
+        "paragraph_function_label": "Improve",
+        "criterion_tags": [
+          "CC"
+        ],
+        "criterion_labels": [
+          "Flow"
+        ],
+        "paragraph_hint": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [
+          {
+            "level": "yellow",
+            "text": "After the example, explain how it supports your main point.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "After the example, explain how it supports your main point."
+          }
+        ],
+        "revision_instructions": [
+          "For a body paragraph, use one clear main idea, support it, and explain how the support proves the point."
+        ],
+        "text": "Another issued is that the way be fewer young people working . If too many retire, there are not enough workers to do all the jobs. This can slow down the economy. Some companies may find it hard to find more new workers.",
+        "sentences": [
+          {
+            "sentence_index": 5,
+            "sentence_number": 5,
+            "paragraph_index": 2,
+            "text": "Another issued is that the way be fewer young people working .",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "LR"
+            ],
+            "criterion_labels": [
+              "Vocabulary"
+            ],
+            "student_hint": "Upstream engines flagged a word form problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "Another issued is",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "WORD_FORM",
+                "learner_label": "word form",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_bacfe23972ce38dd",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_bacfe23972ce38dd"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a word form issue to fix before you keep it."
+          },
+          {
+            "sentence_index": 6,
+            "sentence_number": 6,
+            "paragraph_index": 2,
+            "text": "If too many retire, there are not enough workers to do all the jobs.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 7,
+            "sentence_number": 7,
+            "paragraph_index": 2,
+            "text": "This can slow down the economy.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 8,
+            "sentence_number": 8,
+            "paragraph_index": 2,
+            "text": "Some companies may find it hard to find more new workers.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0
+        },
+        "paragraph_hint_public": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas."
+      },
+      {
+        "paragraph_index": 3,
+        "paragraph_number": 3,
+        "paragraph_role": "body",
+        "paragraph_status": "red",
+        "paragraph_status_label": "Rewrite",
+        "paragraph_function_status": "yellow",
+        "paragraph_function_label": "Improve",
+        "criterion_tags": [
+          "CC"
+        ],
+        "criterion_labels": [
+          "Flow"
+        ],
+        "paragraph_hint": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [
+          {
+            "level": "yellow",
+            "text": "Explain why this point is true or important.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Explain why this point is true or important."
+          },
+          {
+            "level": "yellow",
+            "text": "Add a specific example to support your point.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Add a specific example to support your point."
+          }
+        ],
+        "revision_instructions": [
+          "For a body paragraph, use one clear main idea, support it, and explain how the support proves the point."
+        ],
+        "text": "On the other hand, there are also some benefits. Older peoples have a lot of knowledge and experience than young ones. Even they can give good advice , working part-time or doing volunteer work as it possible. For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things.",
+        "sentences": [
+          {
+            "sentence_index": 9,
+            "sentence_number": 9,
+            "paragraph_index": 3,
+            "text": "On the other hand, there are also some benefits.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 10,
+            "sentence_number": 10,
+            "paragraph_index": 3,
+            "text": "Older peoples have a lot of knowledge and experience than young ones.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "GRA"
+            ],
+            "criterion_labels": [
+              "Grammar"
+            ],
+            "student_hint": "Upstream engines flagged a comparison form problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "a lot of knowledge and experience than",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "COMPARATIVE_FORM",
+                "learner_label": "comparison form",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_9e84bd7a83f73038",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_9e84bd7a83f73038"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a comparison form issue to fix before you keep it."
+          },
+          {
+            "sentence_index": 11,
+            "sentence_number": 11,
+            "paragraph_index": 3,
+            "text": "Even they can give good advice , working part-time or doing volunteer work as it possible.",
+            "status": "red",
+            "status_label": "Rewrite",
+            "language_status": "red",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "red",
+            "criterion_tags": [
+              "GRA"
+            ],
+            "criterion_labels": [
+              "Grammar"
+            ],
+            "student_hint": "This sentence has 2 upstream local-control signals. Rewrite or revise it carefully; do not mark it as keep.",
+            "span_annotations": [
+              {
+                "span_text": "can give",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "CLAUSE_STRUCTURE",
+                "learner_label": "clause structure",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_2042a11a4c1b1fa6",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "it possible",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "CLAUSE_STRUCTURE",
+                "learner_label": "clause structure",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_88d512512c6c2a47",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [
+              {
+                "level": "yellow",
+                "alert_type": "example_too_personal_for_academic_task",
+                "text": "Keep the idea, but use a wider social example — for instance, a type of programme, institution, or social trend.",
+                "source": "evaluator_example_quality",
+                "text_public": "Keep the idea, but use a wider social example — for instance, a type of programme, institution, or social trend."
+              }
+            ],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_2042a11a4c1b1fa6",
+                "row_88d512512c6c2a47"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has 2 highlighted language problems. Rewrite or revise it carefully before keeping it."
+          },
+          {
+            "sentence_index": 12,
+            "sentence_number": 12,
+            "paragraph_index": 3,
+            "text": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "GRA"
+            ],
+            "criterion_labels": [
+              "Grammar"
+            ],
+            "student_hint": "Upstream engines flagged a comparison form problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "so older",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "COMPARATIVE_FORM",
+                "learner_label": "comparison form",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_b8ce192c62894970",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_b8ce192c62894970"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a comparison form issue to fix before you keep it."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0
+        },
+        "paragraph_hint_public": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas."
+      },
+      {
+        "paragraph_index": 4,
+        "paragraph_number": 4,
+        "paragraph_role": "body",
+        "paragraph_status": "red",
+        "paragraph_status_label": "Rewrite",
+        "paragraph_function_status": "yellow",
+        "paragraph_function_label": "Improve",
+        "criterion_tags": [
+          "CC"
+        ],
+        "criterion_labels": [
+          "Flow"
+        ],
+        "paragraph_hint": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [],
+        "revision_instructions": [
+          "For a body paragraph, use one clear main idea, support it, and explain how the support proves the point."
+        ],
+        "text": "Also, older people often help take care of their grandchildren, if parents should go to the work or some kinds of things. This make a family more stronger and friendly. They can teach a children about culture and family traditions , which is very important nowadays.",
+        "sentences": [
+          {
+            "sentence_index": 13,
+            "sentence_number": 13,
+            "paragraph_index": 4,
+            "text": "Also, older people often help take care of their grandchildren, if parents should go to the work or some kinds of things.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 14,
+            "sentence_number": 14,
+            "paragraph_index": 4,
+            "text": "This make a family more stronger and friendly.",
+            "status": "red",
+            "status_label": "Rewrite",
+            "language_status": "red",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "red",
+            "criterion_tags": [
+              "GRA"
+            ],
+            "criterion_labels": [
+              "Grammar"
+            ],
+            "student_hint": "This sentence has 2 upstream local-control signals. Rewrite or revise it carefully; do not mark it as keep.",
+            "span_annotations": [
+              {
+                "span_text": "more stronger",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "COMPARATIVE_FORM",
+                "learner_label": "comparison form",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_5ebde8f095cb5460",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "This make",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "SUBJECT_VERB_AGREEMENT",
+                "learner_label": "subject–verb control",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_9fe17d3c5119591b",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_5ebde8f095cb5460",
+                "row_9fe17d3c5119591b"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has 2 highlighted language problems. Rewrite or revise it carefully before keeping it."
+          },
+          {
+            "sentence_index": 15,
+            "sentence_number": 15,
+            "paragraph_index": 4,
+            "text": "They can teach a children about culture and family traditions , which is very important nowadays.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "GRA"
+            ],
+            "criterion_labels": [
+              "Grammar"
+            ],
+            "student_hint": "Upstream engines flagged a article / noun form problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "a children",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "ARTICLE_DETERMINER",
+                "learner_label": "article / noun form",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_9924d3ff9bffd6e8",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_9924d3ff9bffd6e8"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a article / noun form issue to fix before you keep it."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0
+        },
+        "paragraph_hint_public": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas."
+      },
+      {
+        "paragraph_index": 5,
+        "paragraph_number": 5,
+        "paragraph_role": "conclusion",
+        "paragraph_status": "red",
+        "paragraph_status_label": "Rewrite",
+        "paragraph_function_status": "unknown",
+        "paragraph_function_label": "Check",
+        "criterion_tags": [
+          "TR"
+        ],
+        "criterion_labels": [
+          "Answer / ideas"
+        ],
+        "paragraph_hint": "Paragraph role is shown for layout, but upstream paragraph-function control is missing. For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example.",
+        "function_strengths": [],
+        "function_alerts": [
+          {
+            "level": "yellow",
+            "text": "Upstream paragraph-function control is missing; paragraph cannot be marked green yet.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Check the paragraph role before keeping this paragraph."
+          }
+        ],
+        "revision_instructions": [
+          "For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example."
+        ],
+        "text": "In conclusion, even though an ageing population can cause some problems, like a high costs and fewer workers, I believe that the advantages are also important. Older people still help society in many ways and situations. In many ways, if government makes good ability to older peoples, that will be the best plan to all countries.",
+        "sentences": [
+          {
+            "sentence_index": 16,
+            "sentence_number": 16,
+            "paragraph_index": 5,
+            "text": "In conclusion, even though an ageing population can cause some problems, like a high costs and fewer workers, I believe that the advantages are also important.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "GRA"
+            ],
+            "criterion_labels": [
+              "Grammar"
+            ],
+            "student_hint": "Upstream engines flagged a article / noun form problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "a high costs",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "ARTICLE_DETERMINER",
+                "learner_label": "article / noun form",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_31a20dd61891f52a",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_31a20dd61891f52a"
+              ],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a article / noun form issue to fix before you keep it."
+          },
+          {
+            "sentence_index": 17,
+            "sentence_number": 17,
+            "paragraph_index": 5,
+            "text": "Older people still help society in many ways and situations.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 18,
+            "sentence_number": 18,
+            "paragraph_index": 5,
+            "text": "In many ways, if government makes good ability to older peoples, that will be the best plan to all countries.",
+            "status": "red",
+            "status_label": "Rewrite",
+            "language_status": "red",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "red",
+            "criterion_tags": [
+              "GRA",
+              "LR"
+            ],
+            "criterion_labels": [
+              "Grammar",
+              "Vocabulary"
+            ],
+            "student_hint": "This sentence has 2 upstream local-control signals. Rewrite or revise it carefully; do not mark it as keep.",
+            "span_annotations": [
+              {
+                "span_text": "In many ways, if government makes good ability to older peop",
+                "criterion_tag": "GRA",
+                "criterion_label": "Grammar",
+                "upstream_family": "CLAUSE_STRUCTURE",
+                "learner_label": "clause structure",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_bbedd11b771a8426",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              },
+              {
+                "span_text": "good ability to",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "COLLOCATION",
+                "learner_label": "natural phrase",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_b19808d985820c76",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_bbedd11b771a8426",
+                "row_b19808d985820c76"
+              ],
+              "evaluator_sentence_control_present": false,
+              "evaluator_sentence_control_source": null
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has 2 highlighted language problems. Rewrite or revise it carefully before keeping it."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": false,
+          "errormap_row_count": 0
+        },
+        "paragraph_hint_public": "For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example."
+      }
+    ]
+  },
+  "revision_waves": [
+    {
+      "level": "yellow",
+      "title": "Wave 1 — Confirm language-control signals",
+      "text": "1 sentence(s) do not have evaluator sentence-control confirmation, so they are not treated as Keep.",
+      "student_title": "Wave 1 — Check sentences before keeping",
+      "student_text": "Check 1 sentence(s) before keeping them."
+    },
+    {
+      "level": "red",
+      "title": "Wave 2 — Rewrite red areas",
+      "text": "Paragraph(s) 1, 3, 4, 5: rewrite red sentences first using short clear sentences.",
+      "student_title": "Wave 2 — Rewrite red areas",
+      "student_text": "Paragraph(s) 1, 3, 4, 5: rewrite red sentences first using short clear sentences."
+    },
+    {
+      "level": "yellow",
+      "title": "Wave 3 — Improve/check yellow areas",
+      "text": "Paragraph(s) 2: check language and paragraph function before keeping these sentences.",
+      "student_title": "Wave 3 — Improve yellow areas",
+      "student_text": "Paragraph(s) 2: check language and paragraph role before keeping these sentences."
+    },
+    {
+      "level": "yellow",
+      "title": "Wave 4 — Final language pass",
+      "text": "After rewriting, check only changed sentences for grammar, vocabulary, spelling, and paragraph flow.",
+      "student_title": "Wave 4 — Final language pass",
+      "student_text": "After rewriting, check only changed sentences for grammar, vocabulary, spelling, and paragraph flow."
+    }
+  ],
+  "copyable_clean_text": "One problem of an ageing population is that government has to spent more money on health care and pensions. Older people often need more medical help than young peoples. And they stop working, so they need modey from the goverment, for take care with they health. For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea.\n\nAnother issued is that the way be fewer young people working . If too many retire, there are not enough workers to do all the jobs. This can slow down the economy. Some companies may find it hard to find more new workers.\n\nOn the other hand, there are also some benefits. Older peoples have a lot of knowledge and experience than young ones. Even they can give good advice , working part-time or doing volunteer work as it possible. For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things.\n\nAlso, older people often help take care of their grandchildren, if parents should go to the work or some kinds of things. This make a family more stronger and friendly. They can teach a children about culture and family traditions , which is very important nowadays.\n\nIn conclusion, even though an ageing population can cause some problems, like a high costs and fewer workers, I believe that the advantages are also important. Older people still help society in many ways and situations. In many ways, if government makes good ability to older peoples, that will be the best plan to all countries.",
+  "revision_editor_seed": "One problem of an ageing population is that government has to spent more money on health care and pensions. Older people often need more medical help than young peoples. And they stop working, so they need modey from the goverment, for take care with they health. For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea.\n\nAnother issued is that the way be fewer young people working . If too many retire, there are not enough workers to do all the jobs. This can slow down the economy. Some companies may find it hard to find more new workers.\n\nOn the other hand, there are also some benefits. Older peoples have a lot of knowledge and experience than young ones. Even they can give good advice , working part-time or doing volunteer work as it possible. For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things.\n\nAlso, older people often help take care of their grandchildren, if parents should go to the work or some kinds of things. This make a family more stronger and friendly. They can teach a children about culture and family traditions , which is very important nowadays.\n\nIn conclusion, even though an ageing population can cause some problems, like a high costs and fewer workers, I believe that the advantages are also important. Older people still help society in many ways and situations. In many ways, if government makes good ability to older peoples, that will be the best plan to all countries.",
+  "overall_revision_hints": {
+    "language_repair": [
+      {
+        "level": "red",
+        "text": "Rewrite 4 red sentence(s) before improving style or adding ideas."
+      },
+      {
+        "level": "yellow",
+        "text": "Check 14 yellow sentence(s); they are not safe Keep sentences yet."
+      }
+    ],
+    "paragraph_function": [
+      {
+        "level": "red",
+        "text": "Paragraph 1 (introduction): Use the introduction to frame the task, state the position, and preview the main arguments. Do not add examples."
+      },
+      {
+        "level": "red",
+        "text": "Paragraph 5 (conclusion): Paragraph role is shown for layout, but upstream paragraph-function control is missing. For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example."
+      }
+    ]
+  },
+  "student_checklist": [
+    "I fixed red sentences first.",
+    "I checked every yellow sentence before keeping it.",
+    "I did not treat a sentence as green unless the app marked it green.",
+    "I kept paragraph breaks.",
+    "I checked the introduction: no example, only task framing, position, and main arguments.",
+    "I checked the conclusion: final answer and main reasons, no new example.",
+    "I checked spelling and grammar after rewriting."
+  ],
+  "pre_revision_correction_policy": {
+    "full_corrected_sentence_visible": false,
+    "direct_replacement_phrase_visible": false,
+    "model_answer_visible": false,
+    "reason": "The learner should self-correct before seeing a model version."
+  },
+  "post_revision_ai_model_policy": {
+    "available_after_self_revision": true,
+    "pre_revision_model_answer_allowed": false,
+    "recommended_display": "paragraph_first_revised_vs_ai_then_collapsible_sentence_details",
+    "full_model_essay_default": false
+  },
+  "machine_payload": {
+    "errormap_rows_used": [
+      {
+        "error_id": "row_001d97c6eb25d4f0",
+        "sentence_index": 1,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "VERB_FORM",
+        "family_label": "verb form",
+        "quote": "has to spent",
+        "sentence": "One problem of an ageing population is that government has to spent more money on health care and pensions.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 55,
+        "char_end": 67,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_d341b0c7588563fc",
+        "sentence_index": 3,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "SPELLING",
+        "family_label": "spelling",
+        "quote": "modey",
+        "sentence": "And they stop working, so they need modey from the goverment, for take care with they health.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 206,
+        "char_end": 211,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_1ccc8b886911bbd4",
+        "sentence_index": 3,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "SPELLING",
+        "family_label": "spelling",
+        "quote": "goverment",
+        "sentence": "And they stop working, so they need modey from the goverment, for take care with they health.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 221,
+        "char_end": 230,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_f57857d96106bbe7",
+        "sentence_index": 4,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "SPELLING",
+        "family_label": "spelling",
+        "quote": "contries",
+        "sentence": "For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 279,
+        "char_end": 287,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_bacfe23972ce38dd",
+        "sentence_index": 5,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "WORD_FORM",
+        "family_label": "word form",
+        "quote": "Another issued is",
+        "sentence": "Another issued is that the way be fewer young people working .",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 382,
+        "char_end": 399,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_9e84bd7a83f73038",
+        "sentence_index": 10,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "COMPARATIVE_FORM",
+        "family_label": "comparison form",
+        "quote": "a lot of knowledge and experience than",
+        "sentence": "Older peoples have a lot of knowledge and experience than young ones.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 673,
+        "char_end": 711,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_2042a11a4c1b1fa6",
+        "sentence_index": 11,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "CLAUSE_STRUCTURE",
+        "family_label": "clause structure",
+        "quote": "can give",
+        "sentence": "Even they can give good advice , working part-time or doing volunteer work as it possible.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 734,
+        "char_end": 742,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_b8ce192c62894970",
+        "sentence_index": 12,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "COMPARATIVE_FORM",
+        "family_label": "comparison form",
+        "quote": "so older",
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 845,
+        "char_end": 853,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_5ebde8f095cb5460",
+        "sentence_index": 14,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "COMPARATIVE_FORM",
+        "family_label": "comparison form",
+        "quote": "more stronger",
+        "sentence": "This make a family more stronger and friendly.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 1084,
+        "char_end": 1097,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_31a20dd61891f52a",
+        "sentence_index": 16,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "ARTICLE_DETERMINER",
+        "family_label": "article / noun form",
+        "quote": "a high costs",
+        "sentence": "In conclusion, even though an ageing population can cause some problems, like a high costs and fewer workers, I believe that the advantages are also important.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 1289,
+        "char_end": 1301,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_88d512512c6c2a47",
+        "sentence_index": 11,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "CLAUSE_STRUCTURE",
+        "family_label": "clause structure",
+        "quote": "it possible",
+        "sentence": "Even they can give good advice , working part-time or doing volunteer work as it possible.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 802,
+        "char_end": 813,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_9fe17d3c5119591b",
+        "sentence_index": 14,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "family_label": "subject–verb control",
+        "quote": "This make",
+        "sentence": "This make a family more stronger and friendly.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 1065,
+        "char_end": 1074,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_9924d3ff9bffd6e8",
+        "sentence_index": 15,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "ARTICLE_DETERMINER",
+        "family_label": "article / noun form",
+        "quote": "a children",
+        "sentence": "They can teach a children about culture and family traditions , which is very important nowadays.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 1127,
+        "char_end": 1137,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_bbedd11b771a8426",
+        "sentence_index": 18,
+        "paragraph_index": null,
+        "criterion_tag": "GRA",
+        "criterion_label": "Grammar",
+        "family": "CLAUSE_STRUCTURE",
+        "family_label": "clause structure",
+        "quote": "In many ways, if government makes good ability to older peop",
+        "sentence": "In many ways, if government makes good ability to older peoples, that will be the best plan to all countries.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 1432,
+        "char_end": 1492,
+        "source": "errormap"
+      },
+      {
+        "error_id": "row_b19808d985820c76",
+        "sentence_index": 18,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "COLLOCATION",
+        "family_label": "natural phrase",
+        "quote": "good ability to",
+        "sentence": "In many ways, if government makes good ability to older peoples, that will be the best plan to all countries.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 1466,
+        "char_end": 1481,
+        "source": "errormap"
+      }
+    ],
+    "evaluator_control_summary": {
+      "available": true,
+      "source_engine": "VA_PREMIUM_EVALUATOR_WKE_V8_3",
+      "source_version": "8.3.0-comma-boundary-aware-ngram-extraction",
+      "sentence_control_available": true,
+      "paragraph_function_available": true,
+      "essay_function_available": true
+    },
+    "composition_policy": "upstream_only_no_hidden_evaluation"
+  },
+  "qa": {
+    "status": "pass",
+    "flags": [
+      "detector_rows_blocked_green"
+    ],
+    "no_pre_revision_corrections": true,
+    "no_essay_specific_patterns": true,
+    "upstream_only_mode": true
+  },
+  "prewriting_guidance": {
+    "title": "Before you write or revise",
+    "word_plan": {
+      "minimum_words": 250,
+      "recommended_range": "260-290 words",
+      "paragraph_targets": {
+        "introduction": "35-45 words",
+        "body_1": "80-100 words",
+        "body_2": "80-100 words",
+        "conclusion": "35-45 words"
+      }
+    },
+    "structure_options": [
+      {
+        "name": "Universal IELTS Task 2 structure",
+        "paragraphs": [
+          "Introduction: task frame, clear answer/position, preview main ideas.",
+          "Body 1: one main idea, explanation, specific example, link.",
+          "Body 2: one main idea, explanation, specific example, link.",
+          "Conclusion: summary + final answer. No new example or idea."
+        ]
+      }
+    ],
+    "body_paragraph_formula": [
+      "Topic sentence: say the paragraph's main idea.",
+      "Argument/reason: explain why the idea matters.",
+      "Development: add cause, effect, comparison, or consequence.",
+      "Specific example: place/actor + action/situation + result.",
+      "Link back: connect the example to the question or your position."
+    ],
+    "example_quality": {
+      "strong_example_rule": "Use a specific place/actor/programme/situation, show what happened, and link it to the argument.",
+      "weak_example_rule": "Avoid private family anecdotes or very general examples as the main evidence."
+    }
+  },
+  "student_visible_policy": {
+    "hide_internal_terms": true,
+    "student_facing_outputs": [
+      "markdown",
+      "html",
+      "student_view"
+    ],
+    "debug_terms_kept_only_in_json": true
+  },
+  "run_inputs": {
+    "detector": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\student_123\\gold_20260711_162915_essay_001_874887d6\\01_detector_output.json",
+    "errormap": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\student_123\\gold_20260711_162915_essay_001_874887d6\\01b_errormap_v3.json",
+    "score": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\student_123\\gold_20260711_162915_essay_001_874887d6\\02d_final_score_contract.json",
+    "evaluator": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\student_123\\gold_20260711_162915_essay_001_874887d6\\07_evaluator_output.json"
+  }
+}

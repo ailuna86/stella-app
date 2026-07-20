@@ -1,0 +1,22 @@
+{
+  "schema_version": "FINAL_SCORE_CONTRACT_GOLD_UNIFIED_V1_2",
+  "student_id": "student_123",
+  "essay_id": "essay_001",
+  "task_type": "WT2",
+  "released_score": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "TR": 5,
+      "CC": 6,
+      "LR": 4,
+      "GRA": 4
+    }
+  },
+  "score_confidence": "normal",
+  "score_status": "ready",
+  "verifier_status": "pass",
+  "adjudication_status": "confirmed",
+  "progress_tracking_allowed": true,
+  "lie_update_allowed": true,
+  "created_at": "2026-07-08T07:58:01.473028+00:00"
+}

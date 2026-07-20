@@ -1,0 +1,3566 @@
+{
+  "schema_version": "MICRO_WRITING_MOVE_BANK_GOLD_V1",
+  "bank_id": "gold_micro_writing_move_bank_v1",
+  "moves": [
+    {
+      "move_id": "gold_move_001_simple_sentence_construction",
+      "move_name": "Clear Sentence Builder",
+      "move_family": "accuracy",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "simple_sentence_construction",
+      "secondary_microskills": [],
+      "student_goal": "Write complete sentences with one clear subject and one correct main verb.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "simple_sentence_construction",
+          "description": "Write complete sentences with one clear subject and one correct main verb.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Clear Sentence Builder",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on clear sentence builder.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_002_agreement_control",
+      "move_name": "Agreement Check Sentence",
+      "move_family": "accuracy",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "agreement_control",
+      "secondary_microskills": [],
+      "student_goal": "Make subject and verb agree in short academic sentences.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "agreement_control",
+          "description": "Make subject and verb agree in short academic sentences.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Agreement Check Sentence",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on agreement check sentence.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_003_article_control",
+      "move_name": "Article and Noun Phrase Builder",
+      "move_family": "accuracy",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "article_control",
+      "secondary_microskills": [],
+      "student_goal": "Choose a/an/the or no article in academic noun phrases.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "article_control",
+          "description": "Choose a/an/the or no article in academic noun phrases.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Article and Noun Phrase Builder",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on article and noun phrase builder.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_004_noun_form_control",
+      "move_name": "Plural Noun Control",
+      "move_family": "accuracy",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "noun_form_control",
+      "secondary_microskills": [],
+      "student_goal": "Use singular and plural noun forms accurately.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "noun_form_control",
+          "description": "Use singular and plural noun forms accurately.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Plural Noun Control",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on plural noun control.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_005_tense_control",
+      "move_name": "Tense Anchor Sentence",
+      "move_family": "accuracy",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "tense_control",
+      "secondary_microskills": [],
+      "student_goal": "Keep tense consistent with the meaning and time reference.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "tense_control",
+          "description": "Keep tense consistent with the meaning and time reference.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Tense Anchor Sentence",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on tense anchor sentence.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_006_preposition_control",
+      "move_name": "Preposition Pattern Sentence",
+      "move_family": "accuracy",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "preposition_control",
+      "secondary_microskills": [],
+      "student_goal": "Use a correct preposition pattern in a short academic sentence.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "preposition_control",
+          "description": "Use a correct preposition pattern in a short academic sentence.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Preposition Pattern Sentence",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on preposition pattern sentence.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_007_punctuation_control",
+      "move_name": "Punctuation for Clarity",
+      "move_family": "accuracy",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "punctuation_control",
+      "secondary_microskills": [],
+      "student_goal": "Use commas and sentence boundaries to make meaning clear.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "punctuation_control",
+          "description": "Use commas and sentence boundaries to make meaning clear.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Punctuation for Clarity",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on punctuation for clarity.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_008_complex_sentence_construction",
+      "move_name": "Because-Result Sentence Chain",
+      "move_family": "clarity",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "complex_sentence_construction",
+      "secondary_microskills": [],
+      "student_goal": "Combine a claim and reason in one clear complex sentence.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "complex_sentence_construction",
+          "description": "Combine a claim and reason in one clear complex sentence.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Because-Result Sentence Chain",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on because-result sentence chain.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_009_compound_sentence_construction",
+      "move_name": "Balanced Compound Sentence",
+      "move_family": "clarity",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "compound_sentence_construction",
+      "secondary_microskills": [],
+      "student_goal": "Connect two related ideas without creating a run-on sentence.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "compound_sentence_construction",
+          "description": "Connect two related ideas without creating a run-on sentence.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Balanced Compound Sentence",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on balanced compound sentence.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_010_comparison_structure_control",
+      "move_name": "Accurate Comparison Sentence",
+      "move_family": "accuracy",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "comparison_structure_control",
+      "secondary_microskills": [],
+      "student_goal": "Compare two groups or effects using correct comparative form.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "comparison_structure_control",
+          "description": "Compare two groups or effects using correct comparative form.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Accurate Comparison Sentence",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on accurate comparison sentence.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_011_claim_construction",
+      "move_name": "Clear Claim Builder",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "claim_construction",
+      "secondary_microskills": [],
+      "student_goal": "Write a clear main claim that directly answers the task.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "claim_construction",
+          "description": "Write a clear main claim that directly answers the task.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Clear Claim Builder",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on clear claim builder.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_012_arg_claim_specificity",
+      "move_name": "Specific Claim Upgrade",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "arg_claim_specificity",
+      "secondary_microskills": [],
+      "student_goal": "Make a broad claim more specific and controllable.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "arg_claim_specificity",
+          "description": "Make a broad claim more specific and controllable.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Specific Claim Upgrade",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on specific claim upgrade.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_013_arg_reason_generation",
+      "move_name": "Claim Plus Reason",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "arg_reason_generation",
+      "secondary_microskills": [],
+      "student_goal": "Add a clear reason after a claim.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "arg_reason_generation",
+          "description": "Add a clear reason after a claim.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Claim Plus Reason",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on claim plus reason.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_014_arg_support_generation",
+      "move_name": "Support Builder",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "arg_support_generation",
+      "secondary_microskills": [],
+      "student_goal": "Add one support sentence that explains why a claim matters.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "arg_support_generation",
+          "description": "Add one support sentence that explains why a claim matters.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Support Builder",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on support builder.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_015_arg_example_generation",
+      "move_name": "Example Generator",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "arg_example_generation",
+      "secondary_microskills": [],
+      "student_goal": "Create a relevant example for a general argument.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "arg_example_generation",
+          "description": "Create a relevant example for a general argument.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Example Generator",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on example generator.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_016_arg_example_integration",
+      "move_name": "Integrated Example Sentence",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "arg_example_integration",
+      "secondary_microskills": [],
+      "student_goal": "Connect an example to the argument instead of dropping it in.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "arg_example_integration",
+          "description": "Connect an example to the argument instead of dropping it in.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Integrated Example Sentence",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on integrated example sentence.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_017_arg_warrant_generation",
+      "move_name": "Explain-the-Link Move",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "arg_warrant_generation",
+      "secondary_microskills": [],
+      "student_goal": "Explain how evidence supports the claim.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "arg_warrant_generation",
+          "description": "Explain how evidence supports the claim.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Explain-the-Link Move",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on explain-the-link move.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_018_avoid_overgeneralization",
+      "move_name": "Careful Claim Qualifier",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "avoid_overgeneralization",
+      "secondary_microskills": [],
+      "student_goal": "Make a broad claim more cautious and defensible.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "avoid_overgeneralization",
+          "description": "Make a broad claim more cautious and defensible.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Careful Claim Qualifier",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on careful claim qualifier.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_019_qualification_and_nuance",
+      "move_name": "Nuanced Position Builder",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "qualification_and_nuance",
+      "secondary_microskills": [],
+      "student_goal": "Show limits, conditions, or degree in an opinion.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "qualification_and_nuance",
+          "description": "Show limits, conditions, or degree in an opinion.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Nuanced Position Builder",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on nuanced position builder.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_020_arg_conclusion_alignment",
+      "move_name": "Conclusion Alignment Check",
+      "move_family": "argument_development",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "arg_conclusion_alignment",
+      "secondary_microskills": [],
+      "student_goal": "Write a conclusion that matches the essay position.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "arg_conclusion_alignment",
+          "description": "Write a conclusion that matches the essay position.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Conclusion Alignment Check",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on conclusion alignment check.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_021_topic_sentence_control",
+      "move_name": "Topic Sentence Builder",
+      "move_family": "cohesion",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "topic_sentence_control",
+      "secondary_microskills": [],
+      "student_goal": "Start a paragraph with a clear controlling idea.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "topic_sentence_control",
+          "description": "Start a paragraph with a clear controlling idea.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Topic Sentence Builder",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on topic sentence builder.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_022_logical_sequencing",
+      "move_name": "Idea Order Builder",
+      "move_family": "cohesion",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "logical_sequencing",
+      "secondary_microskills": [],
+      "student_goal": "Put claim, reason, example, and result in a logical order.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "logical_sequencing",
+          "description": "Put claim, reason, example, and result in a logical order.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Idea Order Builder",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on idea order builder.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_023_transition_control",
+      "move_name": "Transition Accuracy Move",
+      "move_family": "cohesion",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "transition_control",
+      "secondary_microskills": [],
+      "student_goal": "Choose a linker that matches the relationship between ideas.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "transition_control",
+          "description": "Choose a linker that matches the relationship between ideas.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Transition Accuracy Move",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on transition accuracy move.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_024_cohesion_without_overlinking",
+      "move_name": "Low-Link Cohesion Move",
+      "move_family": "cohesion",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "cohesion_without_overlinking",
+      "secondary_microskills": [],
+      "student_goal": "Connect ideas clearly without repeating basic linking words.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "cohesion_without_overlinking",
+          "description": "Connect ideas clearly without repeating basic linking words.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Low-Link Cohesion Move",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on low-link cohesion move.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_025_reference_management",
+      "move_name": "Reference Clarity Move",
+      "move_family": "cohesion",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "reference_management",
+      "secondary_microskills": [],
+      "student_goal": "Use pronouns and references so the reader knows what they mean.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "reference_management",
+          "description": "Use pronouns and references so the reader knows what they mean.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Reference Clarity Move",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on reference clarity move.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_026_information_flow",
+      "move_name": "Old-to-New Information Flow",
+      "move_family": "cohesion",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "information_flow",
+      "secondary_microskills": [],
+      "student_goal": "Move from known information to new information in a sentence.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "information_flow",
+          "description": "Move from known information to new information in a sentence.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Old-to-New Information Flow",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on old-to-new information flow.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_027_paragraph_planning",
+      "move_name": "Mini Paragraph Plan",
+      "move_family": "cohesion",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "paragraph_planning",
+      "secondary_microskills": [],
+      "student_goal": "Plan claim, reason, support, and result before writing.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "paragraph_planning",
+          "description": "Plan claim, reason, support, and result before writing.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Mini Paragraph Plan",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on mini paragraph plan.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_028_paragraph_balance",
+      "move_name": "Balanced Paragraph Builder",
+      "move_family": "cohesion",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "paragraph_balance",
+      "secondary_microskills": [],
+      "student_goal": "Give each main paragraph a similar development pattern.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "paragraph_balance",
+          "description": "Give each main paragraph a similar development pattern.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Balanced Paragraph Builder",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on balanced paragraph builder.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_029_lexical_precision",
+      "move_name": "Precise Word Choice Move",
+      "move_family": "lexical_control",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "lexical_precision",
+      "secondary_microskills": [],
+      "student_goal": "Replace vague words with more exact words based on meaning.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "lexical_precision",
+          "description": "Replace vague words with more exact words based on meaning.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Precise Word Choice Move",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on precise word choice move.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_030_collocation_control",
+      "move_name": "Natural Phrase Builder",
+      "move_family": "lexical_control",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "collocation_control",
+      "secondary_microskills": [],
+      "student_goal": "Choose a natural word combination for an academic idea.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "collocation_control",
+          "description": "Choose a natural word combination for an academic idea.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Natural Phrase Builder",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on natural phrase builder.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_031_semantic_compatibility",
+      "move_name": "Meaning Match Check",
+      "move_family": "lexical_control",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "semantic_compatibility",
+      "secondary_microskills": [],
+      "student_goal": "Check that the verb and object naturally fit together.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "semantic_compatibility",
+          "description": "Check that the verb and object naturally fit together.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Meaning Match Check",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on meaning match check.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_032_register_control",
+      "move_name": "Formal Register Move",
+      "move_family": "lexical_control",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "register_control",
+      "secondary_microskills": [],
+      "student_goal": "Rewrite informal wording in a more academic register.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "register_control",
+          "description": "Rewrite informal wording in a more academic register.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Formal Register Move",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on formal register move.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_033_paraphrasing_ability",
+      "move_name": "Meaning-Preserving Paraphrase",
+      "move_family": "lexical_control",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "paraphrasing_ability",
+      "secondary_microskills": [],
+      "student_goal": "Paraphrase an idea without changing its meaning.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "paraphrasing_ability",
+          "description": "Paraphrase an idea without changing its meaning.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Meaning-Preserving Paraphrase",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on meaning-preserving paraphrase.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_034_lexical_variety",
+      "move_name": "Controlled Variety Move",
+      "move_family": "lexical_control",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "lexical_variety",
+      "secondary_microskills": [],
+      "student_goal": "Avoid unnecessary repetition while keeping meaning clear.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "lexical_variety",
+          "description": "Avoid unnecessary repetition while keeping meaning clear.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Controlled Variety Move",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on controlled variety move.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_035_word_formation_control",
+      "move_name": "Word Family Builder",
+      "move_family": "lexical_control",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "word_formation_control",
+      "secondary_microskills": [],
+      "student_goal": "Use the correct noun, verb, adjective, or adverb form.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "word_formation_control",
+          "description": "Use the correct noun, verb, adjective, or adverb form.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Word Family Builder",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on word family builder.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_036_spelling_control",
+      "move_name": "Proofread Target Words",
+      "move_family": "lexical_control",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "spelling_control",
+      "secondary_microskills": [],
+      "student_goal": "Check spelling of key academic words before finalizing.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "spelling_control",
+          "description": "Check spelling of key academic words before finalizing.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Proofread Target Words",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on proofread target words.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_037_th_causal_reasoning",
+      "move_name": "Cause-to-Effect Chain",
+      "move_family": "thinking",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "th_causal_reasoning",
+      "secondary_microskills": [],
+      "student_goal": "Explain how one cause leads to one effect.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "th_causal_reasoning",
+          "description": "Explain how one cause leads to one effect.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Cause-to-Effect Chain",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on cause-to-effect chain.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_038_th_consequence_analysis",
+      "move_name": "Consequence Expansion",
+      "move_family": "thinking",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "th_consequence_analysis",
+      "secondary_microskills": [],
+      "student_goal": "Add a realistic consequence to an argument.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "th_consequence_analysis",
+          "description": "Add a realistic consequence to an argument.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Consequence Expansion",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on consequence expansion.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_039_th_tradeoff_analysis",
+      "move_name": "Trade-off Sentence",
+      "move_family": "thinking",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "th_tradeoff_analysis",
+      "secondary_microskills": [],
+      "student_goal": "Show both benefit and cost in one controlled sentence.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "th_tradeoff_analysis",
+          "description": "Show both benefit and cost in one controlled sentence.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Trade-off Sentence",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on trade-off sentence.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    },
+    {
+      "move_id": "gold_move_040_th_solution_generation",
+      "move_name": "Problem-Solution Move",
+      "move_family": "thinking",
+      "training_mode": "near_transfer_micro_production",
+      "source_policy": {
+        "own_essay_use": "diagnostic_reference_only",
+        "copying_old_essay_fragments": "not_allowed"
+      },
+      "primary_microskill": "th_solution_generation",
+      "secondary_microskills": [],
+      "student_goal": "Connect a problem to a practical solution.",
+      "default_timebox_minutes": 10,
+      "stimulus": {
+        "stimulus_type": "near_transfer_prompts",
+        "required_item_count": 3,
+        "items": [
+          {
+            "rough_input": "public services / cost / taxpayers",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "society",
+              "government"
+            ]
+          },
+          {
+            "rough_input": "technology / students / independent learning",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "education",
+              "technology"
+            ]
+          },
+          {
+            "rough_input": "city life / transport / pollution",
+            "expected_move": "write one clear academic sentence",
+            "topic_tags": [
+              "environment",
+              "cities"
+            ]
+          }
+        ]
+      },
+      "observable_units": [
+        {
+          "unit_id": "complete_output",
+          "description": "The required number of items is complete.",
+          "weight": 0.25,
+          "critical": true
+        },
+        {
+          "unit_id": "th_solution_generation",
+          "description": "Connect a problem to a practical solution.",
+          "weight": 0.5,
+          "critical": true
+        },
+        {
+          "unit_id": "meaning_clarity",
+          "description": "The meaning is clear and recoverable.",
+          "weight": 0.25,
+          "critical": false
+        }
+      ],
+      "mission_blueprint": {
+        "title": "Problem-Solution Move",
+        "steps": [
+          "Read the near-transfer prompts.",
+          "Write new sentences; do not copy from the old essay.",
+          "Focus especially on problem-solution move.",
+          "Check each answer before submitting."
+        ],
+        "required_output": {
+          "type": "numbered_short_written_response",
+          "required_items": 3,
+          "line_rule": "Write one answer per numbered line.",
+          "length_guidance": "One sentence per item unless the mission asks for a chain."
+        }
+      },
+      "success_checklist": [
+        "I completed all required items.",
+        "Each answer is new, not copied from the old essay.",
+        "The target writing move is visible.",
+        "The meaning is clear."
+      ],
+      "scoring": {
+        "pass_threshold": 0.8,
+        "partial_threshold": 0.6
+      }
+    }
+  ]
+}

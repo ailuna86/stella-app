@@ -1,0 +1,134 @@
+{
+  "schema_version": "GOLD_PRACTICE_SESSION_STANDALONE_V1",
+  "engine_id": "VA_STELLA_GOLD_PRACTICE_SESSION_BUILDER",
+  "engine_version": "1.0.0-standalone-no-imports",
+  "created_at": "2026-07-08T11:14:49.967858+00:00",
+  "session_id": "practice_c49facfdea98",
+  "student_id": "student_123",
+  "essay_id": "essay_001",
+  "source_score": {
+    "overall_band": 4.5,
+    "criteria_bands": {
+      "task_response": 4,
+      "coherence_cohesion": 4,
+      "lexical_resource": 5,
+      "grammar": 5
+    },
+    "score_family": "B1_WEAK",
+    "score_released": true
+  },
+  "primary_focus": null,
+  "exercise_count": 7,
+  "exercises": [
+    {
+      "exercise_number": 1,
+      "total_exercises": 7,
+      "exercise_id": "ex_2f419b6939a6",
+      "criterion": "task_response",
+      "capacity_domain": "mixed_review",
+      "family": "LEXICAL_PRECISION",
+      "cefr_level": "C1",
+      "exercise_type": "fill_gap",
+      "prompt": "The most ___ misconception is that correlation implies causation. (prevalent/common/popular)",
+      "choices": null,
+      "answer_key": "prevalent",
+      "explanation": "'Prevalent' is the precise academic word for 'most widely occurring'."
+    },
+    {
+      "exercise_number": 2,
+      "total_exercises": 7,
+      "exercise_id": "TASK_RESPONSE_B2_v10_00020",
+      "criterion": "task_response",
+      "capacity_domain": "mixed_review",
+      "family": "CLAIM_SUPPORT",
+      "cefr_level": "B2",
+      "exercise_type": "task_classification",
+      "prompt": "For an advantages/disadvantages essay, choose the plan that fully answers the task. Context: when technology changes habits; skill variant 169.",
+      "choices": [
+        "Give a general overview of opinions without reaching any conclusion.",
+        "Write only about the advantages without addressing any disadvantages.",
+        "Describe the historical background and origins of the topic.",
+        "Discuss one advantage, discuss one disadvantage, and give a clear judgement if the question asks which side is stronger."
+      ],
+      "answer_key": "Discuss one advantage, discuss one disadvantage, and give a clear judgement if the question asks which side is stronger.",
+      "explanation": "'Discuss one advantage, discuss one disadvantage, and gi' fully addresses the task in the context of 'when technology changes habits'. IELTS Task Achievement requires all parts of the question to be covered — missing any part drops the band. Always identify and plan for every component of the question before writing."
+    },
+    {
+      "exercise_number": 3,
+      "total_exercises": 7,
+      "exercise_id": "TASK_RESPONSE_COVERAGE_B2_v10_00047",
+      "criterion": "task_response",
+      "capacity_domain": "mixed_review",
+      "family": "VERB_FORM",
+      "cefr_level": "B2",
+      "exercise_type": "error_correction",
+      "prompt": "For a problem-solution essay, what two parts are required? Context: The context is a revision task for a learner writing about data privacy.",
+      "choices": null,
+      "answer_key": "problems/causes and solutions",
+      "explanation": "For this exercise type (variant 2): 'problems/causes and solutions' is the correct response. IELTS Task Response requires full coverage of the question — partial answers are penalised directly. Always identify all parts of the task before planning. [Key: 'problems/causes and']."
+    },
+    {
+      "exercise_number": 4,
+      "total_exercises": 7,
+      "exercise_id": "ex_69713bd40a73",
+      "criterion": "task_response",
+      "capacity_domain": "mixed_review",
+      "family": "PUNCTUATION",
+      "cefr_level": "B1",
+      "exercise_type": "error_correction",
+      "prompt": "Correct:\n'Both students answers were marked as correct.'",
+      "choices": null,
+      "answer_key": "Both students' answers were marked as correct.",
+      "explanation": "Possessive plural: add apostrophe AFTER the -s: 'students'' (the answers belonging to multiple students). Singular: 'the student's answer'. Plural: 'the students' answers'."
+    },
+    {
+      "exercise_number": 5,
+      "total_exercises": 7,
+      "exercise_id": "ex_a848dc9e28bc",
+      "criterion": "task_response",
+      "capacity_domain": "mixed_review",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "cefr_level": "C1",
+      "exercise_type": "error_correction",
+      "prompt": "Correct:\n'The media has been largely positive in its coverage.'",
+      "choices": null,
+      "answer_key": "The media have been largely positive in their coverage.",
+      "explanation": "Formal: 'media' = plural → 'HAVE been...their coverage.' (Informal: 'has...its' is common but not formal.)"
+    },
+    {
+      "exercise_number": 6,
+      "total_exercises": 7,
+      "exercise_id": "ex_46c638540827",
+      "criterion": "task_response",
+      "capacity_domain": "mixed_review",
+      "family": "REPETITION",
+      "cefr_level": "A2",
+      "exercise_type": "fill_gap",
+      "prompt": "The coffee was hot. The tea was also ___. (hot/warm/heated)",
+      "choices": null,
+      "answer_key": "warm",
+      "explanation": "'Warm' avoids repeating 'hot' while expressing a similar meaning."
+    },
+    {
+      "exercise_number": 7,
+      "total_exercises": 7,
+      "exercise_id": "ex_f53d3f2808a3",
+      "criterion": "task_response",
+      "capacity_domain": "mixed_review",
+      "family": "CLAUSE_STRUCTURE",
+      "cefr_level": "B1",
+      "exercise_type": "error_correction",
+      "prompt": "Correct the conditional error:\n'If I would know the answer, I would tell you.'",
+      "choices": null,
+      "answer_key": "If I knew the answer, I would tell you.",
+      "explanation": "In Type 2 conditionals, never use 'would' in the if-clause. Use past simple: 'If I knew'. 'If I would know' is a very common error (influenced by other languages). The 'would' belongs only in the result clause: 'I would tell you.'"
+    }
+  ],
+  "selection_audit": {
+    "target_count": 7,
+    "bank_size": 12710,
+    "fallbacks_used": [],
+    "source": "directive_plus_errormap_plus_exercise_bank"
+  },
+  "boundary": "Practice session generated from upstream directive/ErrorMap and exercise bank only; no scoring or detection performed here."
+}

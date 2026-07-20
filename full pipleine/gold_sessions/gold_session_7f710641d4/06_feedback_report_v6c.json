@@ -1,0 +1,101 @@
+{
+  "schema_version": "GOLD_FEEDBACK_REPORT_V1_2",
+  "student_id": "student_123",
+  "essay_id": "essay_001",
+  "performance_summary": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "TR": 5,
+      "CC": 6,
+      "LR": 4,
+      "GRA": 4
+    }
+  },
+  "score_confidence": "normal",
+  "writing_capacity_profile": {
+    "sentence_control": {
+      "label": "Sentence control",
+      "level": "weak",
+      "evidence_count": 17,
+      "learning_status": "active_bottleneck"
+    },
+    "lexical_precision": {
+      "label": "Lexical precision",
+      "level": "weak",
+      "evidence_count": 15,
+      "learning_status": "monitor"
+    },
+    "cohesion_control": {
+      "label": "Cohesion control",
+      "level": "stable_or_not_observed",
+      "evidence_count": 1,
+      "learning_status": "monitor"
+    },
+    "argument_development": {
+      "label": "Argument development",
+      "level": "developing",
+      "evidence_count": 2,
+      "learning_status": "monitor"
+    },
+    "task_response_control": {
+      "label": "Task response control",
+      "level": "stable_or_not_observed",
+      "evidence_count": 0,
+      "learning_status": "monitor"
+    },
+    "academic_style": {
+      "label": "Academic style",
+      "level": "weak",
+      "evidence_count": 7,
+      "learning_status": "monitor"
+    }
+  },
+  "main_learning_bottleneck": {
+    "skill_id": "sentence_control",
+    "skill_name": "Sentence control",
+    "reason": "This is the strongest current bottleneck because it has the largest concentration of chargeable evidence.",
+    "root_cause": "sentence_control",
+    "secondary_effects": [
+      "reduced recoverability",
+      "lower discourse reliability",
+      "weaker argument clarity"
+    ]
+  },
+  "strength_profile": {
+    "safe_strengths": [
+      {
+        "skill_id": "task_response_control",
+        "skill_name": "Task response control",
+        "reason": "No major issue was detected in this area in the current essay."
+      }
+    ],
+    "emerging_strengths": [
+      {
+        "skill_id": "task_response_control",
+        "skill_name": "Task response control",
+        "evidence": "No major negative evidence in this essay."
+      }
+    ],
+    "not_yet_stable": []
+  },
+  "next_best_skill": {
+    "skill_id": "sentence_control",
+    "skill_name": "Sentence control",
+    "recommended_service": "writing_coach",
+    "why_now": "It is the best next target according to the current essay evidence and skill dependency logic."
+  },
+  "learning_plan": {
+    "week_1": {
+      "focus": "clear subject + main verb"
+    },
+    "week_2": {
+      "focus": "verb pattern repair"
+    },
+    "week_3": {
+      "focus": "article/noun phrase control"
+    },
+    "week_4": {
+      "focus": "short controlled paragraph"
+    }
+  }
+}

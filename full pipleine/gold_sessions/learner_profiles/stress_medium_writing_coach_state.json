@@ -1,0 +1,244 @@
+{
+  "schema_version": "WRITING_COACH_STATE_V1_2_10",
+  "created_at": "2026-07-12T08:22:31.123546+00:00",
+  "generated_by_run_id": "run_b8d1ca5e5863c078",
+  "identity": {
+    "student_id": "stress_medium",
+    "institution_id": null,
+    "class_id": null,
+    "teacher_id": null,
+    "essay_id": "essay_medium_001",
+    "submission_id": null,
+    "prompt_id": null,
+    "batch_id": null,
+    "draft_id": null,
+    "parent_submission_id": null,
+    "session_id": null
+  },
+  "cycle_id": "cycle_b1e5d3fc9257",
+  "active_coaching_cycle": {
+    "cycle_id": "cycle_b1e5d3fc9257",
+    "cycle_type": "proactive_adaptive_skill_cycle",
+    "status": "active",
+    "started_at": "2026-07-11T18:26:49.852389+00:00",
+    "last_updated_at": "2026-07-12T08:22:31.123546+00:00",
+    "started_from_submission_id": null,
+    "requires_new_essay": false,
+    "active_skill": {
+      "skill_id": "arg_rebuttal_generation",
+      "skill_name": "Rebuttal Generation",
+      "target_status": "functional",
+      "current_status": "weak",
+      "domain": "Argumentation",
+      "mastery_estimate_snapshot": 0.19,
+      "selection_score_snapshot": 0.631
+    },
+    "active_move": {
+      "move_id": "MWM_COUNTERARGUMENT_TO_REBUTTAL_V1",
+      "move_name": "Counterargument to Rebuttal",
+      "move_family": "argument_control",
+      "training_mode": "production"
+    },
+    "goal_for_cycle": "Move Rebuttal Generation from developing/emerging control to functional use in short writing production.",
+    "success_rules": {
+      "functional_rule": "pass 2 of last 3 valid missions with average >= 0.75 and no critical failure",
+      "stable_rule": "pass 4 of last 5 valid missions with average >= 0.80 across at least 2 topics when topic data is available",
+      "unlock_rule": "unlock next queued skill after functional_rule is met, unless a new essay refreshes priorities"
+    },
+    "progress_snapshot": {
+      "valid_missions_for_active_skill": 0,
+      "recent_outcomes": [],
+      "recent_average": 0.0,
+      "functional_achieved": false,
+      "stable_achieved": false,
+      "last_result_outcome": null
+    },
+    "next_skill_queue": [
+      {
+        "skill_id": "formality_control",
+        "skill_name": "Formality Control",
+        "mastery_estimate": 0.667,
+        "selection_score": 0.496,
+        "priority_score": 0.382,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "hedging_control",
+        "skill_name": "Hedging Control",
+        "mastery_estimate": 0.667,
+        "selection_score": 0.496,
+        "priority_score": 0.382,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_claim_generation",
+        "skill_name": "Claim Generation",
+        "mastery_estimate": 0.573,
+        "selection_score": 0.489,
+        "priority_score": 0.348,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "paragraph_planning",
+        "skill_name": "Paragraph Planning",
+        "mastery_estimate": 0.828,
+        "selection_score": 0.436,
+        "priority_score": 0.304,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "topic_sentence_control",
+        "skill_name": "Topic Sentence Control",
+        "mastery_estimate": 0.828,
+        "selection_score": 0.436,
+        "priority_score": 0.304,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "collocation_control",
+        "skill_name": "Collocation Control",
+        "mastery_estimate": 0.655,
+        "selection_score": 0.429,
+        "priority_score": 0.265,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_support_alignment",
+        "skill_name": "Support Alignment",
+        "mastery_estimate": 0.796,
+        "selection_score": 0.418,
+        "priority_score": 0.266,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "simple_sentence_construction",
+        "skill_name": "Simple Sentence Construction",
+        "mastery_estimate": 0.686,
+        "selection_score": 0.414,
+        "priority_score": 0.255,
+        "dependency_ready": true,
+        "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+      }
+    ]
+  },
+  "active_skill_id": "arg_rebuttal_generation",
+  "active_skill_name": "Rebuttal Generation",
+  "active_move_id": "MWM_COUNTERARGUMENT_TO_REBUTTAL_V1",
+  "active_move_family": "argument_control",
+  "last_assigned_mission_id": "wc_mission_c0e3605e03",
+  "last_assigned_move_id": "MWM_COUNTERARGUMENT_TO_REBUTTAL_V1",
+  "mission_history": [],
+  "next_skill_queue": [
+    {
+      "skill_id": "formality_control",
+      "skill_name": "Formality Control",
+      "mastery_estimate": 0.667,
+      "selection_score": 0.496,
+      "priority_score": 0.382,
+      "dependency_ready": true,
+      "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "hedging_control",
+      "skill_name": "Hedging Control",
+      "mastery_estimate": 0.667,
+      "selection_score": 0.496,
+      "priority_score": 0.382,
+      "dependency_ready": true,
+      "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "arg_claim_generation",
+      "skill_name": "Claim Generation",
+      "mastery_estimate": 0.573,
+      "selection_score": 0.489,
+      "priority_score": 0.348,
+      "dependency_ready": true,
+      "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "paragraph_planning",
+      "skill_name": "Paragraph Planning",
+      "mastery_estimate": 0.828,
+      "selection_score": 0.436,
+      "priority_score": 0.304,
+      "dependency_ready": true,
+      "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "topic_sentence_control",
+      "skill_name": "Topic Sentence Control",
+      "mastery_estimate": 0.828,
+      "selection_score": 0.436,
+      "priority_score": 0.304,
+      "dependency_ready": true,
+      "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "collocation_control",
+      "skill_name": "Collocation Control",
+      "mastery_estimate": 0.655,
+      "selection_score": 0.429,
+      "priority_score": 0.265,
+      "dependency_ready": true,
+      "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "arg_support_alignment",
+      "skill_name": "Support Alignment",
+      "mastery_estimate": 0.796,
+      "selection_score": 0.418,
+      "priority_score": 0.266,
+      "dependency_ready": true,
+      "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+    },
+    {
+      "skill_id": "simple_sentence_construction",
+      "skill_name": "Simple Sentence Construction",
+      "mastery_estimate": 0.686,
+      "selection_score": 0.414,
+      "priority_score": 0.255,
+      "dependency_ready": true,
+      "condition": "Unlock after Arg Rebuttal Generation becomes functional or if a new essay refreshes priorities."
+    }
+  ],
+  "plan_horizon_days": 7,
+  "prompt_text": "the current writing topic",
+  "topic_context": "the current writing topic",
+  "domain": "ielts_academic_writing",
+  "timebox_minutes": 10,
+  "selected_move_candidate_snapshot": [
+    {
+      "move_id": "MWM_COUNTERARGUMENT_TO_REBUTTAL_V1",
+      "move_name": "Counterargument to Rebuttal",
+      "primary_microskill": "arg_rebuttal_generation",
+      "move_family": "argument_control",
+      "selection_score": 0.821,
+      "fit_score": 0.948,
+      "difficulty_fit": 0.74,
+      "source_policy_ok": true,
+      "target_skill_role_in_move": "primary_target",
+      "target_skill_role_explanation": "Move directly targets the selected microskill.",
+      "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=primary_target"
+    }
+  ],
+  "daily_run_contract": {
+    "mode": "daily_continuation_no_new_essay",
+    "required_inputs": [
+      "coach_state_export",
+      "external_move_bank"
+    ],
+    "optional_inputs": [
+      "last_mission_result",
+      "ontology",
+      "clusters"
+    ]
+  }
+}

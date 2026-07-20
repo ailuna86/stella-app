@@ -1,0 +1,80 @@
+{
+  "schema_version": "DETECTOR_EVALUATOR_BRIDGE_V1_4_3",
+  "engine_id": "VA_STELLA_DETECTOR_FOR_EVALUATOR_ADAPTER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-12T08:31:40.859810+00:00",
+  "boundary": "Field normalization only; source detector evidence is not changed or reclassified.",
+  "source_detector_schema": "DETECTOR_OUTPUT_SCORER_EVIDENCE_GUARDED_V1_4_7",
+  "source_errormap_schema": "ERRORMAP_V3_STANDALONE",
+  "essay_id": null,
+  "student_id": "stress_strong",
+  "diagnostic_rows": [
+    {
+      "row_id": "row_03a52cf1d48c8a26",
+      "detector_evidence_id": "row_03a52cf1d48c8a26",
+      "source": "detector",
+      "essay_id": "essay_strong_001",
+      "sentence_index": 11,
+      "paragraph_index": 5,
+      "rubric": "lexical_resource",
+      "category": "lexical_resource",
+      "criterion": "lexical_resource",
+      "family": "SEMANTIC_COMBINATION",
+      "error_family": "SEMANTIC_COMBINATION",
+      "issue_code": "SEMANTIC_COMBINATION",
+      "quote": "civic equity",
+      "surface_quote": "civic equity",
+      "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+      "span_text": "civic equity",
+      "start": 2408,
+      "end": 2420,
+      "span_start": 2408,
+      "span_end": 2420,
+      "confidence": 0.95,
+      "severity": "moderate",
+      "suggestion": "Replace 'civic equity' with 'civic engagement' to better align with common usage in discussions about service programs.",
+      "chargeable": true
+    }
+  ],
+  "results": [
+    {
+      "essay_id": null,
+      "student_id": "stress_strong",
+      "diagnostic_rows": [
+        {
+          "row_id": "row_03a52cf1d48c8a26",
+          "detector_evidence_id": "row_03a52cf1d48c8a26",
+          "source": "detector",
+          "essay_id": "essay_strong_001",
+          "sentence_index": 11,
+          "paragraph_index": 5,
+          "rubric": "lexical_resource",
+          "category": "lexical_resource",
+          "criterion": "lexical_resource",
+          "family": "SEMANTIC_COMBINATION",
+          "error_family": "SEMANTIC_COMBINATION",
+          "issue_code": "SEMANTIC_COMBINATION",
+          "quote": "civic equity",
+          "surface_quote": "civic equity",
+          "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+          "span_text": "civic equity",
+          "start": 2408,
+          "end": 2420,
+          "span_start": 2408,
+          "span_end": 2420,
+          "confidence": 0.95,
+          "severity": "moderate",
+          "suggestion": "Replace 'civic equity' with 'civic engagement' to better align with common usage in discussions about service programs.",
+          "chargeable": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "source_kind": "detector",
+    "diagnostic_row_count": 1,
+    "families": [
+      "SEMANTIC_COMBINATION"
+    ]
+  }
+}

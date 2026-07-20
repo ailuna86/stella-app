@@ -1,0 +1,261 @@
+{
+  "schema_version": "DIRECTIVE_ADAPTER_STANDALONE_V1_4_3",
+  "engine_id": "VA_STELLA_DIRECTIVE_ADAPTER_CLI",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-12T08:02:54.917304+00:00",
+  "boundary": "Directive adapter converts upstream priority and score contract into routing metadata only.",
+  "source_priority_schema": "PRIORITY_NORMALIZED_V1_4_3",
+  "focus_source": "priority_normalized",
+  "focus_areas": [
+    {
+      "rank": 1,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "criterion": "grammar",
+      "evidence_count": 13,
+      "weighted_pressure": 13.0,
+      "priority_level": "very_high",
+      "top_families": [
+        "SUBJECT_VERB_AGREEMENT",
+        "NOUN_NUMBER_COUNTABILITY",
+        "GRAMMAR_PUNCTUATION"
+      ],
+      "family_counts": {
+        "SUBJECT_VERB_AGREEMENT": 10,
+        "NOUN_NUMBER_COUNTABILITY": 2,
+        "GRAMMAR_PUNCTUATION": 1
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_0efed0aa49157e1a",
+          "source_row_id": "row_0efed0aa49157e1a",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "it compulsory",
+          "sentence_index": 3,
+          "severity": "moderate",
+          "confidence": 0.95
+        },
+        {
+          "error_id": "row_a8d6750bc9648cf3",
+          "source_row_id": "row_a8d6750bc9648cf3",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "many",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.78
+        },
+        {
+          "error_id": "row_c96fc92a698352cc",
+          "source_row_id": "row_c96fc92a698352cc",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "think",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.78
+        },
+        {
+          "error_id": "row_b38357a5df96e3a6",
+          "source_row_id": "row_b38357a5df96e3a6",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "they meets",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.72
+        },
+        {
+          "error_id": "row_e98202905c9fc28e",
+          "source_row_id": "row_e98202905c9fc28e",
+          "family": "GRAMMAR_PUNCTUATION",
+          "surface_quote": "true but",
+          "sentence_index": 11,
+          "severity": "moderate",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "skill_id": "lexical_precision",
+      "student_label": "Lexical Precision",
+      "criterion": "lexical_resource",
+      "evidence_count": 10,
+      "weighted_pressure": 10.0,
+      "priority_level": "very_high",
+      "top_families": [
+        "COLLOCATION",
+        "SPELLING"
+      ],
+      "family_counts": {
+        "COLLOCATION": 8,
+        "SPELLING": 2
+      },
+      "recommended_service": "lret",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_ac7d2668316daf03",
+          "source_row_id": "row_ac7d2668316daf03",
+          "family": "SPELLING",
+          "surface_quote": "dont",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.86
+        },
+        {
+          "error_id": "row_2e3f5867d8d8e819",
+          "source_row_id": "row_2e3f5867d8d8e819",
+          "family": "SPELLING",
+          "surface_quote": "dont",
+          "sentence_index": 11,
+          "severity": "moderate",
+          "confidence": 0.86
+        },
+        {
+          "error_id": "row_ea8c384393b64716",
+          "source_row_id": "row_ea8c384393b64716",
+          "family": "COLLOCATION",
+          "surface_quote": "student doing",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.85
+        },
+        {
+          "error_id": "row_67c40c61c6a5916e",
+          "source_row_id": "row_67c40c61c6a5916e",
+          "family": "COLLOCATION",
+          "surface_quote": "different peoples",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.9
+        },
+        {
+          "error_id": "row_22766023a6ba471b",
+          "source_row_id": "row_22766023a6ba471b",
+          "family": "COLLOCATION",
+          "surface_quote": "old peoples",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.9
+        }
+      ]
+    }
+  ],
+  "primary_focus": {
+    "rank": 1,
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "skill_id": "sentence_control",
+    "student_label": "Sentence Control",
+    "criterion": "grammar",
+    "evidence_count": 13,
+    "weighted_pressure": 13.0,
+    "priority_level": "very_high",
+    "top_families": [
+      "SUBJECT_VERB_AGREEMENT",
+      "NOUN_NUMBER_COUNTABILITY",
+      "GRAMMAR_PUNCTUATION"
+    ],
+    "family_counts": {
+      "SUBJECT_VERB_AGREEMENT": 10,
+      "NOUN_NUMBER_COUNTABILITY": 2,
+      "GRAMMAR_PUNCTUATION": 1
+    },
+    "recommended_service": "writing_coach",
+    "recommended_difficulty": "controlled",
+    "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+    "evidence_samples": [
+      {
+        "error_id": "row_0efed0aa49157e1a",
+        "source_row_id": "row_0efed0aa49157e1a",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "surface_quote": "it compulsory",
+        "sentence_index": 3,
+        "severity": "moderate",
+        "confidence": 0.95
+      },
+      {
+        "error_id": "row_a8d6750bc9648cf3",
+        "source_row_id": "row_a8d6750bc9648cf3",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "surface_quote": "many",
+        "sentence_index": 2,
+        "severity": "moderate",
+        "confidence": 0.78
+      },
+      {
+        "error_id": "row_c96fc92a698352cc",
+        "source_row_id": "row_c96fc92a698352cc",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "surface_quote": "think",
+        "sentence_index": 2,
+        "severity": "moderate",
+        "confidence": 0.78
+      },
+      {
+        "error_id": "row_b38357a5df96e3a6",
+        "source_row_id": "row_b38357a5df96e3a6",
+        "family": "SUBJECT_VERB_AGREEMENT",
+        "surface_quote": "they meets",
+        "sentence_index": 4,
+        "severity": "moderate",
+        "confidence": 0.72
+      },
+      {
+        "error_id": "row_e98202905c9fc28e",
+        "source_row_id": "row_e98202905c9fc28e",
+        "family": "GRAMMAR_PUNCTUATION",
+        "surface_quote": "true but",
+        "sentence_index": 11,
+        "severity": "moderate",
+        "confidence": 0.7
+      }
+    ]
+  },
+  "score_context": {
+    "released_score": {
+      "overall_band": 4.5,
+      "criteria_bands": {
+        "task_response": 4,
+        "coherence_cohesion": 5,
+        "lexical_resource": 5,
+        "grammar": 4
+      },
+      "score_family": "B1_WEAK",
+      "score_released": true
+    },
+    "score_confidence": "normal",
+    "score_status": "ready",
+    "verifier_status": "pass",
+    "adjudication_status": "confirmed",
+    "progress_tracking_allowed": true,
+    "lie_update_allowed": true
+  },
+  "score_confidence": "normal",
+  "adjudication_status": "confirmed",
+  "progress_tracking_allowed": true,
+  "gold_learning_directive": {
+    "next_best_skill": "sentence_control",
+    "next_best_capacity_domain": "sentence_control",
+    "recommended_service": "writing_coach",
+    "learning_update_allowed": true,
+    "mastery_update_allowed": false,
+    "recommended_difficulty": "controlled",
+    "reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus."
+  },
+  "learner_profile_context": {
+    "profile_supplied": true,
+    "profile_version": "GOLD_PRIOR_CONTEXT_V1"
+  },
+  "quality_flags": {
+    "has_primary_focus": true,
+    "has_recommended_service": true
+  }
+}

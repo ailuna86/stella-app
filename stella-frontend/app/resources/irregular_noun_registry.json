@@ -1,0 +1,1118 @@
+[
+  {
+    "singular": "addendum",
+    "plural": "addenda",
+    "plural_variants": [
+      "addenda",
+      "addendums"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "aircraft",
+    "plural": "aircraft",
+    "plural_variants": [
+      "aircraft"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "alumna",
+    "plural": "alumnae",
+    "plural_variants": [
+      "alumnae"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "alumnus",
+    "plural": "alumni",
+    "plural_variants": [
+      "alumni"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "analysis",
+    "plural": "analyses",
+    "plural_variants": [
+      "analyses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "antenna",
+    "plural": "antennae",
+    "plural_variants": [
+      "antennae",
+      "antennas"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "antithesis",
+    "plural": "antitheses",
+    "plural_variants": [
+      "antitheses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "apex",
+    "plural": "apices",
+    "plural_variants": [
+      "apexes",
+      "apices"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "appendix",
+    "plural": "appendices",
+    "plural_variants": [
+      "appendices",
+      "appendixes"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "axis",
+    "plural": "axes",
+    "plural_variants": [
+      "axes"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "bacillus",
+    "plural": "bacilli",
+    "plural_variants": [
+      "bacilli"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "bacterium",
+    "plural": "bacteria",
+    "plural_variants": [
+      "bacteria"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "basis",
+    "plural": "bases",
+    "plural_variants": [
+      "bases"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "beau",
+    "plural": "beaux",
+    "plural_variants": [
+      "beaus",
+      "beaux"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "bison",
+    "plural": "bison",
+    "plural_variants": [
+      "bison"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "bureau",
+    "plural": "bureaux",
+    "plural_variants": [
+      "bureaus",
+      "bureaux"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "cactus",
+    "plural": "cacti",
+    "plural_variants": [
+      "cacti",
+      "cactus",
+      "cactuses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "child",
+    "plural": "children",
+    "plural_variants": [
+      "children"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "codex",
+    "plural": "codices",
+    "plural_variants": [
+      "codices"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "concerto",
+    "plural": "concerti",
+    "plural_variants": [
+      "concerti",
+      "concertos"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "crisis",
+    "plural": "crises",
+    "plural_variants": [
+      "crises"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "criterion",
+    "plural": "criteria",
+    "plural_variants": [
+      "criteria",
+      "criterions"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "curriculum",
+    "plural": "curricula",
+    "plural_variants": [
+      "curricula",
+      "curriculums"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "datum",
+    "plural": "data",
+    "plural_variants": [
+      "data"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "deer",
+    "plural": "deer",
+    "plural_variants": [
+      "deer",
+      "deers"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "diagnosis",
+    "plural": "diagnoses",
+    "plural_variants": [
+      "diagnoses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "die",
+    "plural": "dice",
+    "plural_variants": [
+      "dice",
+      "dies"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "dwarf",
+    "plural": "dwarves",
+    "plural_variants": [
+      "dwarfs",
+      "dwarves"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "ellipsis",
+    "plural": "ellipses",
+    "plural_variants": [
+      "ellipses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "erratum",
+    "plural": "errata",
+    "plural_variants": [
+      "errata"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "faux pas",
+    "plural": "faux pas",
+    "plural_variants": [
+      "faux pas"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "fez",
+    "plural": "fezzes",
+    "plural_variants": [
+      "fezes",
+      "fezzes"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "fish",
+    "plural": "fish",
+    "plural_variants": [
+      "fish",
+      "fishes"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "focus",
+    "plural": "foci",
+    "plural_variants": [
+      "foci",
+      "focuses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "foot",
+    "plural": "feet",
+    "plural_variants": [
+      "feet",
+      "foot"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "formula",
+    "plural": "formulae",
+    "plural_variants": [
+      "formulae",
+      "formulas"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "fungus",
+    "plural": "fungi",
+    "plural_variants": [
+      "fungi",
+      "funguses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "genus",
+    "plural": "genera",
+    "plural_variants": [
+      "genera",
+      "genuses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "goose",
+    "plural": "geese",
+    "plural_variants": [
+      "geese"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "graffito",
+    "plural": "graffiti",
+    "plural_variants": [
+      "graffiti"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "grouse",
+    "plural": "grouse",
+    "plural_variants": [
+      "grouse",
+      "grouses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "half",
+    "plural": "halves",
+    "plural_variants": [
+      "halves"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "hoof",
+    "plural": "hooves",
+    "plural_variants": [
+      "hoofs",
+      "hooves"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "hypothesis",
+    "plural": "hypotheses",
+    "plural_variants": [
+      "hypotheses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "index",
+    "plural": "indices",
+    "plural_variants": [
+      "indexes",
+      "indices"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "larva",
+    "plural": "larvae",
+    "plural_variants": [
+      "larvae",
+      "larvas"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "libretto",
+    "plural": "libretti",
+    "plural_variants": [
+      "libretti",
+      "librettos"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "loaf",
+    "plural": "loaves",
+    "plural_variants": [
+      "loaves"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "locus",
+    "plural": "loci",
+    "plural_variants": [
+      "loci"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "louse",
+    "plural": "lice",
+    "plural_variants": [
+      "lice"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "man",
+    "plural": "men",
+    "plural_variants": [
+      "men"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "matrix",
+    "plural": "matrices",
+    "plural_variants": [
+      "matrices",
+      "matrixes"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "medium",
+    "plural": "media",
+    "plural_variants": [
+      "media",
+      "mediums"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "memorandum",
+    "plural": "memoranda",
+    "plural_variants": [
+      "memoranda",
+      "memorandums"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "minutia",
+    "plural": "minutiae",
+    "plural_variants": [
+      "minutiae"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "moose",
+    "plural": "moose",
+    "plural_variants": [
+      "moose"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "mouse",
+    "plural": "mice",
+    "plural_variants": [
+      "mice"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "nebula",
+    "plural": "nebulae",
+    "plural_variants": [
+      "nebulae",
+      "nebulas"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "nucleus",
+    "plural": "nuclei",
+    "plural_variants": [
+      "nuclei",
+      "nucleuses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "oasis",
+    "plural": "oases",
+    "plural_variants": [
+      "oases"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "offspring",
+    "plural": "offspring",
+    "plural_variants": [
+      "offspring",
+      "offsprings"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "opus",
+    "plural": "opera",
+    "plural_variants": [
+      "opera",
+      "opuses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "ovum",
+    "plural": "ova",
+    "plural_variants": [
+      "ova"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "ox",
+    "plural": "oxen",
+    "plural_variants": [
+      "ox",
+      "oxen"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "parenthesis",
+    "plural": "parentheses",
+    "plural_variants": [
+      "parentheses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "phenomenon",
+    "plural": "phenomena",
+    "plural_variants": [
+      "phenomena",
+      "phenomenons"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "phylum",
+    "plural": "phyla",
+    "plural_variants": [
+      "phyla"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "quiz",
+    "plural": "quizzes",
+    "plural_variants": [
+      "quizzes"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "radius",
+    "plural": "radii",
+    "plural_variants": [
+      "radii",
+      "radiuses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "referendum",
+    "plural": "referenda",
+    "plural_variants": [
+      "referenda",
+      "referendums"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "salmon",
+    "plural": "salmon",
+    "plural_variants": [
+      "salmon",
+      "salmons"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "scarf",
+    "plural": "scarves",
+    "plural_variants": [
+      "scarfs",
+      "scarves"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "self",
+    "plural": "selves",
+    "plural_variants": [
+      "selves"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "series",
+    "plural": "series",
+    "plural_variants": [
+      "series"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "sheep",
+    "plural": "sheep",
+    "plural_variants": [
+      "sheep"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "shrimp",
+    "plural": "shrimp",
+    "plural_variants": [
+      "shrimp",
+      "shrimps"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "species",
+    "plural": "species",
+    "plural_variants": [
+      "species"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "stimulus",
+    "plural": "stimuli",
+    "plural_variants": [
+      "stimuli"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "stratum",
+    "plural": "strata",
+    "plural_variants": [
+      "strata"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "swine",
+    "plural": "swine",
+    "plural_variants": [
+      "swine"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "syllabus",
+    "plural": "syllabi",
+    "plural_variants": [
+      "syllabi",
+      "syllabuses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "symposium",
+    "plural": "symposia",
+    "plural_variants": [
+      "symposia",
+      "symposiums"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "synopsis",
+    "plural": "synopses",
+    "plural_variants": [
+      "synopses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "tableau",
+    "plural": "tableaux",
+    "plural_variants": [
+      "tableaus",
+      "tableaux"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "thesis",
+    "plural": "theses",
+    "plural_variants": [
+      "theses"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "thief",
+    "plural": "thieves",
+    "plural_variants": [
+      "thieves"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "tooth",
+    "plural": "teeth",
+    "plural_variants": [
+      "teeth"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "trout",
+    "plural": "trout",
+    "plural_variants": [
+      "trout",
+      "trouts"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "tuna",
+    "plural": "tuna",
+    "plural_variants": [
+      "tuna",
+      "tunas"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "vertebra",
+    "plural": "vertebrae",
+    "plural_variants": [
+      "vertebrae",
+      "vertebras"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "vertex",
+    "plural": "vertices",
+    "plural_variants": [
+      "vertexes",
+      "vertices"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "vita",
+    "plural": "vitae",
+    "plural_variants": [
+      "vitae"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "vortex",
+    "plural": "vortices",
+    "plural_variants": [
+      "vortexes",
+      "vortices"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "wharf",
+    "plural": "wharves",
+    "plural_variants": [
+      "wharfs",
+      "wharves"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "wife",
+    "plural": "wives",
+    "plural_variants": [
+      "wives"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "wolf",
+    "plural": "wolves",
+    "plural_variants": [
+      "wolves"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  },
+  {
+    "singular": "woman",
+    "plural": "women",
+    "plural_variants": [
+      "women"
+    ],
+    "sources": [
+      "irregular_nouns_xls"
+    ],
+    "confidence": 0.97
+  }
+]

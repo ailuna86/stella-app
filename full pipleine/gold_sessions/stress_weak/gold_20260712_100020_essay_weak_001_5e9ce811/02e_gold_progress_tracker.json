@@ -1,0 +1,123 @@
+{
+  "schema_version": "PROGRESS_TRACKER_V2_SCORER_FEED_STANDALONE",
+  "engine_id": "VA_STELLA_PROGRESS_TRACKER_SCORER_FEED",
+  "engine_version": "2.0.1-standalone-no-imports-identity-fix",
+  "student_id": "stress_weak",
+  "score_events": [
+    {
+      "essay_id": "essay_weak_001",
+      "created_at": "2026-07-11T17:56:32.472631+00:00",
+      "recorded_at": "2026-07-11T17:56:32.699458+00:00",
+      "released_score": {
+        "overall_band": 5.0,
+        "criteria_bands": {
+          "task_response": 5,
+          "coherence_cohesion": 5,
+          "lexical_resource": 5,
+          "grammar": 5
+        },
+        "score_family": "B1_WEAK",
+        "score_released": true
+      },
+      "score_confidence": "normal",
+      "score_status": "ready",
+      "verifier_status": "pass",
+      "adjudication_status": "confirmed",
+      "stable_for_trend": true
+    },
+    {
+      "essay_id": "essay_weak_001",
+      "created_at": "2026-07-12T08:02:53.964802+00:00",
+      "recorded_at": "2026-07-12T08:02:54.074384+00:00",
+      "released_score": {
+        "overall_band": 4.5,
+        "criteria_bands": {
+          "task_response": 4,
+          "coherence_cohesion": 5,
+          "lexical_resource": 5,
+          "grammar": 4
+        },
+        "score_family": "B1_WEAK",
+        "score_released": true
+      },
+      "score_confidence": "normal",
+      "score_status": "ready",
+      "verifier_status": "pass",
+      "adjudication_status": "confirmed",
+      "stable_for_trend": true
+    }
+  ],
+  "latest_score_event": {
+    "essay_id": "essay_weak_001",
+    "created_at": "2026-07-12T08:02:53.964802+00:00",
+    "recorded_at": "2026-07-12T08:02:54.074384+00:00",
+    "released_score": {
+      "overall_band": 4.5,
+      "criteria_bands": {
+        "task_response": 4,
+        "coherence_cohesion": 5,
+        "lexical_resource": 5,
+        "grammar": 4
+      },
+      "score_family": "B1_WEAK",
+      "score_released": true
+    },
+    "score_confidence": "normal",
+    "score_status": "ready",
+    "verifier_status": "pass",
+    "adjudication_status": "confirmed",
+    "stable_for_trend": true
+  },
+  "stable_score_events": [
+    {
+      "essay_id": "essay_weak_001",
+      "created_at": "2026-07-11T17:56:32.472631+00:00",
+      "recorded_at": "2026-07-11T17:56:32.699458+00:00",
+      "released_score": {
+        "overall_band": 5.0,
+        "criteria_bands": {
+          "task_response": 5,
+          "coherence_cohesion": 5,
+          "lexical_resource": 5,
+          "grammar": 5
+        },
+        "score_family": "B1_WEAK",
+        "score_released": true
+      },
+      "score_confidence": "normal",
+      "score_status": "ready",
+      "verifier_status": "pass",
+      "adjudication_status": "confirmed",
+      "stable_for_trend": true
+    },
+    {
+      "essay_id": "essay_weak_001",
+      "created_at": "2026-07-12T08:02:53.964802+00:00",
+      "recorded_at": "2026-07-12T08:02:54.074384+00:00",
+      "released_score": {
+        "overall_band": 4.5,
+        "criteria_bands": {
+          "task_response": 4,
+          "coherence_cohesion": 5,
+          "lexical_resource": 5,
+          "grammar": 4
+        },
+        "score_family": "B1_WEAK",
+        "score_released": true
+      },
+      "score_confidence": "normal",
+      "score_status": "ready",
+      "verifier_status": "pass",
+      "adjudication_status": "confirmed",
+      "stable_for_trend": true
+    }
+  ],
+  "last_updated_at": "2026-07-12T08:02:54.074384+00:00",
+  "_persist": {
+    "engine_id": "VA_STELLA_GOLD_PROGRESS_TRACKER_PERSIST",
+    "engine_version": "1.0.0-standalone-no-imports",
+    "persisted_at": "2026-07-11T17:56:32.963063+00:00",
+    "last_session_id": "gold_20260711_195357_essay_weak_001_8d9dbaa3",
+    "score_event_count": 1
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "FEEDBACK_REPORT_V6C_CLI_STANDALONE",
+  "engine_id": "VA_STELLA_FEEDBACK_ENGINE_V6C_CLI",
+  "engine_version": "1.0.0-standalone-no-imports",
+  "created_at": "2026-07-12T06:21:19.484116+00:00",
+  "performance_summary": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "task_response": 5,
+      "coherence_cohesion": 5,
+      "lexical_resource": 6,
+      "grammar": 5
+    },
+    "score_confidence": "reduced",
+    "adjudication_status": "released_reduced_confidence"
+  },
+  "top_learning_priorities": [
+    {
+      "capacity_domain": "sentence_control",
+      "title": "Sentence control",
+      "why_this_matters": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "next_step": "Practise accurate clauses before writing longer paragraphs.",
+      "example_count": 1
+    }
+  ],
+  "focus_area_feedback": [
+    {
+      "status": "ok",
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "criterion": "grammar",
+      "title": "Sentence control",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "summary": "1 chargeable signal(s) are linked to this area in the current ErrorMap.",
+      "examples": [
+        {
+          "error_id": "row_231ff13f4a54943e",
+          "source_row_id": "row_231ff13f4a54943e",
+          "essay_id": "essay_strong_001",
+          "sentence_index": 8,
+          "criterion": "grammar",
+          "family": "CLAUSE_STRUCTURE",
+          "capacity_domain": "sentence_control",
+          "surface_quote": "background, is",
+          "suggested_revision": "remove comma or restructure",
+          "severity": "moderate",
+          "confidence": 0.82,
+          "student_message": "Unnecessary comma between subject and finite verb may break clause skeleton.",
+          "chargeable": true
+        }
+      ],
+      "next_step": "Practise accurate clauses before writing longer paragraphs."
+    }
+  ],
+  "boundary": "Student-facing feedback is generated from upstream directive and errormap evidence only."
+}

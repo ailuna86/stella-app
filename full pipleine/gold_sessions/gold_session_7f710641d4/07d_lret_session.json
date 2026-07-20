@@ -1,0 +1,642 @@
+{
+  "schema_version": "LRET_SESSION_GOLD_UNIFIED_V1_2",
+  "keep_candidates": [
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 16,
+      "unit": "in conclusion",
+      "unit_type": "formulaic_phrase",
+      "class_label": "keep",
+      "explanation": "This unit is already useful and natural in context.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    }
+  ],
+  "enhance_candidates": [
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 15,
+      "unit": "important",
+      "unit_type": "single_word_upgrade",
+      "class_label": "enhance",
+      "explanation": "This single word can be replaced by a more precise alternative.",
+      "suggestions_general": [
+        "significant",
+        "important",
+        "valuable"
+      ],
+      "suggestions_academic": [
+        "significant",
+        "crucial",
+        "salient"
+      ]
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "help",
+      "unit_type": "single_word_upgrade",
+      "class_label": "enhance",
+      "explanation": "This single word can be replaced by a more precise alternative.",
+      "suggestions_general": [
+        "support",
+        "assist",
+        "facilitate"
+      ],
+      "suggestions_academic": [
+        "facilitate",
+        "support",
+        "enable"
+      ]
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 11,
+      "unit": "good",
+      "unit_type": "single_word_upgrade",
+      "class_label": "enhance",
+      "explanation": "This single word can be replaced by a more precise alternative.",
+      "suggestions_general": [
+        "strong",
+        "effective",
+        "positive"
+      ],
+      "suggestions_academic": [
+        "effective",
+        "beneficial",
+        "substantial"
+      ]
+    }
+  ],
+  "fix_candidates": [
+    {
+      "unit": "example",
+      "source": "errormap",
+      "family": "L_REPETITION",
+      "suggested_revision": null,
+      "reason": "Rewrite the sentence to reduce repetition of this word."
+    },
+    {
+      "unit": "find",
+      "source": "errormap",
+      "family": "L_REPETITION",
+      "suggested_revision": null,
+      "reason": "Rewrite the sentence to reduce repetition of this word."
+    },
+    {
+      "unit": "a lot",
+      "source": "errormap",
+      "family": "L_INFORMAL_VOCAB",
+      "suggested_revision": null,
+      "reason": "Replace the informal word with a more precise alternative."
+    },
+    {
+      "unit": "goverment",
+      "source": "errormap",
+      "family": "L_SPELLING",
+      "suggested_revision": "government",
+      "reason": "Spelling problem: use 'government'."
+    },
+    {
+      "unit": "modey",
+      "source": "errormap",
+      "family": "L_SPELLING",
+      "suggested_revision": "money",
+      "reason": "Spelling problem: use 'money'."
+    },
+    {
+      "unit": "contries",
+      "source": "errormap",
+      "family": "L_SPELLING",
+      "suggested_revision": "countries",
+      "reason": "Spelling problem: use 'countries'."
+    },
+    {
+      "unit": "issued",
+      "source": "errormap",
+      "family": "L_SPELLING",
+      "suggested_revision": "issue",
+      "reason": "Spelling problem: use 'issue'."
+    },
+    {
+      "unit": "excited things",
+      "source": "errormap",
+      "family": "L_WORD_FORM",
+      "suggested_revision": null,
+      "reason": "Use a precise noun or the correct adjective form."
+    },
+    {
+      "unit": "home-things",
+      "source": "errormap",
+      "family": "L_WORD_CHOICE",
+      "suggested_revision": null,
+      "reason": "Use a precise phrase such as 'housework' or 'household tasks'."
+    },
+    {
+      "unit": "peoples",
+      "source": "errormap",
+      "family": "L_SPELLING",
+      "suggested_revision": "people",
+      "reason": "Spelling problem: use 'people'."
+    },
+    {
+      "unit": "good ability",
+      "source": "errormap",
+      "family": "L_COLLOCATION",
+      "suggested_revision": null,
+      "reason": "Use a natural phrase such as 'effective support' or 'strong policy'."
+    }
+  ],
+  "avoid_candidates": [
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "one problem",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "problem of",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "of an",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "population is",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "that government",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "government has",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "has to",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "to spent",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "spent more",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "more money",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "money on",
+      "unit_type": "phrasal_verb_surface",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "on health",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "health care",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "and pensions",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "one problem of",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "problem of an",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "of an ageing",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "ageing population is",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "population is that",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "is that government",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "that government has",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "government has to",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "has to spent",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "to spent more",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "spent more money",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "more money on",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "money on health",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "on health care",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "health care and",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 1,
+      "unit": "care and pensions",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "often need",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "need more",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "more medical",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "medical help",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "help than",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "young peoples",
+      "unit_type": "bigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "people often need",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "often need more",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "need more medical",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    },
+    {
+      "student_id": "student_123",
+      "submission_id": "submission_7f710641d42e",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "unit": "more medical help",
+      "unit_type": "trigram",
+      "class_label": "drop",
+      "explanation": "This extracted unit is not useful enough as a direct learning target.",
+      "suggestions_general": [],
+      "suggestions_academic": []
+    }
+  ],
+  "deduplication_rule": "Duplicate units are removed; phrase/collocation candidates outrank single words; FIX outranks ENHANCE, and ENHANCE outranks KEEP.",
+  "lie_events": []
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "DIRECTIVE_GOLD_UNIFIED_V1_2",
+  "focus_areas": [
+    {
+      "rank": 1,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "criterion": "GRA",
+      "evidence_count": 17,
+      "top_families": [
+        "G_SPACING",
+        "G_NOUN_NUMBER",
+        "G_COMMA_TRANSITION",
+        "G_MISSING_VERB",
+        "G_ARTICLE"
+      ],
+      "recommended_difficulty": "foundation"
+    },
+    {
+      "rank": 2,
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "criterion": "LR",
+      "evidence_count": 15,
+      "top_families": [
+        "L_SPELLING",
+        "L_REPETITION",
+        "L_LIMITED_VOCAB",
+        "L_WORD_FORM",
+        "L_WORD_CHOICE"
+      ],
+      "recommended_difficulty": "controlled_transfer"
+    },
+    {
+      "rank": 3,
+      "capacity_domain": "academic_style",
+      "skill_tag": "academic_style",
+      "criterion": "LR",
+      "evidence_count": 7,
+      "top_families": [
+        "L_INFORMAL_VOCAB",
+        "S_INFORMAL_TONE",
+        "S_HEDGING"
+      ],
+      "recommended_difficulty": "controlled_transfer"
+    },
+    {
+      "rank": 4,
+      "capacity_domain": "argument_development",
+      "skill_tag": "argument_development",
+      "criterion": "TR",
+      "evidence_count": 2,
+      "top_families": [
+        "A_OVERGENERALIZATION",
+        "A_UNDERDEVELOPED"
+      ],
+      "recommended_difficulty": "controlled_transfer"
+    },
+    {
+      "rank": 5,
+      "capacity_domain": "cohesion_control",
+      "skill_tag": "cohesion_control",
+      "criterion": "CC",
+      "evidence_count": 1,
+      "top_families": [
+        "C_SIMPLE_CONNECTORS"
+      ],
+      "recommended_difficulty": "controlled_transfer"
+    }
+  ],
+  "primary_focus": {
+    "rank": 1,
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "criterion": "GRA",
+    "evidence_count": 17,
+    "top_families": [
+      "G_SPACING",
+      "G_NOUN_NUMBER",
+      "G_COMMA_TRANSITION",
+      "G_MISSING_VERB",
+      "G_ARTICLE"
+    ],
+    "recommended_difficulty": "foundation"
+  },
+  "score_confidence": "normal",
+  "adjudication_status": "confirmed",
+  "progress_tracking_allowed": true,
+  "gold_learning_directive": {
+    "next_best_skill": "sentence_control",
+    "recommended_service": "writing_coach",
+    "learning_update_allowed": true,
+    "mastery_update_allowed": false
+  }
+}

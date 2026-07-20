@@ -1,0 +1,118 @@
+{
+  "schema_version": "GOLD_LEARNER_PROFILE_PERSISTED_V1",
+  "engine_id": "VA_STELLA_GOLD_LIE_PROFILE_BUILDER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-12T06:27:10.675384+00:00",
+  "student_id": "stress_strong",
+  "latest_essay_id": "essay_strong_001",
+  "latest_score": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "task_response": 5,
+      "coherence_cohesion": 5,
+      "lexical_resource": 6,
+      "grammar": 5
+    },
+    "score_confidence": "reduced",
+    "score_status": "ready",
+    "progress_tracking_allowed": false,
+    "lie_update_allowed": false
+  },
+  "latest_error_profile": {
+    "by_family": {
+      "CLAUSE_STRUCTURE": 1
+    },
+    "by_capacity": {
+      "sentence_control": 1
+    },
+    "by_criterion": {
+      "grammar": 1
+    },
+    "total_chargeable": 1
+  },
+  "latest_priority_focus": [
+    {
+      "rank": 1,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "criterion": "grammar",
+      "evidence_count": 1,
+      "weighted_pressure": 1.0,
+      "priority_level": "monitor",
+      "top_families": [
+        "CLAUSE_STRUCTURE"
+      ],
+      "family_counts": {
+        "CLAUSE_STRUCTURE": 1
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "guided",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_231ff13f4a54943e",
+          "source_row_id": "row_231ff13f4a54943e",
+          "family": "CLAUSE_STRUCTURE",
+          "surface_quote": "background, is",
+          "sentence_index": 8,
+          "severity": "moderate",
+          "confidence": 0.82
+        }
+      ]
+    }
+  ],
+  "service_artifact_status": {
+    "feedback": {
+      "available": true,
+      "schema_version": "FEEDBACK_REPORT_V6C_CLI_STANDALONE",
+      "engine_id": "VA_STELLA_FEEDBACK_ENGINE_V6C_CLI"
+    },
+    "evaluator": {
+      "available": true,
+      "schema_version": "WKM_OUTPUT_V8.3",
+      "engine_id": null
+    },
+    "lret": {
+      "available": true,
+      "schema_version": "LRET_OUTPUT_V1.5",
+      "engine_id": null
+    },
+    "writing_coach": {
+      "available": true,
+      "schema_version": "WRITING_COACH_OUTPUT_V1_2_10_PROACTIVE_ADAPTIVE_CLI",
+      "engine_id": null
+    },
+    "practice": {
+      "available": true,
+      "schema_version": "GOLD_PRACTICE_SESSION_ADAPTIVE_V1",
+      "engine_id": "VA_STELLA_GOLD_PRACTICE_ENGINE_BRIDGE"
+    }
+  },
+  "next_best_action": {
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "recommended_service": "writing_coach",
+    "source": "directive"
+  },
+  "learning_state": {
+    "profile_update_allowed": false,
+    "trend_update_allowed": false,
+    "mastery_update_policy": "evidence_accumulation_only_until_student_attempts_practice_or_coach_tasks"
+  },
+  "boundary": "LIE profile aggregates completed Gold artifacts only; no scoring, detection, feedback generation, or exercise generation is performed here.",
+  "_persist": {
+    "engine_id": "VA_STELLA_GOLD_PROFILE_PERSIST",
+    "engine_version": "1.0.0-standalone-no-imports",
+    "persisted_at": "2026-07-12T06:27:10.962858+00:00",
+    "lie_update_allowed": false,
+    "action": "held_back_observed_only",
+    "reason": "lie_update_allowed=false (reduced/low score confidence for this essay)"
+  },
+  "_continuity": {
+    "sessions_analyzed": 0,
+    "last_observed_only_session_id": "gold_20260712_081853_essay_strong_001_c5105d43",
+    "last_observed_only_at": "2026-07-12T06:27:10.962858+00:00"
+  }
+}

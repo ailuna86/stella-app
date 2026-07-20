@@ -1,0 +1,1774 @@
+{
+  "schema_version": "WRITING_COACH_OUTPUT_V1_2_10_PROACTIVE_ADAPTIVE_CLI",
+  "contract_compatibility": "WRITING_COACH_OUTPUT_V1_2_10",
+  "identity": {
+    "student_id": "student_123",
+    "institution_id": null,
+    "class_id": null,
+    "teacher_id": null,
+    "essay_id": "essay_001",
+    "submission_id": null,
+    "prompt_id": null,
+    "batch_id": null,
+    "draft_id": null,
+    "parent_submission_id": null,
+    "session_id": null
+  },
+  "student_id": "student_123",
+  "run": {
+    "run_id": "run_9a5e43c500969176",
+    "engine_id": "WRITING_COACH",
+    "engine_version": "writing_coach_v1.2.10_proactive_adaptive_cli",
+    "created_at": "2026-07-11T12:55:18.499509+00:00",
+    "runtime_mode": "standalone_cli",
+    "model_used": null,
+    "move_bank_id": "MICRO_WRITING_MOVE_BANK",
+    "move_bank_schema_version": "MICRO_WRITING_MOVE_BANK_V1_2_FLAT_ADAPTED",
+    "resource_version": "ontology=3.0.0;clusters=3.0.0",
+    "planner_mode": "after_essay_prescription_or_refresh",
+    "plan_horizon_days": 7
+  },
+  "coach_decision": {
+    "selected_skill_id": "academic_register_control",
+    "selected_skill_name": "Academic Register Control",
+    "selected_move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+    "selected_move_name": "Personal Example to General Point",
+    "target_skill_role_in_move": "primary_target",
+    "target_skill_role_explanation": "The selected move directly targets this microskill as its primary training focus.",
+    "selection_policy": "move_based_dependency_aware_next_best_microskill_v1_2_10",
+    "student_essay_use_policy": "diagnostic_input_and_optional_noticing_only_not_default_repair_material",
+    "student_rationale": "Today you will practise academic register control through a short writing move: Personal Example to General Point. The goal is to produce new, clearer writing — not to rewrite the old essay.",
+    "teacher_rationale": "Selected by move-based Writing Coach V1.2.10. skill=academic_register_control; selection_score=0.903; priority_score=0.916; mastery_estimate=0.15; confidence=0.74; bucket=hybrid_single_essay_plus_multi_essay_tracking; selected_move=MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1; target_skill_role_in_move=primary_target; move_fit=0.948. Directive alignment note: Gold Directive primary focus is sentence_control; Writing Coach selected academic_register_control. Override is explicit, not silent.",
+    "candidate_rankings": [
+      {
+        "skill_id": "academic_register_control",
+        "skill_name": "Academic Register Control",
+        "domain": "Lexical Control",
+        "mastery_estimate": 0.15,
+        "selection_score": 0.903,
+        "priority_score": 0.916,
+        "pressure": 1.0,
+        "confidence": 0.74,
+        "evidence_count": 10,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "detector_or_errormap"
+        ],
+        "evidence_ids": [
+          "err_25bab6d883ef",
+          "err_4f3b9435fcda",
+          "err_6dc01a8278e0",
+          "err_6dfae11b3b57",
+          "err_b7ab40183057",
+          "err_bc5fd3270a61",
+          "err_bc76f2654d7f",
+          "err_e817ad6b3f1c",
+          "err_f21aac5aefa2",
+          "err_f933a35b816c"
+        ],
+        "families": [
+          "REGISTER"
+        ],
+        "reasons": [
+          "Evidence sources: detector_or_errormap.",
+          "Repeated signal families: REGISTER×1.",
+          "High current learning priority.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "scaffolded",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "verb_form_control",
+        "skill_name": "Verb Form Control",
+        "domain": "Grammar Production",
+        "mastery_estimate": 0.505,
+        "selection_score": 0.594,
+        "priority_score": 0.503,
+        "pressure": 0.44,
+        "confidence": 0.74,
+        "evidence_count": 2,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "detector_or_errormap"
+        ],
+        "evidence_ids": [
+          "err_487bb135dbca",
+          "err_ddb2bdb4533b"
+        ],
+        "families": [
+          "VERB_PATTERN"
+        ],
+        "reasons": [
+          "Evidence sources: detector_or_errormap.",
+          "Repeated signal families: VERB_PATTERN×1.",
+          "Moderate current learning priority.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "agreement_control",
+        "skill_name": "Agreement Control",
+        "domain": "Grammar Production",
+        "mastery_estimate": 0.617,
+        "selection_score": 0.565,
+        "priority_score": 0.481,
+        "pressure": 0.455,
+        "confidence": 0.74,
+        "evidence_count": 6,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "detector_or_errormap",
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "err_35e5eaf1fc9c",
+          "ev_0002",
+          "ev_0003",
+          "ev_0004",
+          "ev_0005",
+          "ev_0007"
+        ],
+        "families": [
+          "SUBJECT_VERB_AGREEMENT"
+        ],
+        "reasons": [
+          "Evidence sources: detector_or_errormap, evaluator.",
+          "Repeated signal families: SUBJECT_VERB_AGREEMENT×1.",
+          "Moderate current learning priority.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [
+          "noun_form_control"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "article_control",
+        "skill_name": "Article Control",
+        "domain": "Grammar Production",
+        "mastery_estimate": 0.617,
+        "selection_score": 0.565,
+        "priority_score": 0.481,
+        "pressure": 0.455,
+        "confidence": 0.74,
+        "evidence_count": 6,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "detector_or_errormap",
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "err_517791e37322",
+          "ev_0002",
+          "ev_0003",
+          "ev_0004",
+          "ev_0005",
+          "ev_0007"
+        ],
+        "families": [
+          "ARTICLE_DETERMINER"
+        ],
+        "reasons": [
+          "Evidence sources: detector_or_errormap, evaluator.",
+          "Repeated signal families: ARTICLE_DETERMINER×1.",
+          "Moderate current learning priority.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [
+          "noun_form_control"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "arg_support_alignment",
+        "skill_name": "Support Alignment",
+        "domain": "Argumentation",
+        "mastery_estimate": 0.66,
+        "selection_score": 0.527,
+        "priority_score": 0.417,
+        "pressure": 0.343,
+        "confidence": 0.81,
+        "evidence_count": 12,
+        "evaluation_bucket": "single_essay_observable",
+        "sources": [
+          "dependency_from:arg_example_relevance",
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0003",
+          "ev_0004",
+          "ev_0005",
+          "ev_0014",
+          "ev_0015"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: dependency_from:arg_example_relevance, evaluator.",
+          "Evaluation bucket: single_essay_observable."
+        ],
+        "prerequisites": [
+          "arg_support_generation",
+          "arg_reason_relevance"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "near_transfer",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "collocation_control",
+        "skill_name": "Collocation Control",
+        "domain": "Lexical Control",
+        "mastery_estimate": 0.526,
+        "selection_score": 0.509,
+        "priority_score": 0.365,
+        "pressure": 0.18,
+        "confidence": 0.82,
+        "evidence_count": 8,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0004",
+          "ev_0007",
+          "ev_0014",
+          "ev_0015",
+          "ev_0021",
+          "ev_0022",
+          "ev_0023"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "arg_claim_generation",
+        "skill_name": "Claim Generation",
+        "domain": "Argumentation",
+        "mastery_estimate": 0.539,
+        "selection_score": 0.5,
+        "priority_score": 0.358,
+        "pressure": 0.18,
+        "confidence": 0.8,
+        "evidence_count": 6,
+        "evaluation_bucket": "hybrid_essay_observable_plus_practice_required",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0002",
+          "ev_0003",
+          "ev_0004",
+          "ev_0005",
+          "ev_0007",
+          "ev_0012"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Large mastery gap.",
+          "Evaluation bucket: hybrid_essay_observable_plus_practice_required."
+        ],
+        "prerequisites": [
+          "identify_task_type",
+          "identify_purpose"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "controlled",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "formality_control",
+        "skill_name": "Formality Control",
+        "domain": "Style & Reader Impact",
+        "mastery_estimate": 0.628,
+        "selection_score": 0.493,
+        "priority_score": 0.377,
+        "pressure": 0.301,
+        "confidence": 0.65,
+        "evidence_count": 4,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "dependency_from:academic_tone",
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0015",
+          "ev_0021"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: dependency_from:academic_tone, evaluator.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [
+          "register_control",
+          "identify_audience"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "near_transfer",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "hedging_control",
+        "skill_name": "Hedging Control",
+        "domain": "Style & Reader Impact",
+        "mastery_estimate": 0.628,
+        "selection_score": 0.493,
+        "priority_score": 0.377,
+        "pressure": 0.301,
+        "confidence": 0.65,
+        "evidence_count": 4,
+        "evaluation_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "sources": [
+          "dependency_from:academic_tone",
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0015",
+          "ev_0021"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: dependency_from:academic_tone, evaluator.",
+          "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+        ],
+        "prerequisites": [
+          "qualification_and_nuance",
+          "academic_tone"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "near_transfer",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "paragraph_planning",
+        "skill_name": "Paragraph Planning",
+        "domain": "Organization",
+        "mastery_estimate": 0.834,
+        "selection_score": 0.434,
+        "priority_score": 0.302,
+        "pressure": 0.21,
+        "confidence": 0.86,
+        "evidence_count": 5,
+        "evaluation_bucket": "single_essay_observable",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0001",
+          "ev_0006",
+          "ev_0011",
+          "ev_0016",
+          "ev_0020"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Evaluation bucket: single_essay_observable."
+        ],
+        "prerequisites": [
+          "identify_required_components",
+          "thesis_construction"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "near_transfer",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "topic_sentence_control",
+        "skill_name": "Topic Sentence Control",
+        "domain": "Organization",
+        "mastery_estimate": 0.834,
+        "selection_score": 0.434,
+        "priority_score": 0.302,
+        "pressure": 0.21,
+        "confidence": 0.86,
+        "evidence_count": 5,
+        "evaluation_bucket": "single_essay_observable",
+        "sources": [
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "ev_0001",
+          "ev_0006",
+          "ev_0011",
+          "ev_0016",
+          "ev_0020"
+        ],
+        "families": [],
+        "reasons": [
+          "Evidence sources: evaluator.",
+          "Evaluation bucket: single_essay_observable."
+        ],
+        "prerequisites": [
+          "paragraph_planning"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "near_transfer",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "transition_control",
+        "skill_name": "Transition Control",
+        "domain": "Cohesion",
+        "mastery_estimate": 0.773,
+        "selection_score": 0.425,
+        "priority_score": 0.28,
+        "pressure": 0.158,
+        "confidence": 0.8,
+        "evidence_count": 6,
+        "evaluation_bucket": "single_essay_observable",
+        "sources": [
+          "detector_or_errormap",
+          "evaluator"
+        ],
+        "evidence_ids": [
+          "err_5735bd9c7c83",
+          "ev_0005",
+          "ev_0012",
+          "ev_0015",
+          "ev_0017",
+          "ev_0021"
+        ],
+        "families": [
+          "TRANSITION"
+        ],
+        "reasons": [
+          "Evidence sources: detector_or_errormap, evaluator.",
+          "Repeated signal families: TRANSITION×1.",
+          "Evaluation bucket: single_essay_observable."
+        ],
+        "prerequisites": [
+          "logical_sequencing"
+        ],
+        "dependency_ready": true,
+        "blocking_prerequisites": [],
+        "recommended_difficulty": "near_transfer",
+        "recommended_duration": 10,
+        "has_move_bank_entry": true
+      }
+    ],
+    "move_candidate_rankings": [
+      {
+        "move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+        "move_name": "Personal Example to General Point",
+        "primary_microskill": "academic_register_control",
+        "move_family": "formality",
+        "selection_score": 0.93,
+        "fit_score": 0.948,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "primary_target",
+        "target_skill_role_explanation": "Move directly targets the selected microskill.",
+        "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=primary_target"
+      },
+      {
+        "move_id": "MWM_VAGUE_TO_PRECISE_SENTENCE_V1",
+        "move_name": "Vague to Precise Sentence",
+        "primary_microskill": "lexical_precision",
+        "move_family": "precision",
+        "selection_score": 0.925,
+        "fit_score": 0.94,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "secondary_target",
+        "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+        "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+      },
+      {
+        "move_id": "MWM_ROUGH_OPINION_TO_ARGUABLE_CLAIM_V1",
+        "move_name": "Rough Opinion to Arguable Claim",
+        "primary_microskill": "arg_claim_generation",
+        "move_family": "argument_control",
+        "selection_score": 0.925,
+        "fit_score": 0.94,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "secondary_target",
+        "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+        "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+      },
+      {
+        "move_id": "MWM_OPPOSING_VIEW_TO_COUNTERARGUMENT_V1",
+        "move_name": "Opposing View to Counterargument",
+        "primary_microskill": "arg_counterargument_generation",
+        "move_family": "argument_control",
+        "selection_score": 0.925,
+        "fit_score": 0.94,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "secondary_target",
+        "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+        "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+      },
+      {
+        "move_id": "MWM_STRONG_OPINION_TO_BALANCED_CLAIM_V1",
+        "move_name": "Strong Opinion to Balanced Claim",
+        "primary_microskill": "hedging_control",
+        "move_family": "formality",
+        "selection_score": 0.925,
+        "fit_score": 0.94,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "secondary_target",
+        "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+        "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+      },
+      {
+        "move_id": "MWM_INFORMAL_TO_ACADEMIC_SENTENCE_V1",
+        "move_name": "Informal to Academic Sentence",
+        "primary_microskill": "academic_register_control",
+        "move_family": "formality",
+        "selection_score": 0.901,
+        "fit_score": 0.9,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "primary_target",
+        "target_skill_role_explanation": "Move directly targets the selected microskill.",
+        "reason": "duration_fit=0.80; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=primary_target"
+      },
+      {
+        "move_id": "MWM_BASIC_NOUN_TO_ACADEMIC_NOUN_PHRASE_V1",
+        "move_name": "Basic Noun to Academic Noun Phrase",
+        "primary_microskill": "lexical_precision",
+        "move_family": "precision",
+        "selection_score": 0.896,
+        "fit_score": 0.892,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "secondary_target",
+        "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+        "reason": "duration_fit=0.80; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+      },
+      {
+        "move_id": "MWM_GENERAL_TO_SPECIFIC_LEXICAL_SET_V1",
+        "move_name": "General to Specific Lexical Set",
+        "primary_microskill": "lexical_range_control",
+        "move_family": "precision",
+        "selection_score": 0.896,
+        "fit_score": 0.892,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "secondary_target",
+        "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+        "reason": "duration_fit=0.80; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+      }
+    ],
+    "dependency_ready": true,
+    "blocking_prerequisites": [],
+    "directive_primary_focus": {
+      "capacity_domain": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "recommended_service": "writing_coach",
+      "priority_level": "very_high",
+      "evidence_count": 13
+    },
+    "selected_skill_aligned_to_directive": false,
+    "directive_alignment_status": "explained_override"
+  },
+  "today_mission": {
+    "mission_id": "wc_mission_67e7e14f31",
+    "mission_version": "writing_coach_v1_2_10_move_mission",
+    "target_skill_id": "academic_register_control",
+    "target_skill_name": "Academic Register Control",
+    "target_domain": "Lexical Control",
+    "target_skill_role_in_move": "primary_target",
+    "target_skill_role_explanation": "The selected move directly targets this microskill as its primary training focus.",
+    "selected_move": {
+      "move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+      "move_name": "Personal Example to General Point",
+      "move_family": "formality",
+      "training_mode": "transformation",
+      "primary_microskill": "academic_register_control",
+      "secondary_microskills": [
+        "arg_claim_generation",
+        "lexical_precision"
+      ],
+      "target_skill_role_in_move": "primary_target",
+      "target_skill_role_explanation": "The selected move directly targets this microskill as its primary training focus."
+    },
+    "timebox_minutes": 10,
+    "difficulty": "scaffolded",
+    "activity_category": "WRITING_COACH_MICRO_PRODUCTION",
+    "title": "Turn personal statements into general academic points",
+    "student_goal": "Practice academic register control through the 'Personal Example to General Point' writing move.",
+    "source_prompt": "the current writing topic",
+    "source_policy": {
+      "default_source": "personal_statement_pack",
+      "own_essay_use": "diagnostic_reference_only",
+      "allow_own_essay_excerpt": true,
+      "max_own_essay_excerpts": 1,
+      "allow_direct_repair": false,
+      "fallback_sources": [
+        "topic_prompt_pack",
+        "rough_note_generator",
+        "teacher_approved_examples"
+      ]
+    },
+    "stimulus": {
+      "stimulus_type": "near_transfer_prompts",
+      "topic_context": "the current writing topic",
+      "own_essay_use": "diagnostic_reference_only",
+      "items": [
+        {
+          "rough_input": "I always study better with my phone away.",
+          "expected_move": "rewrite the idea in an academic register",
+          "original_item_number": 1
+        },
+        {
+          "rough_input": "My friends say social media distracts them from homework.",
+          "expected_move": "rewrite the idea in an academic register",
+          "original_item_number": 2
+        },
+        {
+          "rough_input": "I feel like online courses helped me learn faster.",
+          "expected_move": "rewrite the idea in an academic register",
+          "original_item_number": 3
+        },
+        {
+          "rough_input": "My teacher told me handwritten notes helped me remember more.",
+          "expected_move": "rewrite the idea in an academic register",
+          "original_item_number": 4
+        }
+      ],
+      "noticing_example": null,
+      "full_source_items": [
+        {
+          "rough_input": "I always study better with my phone away.",
+          "expected_move": "rewrite the idea in an academic register",
+          "original_item_number": 1
+        },
+        {
+          "rough_input": "My friends say social media distracts them from homework.",
+          "expected_move": "rewrite the idea in an academic register",
+          "original_item_number": 2
+        },
+        {
+          "rough_input": "I feel like online courses helped me learn faster.",
+          "expected_move": "rewrite the idea in an academic register",
+          "original_item_number": 3
+        },
+        {
+          "rough_input": "My teacher told me handwritten notes helped me remember more.",
+          "expected_move": "rewrite the idea in an academic register",
+          "original_item_number": 4
+        }
+      ]
+    },
+    "steps": [
+      "Turn each personal statement into a general academic point. Remove first person and generalize appropriately.",
+      "Model (for reference only, do not copy word-for-word): {'weak': 'I always study better with my phone away.', 'strong': 'Removing digital distractions during study sessions has been shown to improve concentration for many students.'}",
+      "Before you submit, check: Is the first-person reference removed? Is the generalization appropriate, not overstated? Does the sentence sound like an academic claim rather than an anecdote?"
+    ],
+    "required_output": {
+      "type": "short_written_response",
+      "required_items": 4,
+      "line_rule": "one sentence per line",
+      "length_guidance": "1 sentence per item unless the mission asks for a chain.",
+      "expected_item_numbers": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "student_instruction": "Turn personal statements into general academic points\nTime: 10 minutes\n\nWhat to do:\n1. Turn each personal statement into a general academic point. Remove first person and generalize appropriately.\n2. Model (for reference only, do not copy word-for-word): {'weak': 'I always study better with my phone away.', 'strong': 'Removing digital distractions during study sessions has been shown to improve concentration for many students.'}\n3. Before you submit, check: Is the first-person reference removed? Is the generalization appropriate, not overstated? Does the sentence sound like an academic claim rather than an anecdote?\n\nWrite your answer:\n- 4 item(s)\n- one sentence per line\n- 1 sentence per item unless the mission asks for a chain.",
+    "success_checklist": [
+      "Is the first-person reference removed?",
+      "Is the generalization appropriate, not overstated?",
+      "Does the sentence sound like an academic claim rather than an anecdote?"
+    ],
+    "observable_units": [
+      {
+        "unit_id": "first_person_removed",
+        "description": "First-person references are removed.",
+        "weight": 0.25,
+        "critical": true,
+        "score_type": "binary_or_partial_0_1"
+      },
+      {
+        "unit_id": "generalization_appropriate",
+        "description": "The generalization is reasonable and not overstated.",
+        "weight": 0.2,
+        "critical": true,
+        "score_type": "binary_or_partial_0_1"
+      },
+      {
+        "unit_id": "claim_supported_by_pattern_not_anecdote",
+        "description": "The point is framed as a general pattern rather than a personal anecdote.",
+        "weight": 0.25,
+        "critical": true,
+        "score_type": "binary_or_partial_0_1"
+      },
+      {
+        "unit_id": "register_appropriate",
+        "description": "The register is appropriate for academic writing.",
+        "weight": 0.2,
+        "critical": true,
+        "score_type": "binary_or_partial_0_1"
+      },
+      {
+        "unit_id": "minimum_output_met",
+        "description": "The learner produces the required number of items.",
+        "weight": 0.1,
+        "critical": false,
+        "score_type": "binary_or_partial_0_1"
+      }
+    ],
+    "scoring": {
+      "pass_threshold": 0.8,
+      "partial_threshold": 0.6,
+      "critical_failure_policy": "critical observable-unit failure caps result at 0.55 unless evidence is partial and recoverable",
+      "outcomes": {
+        "pass": "score >= pass_threshold and no critical failure",
+        "partial_pass": "partial_threshold <= score < pass_threshold or minor recoverable gap",
+        "fail": "score < partial_threshold or critical failure",
+        "invalid": "empty/off-task/not enough evidence"
+      }
+    },
+    "student_rationale": "Today you will practise academic register control through a short writing move: Personal Example to General Point. The goal is to produce new, clearer writing — not to rewrite the old essay.",
+    "teacher_rationale": "Selected by move-based Writing Coach V1.2.10. skill=academic_register_control; selection_score=0.903; priority_score=0.916; mastery_estimate=0.15; confidence=0.74; bucket=hybrid_single_essay_plus_multi_essay_tracking; selected_move=MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1; target_skill_role_in_move=primary_target; move_fit=0.948.",
+    "debug_rationale": {
+      "skill_reasons": [
+        "Evidence sources: detector_or_errormap.",
+        "Repeated signal families: REGISTER×1.",
+        "High current learning priority.",
+        "Large mastery gap.",
+        "Evaluation bucket: hybrid_single_essay_plus_multi_essay_tracking."
+      ],
+      "sources": [
+        "detector_or_errormap"
+      ],
+      "families": [
+        "REGISTER"
+      ],
+      "evidence_ids": [
+        "err_25bab6d883ef",
+        "err_4f3b9435fcda",
+        "err_6dc01a8278e0",
+        "err_6dfae11b3b57",
+        "err_b7ab40183057",
+        "err_bc5fd3270a61",
+        "err_bc76f2654d7f",
+        "err_e817ad6b3f1c",
+        "err_f21aac5aefa2",
+        "err_f933a35b816c"
+      ],
+      "move_candidate_rankings": [
+        {
+          "move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+          "move_name": "Personal Example to General Point",
+          "primary_microskill": "academic_register_control",
+          "move_family": "formality",
+          "selection_score": 0.93,
+          "fit_score": 0.948,
+          "difficulty_fit": 0.74,
+          "source_policy_ok": true,
+          "target_skill_role_in_move": "primary_target",
+          "target_skill_role_explanation": "Move directly targets the selected microskill.",
+          "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=primary_target"
+        },
+        {
+          "move_id": "MWM_VAGUE_TO_PRECISE_SENTENCE_V1",
+          "move_name": "Vague to Precise Sentence",
+          "primary_microskill": "lexical_precision",
+          "move_family": "precision",
+          "selection_score": 0.925,
+          "fit_score": 0.94,
+          "difficulty_fit": 0.74,
+          "source_policy_ok": true,
+          "target_skill_role_in_move": "secondary_target",
+          "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+          "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+        },
+        {
+          "move_id": "MWM_ROUGH_OPINION_TO_ARGUABLE_CLAIM_V1",
+          "move_name": "Rough Opinion to Arguable Claim",
+          "primary_microskill": "arg_claim_generation",
+          "move_family": "argument_control",
+          "selection_score": 0.925,
+          "fit_score": 0.94,
+          "difficulty_fit": 0.74,
+          "source_policy_ok": true,
+          "target_skill_role_in_move": "secondary_target",
+          "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+          "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+        },
+        {
+          "move_id": "MWM_OPPOSING_VIEW_TO_COUNTERARGUMENT_V1",
+          "move_name": "Opposing View to Counterargument",
+          "primary_microskill": "arg_counterargument_generation",
+          "move_family": "argument_control",
+          "selection_score": 0.925,
+          "fit_score": 0.94,
+          "difficulty_fit": 0.74,
+          "source_policy_ok": true,
+          "target_skill_role_in_move": "secondary_target",
+          "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+          "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+        },
+        {
+          "move_id": "MWM_STRONG_OPINION_TO_BALANCED_CLAIM_V1",
+          "move_name": "Strong Opinion to Balanced Claim",
+          "primary_microskill": "hedging_control",
+          "move_family": "formality",
+          "selection_score": 0.925,
+          "fit_score": 0.94,
+          "difficulty_fit": 0.74,
+          "source_policy_ok": true,
+          "target_skill_role_in_move": "secondary_target",
+          "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+          "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+        },
+        {
+          "move_id": "MWM_INFORMAL_TO_ACADEMIC_SENTENCE_V1",
+          "move_name": "Informal to Academic Sentence",
+          "primary_microskill": "academic_register_control",
+          "move_family": "formality",
+          "selection_score": 0.901,
+          "fit_score": 0.9,
+          "difficulty_fit": 0.74,
+          "source_policy_ok": true,
+          "target_skill_role_in_move": "primary_target",
+          "target_skill_role_explanation": "Move directly targets the selected microskill.",
+          "reason": "duration_fit=0.80; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=primary_target"
+        },
+        {
+          "move_id": "MWM_BASIC_NOUN_TO_ACADEMIC_NOUN_PHRASE_V1",
+          "move_name": "Basic Noun to Academic Noun Phrase",
+          "primary_microskill": "lexical_precision",
+          "move_family": "precision",
+          "selection_score": 0.896,
+          "fit_score": 0.892,
+          "difficulty_fit": 0.74,
+          "source_policy_ok": true,
+          "target_skill_role_in_move": "secondary_target",
+          "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+          "reason": "duration_fit=0.80; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+        },
+        {
+          "move_id": "MWM_GENERAL_TO_SPECIFIC_LEXICAL_SET_V1",
+          "move_name": "General to Specific Lexical Set",
+          "primary_microskill": "lexical_range_control",
+          "move_family": "precision",
+          "selection_score": 0.896,
+          "fit_score": 0.892,
+          "difficulty_fit": 0.74,
+          "source_policy_ok": true,
+          "target_skill_role_in_move": "secondary_target",
+          "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+          "reason": "duration_fit=0.80; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+        }
+      ]
+    },
+    "repeat_policy": {
+      "if_fail": "repeat same microskill with easier stimulus and heavier model support",
+      "if_partial_pass": "repeat same move family with one constraint reduced",
+      "if_pass": "repeat same microskill once in a new topic before unlocking dependent skill",
+      "functional_rule": "pass 2 of last 3 valid move missions with average >= 0.75 and no critical failure",
+      "stable_rule": "pass 4 of last 5 valid move missions with average >= 0.80 across at least 2 topics"
+    },
+    "domain_adapter": {
+      "domain": "ielts_academic_writing",
+      "adapter_role": "presentation_and_prompt_context_only",
+      "core_logic_dependency": false
+    },
+    "adaptive_variant": {
+      "schema_version": "WRITING_COACH_ADAPTIVE_VARIANT_V1_2_10",
+      "adaptation_type": "baseline_first_assignment",
+      "visible_change": "none_yet"
+    },
+    "scaffold_level": "heavy",
+    "show_model_on_first_attempt": true
+  },
+  "next_steps": [
+    "Complete today_mission only; do not rewrite the full essay.",
+    "Submit the requested numbered output.",
+    "Use the mission result to decide repeat, scaffold, or upgrade."
+  ],
+  "practice_recommendations": [
+    {
+      "target_skill_id": "academic_register_control",
+      "move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+      "exercise_type": "micro_writing_move",
+      "difficulty": "scaffolded",
+      "duration_minutes": 10,
+      "routing_note": "Writing Coach prescription; Practice Engine may provide supporting drills but should not replace the move mission."
+    }
+  ],
+  "micro_lesson": {
+    "skill_id": "academic_register_control",
+    "title": "Mini-lesson: Personal Example to General Point",
+    "teaching_point": "Practice academic register control through the 'Personal Example to General Point' writing move.",
+    "do": [],
+    "avoid": []
+  },
+  "mastery_state_snapshot": {
+    "selected_skill": {
+      "skill_id": "academic_register_control",
+      "skill_name": "Academic Register Control",
+      "current_mastery_estimate": 0.15,
+      "status": "weak",
+      "confidence": 0.74,
+      "evidence_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+      "note": "Prescription snapshot only; not a mastery update."
+    },
+    "nearby_skills": [
+      {
+        "skill_id": "academic_register_control",
+        "skill_name": "Academic Register Control",
+        "mastery_estimate": 0.15,
+        "selection_score": 0.903,
+        "priority_score": 0.916,
+        "status": "weak",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "verb_form_control",
+        "skill_name": "Verb Form Control",
+        "mastery_estimate": 0.505,
+        "selection_score": 0.594,
+        "priority_score": 0.503,
+        "status": "developing",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "agreement_control",
+        "skill_name": "Agreement Control",
+        "mastery_estimate": 0.617,
+        "selection_score": 0.565,
+        "priority_score": 0.481,
+        "status": "emerging",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "article_control",
+        "skill_name": "Article Control",
+        "mastery_estimate": 0.617,
+        "selection_score": 0.565,
+        "priority_score": 0.481,
+        "status": "emerging",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "arg_support_alignment",
+        "skill_name": "Support Alignment",
+        "mastery_estimate": 0.66,
+        "selection_score": 0.527,
+        "priority_score": 0.417,
+        "status": "emerging",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "collocation_control",
+        "skill_name": "Collocation Control",
+        "mastery_estimate": 0.526,
+        "selection_score": 0.509,
+        "priority_score": 0.365,
+        "status": "developing",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "arg_claim_generation",
+        "skill_name": "Claim Generation",
+        "mastery_estimate": 0.539,
+        "selection_score": 0.5,
+        "priority_score": 0.358,
+        "status": "developing",
+        "has_move_bank_entry": true
+      },
+      {
+        "skill_id": "formality_control",
+        "skill_name": "Formality Control",
+        "mastery_estimate": 0.628,
+        "selection_score": 0.493,
+        "priority_score": 0.377,
+        "status": "emerging",
+        "has_move_bank_entry": true
+      }
+    ]
+  },
+  "learning_intelligence_payload": {
+    "source_engine_id": "WRITING_COACH",
+    "source_run_id": "run_9a5e43c500969176",
+    "submission_id": null,
+    "essay_id": "essay_001",
+    "student_id": "student_123",
+    "profile_type": "coaching_prescription",
+    "emission_type": "prescription_only_not_performance_evidence",
+    "prescription_signals": [
+      {
+        "skill_id": "academic_register_control",
+        "skill_name": "Academic Register Control",
+        "move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+        "move_name": "Personal Example to General Point",
+        "selection_score": 0.903,
+        "priority_score": 0.916,
+        "mastery_estimate_snapshot": 0.15,
+        "confidence": 0.74,
+        "status_snapshot": "weak",
+        "evidence_bucket": "hybrid_single_essay_plus_multi_essay_tracking",
+        "mission_id": "wc_mission_67e7e14f31"
+      }
+    ],
+    "skill_performance_signals": [],
+    "metric_signals": [
+      {
+        "metric_id": "first_person_removed",
+        "target_skill_id": "academic_register_control",
+        "expected_evidence_type": "binary_or_partial_0_1",
+        "weight": 0.25
+      },
+      {
+        "metric_id": "generalization_appropriate",
+        "target_skill_id": "academic_register_control",
+        "expected_evidence_type": "binary_or_partial_0_1",
+        "weight": 0.2
+      },
+      {
+        "metric_id": "claim_supported_by_pattern_not_anecdote",
+        "target_skill_id": "academic_register_control",
+        "expected_evidence_type": "binary_or_partial_0_1",
+        "weight": 0.25
+      },
+      {
+        "metric_id": "register_appropriate",
+        "target_skill_id": "academic_register_control",
+        "expected_evidence_type": "binary_or_partial_0_1",
+        "weight": 0.2
+      },
+      {
+        "metric_id": "minimum_output_met",
+        "target_skill_id": "academic_register_control",
+        "expected_evidence_type": "binary_or_partial_0_1",
+        "weight": 0.1
+      }
+    ],
+    "behavioral_events": [
+      {
+        "event_id": "event_448e2f69c0a0",
+        "student_id": "student_123",
+        "submission_id": null,
+        "session_id": null,
+        "event_type": "micromission_assigned",
+        "skill_ids": [
+          "academic_register_control"
+        ],
+        "move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+        "mission_id": "wc_mission_67e7e14f31",
+        "outcome": "assigned",
+        "created_at": "2026-07-11T12:55:18.499509+00:00"
+      },
+      {
+        "event_id": "event_0deeadd3f3e2",
+        "student_id": "student_123",
+        "submission_id": null,
+        "session_id": null,
+        "event_type": "coaching_cycle_planned",
+        "cycle_id": "cycle_0dc915fddb56",
+        "mission_id": "wc_mission_67e7e14f31",
+        "outcome": "planned",
+        "created_at": "2026-07-11T12:55:18.499509+00:00"
+      }
+    ],
+    "confidence": 0.74,
+    "privacy_classification": "learning_analytics",
+    "notes": [
+      "Prescription only; mastery update requires mission submission and evaluation."
+    ],
+    "active_cycle_id": "cycle_0dc915fddb56",
+    "plan_horizon_days": 7
+  },
+  "qa": {
+    "status": "ok",
+    "warnings": [],
+    "errors": [],
+    "confidence": 0.74,
+    "source_audit": {
+      "evaluator": true,
+      "detector": true,
+      "errormap": true,
+      "scorer": true,
+      "verifier": true,
+      "adjudicated": true,
+      "scorer_metrics": false,
+      "score_contract": true,
+      "priority": true,
+      "directive": true,
+      "feedback": true,
+      "feedback_report": true,
+      "intake": false,
+      "move_bank": true,
+      "ontology": true,
+      "clusters": true
+    },
+    "move_bank_audit": {
+      "bank_id": "MICRO_WRITING_MOVE_BANK",
+      "schema_version": "MICRO_WRITING_MOVE_BANK_V1_2_FLAT_ADAPTED",
+      "move_count": 44,
+      "warnings": [],
+      "errors": []
+    },
+    "planner_audit": {
+      "active_cycle_created": true,
+      "rolling_plan_created": true,
+      "coach_state_export_created": true,
+      "student_home_card_created": true,
+      "daily_continuation_supported": true
+    },
+    "semantic_consistency_audit": {
+      "version_labels_v1_2_10": true,
+      "selected_skill_domain_known": true,
+      "target_skill_role_declared": true,
+      "move_bank_production_ready": true,
+      "lie_policy_platform_preferred": true
+    }
+  },
+  "active_coaching_cycle": {
+    "cycle_id": "cycle_0dc915fddb56",
+    "cycle_type": "proactive_adaptive_skill_cycle",
+    "status": "active",
+    "started_at": "2026-07-11T12:55:18.499509+00:00",
+    "last_updated_at": "2026-07-11T12:55:18.499509+00:00",
+    "started_from_submission_id": null,
+    "requires_new_essay": false,
+    "active_skill": {
+      "skill_id": "academic_register_control",
+      "skill_name": "Academic Register Control",
+      "target_status": "functional",
+      "current_status": "weak",
+      "domain": "Lexical Control",
+      "mastery_estimate_snapshot": 0.15,
+      "selection_score_snapshot": 0.903
+    },
+    "active_move": {
+      "move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+      "move_name": "Personal Example to General Point",
+      "move_family": "formality",
+      "training_mode": "transformation"
+    },
+    "goal_for_cycle": "Move Academic Register Control from developing/emerging control to functional use in short writing production.",
+    "success_rules": {
+      "functional_rule": "pass 2 of last 3 valid missions with average >= 0.75 and no critical failure",
+      "stable_rule": "pass 4 of last 5 valid missions with average >= 0.80 across at least 2 topics when topic data is available",
+      "unlock_rule": "unlock next queued skill after functional_rule is met, unless a new essay refreshes priorities"
+    },
+    "progress_snapshot": {
+      "valid_missions_for_active_skill": 0,
+      "recent_outcomes": [],
+      "recent_average": 0.0,
+      "functional_achieved": false,
+      "stable_achieved": false,
+      "last_result_outcome": null
+    },
+    "next_skill_queue": [
+      {
+        "skill_id": "verb_form_control",
+        "skill_name": "Verb Form Control",
+        "mastery_estimate": 0.505,
+        "selection_score": 0.594,
+        "priority_score": 0.503,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "agreement_control",
+        "skill_name": "Agreement Control",
+        "mastery_estimate": 0.617,
+        "selection_score": 0.565,
+        "priority_score": 0.481,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "article_control",
+        "skill_name": "Article Control",
+        "mastery_estimate": 0.617,
+        "selection_score": 0.565,
+        "priority_score": 0.481,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_support_alignment",
+        "skill_name": "Support Alignment",
+        "mastery_estimate": 0.66,
+        "selection_score": 0.527,
+        "priority_score": 0.417,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "collocation_control",
+        "skill_name": "Collocation Control",
+        "mastery_estimate": 0.526,
+        "selection_score": 0.509,
+        "priority_score": 0.365,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_claim_generation",
+        "skill_name": "Claim Generation",
+        "mastery_estimate": 0.539,
+        "selection_score": 0.5,
+        "priority_score": 0.358,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "formality_control",
+        "skill_name": "Formality Control",
+        "mastery_estimate": 0.628,
+        "selection_score": 0.493,
+        "priority_score": 0.377,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "hedging_control",
+        "skill_name": "Hedging Control",
+        "mastery_estimate": 0.628,
+        "selection_score": 0.493,
+        "priority_score": 0.377,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      }
+    ]
+  },
+  "coaching_plan": {
+    "plan_id": "plan_1fac214c2752",
+    "plan_type": "adaptive_rolling_plan",
+    "horizon_days": 7,
+    "fixed_or_adaptive": "adaptive_not_fixed",
+    "student_visible_summary": "This cycle trains Academic Register Control through short writing moves. Today: Turn personal statements into general academic points.",
+    "system_goal": "Move Academic Register Control from developing/emerging control to functional use in short writing production.",
+    "daily_slots": [
+      {
+        "day_index": 1,
+        "status": "assigned",
+        "skill_id": "academic_register_control",
+        "skill_name": "Academic Register Control",
+        "move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+        "move_family": "formality",
+        "mission_id": "wc_mission_67e7e14f31",
+        "student_task": "Turn personal statements into general academic points",
+        "timebox_minutes": 10
+      },
+      {
+        "day_index": 2,
+        "status": "conditional",
+        "if_previous_pass": "repeat same active skill with a new near-transfer topic or slightly less scaffold",
+        "if_previous_partial_pass": "repeat same move family with one extra model/scaffold",
+        "if_previous_fail": "repeat same microskill with fewer items and heavier support"
+      },
+      {
+        "day_index": 3,
+        "status": "conditional",
+        "if_two_recent_passes": "mark active skill functional and unlock the next queued skill if no new essay changes priorities",
+        "otherwise": "continue active skill until functional_rule is met"
+      },
+      {
+        "day_index": 4,
+        "status": "planned_policy",
+        "action": "near_transfer_or_upgrade",
+        "rule": "use a new topic or a harder transformation only if the previous result was pass/partial_pass"
+      },
+      {
+        "day_index": 5,
+        "status": "planned_policy",
+        "action": "mini_review_or_mixed_transfer",
+        "rule": "brief review of active skill plus one contrast with a nearby skill"
+      },
+      {
+        "day_index": 6,
+        "status": "optional",
+        "action": "essay_application_checkpoint",
+        "rule": "apply the active skill to one paragraph or one essay-plan component, not a full rewrite"
+      },
+      {
+        "day_index": 7,
+        "status": "review",
+        "action": "weekly_mastery_review",
+        "rule": "summarize outcomes, decide continue/unlock/refresh from new essay"
+      }
+    ],
+    "do_not_pre_generate_all_missions": true,
+    "why_not_fixed": "Future missions depend on pass/partial/fail results, new essay evidence, and LIE mastery updates."
+  },
+  "skill_priority_queue": [
+    {
+      "priority": 1,
+      "skill_id": "academic_register_control",
+      "skill_name": "Academic Register Control",
+      "message": "Train Academic Register Control through one production/transformation writing move.",
+      "timebox_minutes": 10,
+      "success_measure": "Pass/partial/fail from observable units, not essay score."
+    },
+    {
+      "priority": 2,
+      "skill_id": "verb_form_control",
+      "skill_name": "Verb Form Control",
+      "message": "Monitor next: Verb Form Control.",
+      "condition": "Train after Academic Register Control becomes functional or if new evidence raises priority."
+    },
+    {
+      "priority": 3,
+      "skill_id": "agreement_control",
+      "skill_name": "Agreement Control",
+      "message": "Monitor next: Agreement Control.",
+      "condition": "Train after Academic Register Control becomes functional or if new evidence raises priority."
+    },
+    {
+      "priority": 4,
+      "skill_id": "article_control",
+      "skill_name": "Article Control",
+      "message": "Monitor next: Article Control.",
+      "condition": "Train after Academic Register Control becomes functional or if new evidence raises priority."
+    },
+    {
+      "priority": 5,
+      "skill_id": "arg_support_alignment",
+      "skill_name": "Support Alignment",
+      "message": "Monitor next: Support Alignment.",
+      "condition": "Train after Academic Register Control becomes functional or if new evidence raises priority."
+    }
+  ],
+  "student_home_card": {
+    "title": "Today’s 10-minute Writing Coach",
+    "message": "Practise academic register control through one short writing move.",
+    "button_text": "Start today’s mission",
+    "mission_title": "Turn personal statements into general academic points",
+    "timebox_minutes": 10,
+    "weekly_focus": "Academic Register Control",
+    "streak_goal": "Complete 3 Writing Coach missions this week.",
+    "student_visible_plan_summary": "This cycle trains Academic Register Control through short writing moves. Today: Turn personal statements into general academic points."
+  },
+  "next_run_trigger": {
+    "trigger_type": "after_mission_submission_or_next_scheduled_day",
+    "default_frequency": "daily_when_student_is_active",
+    "minimum_interval_hours": 20,
+    "requires_new_essay": false,
+    "requires_lie_profile": "platform_preferred_standalone_optional",
+    "requires_coach_state": true,
+    "requires_previous_mission_result": "preferred_but_not_required_for_first_daily_continuation",
+    "next_mode": "daily_continuation_no_new_essay",
+    "input_contract": [
+      "coach_state_export",
+      "latest_mission_result_optional",
+      "external_move_bank"
+    ]
+  },
+  "daily_coach_policy": {
+    "student_should_run_manually": false,
+    "product_should_assign_proactively": true,
+    "new_essay_required_each_day": false,
+    "lie_profile_policy": "preferred in platform mode; optional in standalone CLI mode",
+    "daily_decision_order": [
+      "read coach_state_export",
+      "read latest mission result if available",
+      "check functional/stable rules",
+      "repeat, scaffold, upgrade, or unlock next skill",
+      "generate one new today_mission"
+    ]
+  },
+  "mission_result_routing": {
+    "on_pass": "record performance evidence; repeat same skill once with new topic or unlock if functional_rule is met",
+    "on_partial_pass": "record partial evidence; repeat same move family with one more scaffold",
+    "on_fail": "record weak evidence; repeat same microskill with easier stimulus and fewer items",
+    "on_invalid": "do not update mastery; reassign the same mission or clarify output format",
+    "after_functional": "unlock next skill from next_skill_queue unless new essay refreshes priorities"
+  },
+  "weekly_review_policy": {
+    "review_after_valid_missions": 5,
+    "review_after_days": 7,
+    "outputs": [
+      "student_progress_summary",
+      "active_skill_status",
+      "unlock_or_continue_decision",
+      "next_week_focus"
+    ],
+    "requires_human_review": false
+  },
+  "plan_refresh_policy": {
+    "refresh_when_new_essay_scored": true,
+    "refresh_when_revision_result_available": true,
+    "refresh_when_lie_detects_regression": true,
+    "preserve_cycle_if_same_skill_remains_top_priority": true,
+    "do_not_discard_history": true
+  },
+  "coach_state_export": {
+    "schema_version": "WRITING_COACH_STATE_V1_2_10",
+    "created_at": "2026-07-11T12:55:18.499509+00:00",
+    "generated_by_run_id": "run_9a5e43c500969176",
+    "identity": {
+      "student_id": "student_123",
+      "institution_id": null,
+      "class_id": null,
+      "teacher_id": null,
+      "essay_id": "essay_001",
+      "submission_id": null,
+      "prompt_id": null,
+      "batch_id": null,
+      "draft_id": null,
+      "parent_submission_id": null,
+      "session_id": null
+    },
+    "cycle_id": "cycle_0dc915fddb56",
+    "active_coaching_cycle": {
+      "cycle_id": "cycle_0dc915fddb56",
+      "cycle_type": "proactive_adaptive_skill_cycle",
+      "status": "active",
+      "started_at": "2026-07-11T12:55:18.499509+00:00",
+      "last_updated_at": "2026-07-11T12:55:18.499509+00:00",
+      "started_from_submission_id": null,
+      "requires_new_essay": false,
+      "active_skill": {
+        "skill_id": "academic_register_control",
+        "skill_name": "Academic Register Control",
+        "target_status": "functional",
+        "current_status": "weak",
+        "domain": "Lexical Control",
+        "mastery_estimate_snapshot": 0.15,
+        "selection_score_snapshot": 0.903
+      },
+      "active_move": {
+        "move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+        "move_name": "Personal Example to General Point",
+        "move_family": "formality",
+        "training_mode": "transformation"
+      },
+      "goal_for_cycle": "Move Academic Register Control from developing/emerging control to functional use in short writing production.",
+      "success_rules": {
+        "functional_rule": "pass 2 of last 3 valid missions with average >= 0.75 and no critical failure",
+        "stable_rule": "pass 4 of last 5 valid missions with average >= 0.80 across at least 2 topics when topic data is available",
+        "unlock_rule": "unlock next queued skill after functional_rule is met, unless a new essay refreshes priorities"
+      },
+      "progress_snapshot": {
+        "valid_missions_for_active_skill": 0,
+        "recent_outcomes": [],
+        "recent_average": 0.0,
+        "functional_achieved": false,
+        "stable_achieved": false,
+        "last_result_outcome": null
+      },
+      "next_skill_queue": [
+        {
+          "skill_id": "verb_form_control",
+          "skill_name": "Verb Form Control",
+          "mastery_estimate": 0.505,
+          "selection_score": 0.594,
+          "priority_score": 0.503,
+          "dependency_ready": true,
+          "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "agreement_control",
+          "skill_name": "Agreement Control",
+          "mastery_estimate": 0.617,
+          "selection_score": 0.565,
+          "priority_score": 0.481,
+          "dependency_ready": true,
+          "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "article_control",
+          "skill_name": "Article Control",
+          "mastery_estimate": 0.617,
+          "selection_score": 0.565,
+          "priority_score": 0.481,
+          "dependency_ready": true,
+          "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "arg_support_alignment",
+          "skill_name": "Support Alignment",
+          "mastery_estimate": 0.66,
+          "selection_score": 0.527,
+          "priority_score": 0.417,
+          "dependency_ready": true,
+          "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "collocation_control",
+          "skill_name": "Collocation Control",
+          "mastery_estimate": 0.526,
+          "selection_score": 0.509,
+          "priority_score": 0.365,
+          "dependency_ready": true,
+          "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "arg_claim_generation",
+          "skill_name": "Claim Generation",
+          "mastery_estimate": 0.539,
+          "selection_score": 0.5,
+          "priority_score": 0.358,
+          "dependency_ready": true,
+          "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "formality_control",
+          "skill_name": "Formality Control",
+          "mastery_estimate": 0.628,
+          "selection_score": 0.493,
+          "priority_score": 0.377,
+          "dependency_ready": true,
+          "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+        },
+        {
+          "skill_id": "hedging_control",
+          "skill_name": "Hedging Control",
+          "mastery_estimate": 0.628,
+          "selection_score": 0.493,
+          "priority_score": 0.377,
+          "dependency_ready": true,
+          "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+        }
+      ]
+    },
+    "active_skill_id": "academic_register_control",
+    "active_skill_name": "Academic Register Control",
+    "active_move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+    "active_move_family": "formality",
+    "last_assigned_mission_id": "wc_mission_67e7e14f31",
+    "last_assigned_move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+    "mission_history": [],
+    "next_skill_queue": [
+      {
+        "skill_id": "verb_form_control",
+        "skill_name": "Verb Form Control",
+        "mastery_estimate": 0.505,
+        "selection_score": 0.594,
+        "priority_score": 0.503,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "agreement_control",
+        "skill_name": "Agreement Control",
+        "mastery_estimate": 0.617,
+        "selection_score": 0.565,
+        "priority_score": 0.481,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "article_control",
+        "skill_name": "Article Control",
+        "mastery_estimate": 0.617,
+        "selection_score": 0.565,
+        "priority_score": 0.481,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_support_alignment",
+        "skill_name": "Support Alignment",
+        "mastery_estimate": 0.66,
+        "selection_score": 0.527,
+        "priority_score": 0.417,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "collocation_control",
+        "skill_name": "Collocation Control",
+        "mastery_estimate": 0.526,
+        "selection_score": 0.509,
+        "priority_score": 0.365,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "arg_claim_generation",
+        "skill_name": "Claim Generation",
+        "mastery_estimate": 0.539,
+        "selection_score": 0.5,
+        "priority_score": 0.358,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "formality_control",
+        "skill_name": "Formality Control",
+        "mastery_estimate": 0.628,
+        "selection_score": 0.493,
+        "priority_score": 0.377,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      },
+      {
+        "skill_id": "hedging_control",
+        "skill_name": "Hedging Control",
+        "mastery_estimate": 0.628,
+        "selection_score": 0.493,
+        "priority_score": 0.377,
+        "dependency_ready": true,
+        "condition": "Unlock after Academic Register Control becomes functional or if a new essay refreshes priorities."
+      }
+    ],
+    "plan_horizon_days": 7,
+    "prompt_text": "the current writing topic",
+    "topic_context": "the current writing topic",
+    "domain": "ielts_academic_writing",
+    "timebox_minutes": 10,
+    "selected_move_candidate_snapshot": [
+      {
+        "move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+        "move_name": "Personal Example to General Point",
+        "primary_microskill": "academic_register_control",
+        "move_family": "formality",
+        "selection_score": 0.93,
+        "fit_score": 0.948,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "primary_target",
+        "target_skill_role_explanation": "Move directly targets the selected microskill.",
+        "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=primary_target"
+      },
+      {
+        "move_id": "MWM_VAGUE_TO_PRECISE_SENTENCE_V1",
+        "move_name": "Vague to Precise Sentence",
+        "primary_microskill": "lexical_precision",
+        "move_family": "precision",
+        "selection_score": 0.925,
+        "fit_score": 0.94,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "secondary_target",
+        "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+        "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+      },
+      {
+        "move_id": "MWM_ROUGH_OPINION_TO_ARGUABLE_CLAIM_V1",
+        "move_name": "Rough Opinion to Arguable Claim",
+        "primary_microskill": "arg_claim_generation",
+        "move_family": "argument_control",
+        "selection_score": 0.925,
+        "fit_score": 0.94,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "secondary_target",
+        "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+        "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+      },
+      {
+        "move_id": "MWM_OPPOSING_VIEW_TO_COUNTERARGUMENT_V1",
+        "move_name": "Opposing View to Counterargument",
+        "primary_microskill": "arg_counterargument_generation",
+        "move_family": "argument_control",
+        "selection_score": 0.925,
+        "fit_score": 0.94,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "secondary_target",
+        "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+        "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+      },
+      {
+        "move_id": "MWM_STRONG_OPINION_TO_BALANCED_CLAIM_V1",
+        "move_name": "Strong Opinion to Balanced Claim",
+        "primary_microskill": "hedging_control",
+        "move_family": "formality",
+        "selection_score": 0.925,
+        "fit_score": 0.94,
+        "difficulty_fit": 0.74,
+        "source_policy_ok": true,
+        "target_skill_role_in_move": "secondary_target",
+        "target_skill_role_explanation": "Move trains the selected microskill as a secondary target inside a broader writing-production move.",
+        "reason": "duration_fit=1.00; difficulty_fit=0.74; production_mode=1.00; observable_quality=1.00; target_role=secondary_target"
+      }
+    ],
+    "daily_run_contract": {
+      "mode": "daily_continuation_no_new_essay",
+      "required_inputs": [
+        "coach_state_export",
+        "external_move_bank"
+      ],
+      "optional_inputs": [
+        "last_mission_result",
+        "ontology",
+        "clusters"
+      ]
+    }
+  },
+  "directive_alignment": {
+    "engine_id": "VA_STELLA_WRITING_COACH_ALIGNMENT_GUARD",
+    "engine_version": "1.4.7-standalone-service-alignment-contract",
+    "created_at": "2026-07-11T12:55:18.651516+00:00",
+    "status": "explained_override",
+    "directive_primary_focus": {
+      "capacity_domain": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "recommended_service": "writing_coach",
+      "priority_level": "very_high",
+      "evidence_count": 13
+    },
+    "coach_selected_focus": {
+      "selected_skill_id": "academic_register_control",
+      "selected_skill_name": "Academic Register Control",
+      "selected_move_id": "MWM_PERSONAL_TO_GENERAL_ACADEMIC_POINT_V1",
+      "selected_move_name": "Personal Example to General Point"
+    },
+    "silent_mismatch_prevented": true,
+    "effective_focus_for_gold_routing": {
+      "capacity_domain": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "recommended_service": "writing_coach",
+      "priority_level": "very_high",
+      "evidence_count": 13
+    },
+    "coach_task_preserved": true,
+    "policy": "Writing Coach output is preserved. If it differs from the Gold Directive, the mismatch is made explicit and downstream routing should treat the Directive primary focus as the Gold-level next focus unless the UI intentionally opens the coach task.",
+    "override_reason": "Writing Coach selected a different microskill from its own dependency-aware planner. This may be useful as a subskill, but it is not the same as the Gold Directive primary focus."
+  }
+}

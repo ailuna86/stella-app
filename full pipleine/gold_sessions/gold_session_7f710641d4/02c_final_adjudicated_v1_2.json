@@ -1,0 +1,36 @@
+{
+  "schema_version": "ADJUDICATOR_COMPAT_GOLD_V1_2",
+  "adjudication_status": "confirmed",
+  "score_changed": false,
+  "criteria_preserved": true,
+  "reason_codes": [],
+  "final_score_profile": {
+    "score_status": "ready",
+    "confidence": "normal",
+    "official_criteria_bands": {
+      "TR": 5,
+      "CC": 6,
+      "LR": 4,
+      "GRA": 4
+    },
+    "overall_band_estimate": 5.0,
+    "criterion_rationales": {
+      "TR": "A position is expressed, but development is limited and not always clear.",
+      "CC": "Information and ideas are generally arranged coherently, though cohesion may be faulty or mechanical.",
+      "LR": "Limited but minimally adequate lexical resource with noticeable awkward combinations.",
+      "GRA": "A wide range of structures is used with generally strong control."
+    },
+    "evidence_caps": {
+      "sentence_control_errors": 17,
+      "lexical_precision_errors": 15,
+      "cohesion_errors": 1,
+      "argument_errors": 2,
+      "base_core_bands": {
+        "TR": 5,
+        "CC": 6,
+        "LR": 5,
+        "GRA": 8
+      }
+    }
+  }
+}

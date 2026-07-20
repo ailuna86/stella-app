@@ -1,0 +1,941 @@
+{
+  "schema_version": "PRIORITY_ENGINE_OUTPUT_V4",
+  "engine_version": "priority_engine_v4.4.0",
+  "created_at": "2026-07-12T08:32:19.812809+00:00",
+  "registry": {
+    "knowledge_path_requested": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\premium version\\priority engine",
+    "manifest_schema_version": "PRIORITY_ENGINE_REGISTRY_MANIFEST_V1",
+    "loaded_resource_ids": [
+      "band_skill_matrix",
+      "competency_architecture",
+      "core_skill_ontology",
+      "correctness_audit",
+      "detector_scorer_field_map",
+      "diagnostic_signatures",
+      "family_to_skill_map",
+      "missing_requirements_priority",
+      "missing_requirements_report",
+      "priority_engine_rules",
+      "priority_input_contract",
+      "priority_skill_inference_rules",
+      "question_type_competency_matrix",
+      "recent_output_compatibility",
+      "recent_output_observability_sample",
+      "remediation_map",
+      "skill_dependency_graph",
+      "skill_observability_catalog",
+      "source_audit",
+      "strength_rules",
+      "v4_band_strength_thresholds",
+      "v4_fine_targets",
+      "v4_repair_pattern_labels",
+      "v4_saturation_params",
+      "v4_task_type_notes"
+    ],
+    "missing_files": [],
+    "v4_fine_targets_source": "registry_20_fine_grained_targets_v4"
+  },
+  "input_summary": {
+    "input_schema_version": "MERGED_DETECTOR_SCORER_V1",
+    "detected_essay_count": 1,
+    "merge_summary": {
+      "detector_schema": "PRIORITY_INPUT_BRIDGE_V1_4_8",
+      "scorer_schema": "premium_unified_tier_aware_v1_4_1",
+      "detector_essay_count": 1,
+      "scorer_essay_count": 1,
+      "matched_essays": 1,
+      "unmatched_essays": 0,
+      "merged_at": "2026-07-12T08:32:19.807208+00:00"
+    }
+  },
+  "results": [
+    {
+      "schema_version": "PRIORITY_ENGINE_OUTPUT_V4",
+      "essay_id": "essay_strong_001",
+      "input_variant": "recent_detector_v14_detector_only",
+      "metadata": {
+        "word_count": 325,
+        "paragraph_count": 5,
+        "sentence_count": 11,
+        "task_type": "WT2",
+        "prompt_present": true,
+        "score_ready": true,
+        "scorer_confidence": 0.708,
+        "score_status": "ready"
+      },
+      "bands_if_available": {
+        "task_response": null,
+        "coherence_cohesion": null,
+        "lexical_resource": null,
+        "grammar": null,
+        "overall": 5.5
+      },
+      "semantic_summary": {
+        "mean_recoverability": 1.0,
+        "mean_semantic_trust": null,
+        "mean_local_corruption": null,
+        "affected_discourse_ratio": 0.091,
+        "blocked_sentence_count": 0,
+        "limited_sentence_count": 0
+      },
+      "primary_limiter": {
+        "rank": 1,
+        "skill": "SEMANTIC_EVALUABILITY",
+        "student_label": "Semantic Evaluability",
+        "rubric": null,
+        "pressure": 1.05,
+        "dependency_adjusted_pressure": 1.05,
+        "priority_level": "low",
+        "reason": "Meaning stability is limiting how safely higher-level discourse can be evaluated.",
+        "evidence": [],
+        "dominant_families": [
+          {
+            "family": "SEMANTIC_COMBINATION",
+            "count": 1
+          }
+        ],
+        "confidence_envelope": {
+          "mean_evidence_confidence": 0.75,
+          "evidence_row_count": 1,
+          "confidence_band": "medium",
+          "note": null
+        },
+        "_v4_4_all_meta_fallback": true,
+        "_v4_3_eci_blocked": true
+      },
+      "secondary_limiters": [],
+      "skill_profiles": [
+        {
+          "skill": "SEMANTIC_EVALUABILITY",
+          "student_label": "Semantic Evaluability",
+          "rubric": "META",
+          "pressure": 0.525,
+          "dependency_adjusted_pressure": 1.05,
+          "root_row_count": 1,
+          "raw_row_count": 1,
+          "symptom_row_count": 0,
+          "distinct_sentence_count": 1,
+          "dominant_families": [
+            {
+              "family": "SEMANTIC_COMBINATION",
+              "count": 1
+            }
+          ],
+          "examples": [
+            {
+              "row_id": "row_03a52cf1d48c8a26",
+              "skill": "SEMANTIC_EVALUABILITY",
+              "family": "SEMANTIC_COMBINATION",
+              "rubric": "LR",
+              "quote": "civic equity",
+              "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+              "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+              "sentence_index": 11,
+              "paragraph_index": 5,
+              "paragraph_position": "conclusion",
+              "repair_operation": "REPLACE",
+              "pressure": 1.05,
+              "root_status": "root",
+              "suppression_reason": null,
+              "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+              "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+              "display_safety_status": "student_safe",
+              "display_safety_reasons": [],
+              "full_sentence_available": true
+            }
+          ],
+          "priority_level": "low",
+          "observability": {
+            "observability_from_detector_scorer": "family_or_metric_inference",
+            "confidence": "medium"
+          },
+          "_v4_3_band_weight": 0.5,
+          "_v4_3_band_bucket": "mid"
+        }
+      ],
+      "family_profiles": [
+        {
+          "family": "SEMANTIC_COMBINATION",
+          "skill": "SEMANTIC_EVALUABILITY",
+          "rubric": "LR",
+          "pressure": 1.05,
+          "root_count": 1,
+          "raw_count": 1,
+          "examples": [
+            {
+              "row_id": "row_03a52cf1d48c8a26",
+              "skill": "SEMANTIC_EVALUABILITY",
+              "family": "SEMANTIC_COMBINATION",
+              "rubric": "LR",
+              "quote": "civic equity",
+              "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+              "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+              "sentence_index": 11,
+              "paragraph_index": 5,
+              "paragraph_position": "conclusion",
+              "repair_operation": "REPLACE",
+              "pressure": 1.05,
+              "root_status": "root",
+              "suppression_reason": null,
+              "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+              "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+              "display_safety_status": "student_safe",
+              "display_safety_reasons": [],
+              "full_sentence_available": true
+            }
+          ]
+        }
+      ],
+      "rubric_profiles": [],
+      "fine_grained_training_targets": [],
+      "strengths": [
+        {
+          "id": "BASIC_STRUCTURE_PRESENT",
+          "strength": "You have a usable essay structure.",
+          "skill": "COHERENCE_CONTROL",
+          "evidence_source": "Paragraph count is 5, no root paragraph-structure problem detected.",
+          "how_to_use_for_next_band": "Keep the structure and improve content inside each body paragraph.",
+          "confidence": "high"
+        },
+        {
+          "id": "MEANING_RECOVERABLE",
+          "strength": "Your ideas are usually understandable.",
+          "skill": "MEANING_RECOVERABILITY",
+          "evidence_source": "Mean recoverability is 1.00.",
+          "how_to_use_for_next_band": "Focus on precision and naturalness rather than rebuilding the whole essay.",
+          "confidence": "high"
+        }
+      ],
+      "pattern_intelligence": {
+        "dominant_failure_pattern": "Most pressure is concentrated in SEMANTIC_COMBINATION / SEMANTIC_EVALUABILITY patterns.",
+        "error_concentration": {
+          "top_two_family_pressure_share": 1.0,
+          "interpretation": "concentrated"
+        },
+        "fastest_improvement_route": "Fastest route: Meaning recovery before discourse work because it explains repeated high-pressure rows.",
+        "improvement_potential": "high",
+        "repair_pattern_summary": [],
+        "task_type_specific_note": null
+      },
+      "band_unlock": {
+        "local_unlock": {
+          "rubric": "META",
+          "skill": "SEMANTIC_EVALUABILITY",
+          "target": "Meaning recovery before discourse work"
+        },
+        "global_unlock": {
+          "skill": "SEMANTIC_EVALUABILITY",
+          "target": "Meaning recovery before discourse work"
+        },
+        "band_matrix_reference": {
+          "current_band_floor": "5",
+          "core_bottlenecks": [
+            "IDEA_DEVELOPMENT",
+            "LEXICAL_CONTROL",
+            "SENTENCE_CONSTRUCTION"
+          ],
+          "unlock_to_next": [
+            "Build PEEL paragraphs",
+            "Use specific examples and explanation",
+            "Improve accuracy of attempted complex structures",
+            "Use adequate topic vocabulary with fewer inappropriate choices"
+          ]
+        },
+        "caution": "Band unlock is inferred from scorer/detector pressure, not an independent band prediction."
+      },
+      "root_vs_symptom": {
+        "root_row_count": 1,
+        "symptom_or_collapsed_row_count": 0,
+        "compression_ratio": 0.0,
+        "suppression_reasons": [],
+        "principle_used": "V4: 8 compression passes; saturation decay applied before compression; repair-op dedup and paragraph-cluster collapse added."
+      },
+      "display_decisions": {
+        "show_in_short_feedback": {
+          "max_strengths": [
+            {
+              "id": "BASIC_STRUCTURE_PRESENT",
+              "strength": "You have a usable essay structure.",
+              "skill": "COHERENCE_CONTROL",
+              "evidence_source": "Paragraph count is 5, no root paragraph-structure problem detected.",
+              "how_to_use_for_next_band": "Keep the structure and improve content inside each body paragraph.",
+              "confidence": "high"
+            },
+            {
+              "id": "MEANING_RECOVERABLE",
+              "strength": "Your ideas are usually understandable.",
+              "skill": "MEANING_RECOVERABILITY",
+              "evidence_source": "Mean recoverability is 1.00.",
+              "how_to_use_for_next_band": "Focus on precision and naturalness rather than rebuilding the whole essay.",
+              "confidence": "high"
+            }
+          ],
+          "max_learning_priorities": [
+            {
+              "rank": 1,
+              "target_id": "MEANING_RECOVERY_FIRST",
+              "learning_target": "Meaning recovery before discourse work",
+              "parent_skills": [
+                "MEANING_RECOVERABILITY",
+                "SEMANTIC_EVALUABILITY",
+                "SEMANTIC_PHRASE_CONTROL"
+              ],
+              "pressure": 1.843,
+              "roi": "medium",
+              "why_this_priority": "This target is selected because repeated detector rows map to Meaning recovery before discourse work (SEMANTIC_COMBINATION).",
+              "practice_focus": "Recover the intended proposition first, then repair grammar and vocabulary around that proposition.",
+              "practice_sequence": [
+                "For each meaning-blocked sentence, write the intended meaning in simple words.",
+                "Rebuild the sentence: subject + verb + object only.",
+                "Add back modifiers one at a time, checking clarity after each.",
+                "Once meaning is stable, fix grammar and word choice.",
+                "Do not attempt argument-level feedback until meaning recovery is complete."
+              ],
+              "dependency_prerequisites": [],
+              "dominant_families": [
+                {
+                  "family": "SEMANTIC_COMBINATION",
+                  "count": 1
+                }
+              ],
+              "example_quotes": [
+                "civic equity"
+              ],
+              "evidence_row_ids": [
+                "row_03a52cf1d48c8a26"
+              ],
+              "evidence_examples": [
+                {
+                  "row_id": "row_03a52cf1d48c8a26",
+                  "skill": "SEMANTIC_EVALUABILITY",
+                  "family": "SEMANTIC_COMBINATION",
+                  "rubric": "LR",
+                  "quote": "civic equity",
+                  "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                  "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                  "sentence_index": 11,
+                  "paragraph_index": 5,
+                  "paragraph_position": "conclusion",
+                  "repair_operation": "REPLACE",
+                  "pressure": 1.05,
+                  "root_status": "root",
+                  "suppression_reason": null,
+                  "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+                  "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+                  "display_safety_status": "student_safe",
+                  "display_safety_reasons": [],
+                  "full_sentence_available": true
+                }
+              ],
+              "target_validation": {
+                "family_purity": 1.0,
+                "student_safe_evidence_count": 1,
+                "policy": "V4 display-safety + target-family compatibility + saturation-adjusted pressure"
+              }
+            },
+            {
+              "rank": 2,
+              "target_id": "ABSTRACT_NOUN_COLLOCATIONS",
+              "learning_target": "Abstract noun + verb/noun collocations",
+              "parent_skills": [
+                "COLLOCATION_CONTROL",
+                "SEMANTIC_PHRASE_CONTROL"
+              ],
+              "pressure": 1.47,
+              "roi": "medium",
+              "why_this_priority": "This target is selected because repeated detector rows map to Abstract noun + verb/noun collocations (SEMANTIC_COMBINATION).",
+              "practice_focus": "Replace translated phrases with natural academic combinations: contribute to society, preserve culture, create opportunities.",
+              "practice_sequence": [
+                "Identify each abstract noun phrase that was flagged.",
+                "Find the correct verb collocate: have an impact, make a contribution, create opportunities.",
+                "Replace L1-transfer phrases with natural academic phrasing.",
+                "Practise noun + preposition patterns: benefit FROM, impact ON, contribution TO.",
+                "Write a paragraph using 3 corrected abstract noun collocations."
+              ],
+              "dependency_prerequisites": [],
+              "dominant_families": [
+                {
+                  "family": "SEMANTIC_COMBINATION",
+                  "count": 1
+                }
+              ],
+              "example_quotes": [
+                "civic equity"
+              ],
+              "evidence_row_ids": [
+                "row_03a52cf1d48c8a26"
+              ],
+              "evidence_examples": [
+                {
+                  "row_id": "row_03a52cf1d48c8a26",
+                  "skill": "SEMANTIC_EVALUABILITY",
+                  "family": "SEMANTIC_COMBINATION",
+                  "rubric": "LR",
+                  "quote": "civic equity",
+                  "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                  "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                  "sentence_index": 11,
+                  "paragraph_index": 5,
+                  "paragraph_position": "conclusion",
+                  "repair_operation": "REPLACE",
+                  "pressure": 1.05,
+                  "root_status": "root",
+                  "suppression_reason": null,
+                  "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+                  "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+                  "display_safety_status": "student_safe",
+                  "display_safety_reasons": [],
+                  "full_sentence_available": true
+                }
+              ],
+              "target_validation": {
+                "family_purity": 1.0,
+                "student_safe_evidence_count": 1,
+                "policy": "V4 display-safety + target-family compatibility + saturation-adjusted pressure"
+              }
+            }
+          ],
+          "representative_error_rows": [
+            {
+              "row_id": "row_03a52cf1d48c8a26",
+              "skill": "SEMANTIC_EVALUABILITY",
+              "family": "SEMANTIC_COMBINATION",
+              "rubric": "LR",
+              "quote": "civic equity",
+              "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+              "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+              "sentence_index": 11,
+              "paragraph_index": 5,
+              "paragraph_position": "conclusion",
+              "repair_operation": "REPLACE",
+              "pressure": 1.05,
+              "root_status": "root",
+              "suppression_reason": null,
+              "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+              "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+              "display_safety_status": "student_safe",
+              "display_safety_reasons": [],
+              "full_sentence_available": true
+            }
+          ]
+        },
+        "show_in_detailed_feedback": {
+          "skill_profiles": [
+            {
+              "skill": "SEMANTIC_EVALUABILITY",
+              "student_label": "Semantic Evaluability",
+              "rubric": "META",
+              "pressure": 0.525,
+              "dependency_adjusted_pressure": 1.05,
+              "root_row_count": 1,
+              "raw_row_count": 1,
+              "symptom_row_count": 0,
+              "distinct_sentence_count": 1,
+              "dominant_families": [
+                {
+                  "family": "SEMANTIC_COMBINATION",
+                  "count": 1
+                }
+              ],
+              "examples": [
+                {
+                  "row_id": "row_03a52cf1d48c8a26",
+                  "skill": "SEMANTIC_EVALUABILITY",
+                  "family": "SEMANTIC_COMBINATION",
+                  "rubric": "LR",
+                  "quote": "civic equity",
+                  "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                  "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                  "sentence_index": 11,
+                  "paragraph_index": 5,
+                  "paragraph_position": "conclusion",
+                  "repair_operation": "REPLACE",
+                  "pressure": 1.05,
+                  "root_status": "root",
+                  "suppression_reason": null,
+                  "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+                  "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+                  "display_safety_status": "student_safe",
+                  "display_safety_reasons": [],
+                  "full_sentence_available": true
+                }
+              ],
+              "priority_level": "low",
+              "observability": {
+                "observability_from_detector_scorer": "family_or_metric_inference",
+                "confidence": "medium"
+              },
+              "_v4_3_band_weight": 0.5,
+              "_v4_3_band_bucket": "mid"
+            }
+          ],
+          "representative_error_rows": [
+            {
+              "row_id": "row_03a52cf1d48c8a26",
+              "skill": "SEMANTIC_EVALUABILITY",
+              "family": "SEMANTIC_COMBINATION",
+              "rubric": "LR",
+              "quote": "civic equity",
+              "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+              "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+              "sentence_index": 11,
+              "paragraph_index": 5,
+              "paragraph_position": "conclusion",
+              "repair_operation": "REPLACE",
+              "pressure": 1.05,
+              "root_status": "root",
+              "suppression_reason": null,
+              "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+              "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+              "display_safety_status": "student_safe",
+              "display_safety_reasons": [],
+              "full_sentence_available": true
+            }
+          ],
+          "fine_grained_training_targets": [
+            {
+              "rank": 1,
+              "target_id": "MEANING_RECOVERY_FIRST",
+              "learning_target": "Meaning recovery before discourse work",
+              "parent_skills": [
+                "MEANING_RECOVERABILITY",
+                "SEMANTIC_EVALUABILITY",
+                "SEMANTIC_PHRASE_CONTROL"
+              ],
+              "pressure": 1.843,
+              "roi": "medium",
+              "why_this_priority": "This target is selected because repeated detector rows map to Meaning recovery before discourse work (SEMANTIC_COMBINATION).",
+              "practice_focus": "Recover the intended proposition first, then repair grammar and vocabulary around that proposition.",
+              "practice_sequence": [
+                "For each meaning-blocked sentence, write the intended meaning in simple words.",
+                "Rebuild the sentence: subject + verb + object only.",
+                "Add back modifiers one at a time, checking clarity after each.",
+                "Once meaning is stable, fix grammar and word choice.",
+                "Do not attempt argument-level feedback until meaning recovery is complete."
+              ],
+              "dependency_prerequisites": [],
+              "dominant_families": [
+                {
+                  "family": "SEMANTIC_COMBINATION",
+                  "count": 1
+                }
+              ],
+              "example_quotes": [
+                "civic equity"
+              ],
+              "evidence_row_ids": [
+                "row_03a52cf1d48c8a26"
+              ],
+              "evidence_examples": [
+                {
+                  "row_id": "row_03a52cf1d48c8a26",
+                  "skill": "SEMANTIC_EVALUABILITY",
+                  "family": "SEMANTIC_COMBINATION",
+                  "rubric": "LR",
+                  "quote": "civic equity",
+                  "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                  "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                  "sentence_index": 11,
+                  "paragraph_index": 5,
+                  "paragraph_position": "conclusion",
+                  "repair_operation": "REPLACE",
+                  "pressure": 1.05,
+                  "root_status": "root",
+                  "suppression_reason": null,
+                  "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+                  "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+                  "display_safety_status": "student_safe",
+                  "display_safety_reasons": [],
+                  "full_sentence_available": true
+                }
+              ],
+              "target_validation": {
+                "family_purity": 1.0,
+                "student_safe_evidence_count": 1,
+                "policy": "V4 display-safety + target-family compatibility + saturation-adjusted pressure"
+              }
+            },
+            {
+              "rank": 2,
+              "target_id": "ABSTRACT_NOUN_COLLOCATIONS",
+              "learning_target": "Abstract noun + verb/noun collocations",
+              "parent_skills": [
+                "COLLOCATION_CONTROL",
+                "SEMANTIC_PHRASE_CONTROL"
+              ],
+              "pressure": 1.47,
+              "roi": "medium",
+              "why_this_priority": "This target is selected because repeated detector rows map to Abstract noun + verb/noun collocations (SEMANTIC_COMBINATION).",
+              "practice_focus": "Replace translated phrases with natural academic combinations: contribute to society, preserve culture, create opportunities.",
+              "practice_sequence": [
+                "Identify each abstract noun phrase that was flagged.",
+                "Find the correct verb collocate: have an impact, make a contribution, create opportunities.",
+                "Replace L1-transfer phrases with natural academic phrasing.",
+                "Practise noun + preposition patterns: benefit FROM, impact ON, contribution TO.",
+                "Write a paragraph using 3 corrected abstract noun collocations."
+              ],
+              "dependency_prerequisites": [],
+              "dominant_families": [
+                {
+                  "family": "SEMANTIC_COMBINATION",
+                  "count": 1
+                }
+              ],
+              "example_quotes": [
+                "civic equity"
+              ],
+              "evidence_row_ids": [
+                "row_03a52cf1d48c8a26"
+              ],
+              "evidence_examples": [
+                {
+                  "row_id": "row_03a52cf1d48c8a26",
+                  "skill": "SEMANTIC_EVALUABILITY",
+                  "family": "SEMANTIC_COMBINATION",
+                  "rubric": "LR",
+                  "quote": "civic equity",
+                  "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                  "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                  "sentence_index": 11,
+                  "paragraph_index": 5,
+                  "paragraph_position": "conclusion",
+                  "repair_operation": "REPLACE",
+                  "pressure": 1.05,
+                  "root_status": "root",
+                  "suppression_reason": null,
+                  "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+                  "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+                  "display_safety_status": "student_safe",
+                  "display_safety_reasons": [],
+                  "full_sentence_available": true
+                }
+              ],
+              "target_validation": {
+                "family_purity": 1.0,
+                "student_safe_evidence_count": 1,
+                "policy": "V4 display-safety + target-family compatibility + saturation-adjusted pressure"
+              }
+            }
+          ]
+        },
+        "hide_or_collapse_from_student": [],
+        "teacher_debug_only": {
+          "collapsed_row_ids": []
+        }
+      },
+      "priority_contract_audit": {
+        "target_audit": [],
+        "presentation_safety_policy": "unsafe detector rows retained for teacher/debug only"
+      },
+      "feedback_generator_payload": {
+        "contract_version": "PRIORITY_TO_FEEDBACK_V4",
+        "essay_id": "essay_strong_001",
+        "primary_limiter": {
+          "rank": 1,
+          "skill": "SEMANTIC_EVALUABILITY",
+          "student_label": "Semantic Evaluability",
+          "rubric": null,
+          "pressure": 1.05,
+          "dependency_adjusted_pressure": 1.05,
+          "priority_level": "low",
+          "reason": "Meaning stability is limiting how safely higher-level discourse can be evaluated.",
+          "evidence": [],
+          "dominant_families": [
+            {
+              "family": "SEMANTIC_COMBINATION",
+              "count": 1
+            }
+          ],
+          "confidence_envelope": {
+            "mean_evidence_confidence": 0.75,
+            "evidence_row_count": 1,
+            "confidence_band": "medium",
+            "note": null
+          },
+          "_v4_4_all_meta_fallback": true,
+          "_v4_3_eci_blocked": true
+        },
+        "secondary_limiters": [],
+        "validated_training_targets": [
+          {
+            "rank": 1,
+            "target_id": "MEANING_RECOVERY_FIRST",
+            "learning_target": "Meaning recovery before discourse work",
+            "parent_skills": [
+              "MEANING_RECOVERABILITY",
+              "SEMANTIC_EVALUABILITY",
+              "SEMANTIC_PHRASE_CONTROL"
+            ],
+            "pressure": 1.843,
+            "roi": "medium",
+            "why_this_priority": "This target is selected because repeated detector rows map to Meaning recovery before discourse work (SEMANTIC_COMBINATION).",
+            "practice_focus": "Recover the intended proposition first, then repair grammar and vocabulary around that proposition.",
+            "practice_sequence": [
+              "For each meaning-blocked sentence, write the intended meaning in simple words.",
+              "Rebuild the sentence: subject + verb + object only.",
+              "Add back modifiers one at a time, checking clarity after each.",
+              "Once meaning is stable, fix grammar and word choice.",
+              "Do not attempt argument-level feedback until meaning recovery is complete."
+            ],
+            "dependency_prerequisites": [],
+            "dominant_families": [
+              {
+                "family": "SEMANTIC_COMBINATION",
+                "count": 1
+              }
+            ],
+            "example_quotes": [
+              "civic equity"
+            ],
+            "evidence_row_ids": [
+              "row_03a52cf1d48c8a26"
+            ],
+            "evidence_examples": [
+              {
+                "row_id": "row_03a52cf1d48c8a26",
+                "skill": "SEMANTIC_EVALUABILITY",
+                "family": "SEMANTIC_COMBINATION",
+                "rubric": "LR",
+                "quote": "civic equity",
+                "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                "sentence_index": 11,
+                "paragraph_index": 5,
+                "paragraph_position": "conclusion",
+                "repair_operation": "REPLACE",
+                "pressure": 1.05,
+                "root_status": "root",
+                "suppression_reason": null,
+                "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+                "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+                "display_safety_status": "student_safe",
+                "display_safety_reasons": [],
+                "full_sentence_available": true
+              }
+            ],
+            "target_validation": {
+              "family_purity": 1.0,
+              "student_safe_evidence_count": 1,
+              "policy": "V4 display-safety + target-family compatibility + saturation-adjusted pressure"
+            }
+          },
+          {
+            "rank": 2,
+            "target_id": "ABSTRACT_NOUN_COLLOCATIONS",
+            "learning_target": "Abstract noun + verb/noun collocations",
+            "parent_skills": [
+              "COLLOCATION_CONTROL",
+              "SEMANTIC_PHRASE_CONTROL"
+            ],
+            "pressure": 1.47,
+            "roi": "medium",
+            "why_this_priority": "This target is selected because repeated detector rows map to Abstract noun + verb/noun collocations (SEMANTIC_COMBINATION).",
+            "practice_focus": "Replace translated phrases with natural academic combinations: contribute to society, preserve culture, create opportunities.",
+            "practice_sequence": [
+              "Identify each abstract noun phrase that was flagged.",
+              "Find the correct verb collocate: have an impact, make a contribution, create opportunities.",
+              "Replace L1-transfer phrases with natural academic phrasing.",
+              "Practise noun + preposition patterns: benefit FROM, impact ON, contribution TO.",
+              "Write a paragraph using 3 corrected abstract noun collocations."
+            ],
+            "dependency_prerequisites": [],
+            "dominant_families": [
+              {
+                "family": "SEMANTIC_COMBINATION",
+                "count": 1
+              }
+            ],
+            "example_quotes": [
+              "civic equity"
+            ],
+            "evidence_row_ids": [
+              "row_03a52cf1d48c8a26"
+            ],
+            "evidence_examples": [
+              {
+                "row_id": "row_03a52cf1d48c8a26",
+                "skill": "SEMANTIC_EVALUABILITY",
+                "family": "SEMANTIC_COMBINATION",
+                "rubric": "LR",
+                "quote": "civic equity",
+                "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+                "sentence_index": 11,
+                "paragraph_index": 5,
+                "paragraph_position": "conclusion",
+                "repair_operation": "REPLACE",
+                "pressure": 1.05,
+                "root_status": "root",
+                "suppression_reason": null,
+                "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+                "explanation": "The term 'civic equity' is semantically incompatible with the context of cultivating civic values and participation.",
+                "display_safety_status": "student_safe",
+                "display_safety_reasons": [],
+                "full_sentence_available": true
+              }
+            ],
+            "target_validation": {
+              "family_purity": 1.0,
+              "student_safe_evidence_count": 1,
+              "policy": "V4 display-safety + target-family compatibility + saturation-adjusted pressure"
+            }
+          }
+        ],
+        "validated_strengths": [
+          {
+            "id": "BASIC_STRUCTURE_PRESENT",
+            "strength": "You have a usable essay structure.",
+            "skill": "COHERENCE_CONTROL",
+            "evidence_source": "Paragraph count is 5, no root paragraph-structure problem detected.",
+            "how_to_use_for_next_band": "Keep the structure and improve content inside each body paragraph.",
+            "confidence": "high"
+          },
+          {
+            "id": "MEANING_RECOVERABLE",
+            "strength": "Your ideas are usually understandable.",
+            "skill": "MEANING_RECOVERABILITY",
+            "evidence_source": "Mean recoverability is 1.00.",
+            "how_to_use_for_next_band": "Focus on precision and naturalness rather than rebuilding the whole essay.",
+            "confidence": "high"
+          }
+        ],
+        "student_safe_rows": [
+          {
+            "row_id": "row_03a52cf1d48c8a26",
+            "quote": "civic equity",
+            "local_quote": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+            "full_sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+            "family": "SEMANTIC_COMBINATION",
+            "skill": "SEMANTIC_EVALUABILITY",
+            "rubric": "LR",
+            "sentence_index": 11,
+            "paragraph_index": 5,
+            "paragraph_position": "conclusion",
+            "repair_operation": "REPLACE",
+            "problem_statement": "civic equity is not a commonly used phrase in this context and may not convey the intended meaning.",
+            "pressure": 1.05,
+            "display_safety_status": "student_safe",
+            "display_safety_reasons": [],
+            "full_sentence_available": true
+          }
+        ],
+        "teacher_debug_only_rows": [],
+        "task_type_specific_note": null,
+        "requirements": {
+          "full_sentence_required_for_student_examples": true,
+          "feedback_engine_must_not_create_new_errors": true,
+          "feedback_engine_may_hide_unsafe_evidence": true
+        }
+      },
+      "alternative_hypothesis": null,
+      "learning_intelligence_ingestion_payload": {
+        "li_contract_version": "LI_INGESTION_V1.1",
+        "source_engine": "priority_engine_v4.4.0",
+        "essay_id": "essay_strong_001",
+        "student_id": "stress_strong",
+        "created_at": "2026-07-12T08:32:19.812809+00:00",
+        "skill_pressure_vector": {},
+        "top_skills_by_pressure": [
+          {
+            "skill": "SEMANTIC_EVALUABILITY",
+            "rubric": "META",
+            "pressure": 1.05,
+            "rank": 1
+          }
+        ],
+        "recommended_targets": [
+          {
+            "target_id": "MEANING_RECOVERY_FIRST",
+            "learning_target": "Meaning recovery before discourse work",
+            "pressure": 1.843,
+            "roi": "medium",
+            "rank": 1
+          },
+          {
+            "target_id": "ABSTRACT_NOUN_COLLOCATIONS",
+            "learning_target": "Abstract noun + verb/noun collocations",
+            "pressure": 1.47,
+            "roi": "medium",
+            "rank": 2
+          }
+        ],
+        "confirmed_strengths": [
+          {
+            "id": "BASIC_STRUCTURE_PRESENT",
+            "skill": "COHERENCE_CONTROL",
+            "confidence": "high"
+          },
+          {
+            "id": "MEANING_RECOVERABLE",
+            "skill": "MEANING_RECOVERABILITY",
+            "confidence": "high"
+          }
+        ],
+        "overall_band_estimate": 5.5,
+        "semantic_health": {
+          "mean_recoverability": 1.0,
+          "affected_discourse_ratio": 0.091
+        },
+        "behavioral_event_type": "essay_analysis_completed",
+        "note": "This payload is for ingestion by Learning Intelligence Engine only. Do not surface to student."
+      },
+      "qa_flags": [
+        {
+          "flag_type": "low_root_row_count",
+          "severity": "warning",
+          "message": "Only 1 root rows after compression. Priority output may be unreliable; check detector input."
+        },
+        {
+          "flag_type": "primary_target_low_evidence",
+          "severity": "warning",
+          "message": "Primary target MEANING_RECOVERY_FIRST has fewer than 2 student-safe evidence rows. Treat as indicative."
+        },
+        {
+          "flag_type": "single_family_dominance",
+          "severity": "info",
+          "message": "Family SEMANTIC_COMBINATION contributes 100% of total pressure. Saturation decay applied but output may still be skewed."
+        },
+        {
+          "flag_type": "eci_safety_block",
+          "flag_reason": "all_meta_no_eligible_rubric",
+          "flag_detail": "All skill_profiles have rubric=META after FAMILY_RUBRIC_REMAP. No IELTS rubric (GRA/LR/TR/CC) can be selected as primary_limiter. This essay has insufficient non-META evidence for reliable prioritisation.",
+          "severity": "critical",
+          "source": "v4_4_all_meta_fallback"
+        }
+      ],
+      "debug_counts": {
+        "normalized_rows": 1,
+        "root_rows": 1,
+        "symptom_or_collapsed_rows": 0,
+        "student_safe_root_rows": 1,
+        "fp_suppressed_rows": 0,
+        "tr_cc_injected": 0,
+        "meta_primary_detected": true,
+        "primary_reselected": false,
+        "eci_hard_block": true,
+        "practice_feedback_applied": false,
+        "families_discounted": [],
+        "all_meta_fallback_block": true,
+        "ssr_fp": 0.0
+      }
+    }
+  ],
+  "batch_summary": {
+    "essay_count": 1,
+    "primary_limiter_distribution": [
+      {
+        "skill": "SEMANTIC_EVALUABILITY",
+        "count": 1
+      }
+    ],
+    "top_training_target_distribution": [
+      {
+        "target_id": "MEANING_RECOVERY_FIRST",
+        "count": 1
+      }
+    ]
+  },
+  "qa": {
+    "premium_boundary": "detector/scorer evidence only; LRET and independent essay evaluation ignored"
+  }
+}

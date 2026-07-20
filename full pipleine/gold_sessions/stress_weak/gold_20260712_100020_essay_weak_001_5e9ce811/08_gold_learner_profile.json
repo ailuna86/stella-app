@@ -1,0 +1,220 @@
+{
+  "schema_version": "GOLD_LEARNER_PROFILE_STANDALONE_V1_4_3",
+  "engine_id": "VA_STELLA_GOLD_LIE_PROFILE_BUILDER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-12T08:09:12.062123+00:00",
+  "student_id": "stress_weak",
+  "latest_essay_id": "essay_weak_001",
+  "latest_score": {
+    "overall_band": 4.5,
+    "criteria_bands": {
+      "task_response": 4,
+      "coherence_cohesion": 5,
+      "lexical_resource": 5,
+      "grammar": 4
+    },
+    "score_confidence": "normal",
+    "score_status": "ready",
+    "progress_tracking_allowed": true,
+    "lie_update_allowed": true
+  },
+  "latest_error_profile": {
+    "by_family": {
+      "SUBJECT_VERB_AGREEMENT": 10,
+      "SPELLING": 2,
+      "GRAMMAR_PUNCTUATION": 1,
+      "COLLOCATION": 8,
+      "NOUN_NUMBER_COUNTABILITY": 2
+    },
+    "by_capacity": {
+      "sentence_control": 13,
+      "lexical_precision": 10
+    },
+    "by_criterion": {
+      "grammar": 13,
+      "lexical_resource": 10
+    },
+    "total_chargeable": 23
+  },
+  "latest_priority_focus": [
+    {
+      "rank": 1,
+      "capacity_domain": "sentence_control",
+      "skill_tag": "sentence_control",
+      "skill_id": "sentence_control",
+      "student_label": "Sentence Control",
+      "criterion": "grammar",
+      "evidence_count": 13,
+      "weighted_pressure": 13.0,
+      "priority_level": "very_high",
+      "top_families": [
+        "SUBJECT_VERB_AGREEMENT",
+        "NOUN_NUMBER_COUNTABILITY",
+        "GRAMMAR_PUNCTUATION"
+      ],
+      "family_counts": {
+        "SUBJECT_VERB_AGREEMENT": 10,
+        "NOUN_NUMBER_COUNTABILITY": 2,
+        "GRAMMAR_PUNCTUATION": 1
+      },
+      "recommended_service": "writing_coach",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_0efed0aa49157e1a",
+          "source_row_id": "row_0efed0aa49157e1a",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "it compulsory",
+          "sentence_index": 3,
+          "severity": "moderate",
+          "confidence": 0.95
+        },
+        {
+          "error_id": "row_a8d6750bc9648cf3",
+          "source_row_id": "row_a8d6750bc9648cf3",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "many",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.78
+        },
+        {
+          "error_id": "row_c96fc92a698352cc",
+          "source_row_id": "row_c96fc92a698352cc",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "think",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.78
+        },
+        {
+          "error_id": "row_b38357a5df96e3a6",
+          "source_row_id": "row_b38357a5df96e3a6",
+          "family": "SUBJECT_VERB_AGREEMENT",
+          "surface_quote": "they meets",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.72
+        },
+        {
+          "error_id": "row_e98202905c9fc28e",
+          "source_row_id": "row_e98202905c9fc28e",
+          "family": "GRAMMAR_PUNCTUATION",
+          "surface_quote": "true but",
+          "sentence_index": 11,
+          "severity": "moderate",
+          "confidence": 0.7
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "capacity_domain": "lexical_precision",
+      "skill_tag": "lexical_precision",
+      "skill_id": "lexical_precision",
+      "student_label": "Lexical Precision",
+      "criterion": "lexical_resource",
+      "evidence_count": 10,
+      "weighted_pressure": 10.0,
+      "priority_level": "very_high",
+      "top_families": [
+        "COLLOCATION",
+        "SPELLING"
+      ],
+      "family_counts": {
+        "COLLOCATION": 8,
+        "SPELLING": 2
+      },
+      "recommended_service": "lret",
+      "recommended_difficulty": "controlled",
+      "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+      "evidence_samples": [
+        {
+          "error_id": "row_ac7d2668316daf03",
+          "source_row_id": "row_ac7d2668316daf03",
+          "family": "SPELLING",
+          "surface_quote": "dont",
+          "sentence_index": 2,
+          "severity": "moderate",
+          "confidence": 0.86
+        },
+        {
+          "error_id": "row_2e3f5867d8d8e819",
+          "source_row_id": "row_2e3f5867d8d8e819",
+          "family": "SPELLING",
+          "surface_quote": "dont",
+          "sentence_index": 11,
+          "severity": "moderate",
+          "confidence": 0.86
+        },
+        {
+          "error_id": "row_ea8c384393b64716",
+          "source_row_id": "row_ea8c384393b64716",
+          "family": "COLLOCATION",
+          "surface_quote": "student doing",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.85
+        },
+        {
+          "error_id": "row_67c40c61c6a5916e",
+          "source_row_id": "row_67c40c61c6a5916e",
+          "family": "COLLOCATION",
+          "surface_quote": "different peoples",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.9
+        },
+        {
+          "error_id": "row_22766023a6ba471b",
+          "source_row_id": "row_22766023a6ba471b",
+          "family": "COLLOCATION",
+          "surface_quote": "old peoples",
+          "sentence_index": 4,
+          "severity": "moderate",
+          "confidence": 0.9
+        }
+      ]
+    }
+  ],
+  "service_artifact_status": {
+    "feedback": {
+      "available": true,
+      "schema_version": "FEEDBACK_REPORT_V6C_CLI_STANDALONE",
+      "engine_id": "VA_STELLA_FEEDBACK_ENGINE_V6C_CLI"
+    },
+    "evaluator": {
+      "available": true,
+      "schema_version": "WKM_OUTPUT_V8.3",
+      "engine_id": null
+    },
+    "lret": {
+      "available": true,
+      "schema_version": "LRET_OUTPUT_V1.5",
+      "engine_id": null
+    },
+    "writing_coach": {
+      "available": true,
+      "schema_version": "WRITING_COACH_OUTPUT_V1_2_10_PROACTIVE_ADAPTIVE_CLI",
+      "engine_id": null
+    },
+    "practice": {
+      "available": true,
+      "schema_version": "GOLD_PRACTICE_SESSION_ADAPTIVE_V1",
+      "engine_id": "VA_STELLA_GOLD_PRACTICE_ENGINE_BRIDGE"
+    }
+  },
+  "next_best_action": {
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "recommended_service": "writing_coach",
+    "source": "directive"
+  },
+  "learning_state": {
+    "profile_update_allowed": true,
+    "trend_update_allowed": true,
+    "mastery_update_policy": "evidence_accumulation_only_until_student_attempts_practice_or_coach_tasks"
+  },
+  "boundary": "LIE profile aggregates completed Gold artifacts only; no scoring, detection, feedback generation, or exercise generation is performed here."
+}

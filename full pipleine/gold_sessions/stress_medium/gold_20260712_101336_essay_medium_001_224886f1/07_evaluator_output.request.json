@@ -1,0 +1,20 @@
+{
+  "schema_version": "EVALUATOR_BRIDGE_REQUEST_V1_4_3",
+  "bridge_engine_id": "VA_STELLA_EVALUATOR_CLI_BRIDGE",
+  "bridge_engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-12T08:14:33.532046+00:00",
+  "student_id": "stress_medium",
+  "essay_id": "essay_medium_001",
+  "submission_id": null,
+  "prompt_text": "Some people believe that unpaid community service should be a compulsory part of high school education. To what extent do you agree or disagree?",
+  "essay_text": "Community service has become an increasingly common topic in discussions about high school education. While some argue that it should remain a voluntary choice, I largely agree that making it compulsory would bring more benefits than drawbacks, provided it is implemented thoughtfully.\n\nOne of the main advantages of compulsory community service is that it exposes students to realities they might otherwise never encounter. Many teenagers grow up in fairly protected environments and rarely interact with people from different backgrounds, such as elderly residents in care homes or families experiencing poverty. By requiring students to volunteer, schools can help young people develop empathy and a broader understanding of society, which is something that classroom lessons alone often fail to achieve.\n\nIn addition, community service can teach practical skills that are not always covered in the standard curriculum, including teamwork, communication, and time management. These skills are valuable not only for future employment but also for personal growth. Universities and employers increasingly value applicants who can demonstrate real-world experience alongside academic achievement.\n\nOn the other hand, critics point out that students already face heavy academic pressure, and adding mandatory service hours could increase stress rather than reduce it. This is a fair concern, but it can be addressed by allowing flexible scheduling, such as completing hours during holidays or weekends, rather than during term time.\n\nOverall, although there are some practical challenges to consider, I believe the long-term benefits of compulsory community service, particularly in building empathy and life skills, outweigh the potential downsides.",
+  "detector_output_path": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_medium\\gold_20260712_101336_essay_medium_001_224886f1\\01c_detector_for_evaluator.json",
+  "scorer_output_path": null,
+  "ontology_dir": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine",
+  "use_llm": true,
+  "max_llm_skills": 30,
+  "bridge_quality_context": {
+    "detector_rows_supplied_to_evaluator": 8,
+    "detector_schema_expected_by_evaluator": "diagnostic_rows under root/results[0]"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": "premium_verifier_v1_4_3_universal_gatekeeper_batch",
+  "verifier_version": "premium_verifier_v1_4_3_universal_gatekeeper",
+  "score_change_allowed": false,
+  "n_results": 1,
+  "summary": {
+    "status_counts": {
+      "pass": 1
+    },
+    "release_decision_counts": {
+      "release": 1
+    },
+    "score_group_counts": {
+      "B2_MEDIUM": 1
+    },
+    "scorer_evidence_tier_counts": {
+      "B2_MEDIUM": 1
+    },
+    "tier_governor_action_counts": {
+      "none": 1
+    },
+    "caution_category_counts": {
+      "none": 1
+    },
+    "risk_family_counts": {},
+    "blocking_flag_counts": {},
+    "review_flag_counts": {},
+    "warning_counts": {},
+    "safe_for_student_release_counts": {
+      "True": 1
+    },
+    "safe_for_progress_tracking_counts": {
+      "True": 1
+    }
+  },
+  "results": [
+    {
+      "essay_id": "essay_strong_001",
+      "verifier_version": "premium_verifier_v1_4_3_universal_gatekeeper",
+      "verifier_status": "pass",
+      "release_decision": "release",
+      "score_change_allowed": false,
+      "score_change_recommended": false,
+      "original_overall_band": 5.5,
+      "original_criteria_bands": {
+        "task_response": 6,
+        "coherence_cohesion": 6,
+        "lexical_resource": 5,
+        "grammar": 5
+      },
+      "score_group": "B2_MEDIUM",
+      "scorer_evidence_tier": "B2_MEDIUM",
+      "scorer_released_score_tier": "B2_MEDIUM",
+      "tier_governor_action": "none",
+      "caution_category": "none",
+      "risk_families": [],
+      "blocking_flags": [],
+      "review_flags": [],
+      "warnings": [],
+      "review_priority": "none",
+      "human_review_recommended": false,
+      "safe_for_student_release": true,
+      "safe_for_progress_tracking": true,
+      "safe_for_priority_engine": true,
+      "safe_for_lie_update": true,
+      "checks": [
+        {
+          "check_id": "format_and_math_contract",
+          "family": "format_math",
+          "status": "pass",
+          "evidence": {
+            "overall": 5.5,
+            "recomputed": 5.5,
+            "criteria": {
+              "task_response": 6,
+              "coherence_cohesion": 6,
+              "lexical_resource": 5,
+              "grammar": 5
+            }
+          }
+        },
+        {
+          "check_id": "tier_and_universal_risk_contract",
+          "family": "tier_contract",
+          "status": "pass",
+          "evidence": {
+            "evidence_tier": "B2_MEDIUM",
+            "released_score_tier": "B2_MEDIUM",
+            "score_group": "B2_MEDIUM",
+            "pre_governor_overall": 5.5,
+            "post_governor_overall": 5.5,
+            "action": "none",
+            "tier_confidence_level": "low",
+            "high_rescue_candidate": false,
+            "high_rescue_confirmation_count": 0,
+            "hard_veto_count": 2
+          }
+        }
+      ],
+      "short_reason": "safe release"
+    }
+  ]
+}

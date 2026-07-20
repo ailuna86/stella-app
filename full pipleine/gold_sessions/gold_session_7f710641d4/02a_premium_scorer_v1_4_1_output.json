@@ -1,0 +1,133 @@
+{
+  "schema_version": "PREMIUM_UNIFIED_SCORER_COMPAT_GOLD_V1_2",
+  "scoring_version": "1.2.0-monolithic-no-premium-runner",
+  "score_profile": {
+    "score_status": "ready",
+    "confidence": "normal",
+    "official_criteria_bands": {
+      "TR": 5,
+      "CC": 6,
+      "LR": 4,
+      "GRA": 4
+    },
+    "overall_band_estimate": 5.0,
+    "criterion_rationales": {
+      "TR": "A position is expressed, but development is limited and not always clear.",
+      "CC": "Information and ideas are generally arranged coherently, though cohesion may be faulty or mechanical.",
+      "LR": "Limited but minimally adequate lexical resource with noticeable awkward combinations.",
+      "GRA": "A wide range of structures is used with generally strong control."
+    },
+    "evidence_caps": {
+      "sentence_control_errors": 17,
+      "lexical_precision_errors": 15,
+      "cohesion_errors": 1,
+      "argument_errors": 2,
+      "base_core_bands": {
+        "TR": 5,
+        "CC": 6,
+        "LR": 5,
+        "GRA": 8
+      }
+    }
+  },
+  "core_scores": {
+    "overall": 6.0,
+    "grammar": {
+      "band": 8,
+      "reason": "A wide range of structures is used with generally strong control.",
+      "metrics": {
+        "grammar_errors": 2,
+        "high_grammar_errors": 0,
+        "medium_grammar_errors": 0,
+        "low_grammar_errors": 2,
+        "error_free_sentences": 16,
+        "sentence_accuracy_rate": 0.889,
+        "grammar_error_rate": 0.111,
+        "high_severity_error_rate": 0.0,
+        "n_complex_sentences": 12,
+        "structural_variety_ratio": 0.667,
+        "complex_sentences_with_grammar_error": 2,
+        "complex_sentence_error_rate": 0.167,
+        "repeated_grammar_subissues": 1,
+        "grammar_issue_counts": {
+          "G_COMMA_TRANSITION": 2
+        }
+      }
+    },
+    "lexical_resource": {
+      "band": 5,
+      "reason": "Limited but minimally adequate lexical resource with noticeable awkward combinations.",
+      "metrics": {
+        "advanced_ratio": 0.171,
+        "colloc_hit_rate": 0.0,
+        "colloc_weighted_rate": 0.0,
+        "frame_hit_rate": 0.25,
+        "misspell_rate": 0.0,
+        "top10_share": 0.206,
+        "repeated_trigram_share": 0.03,
+        "n_tokens": 272,
+        "unique_tokens": 108,
+        "type_token_ratio": 0.659,
+        "repetition_rate": 0.341,
+        "lexical_issue_rate": 0.389,
+        "collocation_error_count": 0,
+        "unnatural_phrase_count": 0,
+        "wrong_word_choice_count": 0,
+        "word_form_error_count": 0,
+        "informal_vocabulary_count": 4,
+        "lexical_issue_counts": {
+          "L_INFORMAL_VOCAB": 4,
+          "L_REPETITION": 3
+        }
+      }
+    },
+    "cohesion_coherence": {
+      "band": 6,
+      "reason": "Information and ideas are generally arranged coherently, though cohesion may be faulty or mechanical.",
+      "metrics": {
+        "connector_count": 20,
+        "distinct_connector_count": 6,
+        "basic_connector_ratio": 0.8,
+        "adjacent_overlap_ratio": 0.049,
+        "cohesion_issue_rate": 0.056,
+        "cohesion_issue_counts": {
+          "C_SIMPLE_CONNECTORS": 1
+        }
+      }
+    },
+    "argumentation": {
+      "band": 5,
+      "reason": "A position is expressed, but development is limited and not always clear.",
+      "metrics": {
+        "position_presence": 1,
+        "example_presence": 1,
+        "argumentation_issue_rate": 0.111,
+        "prompt_overlap_ratio": 0.6,
+        "support_ratio": 0.889,
+        "status": "scored",
+        "argument_issue_counts": {
+          "A_OVERGENERALIZATION": 1,
+          "A_UNDERDEVELOPED": 1
+        }
+      }
+    },
+    "academic_style": {
+      "band": 5,
+      "reason": "Informal or conversational style is common.",
+      "metrics": {
+        "style_issue_rate": 0.167,
+        "contraction_count": 0,
+        "informal_marker_count": 2,
+        "direct_address_count": 0,
+        "style_issue_counts": {
+          "S_INFORMAL_TONE": 2,
+          "S_HEDGING": 1
+        }
+      }
+    }
+  },
+  "tier_decision": {
+    "tier": "gold",
+    "released": true
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "PRACTICE_SESSION_GOLD_UNIFIED_V1_2",
+  "session_mode": "assigned_not_attempted",
+  "target_skill": {
+    "skill_id": "sentence_control",
+    "skill_name": "Sentence control",
+    "recommended_service": "writing_coach",
+    "why_now": "It is the best next target according to the current essay evidence and skill dependency logic."
+  },
+  "exercises": [
+    {
+      "exercise_id": "ex_a249fb7b281a",
+      "family": "C_SIMPLE_CONNECTORS",
+      "capacity_domain": "cohesion_control",
+      "prompt": "Rewrite this part more accurately: and, and, so, for example, and, for example",
+      "model_hint": "Use a wider range of linking devices where appropriate.",
+      "mastery_update_allowed": false
+    },
+    {
+      "exercise_id": "ex_53e4f6a186e3",
+      "family": "A_OVERGENERALIZATION",
+      "capacity_domain": "argument_development",
+      "prompt": "Rewrite this part more accurately: For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things",
+      "model_hint": "Rewrite the claim using more precise or qualified language.",
+      "mastery_update_allowed": false
+    },
+    {
+      "exercise_id": "ex_f5c09f85a9ab",
+      "family": "A_UNDERDEVELOPED",
+      "capacity_domain": "argument_development",
+      "prompt": "Rewrite this part more accurately: Older people often need more medical help than young peoples",
+      "model_hint": "Develop this idea with more explanation or support.",
+      "mastery_update_allowed": false
+    },
+    {
+      "exercise_id": "ex_eb4fda356efa",
+      "family": "G_COMMA_TRANSITION",
+      "capacity_domain": "sentence_control",
+      "prompt": "Rewrite this part more accurately: For example",
+      "model_hint": "For example, in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea.",
+      "mastery_update_allowed": false
+    },
+    {
+      "exercise_id": "ex_2b21a394ec40",
+      "family": "L_INFORMAL_VOCAB",
+      "capacity_domain": "academic_style",
+      "prompt": "Rewrite this part more accurately: a lot",
+      "model_hint": "Replace the informal word with a more precise alternative.",
+      "mastery_update_allowed": false
+    },
+    {
+      "exercise_id": "ex_fcdedc52c773",
+      "family": "L_REPETITION",
+      "capacity_domain": "lexical_precision",
+      "prompt": "Rewrite this part more accurately: example",
+      "model_hint": "Rewrite the sentence to reduce repetition of this word.",
+      "mastery_update_allowed": false
+    },
+    {
+      "exercise_id": "ex_3b9bccaad7d5",
+      "family": "S_INFORMAL_TONE",
+      "capacity_domain": "academic_style",
+      "prompt": "Rewrite this part more accurately: a lot",
+      "model_hint": "Rewrite the sentence in a more formal style.",
+      "mastery_update_allowed": false
+    },
+    {
+      "exercise_id": "ex_78089854624a",
+      "family": "S_HEDGING",
+      "capacity_domain": "academic_style",
+      "prompt": "Rewrite this part more accurately: everything",
+      "model_hint": "Rewrite the claim using more cautious wording if appropriate.",
+      "mastery_update_allowed": false
+    }
+  ],
+  "practice_event_for_lie": null
+}

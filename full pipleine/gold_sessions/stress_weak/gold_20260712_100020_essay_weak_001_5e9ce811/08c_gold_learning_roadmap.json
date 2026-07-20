@@ -1,0 +1,26 @@
+{
+  "schema_version": "GOLD_LEARNING_ROADMAP_STANDALONE_V1_4_3",
+  "created_at": "2026-07-12T08:09:12.064125+00:00",
+  "student_id": "stress_weak",
+  "roadmap": [
+    {
+      "phase": 1,
+      "focus": "sentence_control",
+      "service": "writing_coach",
+      "goal": "Stabilize the highest-priority weakness from the latest essay."
+    },
+    {
+      "phase": 2,
+      "focus": "controlled_transfer",
+      "service": "practice",
+      "goal": "Transfer the skill to short controlled tasks."
+    },
+    {
+      "phase": 3,
+      "focus": "revision",
+      "service": "essay_revision",
+      "goal": "Apply the skill in a revised essay."
+    }
+  ],
+  "boundary": "Roadmap orders upstream priorities; it does not generate lessons or scores."
+}

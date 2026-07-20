@@ -1,0 +1,417 @@
+{
+  "schema_version": "WRITING_COACH_MISSION_RESULT_V1_2_7",
+  "result_id": "wc_result_848086d4bbf7",
+  "created_at": "2026-07-08T08:23:19.610310+00:00",
+  "mission_id": "wc_mission_e3266ae2ae",
+  "target_skill_id": "verb_form_control",
+  "target_skill_name": "Verb Form Control",
+  "selected_move": {
+    "move_id": "MWM_ROUGH_IDEA_TO_CLEAR_SENTENCE_V1",
+    "move_name": "Rough Idea to Clear Academic Sentence",
+    "move_family": "clarity",
+    "training_mode": "production_transformation",
+    "primary_microskill": "simple_sentence_construction",
+    "secondary_microskills": [
+      "verb_form_control",
+      "complete_meaning_control",
+      "lexical_precision"
+    ],
+    "target_skill_role_in_move": "secondary_target",
+    "target_skill_role_explanation": "The selected move trains this microskill inside a broader writing-production move; it is evaluated through the observable units."
+  },
+  "adaptive_variant": null,
+  "response_summary": {
+    "line_count": 1,
+    "word_count": 8,
+    "required_items": 5,
+    "expected_item_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "completion_ratio": 0.2,
+    "submitted_item_numbers": [
+      1
+    ],
+    "missing_item_numbers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "numbering_warnings": [
+      "unnumbered_response_semantically_matched"
+    ]
+  },
+  "completion_gate": {
+    "status": "invalid_incomplete_output",
+    "required_items": 5,
+    "expected_item_numbers": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "submitted_items": 1,
+    "submitted_item_numbers": [
+      1
+    ],
+    "missing_item_numbers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "completion_ratio": 0.2,
+    "hard_gate": true,
+    "mastery_update_allowed": false,
+    "numbering_warnings": [
+      "unnumbered_response_semantically_matched"
+    ],
+    "numbering_feedback": "You submitted item number(s) [1]. Missing required number(s): [2, 3, 4, 5]. Keep the original item numbers so the Coach can match each sentence correctly.",
+    "message": "You submitted 1 item(s), but the mission requires 5. Complete all required items before this can count as skill evidence."
+  },
+  "observable_unit_scores": [
+    {
+      "unit_id": "subject_present",
+      "score": 1.0,
+      "weight": 0.18,
+      "critical": true,
+      "note": "Checks whether each line has an explicit subject or subject-like noun phrase."
+    },
+    {
+      "unit_id": "finite_verb_present",
+      "score": 1.0,
+      "weight": 0.2,
+      "critical": true,
+      "note": "Checks for a finite/main verb in each response line."
+    },
+    {
+      "unit_id": "verb_form_correct",
+      "score": 1.0,
+      "weight": 0.22,
+      "critical": true,
+      "note": "Detected 0 obvious blocked pattern(s)."
+    },
+    {
+      "unit_id": "complete_meaning",
+      "score": 1.0,
+      "weight": 0.22,
+      "critical": false,
+      "note": "Checks whether each line expresses a recoverable idea."
+    },
+    {
+      "unit_id": "minimum_output_met",
+      "score": 0.2,
+      "weight": 0.18,
+      "critical": false,
+      "note": "Detected 1 expected item(s); required 5. Expected numbers: [1, 2, 3, 4, 5]. This is a hard completion gate in V1.2.7."
+    }
+  ],
+  "raw_observable_score_before_gate": 0.856,
+  "mission_score": 0.0,
+  "outcome": "invalid_incomplete_output",
+  "attempt_status": "invalid_incomplete_output",
+  "confidence": 0.26,
+  "critical_failure": false,
+  "mastery_update_allowed": false,
+  "feedback": {
+    "summary": "You submitted 1/5 required items. I reviewed the submitted sentence(s) below, but complete all 5 items before this mission can count.",
+    "weakest_observable_units": [
+      {
+        "unit_id": "minimum_output_met",
+        "score": 0.2,
+        "weight": 0.18,
+        "critical": false,
+        "note": "Detected 1 expected item(s); required 5. Expected numbers: [1, 2, 3, 4, 5]. This is a hard completion gate in V1.2.7."
+      },
+      {
+        "unit_id": "subject_present",
+        "score": 1.0,
+        "weight": 0.18,
+        "critical": true,
+        "note": "Checks whether each line has an explicit subject or subject-like noun phrase."
+      }
+    ],
+    "next_action": "complete_missing_items"
+  },
+  "student_feedback": {
+    "overall_comment": "You submitted 1/5 required items. I reviewed the submitted sentence(s) below, but complete all 5 items before this mission can count.",
+    "format_feedback": "You submitted 1 item(s), but the mission requires 5. Complete all required items before this can count as skill evidence.",
+    "what_went_well": [
+      "meaning_is_recoverable",
+      "finite_verb_present",
+      "subject_present",
+      "idea_matches_prompt_item"
+    ],
+    "what_to_fix_first": [
+      "complete_all_required_items",
+      "higher_band_upgrade"
+    ],
+    "item_feedback": [
+      {
+        "item_number": 1,
+        "rough_input": "older people / need healthcare / government pays",
+        "student_sentence": "Older people need extensive healthcare covered with government.",
+        "status": "submitted",
+        "explicit_number_used": false,
+        "assignment_reason": "semantic_match_score:6.00",
+        "strengths": [
+          "meaning_is_recoverable",
+          "finite_verb_present",
+          "subject_present",
+          "idea_matches_prompt_item",
+          "no_blocked_verb_pattern_detected"
+        ],
+        "issues": [
+          "higher_band_upgrade: make the sentence more precise, natural, and academically connected"
+        ],
+        "sentence_quality_level": "functional_but_needs_upgrade",
+        "is_acceptable_for_target_move": false,
+        "needs_higher_band_upgrade": true,
+        "suggested_revision": "An ageing population increases healthcare costs, forcing governments to spend more on public services.",
+        "explanation": "This is recoverable, but the Coach should push it above basic B1 phrasing toward clearer academic expression.",
+        "how_to_improve": "Add a precise academic noun and a consequence, not only a simple statement."
+      },
+      {
+        "item_number": 2,
+        "rough_input": "many people retire / fewer workers / economy slows",
+        "student_sentence": null,
+        "status": "missing",
+        "strengths": [],
+        "issues": [
+          "missing_required_item"
+        ],
+        "is_acceptable_for_target_move": false,
+        "suggested_revision": "When many people retire, the workforce shrinks, which can slow economic growth.",
+        "explanation": "This item was not submitted, so the Coach cannot evaluate the target skill for this part of the mission.",
+        "how_to_improve": "Write one complete sentence for this rough idea."
+      },
+      {
+        "item_number": 3,
+        "rough_input": "grandparents / help parents / care for children",
+        "student_sentence": null,
+        "status": "missing",
+        "strengths": [],
+        "issues": [
+          "missing_required_item"
+        ],
+        "is_acceptable_for_target_move": false,
+        "suggested_revision": "Grandparents can support working parents by helping to care for children.",
+        "explanation": "This item was not submitted, so the Coach cannot evaluate the target skill for this part of the mission.",
+        "how_to_improve": "Write one complete sentence for this rough idea."
+      },
+      {
+        "item_number": 4,
+        "rough_input": "older people / teach traditions / younger generation",
+        "student_sentence": null,
+        "status": "missing",
+        "strengths": [],
+        "issues": [
+          "missing_required_item"
+        ],
+        "is_acceptable_for_target_move": false,
+        "suggested_revision": "Older people can preserve cultural traditions by teaching them to younger generations.",
+        "explanation": "This item was not submitted, so the Coach cannot evaluate the target skill for this part of the mission.",
+        "how_to_improve": "Write one complete sentence for this rough idea."
+      },
+      {
+        "item_number": 5,
+        "rough_input": "experience / advice / useful for society",
+        "student_sentence": null,
+        "status": "missing",
+        "strengths": [],
+        "issues": [
+          "missing_required_item"
+        ],
+        "is_acceptable_for_target_move": false,
+        "suggested_revision": "Older people’s experience can benefit society because they often offer practical advice.",
+        "explanation": "This item was not submitted, so the Coach cannot evaluate the target skill for this part of the mission.",
+        "how_to_improve": "Write one complete sentence for this rough idea."
+      }
+    ],
+    "submitted_items_reviewed": [
+      1
+    ],
+    "missing_items": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "numbering_feedback": "Missing required item number(s): [2, 3, 4, 5].",
+    "next_action": "complete_missing_items",
+    "try_again_instruction": "Add the missing numbered sentence(s): 2, 3, 4, 5. Then submit all required items together."
+  },
+  "teacher_feedback": {
+    "outcome": "invalid_incomplete_output",
+    "mastery_update_allowed": false,
+    "completion_gate": {
+      "status": "invalid_incomplete_output",
+      "required_items": 5,
+      "expected_item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "submitted_items": 1,
+      "submitted_item_numbers": [
+        1
+      ],
+      "missing_item_numbers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "completion_ratio": 0.2,
+      "hard_gate": true,
+      "mastery_update_allowed": false,
+      "numbering_warnings": [
+        "unnumbered_response_semantically_matched"
+      ],
+      "numbering_feedback": "You submitted item number(s) [1]. Missing required number(s): [2, 3, 4, 5]. Keep the original item numbers so the Coach can match each sentence correctly.",
+      "message": "You submitted 1 item(s), but the mission requires 5. Complete all required items before this can count as skill evidence."
+    },
+    "weakest_observable_units": [
+      {
+        "unit_id": "minimum_output_met",
+        "score": 0.2,
+        "weight": 0.18,
+        "critical": false,
+        "note": "Detected 1 expected item(s); required 5. Expected numbers: [1, 2, 3, 4, 5]. This is a hard completion gate in V1.2.7."
+      },
+      {
+        "unit_id": "subject_present",
+        "score": 1.0,
+        "weight": 0.18,
+        "critical": true,
+        "note": "Checks whether each line has an explicit subject or subject-like noun phrase."
+      }
+    ],
+    "interpretation": "Incomplete output is treated as non-mastery evidence in V1.2.7."
+  },
+  "debug_evaluation": {
+    "raw_line_count": 1,
+    "required_items": 5,
+    "observable_unit_scores": [
+      {
+        "unit_id": "subject_present",
+        "score": 1.0,
+        "weight": 0.18,
+        "critical": true,
+        "note": "Checks whether each line has an explicit subject or subject-like noun phrase."
+      },
+      {
+        "unit_id": "finite_verb_present",
+        "score": 1.0,
+        "weight": 0.2,
+        "critical": true,
+        "note": "Checks for a finite/main verb in each response line."
+      },
+      {
+        "unit_id": "verb_form_correct",
+        "score": 1.0,
+        "weight": 0.22,
+        "critical": true,
+        "note": "Detected 0 obvious blocked pattern(s)."
+      },
+      {
+        "unit_id": "complete_meaning",
+        "score": 1.0,
+        "weight": 0.22,
+        "critical": false,
+        "note": "Checks whether each line expresses a recoverable idea."
+      },
+      {
+        "unit_id": "minimum_output_met",
+        "score": 0.2,
+        "weight": 0.18,
+        "critical": false,
+        "note": "Detected 1 expected item(s); required 5. Expected numbers: [1, 2, 3, 4, 5]. This is a hard completion gate in V1.2.7."
+      }
+    ],
+    "hard_gate_applied": true,
+    "submitted_item_numbers": [
+      1
+    ],
+    "missing_item_numbers": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "numbering_warnings": [
+      "unnumbered_response_semantically_matched"
+    ],
+    "score_policy": "mission_score is set to 0.0 when the hard completion gate fails; raw_observable_score_before_gate is kept for debugging."
+  },
+  "lie_update_decision": {
+    "mastery_update_allowed": false,
+    "reason": "invalid_incomplete_output",
+    "emission_type": "attempt_record_only_not_mastery_evidence"
+  },
+  "learning_intelligence_payload": {
+    "source_engine_id": "WRITING_COACH",
+    "source_run_id": "wc_result_848086d4bbf7",
+    "profile_type": "coaching_mission_result",
+    "emission_type": "attempt_record_only_not_mastery_evidence",
+    "mission_id": "wc_mission_e3266ae2ae",
+    "mastery_update_allowed": false,
+    "attempt_status": "invalid_incomplete_output",
+    "completion_gate": {
+      "status": "invalid_incomplete_output",
+      "required_items": 5,
+      "expected_item_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "submitted_items": 1,
+      "submitted_item_numbers": [
+        1
+      ],
+      "missing_item_numbers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "completion_ratio": 0.2,
+      "hard_gate": true,
+      "mastery_update_allowed": false,
+      "numbering_warnings": [
+        "unnumbered_response_semantically_matched"
+      ],
+      "numbering_feedback": "You submitted item number(s) [1]. Missing required number(s): [2, 3, 4, 5]. Keep the original item numbers so the Coach can match each sentence correctly.",
+      "message": "You submitted 1 item(s), but the mission requires 5. Complete all required items before this can count as skill evidence."
+    },
+    "skill_signals": [],
+    "metric_signals": [],
+    "behavioral_events": [
+      {
+        "event_id": "event_13d1563223fb",
+        "event_type": "micromission_attempt_incomplete_or_invalid",
+        "mission_id": "wc_mission_e3266ae2ae",
+        "outcome": "invalid_incomplete_output",
+        "created_at": "2026-07-08T08:23:19.610310+00:00"
+      }
+    ],
+    "privacy_classification": "learning_analytics",
+    "attempt_record": {
+      "skill_id": "verb_form_control",
+      "skill_name": "Verb Form Control",
+      "outcome": "invalid_incomplete_output",
+      "mission_score": 0.0,
+      "raw_observable_score_before_gate": 0.856,
+      "reason": "invalid_incomplete_output"
+    }
+  }
+}

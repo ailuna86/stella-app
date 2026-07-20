@@ -1,0 +1,966 @@
+{
+  "schema_version": "ERRORMAP_V3_STANDALONE",
+  "engine_id": "VA_STELLA_DETECTOR_TO_ERRORMAP_STANDALONE",
+  "engine_version": "3.0.0-standalone-no-imports",
+  "created_at": "2026-07-08T10:47:53.609824+00:00",
+  "errors": [
+    {
+      "error_id": "err_f9143db3daca",
+      "source_row_id": "det_f992bdb74411",
+      "essay_id": "essay_001",
+      "sentence_index": 2,
+      "criterion": "argumentation",
+      "family": "A_UNDERDEVELOPED",
+      "capacity_domain": "argument_development",
+      "surface_quote": "Older people often need more medical help than young peoples.",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "low",
+      "student_message": "Develop this idea with explanation or support.",
+      "chargeable": true,
+      "location": {
+        "char_start": 107,
+        "char_end": 168,
+        "sentence": "Older people often need more medical help than young peoples."
+      }
+    },
+    {
+      "error_id": "err_6a5f2bf4b08e",
+      "source_row_id": "det_f0463c9513a1",
+      "essay_id": "essay_001",
+      "sentence_index": 3,
+      "criterion": "grammar",
+      "family": "G_VERB_PATTERN",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "for take",
+      "suggested_revision": null,
+      "severity": "high",
+      "confidence": "medium",
+      "student_message": "Check the verb pattern after this preposition or structure.",
+      "chargeable": true,
+      "location": {
+        "char_start": 231,
+        "char_end": 239,
+        "sentence": "And they stop working, so they need modey from the goverment, for take care with they health."
+      }
+    },
+    {
+      "error_id": "err_c441fd9c09b3",
+      "source_row_id": "det_1d63582154cf",
+      "essay_id": "essay_001",
+      "sentence_index": 4,
+      "criterion": "grammar",
+      "family": "G_SPACING",
+      "capacity_domain": "sentence_control",
+      "surface_quote": " ,",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "high",
+      "student_message": "Remove unnecessary spacing before punctuation.",
+      "chargeable": true,
+      "location": {
+        "char_start": 324,
+        "char_end": 326,
+        "sentence": "For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea."
+      }
+    },
+    {
+      "error_id": "err_e5da45eff45e",
+      "source_row_id": "det_39c224ecc2a6",
+      "essay_id": "essay_001",
+      "sentence_index": 4,
+      "criterion": "grammar",
+      "family": "G_COMMA_TRANSITION",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "For example",
+      "suggested_revision": "For example, in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea.",
+      "severity": "low",
+      "confidence": "high",
+      "student_message": "Add punctuation after an introductory transition where needed.",
+      "chargeable": true,
+      "location": {
+        "char_start": 263,
+        "char_end": 274,
+        "sentence": "For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea."
+      }
+    },
+    {
+      "error_id": "err_4e52ad9949e1",
+      "source_row_id": "det_b1bf817ea0e7",
+      "essay_id": "essay_001",
+      "sentence_index": 4,
+      "criterion": "lexical_resource",
+      "family": "L_INFORMAL_VOCAB",
+      "capacity_domain": "academic_style",
+      "surface_quote": "a lot",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more formal or precise expression in academic writing.",
+      "chargeable": true,
+      "location": {
+        "char_start": 342,
+        "char_end": 347,
+        "sentence": "For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea."
+      }
+    },
+    {
+      "error_id": "err_d4b629803354",
+      "source_row_id": "det_4143a8627b43",
+      "essay_id": "essay_001",
+      "sentence_index": 4,
+      "criterion": "academic_style",
+      "family": "S_INFORMAL_TONE",
+      "capacity_domain": "academic_style",
+      "surface_quote": "a lot",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "medium",
+      "student_message": "Rewrite this part in a more academic style.",
+      "chargeable": true,
+      "location": {
+        "char_start": 342,
+        "char_end": 347,
+        "sentence": "For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea."
+      }
+    },
+    {
+      "error_id": "err_ad95aef7b8fa",
+      "source_row_id": "det_4d8ec5d5d2e2",
+      "essay_id": "essay_001",
+      "sentence_index": 4,
+      "criterion": "lexical_resource",
+      "family": "L_REPETITION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "example",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "medium",
+      "student_message": "Reduce unnecessary repetition where it weakens precision.",
+      "chargeable": true,
+      "location": {
+        "char_start": 267,
+        "char_end": 274,
+        "sentence": "For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea."
+      }
+    },
+    {
+      "error_id": "err_03f136b2bb13",
+      "source_row_id": "det_57ba44530448",
+      "essay_id": "essay_001",
+      "sentence_index": 4,
+      "criterion": "lexical_resource",
+      "family": "L_LIMITED_VOCAB",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "many",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more precise lexical choice where meaning is too general.",
+      "chargeable": true,
+      "location": {
+        "char_start": 299,
+        "char_end": 303,
+        "sentence": "For example in contries like Japan, many old people need care , and this costs a lot of money, or for example Korea."
+      }
+    },
+    {
+      "error_id": "err_63f292eef63b",
+      "source_row_id": "det_cf959aeeea17",
+      "essay_id": "essay_001",
+      "sentence_index": 5,
+      "criterion": "grammar",
+      "family": "G_SPACING",
+      "capacity_domain": "sentence_control",
+      "surface_quote": " .",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "high",
+      "student_message": "Remove unnecessary spacing before punctuation.",
+      "chargeable": true,
+      "location": {
+        "char_start": 442,
+        "char_end": 444,
+        "sentence": "Another issued is that the way be fewer young people working ."
+      }
+    },
+    {
+      "error_id": "err_5c2cdd918ab5",
+      "source_row_id": "det_42ea5ad1b1b2",
+      "essay_id": "essay_001",
+      "sentence_index": 5,
+      "criterion": "grammar",
+      "family": "G_MISSING_VERB",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "the way be",
+      "suggested_revision": null,
+      "severity": "high",
+      "confidence": "medium",
+      "student_message": "Check whether the clause needs a main verb.",
+      "chargeable": true,
+      "location": {
+        "char_start": 405,
+        "char_end": 415,
+        "sentence": "Another issued is that the way be fewer young people working ."
+      }
+    },
+    {
+      "error_id": "err_73ce9b615721",
+      "source_row_id": "det_05f05540499b",
+      "essay_id": "essay_001",
+      "sentence_index": 5,
+      "criterion": "argumentation",
+      "family": "A_UNDERDEVELOPED",
+      "capacity_domain": "argument_development",
+      "surface_quote": "Another issued is that the way be fewer young people working .",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "low",
+      "student_message": "Develop this idea with explanation or support.",
+      "chargeable": true,
+      "location": {
+        "char_start": 382,
+        "char_end": 444,
+        "sentence": "Another issued is that the way be fewer young people working ."
+      }
+    },
+    {
+      "error_id": "err_78f1f4372717",
+      "source_row_id": "det_230cf7e034b4",
+      "essay_id": "essay_001",
+      "sentence_index": 6,
+      "criterion": "lexical_resource",
+      "family": "L_LIMITED_VOCAB",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "many",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more precise lexical choice where meaning is too general.",
+      "chargeable": true,
+      "location": {
+        "char_start": 451,
+        "char_end": 455,
+        "sentence": "If too many retire, there are not enough workers to do all the jobs."
+      }
+    },
+    {
+      "error_id": "err_0c6c8b5c3c58",
+      "source_row_id": "det_1d3ff5ad7d54",
+      "essay_id": "essay_001",
+      "sentence_index": 7,
+      "criterion": "argumentation",
+      "family": "A_UNDERDEVELOPED",
+      "capacity_domain": "argument_development",
+      "surface_quote": "This can slow down the economy.",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "low",
+      "student_message": "Develop this idea with explanation or support.",
+      "chargeable": true,
+      "location": {
+        "char_start": 513,
+        "char_end": 544,
+        "sentence": "This can slow down the economy."
+      }
+    },
+    {
+      "error_id": "err_76ec61b3bfbe",
+      "source_row_id": "det_f02cd2851232",
+      "essay_id": "essay_001",
+      "sentence_index": 8,
+      "criterion": "lexical_resource",
+      "family": "L_REPETITION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "find",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "medium",
+      "student_message": "Reduce unnecessary repetition where it weakens precision.",
+      "chargeable": true,
+      "location": {
+        "char_start": 564,
+        "char_end": 568,
+        "sentence": "Some companies may find it hard to find more new workers."
+      }
+    },
+    {
+      "error_id": "err_aa45636fa20e",
+      "source_row_id": "det_460346051c76",
+      "essay_id": "essay_001",
+      "sentence_index": 8,
+      "criterion": "argumentation",
+      "family": "A_UNDERDEVELOPED",
+      "capacity_domain": "argument_development",
+      "surface_quote": "Some companies may find it hard to find more new workers.",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "low",
+      "student_message": "Develop this idea with explanation or support.",
+      "chargeable": true,
+      "location": {
+        "char_start": 545,
+        "char_end": 602,
+        "sentence": "Some companies may find it hard to find more new workers."
+      }
+    },
+    {
+      "error_id": "err_d2a6b01f75f7",
+      "source_row_id": "det_ee6c4a25fbd5",
+      "essay_id": "essay_001",
+      "sentence_index": 9,
+      "criterion": "argumentation",
+      "family": "A_UNDERDEVELOPED",
+      "capacity_domain": "argument_development",
+      "surface_quote": "On the other hand, there are also some benefits.",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "low",
+      "student_message": "Develop this idea with explanation or support.",
+      "chargeable": true,
+      "location": {
+        "char_start": 605,
+        "char_end": 653,
+        "sentence": "On the other hand, there are also some benefits."
+      }
+    },
+    {
+      "error_id": "err_5167efc38b1f",
+      "source_row_id": "det_f60f6b860ffa",
+      "essay_id": "essay_001",
+      "sentence_index": 10,
+      "criterion": "lexical_resource",
+      "family": "L_INFORMAL_VOCAB",
+      "capacity_domain": "academic_style",
+      "surface_quote": "a lot",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more formal or precise expression in academic writing.",
+      "chargeable": true,
+      "location": {
+        "char_start": 672,
+        "char_end": 677,
+        "sentence": "Older peoples have a lot of knowledge and experience than young ones."
+      }
+    },
+    {
+      "error_id": "err_c0fc9aef8cbc",
+      "source_row_id": "det_ef0c519dd414",
+      "essay_id": "essay_001",
+      "sentence_index": 10,
+      "criterion": "academic_style",
+      "family": "S_INFORMAL_TONE",
+      "capacity_domain": "academic_style",
+      "surface_quote": "a lot",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "medium",
+      "student_message": "Rewrite this part in a more academic style.",
+      "chargeable": true,
+      "location": {
+        "char_start": 672,
+        "char_end": 677,
+        "sentence": "Older peoples have a lot of knowledge and experience than young ones."
+      }
+    },
+    {
+      "error_id": "err_a8d7a722019b",
+      "source_row_id": "det_785b300fbc83",
+      "essay_id": "essay_001",
+      "sentence_index": 11,
+      "criterion": "grammar",
+      "family": "G_SPACING",
+      "capacity_domain": "sentence_control",
+      "surface_quote": " ,",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "high",
+      "student_message": "Remove unnecessary spacing before punctuation.",
+      "chargeable": true,
+      "location": {
+        "char_start": 753,
+        "char_end": 755,
+        "sentence": "Even they can give good advice , working part-time or doing volunteer work as it possible."
+      }
+    },
+    {
+      "error_id": "err_71c0aca761a5",
+      "source_row_id": "det_7387ebdd6344",
+      "essay_id": "essay_001",
+      "sentence_index": 11,
+      "criterion": "lexical_resource",
+      "family": "L_LIMITED_VOCAB",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "good",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more precise lexical choice where meaning is too general.",
+      "chargeable": true,
+      "location": {
+        "char_start": 742,
+        "char_end": 746,
+        "sentence": "Even they can give good advice , working part-time or doing volunteer work as it possible."
+      }
+    },
+    {
+      "error_id": "err_0301f05d0a66",
+      "source_row_id": "det_b8bba5294465",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "grammar",
+      "family": "G_VERB_PATTERN",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "for home",
+      "suggested_revision": null,
+      "severity": "high",
+      "confidence": "medium",
+      "student_message": "Check the verb pattern after this preposition or structure.",
+      "chargeable": true,
+      "location": {
+        "char_start": 882,
+        "char_end": 890,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "err_790324e27b1d",
+      "source_row_id": "det_28c94c22cfb3",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "grammar",
+      "family": "G_COMMA_TRANSITION",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "For example",
+      "suggested_revision": "For example, my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things.",
+      "severity": "low",
+      "confidence": "high",
+      "student_message": "Add punctuation after an introductory transition where needed.",
+      "chargeable": true,
+      "location": {
+        "char_start": 814,
+        "char_end": 825,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "err_b72187d02f6d",
+      "source_row_id": "det_557a5a28c526",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "lexical_resource",
+      "family": "L_INFORMAL_VOCAB",
+      "capacity_domain": "academic_style",
+      "surface_quote": "things",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more formal or precise expression in academic writing.",
+      "chargeable": true,
+      "location": {
+        "char_start": 891,
+        "char_end": 897,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "err_18e4fde55a66",
+      "source_row_id": "det_15fb3fcbc60f",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "academic_style",
+      "family": "S_INFORMAL_TONE",
+      "capacity_domain": "academic_style",
+      "surface_quote": "things",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "medium",
+      "student_message": "Rewrite this part in a more academic style.",
+      "chargeable": true,
+      "location": {
+        "char_start": 891,
+        "char_end": 897,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "err_b72187d02f6d",
+      "source_row_id": "det_557a5a28c526",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "lexical_resource",
+      "family": "L_INFORMAL_VOCAB",
+      "capacity_domain": "academic_style",
+      "surface_quote": "things",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more formal or precise expression in academic writing.",
+      "chargeable": true,
+      "location": {
+        "char_start": 891,
+        "char_end": 897,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "err_18e4fde55a66",
+      "source_row_id": "det_15fb3fcbc60f",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "academic_style",
+      "family": "S_INFORMAL_TONE",
+      "capacity_domain": "academic_style",
+      "surface_quote": "things",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "medium",
+      "student_message": "Rewrite this part in a more academic style.",
+      "chargeable": true,
+      "location": {
+        "char_start": 891,
+        "char_end": 897,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "err_a55eb20a6a36",
+      "source_row_id": "det_45e7193cfede",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "lexical_resource",
+      "family": "L_INFORMAL_VOCAB",
+      "capacity_domain": "academic_style",
+      "surface_quote": "everything",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more formal or precise expression in academic writing.",
+      "chargeable": true,
+      "location": {
+        "char_start": 871,
+        "char_end": 881,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "err_00028a37a61a",
+      "source_row_id": "det_d504b6b89462",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "academic_style",
+      "family": "S_INFORMAL_TONE",
+      "capacity_domain": "academic_style",
+      "surface_quote": "everything",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "medium",
+      "student_message": "Rewrite this part in a more academic style.",
+      "chargeable": true,
+      "location": {
+        "char_start": 871,
+        "char_end": 881,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "err_7410153f6957",
+      "source_row_id": "det_ab59ea4db66a",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "lexical_resource",
+      "family": "L_REPETITION",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "things",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "medium",
+      "student_message": "Reduce unnecessary repetition where it weakens precision.",
+      "chargeable": true,
+      "location": {
+        "char_start": 891,
+        "char_end": 897,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "err_a975445ae646",
+      "source_row_id": "det_f07009b6df35",
+      "essay_id": "essay_001",
+      "sentence_index": 12,
+      "criterion": "lexical_resource",
+      "family": "L_LIMITED_VOCAB",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "things",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more precise lexical choice where meaning is too general.",
+      "chargeable": true,
+      "location": {
+        "char_start": 891,
+        "char_end": 897,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    },
+    {
+      "error_id": "err_0d0ef39a2662",
+      "source_row_id": "det_b535d9a240e6",
+      "essay_id": "essay_001",
+      "sentence_index": 13,
+      "criterion": "lexical_resource",
+      "family": "L_INFORMAL_VOCAB",
+      "capacity_domain": "academic_style",
+      "surface_quote": "things",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more formal or precise expression in academic writing.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1057,
+        "char_end": 1063,
+        "sentence": "Also, older people often help take care of their grandchildren, if parents should go to the work or some kinds of things."
+      }
+    },
+    {
+      "error_id": "err_5913b17cd29b",
+      "source_row_id": "det_eb52615ed2a7",
+      "essay_id": "essay_001",
+      "sentence_index": 13,
+      "criterion": "academic_style",
+      "family": "S_INFORMAL_TONE",
+      "capacity_domain": "academic_style",
+      "surface_quote": "things",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "medium",
+      "student_message": "Rewrite this part in a more academic style.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1057,
+        "char_end": 1063,
+        "sentence": "Also, older people often help take care of their grandchildren, if parents should go to the work or some kinds of things."
+      }
+    },
+    {
+      "error_id": "err_589444101edd",
+      "source_row_id": "det_2835d0af8865",
+      "essay_id": "essay_001",
+      "sentence_index": 13,
+      "criterion": "lexical_resource",
+      "family": "L_LIMITED_VOCAB",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "things",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more precise lexical choice where meaning is too general.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1057,
+        "char_end": 1063,
+        "sentence": "Also, older people often help take care of their grandchildren, if parents should go to the work or some kinds of things."
+      }
+    },
+    {
+      "error_id": "err_a1a87170cee6",
+      "source_row_id": "det_a9e4274cb9a4",
+      "essay_id": "essay_001",
+      "sentence_index": 14,
+      "criterion": "grammar",
+      "family": "G_SV_AGREEMENT",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "This make",
+      "suggested_revision": null,
+      "severity": "high",
+      "confidence": "high",
+      "student_message": "Check subject-verb agreement.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1064,
+        "char_end": 1073,
+        "sentence": "This make a family more stronger and friendly."
+      }
+    },
+    {
+      "error_id": "err_adb740d916ca",
+      "source_row_id": "det_8fb0418de586",
+      "essay_id": "essay_001",
+      "sentence_index": 14,
+      "criterion": "grammar",
+      "family": "G_COMPARATIVE_FORM",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "more stronger",
+      "suggested_revision": null,
+      "severity": "high",
+      "confidence": "high",
+      "student_message": "Check comparative adjective form.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1083,
+        "char_end": 1096,
+        "sentence": "This make a family more stronger and friendly."
+      }
+    },
+    {
+      "error_id": "err_129adbd5a5db",
+      "source_row_id": "det_e8ce2d9a7696",
+      "essay_id": "essay_001",
+      "sentence_index": 14,
+      "criterion": "argumentation",
+      "family": "A_UNDERDEVELOPED",
+      "capacity_domain": "argument_development",
+      "surface_quote": "This make a family more stronger and friendly.",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "low",
+      "student_message": "Develop this idea with explanation or support.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1064,
+        "char_end": 1110,
+        "sentence": "This make a family more stronger and friendly."
+      }
+    },
+    {
+      "error_id": "err_f51c88d75a52",
+      "source_row_id": "det_2d1a4cbd1641",
+      "essay_id": "essay_001",
+      "sentence_index": 15,
+      "criterion": "grammar",
+      "family": "G_ARTICLE",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "a children",
+      "suggested_revision": null,
+      "severity": "high",
+      "confidence": "high",
+      "student_message": "Check article use with singular/plural nouns.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1126,
+        "char_end": 1136,
+        "sentence": "They can teach a children about culture and family traditions , which is very important nowadays."
+      }
+    },
+    {
+      "error_id": "err_2b2d6d651ccc",
+      "source_row_id": "det_aed6fe284046",
+      "essay_id": "essay_001",
+      "sentence_index": 15,
+      "criterion": "grammar",
+      "family": "G_SPACING",
+      "capacity_domain": "sentence_control",
+      "surface_quote": " ,",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "high",
+      "student_message": "Remove unnecessary spacing before punctuation.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1172,
+        "char_end": 1174,
+        "sentence": "They can teach a children about culture and family traditions , which is very important nowadays."
+      }
+    },
+    {
+      "error_id": "err_9b8e1156ed31",
+      "source_row_id": "det_ff047ce6a001",
+      "essay_id": "essay_001",
+      "sentence_index": 17,
+      "criterion": "lexical_resource",
+      "family": "L_LIMITED_VOCAB",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "many",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more precise lexical choice where meaning is too general.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1405,
+        "char_end": 1409,
+        "sentence": "Older people still help society in many ways and situations."
+      }
+    },
+    {
+      "error_id": "err_700e1fdd2a1d",
+      "source_row_id": "det_fc6e0d912429",
+      "essay_id": "essay_001",
+      "sentence_index": 17,
+      "criterion": "argumentation",
+      "family": "A_UNDERDEVELOPED",
+      "capacity_domain": "argument_development",
+      "surface_quote": "Older people still help society in many ways and situations.",
+      "suggested_revision": null,
+      "severity": "medium",
+      "confidence": "low",
+      "student_message": "Develop this idea with explanation or support.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1370,
+        "char_end": 1430,
+        "sentence": "Older people still help society in many ways and situations."
+      }
+    },
+    {
+      "error_id": "err_77c0a19a4bf2",
+      "source_row_id": "det_0cf034e7faf1",
+      "essay_id": "essay_001",
+      "sentence_index": 18,
+      "criterion": "grammar",
+      "family": "G_MISSING_VERB",
+      "capacity_domain": "sentence_control",
+      "surface_quote": "that will be",
+      "suggested_revision": null,
+      "severity": "high",
+      "confidence": "medium",
+      "student_message": "Check whether the clause needs a main verb.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1496,
+        "char_end": 1508,
+        "sentence": "In many ways, if government makes good ability to older peoples, that will be the best plan to all countries."
+      }
+    },
+    {
+      "error_id": "err_0de3590df2f2",
+      "source_row_id": "det_be4ffd1f2b6c",
+      "essay_id": "essay_001",
+      "sentence_index": 18,
+      "criterion": "lexical_resource",
+      "family": "L_LIMITED_VOCAB",
+      "capacity_domain": "lexical_precision",
+      "surface_quote": "many",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use a more precise lexical choice where meaning is too general.",
+      "chargeable": true,
+      "location": {
+        "char_start": 1434,
+        "char_end": 1438,
+        "sentence": "In many ways, if government makes good ability to older peoples, that will be the best plan to all countries."
+      }
+    },
+    {
+      "error_id": "err_ab86f79f9742",
+      "source_row_id": "det_c85a8c3a4199",
+      "essay_id": "essay_001",
+      "sentence_index": 0,
+      "criterion": "cohesion_coherence",
+      "family": "C_SIMPLE_CONNECTORS",
+      "capacity_domain": "cohesion_control",
+      "surface_quote": "also, also, also, but, for example, for example, for example, and",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Use linking devices accurately and avoid mechanical repetition.",
+      "chargeable": true,
+      "location": {
+        "char_start": 0,
+        "char_end": 65,
+        "sentence": "One problem of an ageing population is that government has to spent more money on health care and pensions. Older people often need more medical help than young peoples. And they stop working, so they need modey from the goverment, for take care with they health. For example in contries like Japan, "
+      }
+    },
+    {
+      "error_id": "err_944c85287bb8",
+      "source_row_id": "det_31c8d49fe4e1",
+      "essay_id": "essay_001",
+      "sentence_index": 0,
+      "criterion": "argumentation",
+      "family": "A_OVERGENERALIZATION",
+      "capacity_domain": "argument_development",
+      "surface_quote": "everything",
+      "suggested_revision": null,
+      "severity": "low",
+      "confidence": "medium",
+      "student_message": "Qualify broad claims or support them with clearer evidence.",
+      "chargeable": true,
+      "location": {
+        "char_start": 872,
+        "char_end": 882,
+        "sentence": "For example my grandmother is so older, but she is doing everything for home-things, for her it is easy and so excited things."
+      }
+    }
+  ],
+  "broken_sentences_raw": [
+    {
+      "sentence_index": 3,
+      "quote": "for take",
+      "family": "G_VERB_PATTERN",
+      "source_error_id": "err_6a5f2bf4b08e"
+    },
+    {
+      "sentence_index": 5,
+      "quote": "the way be",
+      "family": "G_MISSING_VERB",
+      "source_error_id": "err_5c2cdd918ab5"
+    },
+    {
+      "sentence_index": 12,
+      "quote": "for home",
+      "family": "G_VERB_PATTERN",
+      "source_error_id": "err_0301f05d0a66"
+    },
+    {
+      "sentence_index": 14,
+      "quote": "This make",
+      "family": "G_SV_AGREEMENT",
+      "source_error_id": "err_a1a87170cee6"
+    },
+    {
+      "sentence_index": 14,
+      "quote": "more stronger",
+      "family": "G_COMPARATIVE_FORM",
+      "source_error_id": "err_adb740d916ca"
+    },
+    {
+      "sentence_index": 15,
+      "quote": "a children",
+      "family": "G_ARTICLE",
+      "source_error_id": "err_f51c88d75a52"
+    },
+    {
+      "sentence_index": 18,
+      "quote": "that will be",
+      "family": "G_MISSING_VERB",
+      "source_error_id": "err_77c0a19a4bf2"
+    }
+  ],
+  "counts": {
+    "A_UNDERDEVELOPED": 7,
+    "G_VERB_PATTERN": 2,
+    "G_SPACING": 4,
+    "G_COMMA_TRANSITION": 2,
+    "L_INFORMAL_VOCAB": 6,
+    "S_INFORMAL_TONE": 6,
+    "L_REPETITION": 3,
+    "L_LIMITED_VOCAB": 7,
+    "G_MISSING_VERB": 2,
+    "G_SV_AGREEMENT": 1,
+    "G_COMPARATIVE_FORM": 1,
+    "G_ARTICLE": 1,
+    "C_SIMPLE_CONNECTORS": 1,
+    "A_OVERGENERALIZATION": 1
+  },
+  "counts_by_capacity": {
+    "argument_development": 8,
+    "sentence_control": 13,
+    "academic_style": 12,
+    "lexical_precision": 10,
+    "cohesion_control": 1
+  },
+  "counts_by_criterion": {
+    "argumentation": 8,
+    "grammar": 13,
+    "lexical_resource": 16,
+    "academic_style": 6,
+    "cohesion_coherence": 1
+  },
+  "summary": {
+    "error_count": 44,
+    "broken_sentence_signal_count": 7
+  }
+}

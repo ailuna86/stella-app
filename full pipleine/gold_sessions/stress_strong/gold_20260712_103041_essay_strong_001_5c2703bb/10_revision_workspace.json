@@ -1,0 +1,708 @@
+{
+  "schema_version": "GOLD_REVISION_WORKSPACE_V1_7_1",
+  "engine_id": "VA_GOLD_REVISION_UNIVERSAL_ENGINE",
+  "engine_version": "1.7.1-student-safe-prewrite-guidance-stabilized",
+  "created_at": "2026-07-12T08:38:42.235353+00:00",
+  "revision_mode": "upstream_only_annotated_dual_pane_workspace",
+  "upstream_signal_integrity": {
+    "status": "complete",
+    "evaluator_sentence_control_available": true,
+    "evaluator_paragraph_function_available": true,
+    "missing_sentence_control_count": 1,
+    "green_blocked_by_missing_evaluator_signal": 0,
+    "green_blocked_by_detector_rows": 1,
+    "message": "ER V1.7.1 does not mark green unless upstream language/function control permits it."
+  },
+  "source_summary": {
+    "score_summary": {
+      "overall_band": null,
+      "criteria_bands": {},
+      "score_confidence": "normal"
+    },
+    "original_word_count": 327,
+    "original_paragraph_count": 5,
+    "original_sentence_count": 11,
+    "displayed_sentence_status_counts": {
+      "yellow": 11
+    },
+    "displayed_error_family_counts": {
+      "SEMANTIC_COMBINATION": 1
+    },
+    "displayed_criterion_counts": {
+      "LR": 1
+    },
+    "evaluator_required": true,
+    "evaluator_status": {
+      "available": true,
+      "source_engine": "VA_PREMIUM_EVALUATOR_WKE_V8_3",
+      "source_version": "8.3.0-comma-boundary-aware-ngram-extraction",
+      "sentence_control_available": true,
+      "paragraph_function_available": true,
+      "essay_function_available": true
+    }
+  },
+  "ui_contract": {
+    "layout": "left_annotated_essay_right_revision_editor",
+    "default_explanations_collapsed": true,
+    "copy_clean_text_available": true,
+    "controls": [
+      "show_all_highlights",
+      "show_only_red",
+      "show_yellow_and_red",
+      "show_only_yellow",
+      "show_hide_hints",
+      "copy_clean_essay_to_editor",
+      "submit_revised_essay"
+    ],
+    "color_legend": {
+      "green": "Keep: upstream engines confirm good enough language and useful IELTS function.",
+      "yellow": "Improve/check: upstream engines found repair need or sentence-control confirmation is missing.",
+      "red": "Rewrite: upstream engines show low control, multiple local problems, or paragraph-function pressure."
+    }
+  },
+  "annotated_essay": {
+    "paragraphs": [
+      {
+        "paragraph_index": 1,
+        "paragraph_number": 1,
+        "paragraph_role": "introduction",
+        "paragraph_status": "yellow",
+        "paragraph_status_label": "Improve",
+        "paragraph_function_status": "yellow",
+        "paragraph_function_label": "Improve",
+        "criterion_tags": [
+          "TR"
+        ],
+        "criterion_labels": [
+          "Answer / ideas"
+        ],
+        "paragraph_hint": "Use the introduction to frame the task, state the position, and preview the main arguments. Do not add examples.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [],
+        "revision_instructions": [
+          "For an introduction, use only task framing, position, and main-argument preview. Do not add examples here."
+        ],
+        "text": "The question of whether unpaid community service should be mandated within secondary education has provoked considerable debate among educators, parents, and policymakers alike. Although reasonable objections exist, I contend that the civic and developmental benefits of compulsory service ultimately outweigh the concerns raised by its critics.",
+        "sentences": [
+          {
+            "sentence_index": 1,
+            "sentence_number": 1,
+            "paragraph_index": 1,
+            "text": "The question of whether unpaid community service should be mandated within secondary education has provoked considerable debate among educators, parents, and policymakers alike.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 2,
+            "sentence_number": 2,
+            "paragraph_index": 1,
+            "text": "Although reasonable objections exist, I contend that the civic and developmental benefits of compulsory service ultimately outweigh the concerns raised by its critics.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0,
+          "role_conflict_gaps_suppressed": [
+            "Add a specific example to support your point."
+          ]
+        },
+        "paragraph_hint_public": "Use the introduction to frame the task, state the position, and preview the main arguments. Do not add examples."
+      },
+      {
+        "paragraph_index": 2,
+        "paragraph_number": 2,
+        "paragraph_role": "body",
+        "paragraph_status": "yellow",
+        "paragraph_status_label": "Improve",
+        "paragraph_function_status": "yellow",
+        "paragraph_function_label": "Improve",
+        "criterion_tags": [
+          "CC"
+        ],
+        "criterion_labels": [
+          "Flow"
+        ],
+        "paragraph_hint": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [
+          {
+            "level": "yellow",
+            "text": "Add a specific example to support your point.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Add a specific example to support your point."
+          }
+        ],
+        "revision_instructions": [
+          "For a body paragraph, use one clear main idea, support it, and explain how the support proves the point."
+        ],
+        "text": "Proponents of voluntary participation typically argue that genuine altruism cannot be manufactured through obligation; when service is imposed rather than chosen, students may complete their hours with resentment rather than genuine engagement, undermining the very values the policy seeks to instil. There is undeniably some merit to this argument, particularly for students who are already stretched thin by academic and extracurricular commitments. Nevertheless, this concern conflates the initial motivation for an activity with its eventual impact; numerous longitudinal studies on service-learning suggest that even reluctantly undertaken volunteer work frequently cultivates lasting empathy once students are directly confronted with unfamiliar social realities.",
+        "sentences": [
+          {
+            "sentence_index": 3,
+            "sentence_number": 3,
+            "paragraph_index": 2,
+            "text": "Proponents of voluntary participation typically argue that genuine altruism cannot be manufactured through obligation; when service is imposed rather than chosen, students may complete their hours with resentment rather than genuine engagement, undermining the very values the policy seeks to instil.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 4,
+            "sentence_number": 4,
+            "paragraph_index": 2,
+            "text": "There is undeniably some merit to this argument, particularly for students who are already stretched thin by academic and extracurricular commitments.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 5,
+            "sentence_number": 5,
+            "paragraph_index": 2,
+            "text": "Nevertheless, this concern conflates the initial motivation for an activity with its eventual impact; numerous longitudinal studies on service-learning suggest that even reluctantly undertaken volunteer work frequently cultivates lasting empathy once students are directly confronted with unfamiliar social realities.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0,
+          "role_conflict_gaps_suppressed": []
+        },
+        "paragraph_hint_public": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas."
+      },
+      {
+        "paragraph_index": 3,
+        "paragraph_number": 3,
+        "paragraph_role": "body",
+        "paragraph_status": "yellow",
+        "paragraph_status_label": "Improve",
+        "paragraph_function_status": "yellow",
+        "paragraph_function_label": "Improve",
+        "criterion_tags": [
+          "CC"
+        ],
+        "criterion_labels": [
+          "Flow"
+        ],
+        "paragraph_hint": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [
+          {
+            "level": "yellow",
+            "text": "After the example, explain how it supports your main point.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "After the example, explain how it supports your main point."
+          }
+        ],
+        "revision_instructions": [
+          "For a body paragraph, use one clear main idea, support it, and explain how the support proves the point."
+        ],
+        "text": "Moreover, compulsory community service functions as a powerful equalising mechanism. Absent a formal requirement, participation in volunteer work tends to correlate strongly with socioeconomic advantage, since privileged students are more likely to have the free time, transportation, and parental encouragement necessary to seek out such opportunities independently. A mandatory scheme, by contrast, ensures that every student, regardless of background, is afforded the same formative exposure to civic responsibility.",
+        "sentences": [
+          {
+            "sentence_index": 6,
+            "sentence_number": 6,
+            "paragraph_index": 3,
+            "text": "Moreover, compulsory community service functions as a powerful equalising mechanism.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 7,
+            "sentence_number": 7,
+            "paragraph_index": 3,
+            "text": "Absent a formal requirement, participation in volunteer work tends to correlate strongly with socioeconomic advantage, since privileged students are more likely to have the free time, transportation, and parental encouragement necessary to seek out such opportunities independently.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 8,
+            "sentence_number": 8,
+            "paragraph_index": 3,
+            "text": "A mandatory scheme, by contrast, ensures that every student, regardless of background, is afforded the same formative exposure to civic responsibility.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0,
+          "role_conflict_gaps_suppressed": []
+        },
+        "paragraph_hint_public": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas."
+      },
+      {
+        "paragraph_index": 4,
+        "paragraph_number": 4,
+        "paragraph_role": "body",
+        "paragraph_status": "yellow",
+        "paragraph_status_label": "Improve",
+        "paragraph_function_status": "green",
+        "paragraph_function_label": "Keep",
+        "criterion_tags": [],
+        "criterion_labels": [],
+        "paragraph_hint": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas.",
+        "function_strengths": [
+          "Upstream evaluator found usable paragraph evidence."
+        ],
+        "function_alerts": [],
+        "revision_instructions": [
+          "For a body paragraph, use one clear main idea, support it, and explain how the support proves the point."
+        ],
+        "text": "Critics further contend that mandating service diverts scarce time away from academic pursuits at a moment when examination pressure is already intense. This is a legitimate logistical concern, yet it is hardly insurmountable; schools could integrate service hours into existing timetables, such as during designated project weeks, or permit flexible completion across school holidays, thereby minimising disruption to core studies.",
+        "sentences": [
+          {
+            "sentence_index": 9,
+            "sentence_number": 9,
+            "paragraph_index": 4,
+            "text": "Critics further contend that mandating service diverts scarce time away from academic pursuits at a moment when examination pressure is already intense.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "green",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [
+              {
+                "level": "yellow",
+                "alert_type": "example_not_explained",
+                "text": "After the example, add a sentence that explains how it supports your point.",
+                "source": "evaluator_example_quality",
+                "text_public": "After the example, add a sentence that explains how it supports your point."
+              }
+            ],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          },
+          {
+            "sentence_index": 10,
+            "sentence_number": 10,
+            "paragraph_index": 4,
+            "text": "This is a legitimate logistical concern, yet it is hardly insurmountable; schools could integrate service hours into existing timetables, such as during designated project weeks, or permit flexible completion across school holidays, thereby minimising disruption to core studies.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "green",
+            "criterion_tags": [],
+            "criterion_labels": [
+              "Check"
+            ],
+            "student_hint": "Keep this sentence only because upstream language and function control allow it.",
+            "span_annotations": [],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [],
+              "evaluator_sentence_control_present": true,
+              "evaluator_sentence_control_source": "essay_revision_control_payload"
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "Keep this sentence. It is clear enough for this revision step."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": true,
+          "errormap_row_count": 0,
+          "role_conflict_gaps_suppressed": []
+        },
+        "paragraph_hint_public": "Use one clear main idea, then support and explain it. Rewrite red sentences before adding new ideas."
+      },
+      {
+        "paragraph_index": 5,
+        "paragraph_number": 5,
+        "paragraph_role": "conclusion",
+        "paragraph_status": "yellow",
+        "paragraph_status_label": "Improve",
+        "paragraph_function_status": "unknown",
+        "paragraph_function_label": "Check",
+        "criterion_tags": [
+          "TR"
+        ],
+        "criterion_labels": [
+          "Answer / ideas"
+        ],
+        "paragraph_hint": "Paragraph role is shown for layout, but upstream paragraph-function control is missing. For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example.",
+        "function_strengths": [],
+        "function_alerts": [
+          {
+            "level": "yellow",
+            "text": "Upstream paragraph-function control is missing; paragraph cannot be marked green yet.",
+            "source": "evaluator_or_missing_signal",
+            "text_public": "Check the paragraph role before keeping this paragraph."
+          }
+        ],
+        "revision_instructions": [
+          "For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example."
+        ],
+        "text": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+        "sentences": [
+          {
+            "sentence_index": 11,
+            "sentence_number": 11,
+            "paragraph_index": 5,
+            "text": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+            "status": "yellow",
+            "status_label": "Improve",
+            "language_status": "yellow",
+            "function_status": "unknown",
+            "semantic_status": "unknown",
+            "detector_pressure_status": "yellow",
+            "criterion_tags": [
+              "LR"
+            ],
+            "criterion_labels": [
+              "Vocabulary"
+            ],
+            "student_hint": "Upstream engines flagged a Semantic Combination problem. Fix this before keeping the sentence.",
+            "span_annotations": [
+              {
+                "span_text": "civic equity",
+                "criterion_tag": "LR",
+                "criterion_label": "Vocabulary",
+                "upstream_family": "SEMANTIC_COMBINATION",
+                "learner_label": "Semantic Combination",
+                "hint": "Upstream local-control issue.",
+                "severity": "moderate",
+                "evidence_id": "row_03a52cf1d48c8a26",
+                "source": "errormap",
+                "pre_revision_correction_visible": false,
+                "hint_public": "Language issue."
+              }
+            ],
+            "function_alerts": [],
+            "evidence_sources": {
+              "errormap_row_ids": [
+                "row_03a52cf1d48c8a26"
+              ],
+              "evaluator_sentence_control_present": false,
+              "evaluator_sentence_control_source": null
+            },
+            "pre_revision_model_answer_allowed": false,
+            "student_hint_public": "This sentence has a Semantic Combination issue to fix before you keep it."
+          }
+        ],
+        "evidence_sources": {
+          "evaluator_paragraph_function_present": false,
+          "errormap_row_count": 0,
+          "role_conflict_gaps_suppressed": []
+        },
+        "paragraph_hint_public": "For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example."
+      }
+    ]
+  },
+  "revision_waves": [
+    {
+      "level": "yellow",
+      "title": "Wave 1 — Confirm language-control signals",
+      "text": "1 sentence(s) do not have evaluator sentence-control confirmation, so they are not treated as Keep.",
+      "student_title": "Wave 1 — Check sentences before keeping",
+      "student_text": "Check 1 sentence(s) before keeping them."
+    },
+    {
+      "level": "yellow",
+      "title": "Wave 3 — Improve/check yellow areas",
+      "text": "Paragraph(s) 1, 2, 3, 4, 5: check language and paragraph function before keeping these sentences.",
+      "student_title": "Wave 3 — Improve yellow areas",
+      "student_text": "Paragraph(s) 1, 2, 3, 4, 5: check language and paragraph role before keeping these sentences."
+    },
+    {
+      "level": "yellow",
+      "title": "Wave 4 — Final language pass",
+      "text": "After rewriting, check only changed sentences for grammar, vocabulary, spelling, and paragraph flow.",
+      "student_title": "Wave 4 — Final language pass",
+      "student_text": "After rewriting, check only changed sentences for grammar, vocabulary, spelling, and paragraph flow."
+    }
+  ],
+  "copyable_clean_text": "The question of whether unpaid community service should be mandated within secondary education has provoked considerable debate among educators, parents, and policymakers alike. Although reasonable objections exist, I contend that the civic and developmental benefits of compulsory service ultimately outweigh the concerns raised by its critics.\n\nProponents of voluntary participation typically argue that genuine altruism cannot be manufactured through obligation; when service is imposed rather than chosen, students may complete their hours with resentment rather than genuine engagement, undermining the very values the policy seeks to instil. There is undeniably some merit to this argument, particularly for students who are already stretched thin by academic and extracurricular commitments. Nevertheless, this concern conflates the initial motivation for an activity with its eventual impact; numerous longitudinal studies on service-learning suggest that even reluctantly undertaken volunteer work frequently cultivates lasting empathy once students are directly confronted with unfamiliar social realities.\n\nMoreover, compulsory community service functions as a powerful equalising mechanism. Absent a formal requirement, participation in volunteer work tends to correlate strongly with socioeconomic advantage, since privileged students are more likely to have the free time, transportation, and parental encouragement necessary to seek out such opportunities independently. A mandatory scheme, by contrast, ensures that every student, regardless of background, is afforded the same formative exposure to civic responsibility.\n\nCritics further contend that mandating service diverts scarce time away from academic pursuits at a moment when examination pressure is already intense. This is a legitimate logistical concern, yet it is hardly insurmountable; schools could integrate service hours into existing timetables, such as during designated project weeks, or permit flexible completion across school holidays, thereby minimising disruption to core studies.\n\nIn conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+  "revision_editor_seed": "The question of whether unpaid community service should be mandated within secondary education has provoked considerable debate among educators, parents, and policymakers alike. Although reasonable objections exist, I contend that the civic and developmental benefits of compulsory service ultimately outweigh the concerns raised by its critics.\n\nProponents of voluntary participation typically argue that genuine altruism cannot be manufactured through obligation; when service is imposed rather than chosen, students may complete their hours with resentment rather than genuine engagement, undermining the very values the policy seeks to instil. There is undeniably some merit to this argument, particularly for students who are already stretched thin by academic and extracurricular commitments. Nevertheless, this concern conflates the initial motivation for an activity with its eventual impact; numerous longitudinal studies on service-learning suggest that even reluctantly undertaken volunteer work frequently cultivates lasting empathy once students are directly confronted with unfamiliar social realities.\n\nMoreover, compulsory community service functions as a powerful equalising mechanism. Absent a formal requirement, participation in volunteer work tends to correlate strongly with socioeconomic advantage, since privileged students are more likely to have the free time, transportation, and parental encouragement necessary to seek out such opportunities independently. A mandatory scheme, by contrast, ensures that every student, regardless of background, is afforded the same formative exposure to civic responsibility.\n\nCritics further contend that mandating service diverts scarce time away from academic pursuits at a moment when examination pressure is already intense. This is a legitimate logistical concern, yet it is hardly insurmountable; schools could integrate service hours into existing timetables, such as during designated project weeks, or permit flexible completion across school holidays, thereby minimising disruption to core studies.\n\nIn conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+  "overall_revision_hints": {
+    "language_repair": [
+      {
+        "level": "yellow",
+        "text": "Check 11 yellow sentence(s); they are not safe Keep sentences yet."
+      }
+    ],
+    "paragraph_function": [
+      {
+        "level": "yellow",
+        "text": "Paragraph 1 (introduction): Use the introduction to frame the task, state the position, and preview the main arguments. Do not add examples."
+      },
+      {
+        "level": "yellow",
+        "text": "Paragraph 5 (conclusion): Paragraph role is shown for layout, but upstream paragraph-function control is missing. For a conclusion, restate the final answer and summarize the main reasons. Do not introduce a new example."
+      }
+    ]
+  },
+  "student_checklist": [
+    "I fixed red sentences first.",
+    "I checked every yellow sentence before keeping it.",
+    "I did not treat a sentence as green unless the app marked it green.",
+    "I kept paragraph breaks.",
+    "I checked the introduction: no example, only task framing, position, and main arguments.",
+    "I checked the conclusion: final answer and main reasons, no new example.",
+    "I checked spelling and grammar after rewriting."
+  ],
+  "pre_revision_correction_policy": {
+    "full_corrected_sentence_visible": false,
+    "direct_replacement_phrase_visible": false,
+    "model_answer_visible": false,
+    "reason": "The learner should self-correct before seeing a model version."
+  },
+  "post_revision_ai_model_policy": {
+    "available_after_self_revision": true,
+    "pre_revision_model_answer_allowed": false,
+    "recommended_display": "paragraph_first_revised_vs_ai_then_collapsible_sentence_details",
+    "full_model_essay_default": false
+  },
+  "machine_payload": {
+    "errormap_rows_used": [
+      {
+        "error_id": "row_03a52cf1d48c8a26",
+        "sentence_index": 11,
+        "paragraph_index": null,
+        "criterion_tag": "LR",
+        "criterion_label": "Vocabulary",
+        "family": "SEMANTIC_COMBINATION",
+        "family_label": "Semantic Combination",
+        "quote": "civic equity",
+        "sentence": "In conclusion, while the objections concerning authenticity of motivation and scheduling pressure warrant serious consideration, I maintain that a well-designed compulsory service programme, one that is flexible in implementation and thoughtfully integrated into the curriculum, offers a rare opportunity to cultivate both empathy and civic equity among the next generation.",
+        "severity": "moderate",
+        "explanation": "Upstream local-control issue.",
+        "char_start": 2408,
+        "char_end": 2420,
+        "source": "errormap"
+      }
+    ],
+    "evaluator_control_summary": {
+      "available": true,
+      "source_engine": "VA_PREMIUM_EVALUATOR_WKE_V8_3",
+      "source_version": "8.3.0-comma-boundary-aware-ngram-extraction",
+      "sentence_control_available": true,
+      "paragraph_function_available": true,
+      "essay_function_available": true
+    },
+    "composition_policy": "upstream_only_no_hidden_evaluation"
+  },
+  "qa": {
+    "status": "pass",
+    "flags": [
+      "detector_rows_blocked_green"
+    ],
+    "no_pre_revision_corrections": true,
+    "no_essay_specific_patterns": true,
+    "upstream_only_mode": true
+  },
+  "prewriting_guidance": {
+    "title": "Before you write or revise",
+    "word_plan": {
+      "minimum_words": 250,
+      "recommended_range": "260-290 words",
+      "paragraph_targets": {
+        "introduction": "35-45 words",
+        "body_1": "80-100 words",
+        "body_2": "80-100 words",
+        "conclusion": "35-45 words"
+      }
+    },
+    "structure_options": [
+      {
+        "name": "Universal IELTS Task 2 structure",
+        "paragraphs": [
+          "Introduction: task frame, clear answer/position, preview main ideas.",
+          "Body 1: one main idea, explanation, specific example, link.",
+          "Body 2: one main idea, explanation, specific example, link.",
+          "Conclusion: summary + final answer. No new example or idea."
+        ]
+      }
+    ],
+    "body_paragraph_formula": [
+      "Topic sentence: say the paragraph's main idea.",
+      "Argument/reason: explain why the idea matters.",
+      "Development: add cause, effect, comparison, or consequence.",
+      "Specific example: place/actor + action/situation + result.",
+      "Link back: connect the example to the question or your position."
+    ],
+    "example_quality": {
+      "strong_example_rule": "Use a specific place/actor/programme/situation, show what happened, and link it to the argument.",
+      "weak_example_rule": "Avoid private family anecdotes or very general examples as the main evidence."
+    }
+  },
+  "student_visible_policy": {
+    "hide_internal_terms": true,
+    "student_facing_outputs": [
+      "markdown",
+      "html",
+      "student_view"
+    ],
+    "debug_terms_kept_only_in_json": true
+  },
+  "run_inputs": {
+    "detector": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_strong\\gold_20260712_103041_essay_strong_001_5c2703bb\\01_detector_output.json",
+    "errormap": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_strong\\gold_20260712_103041_essay_strong_001_5c2703bb\\01b_errormap_v3.json",
+    "score": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_strong\\gold_20260712_103041_essay_strong_001_5c2703bb\\02d_final_score_contract.json",
+    "evaluator": "C:\\Users\\Ailuna Shamurzaeva\\OneDrive\\Desktop\\AGART\\VA English, IELTS\\gold\\full pipleine\\gold_sessions\\stress_strong\\gold_20260712_103041_essay_strong_001_5c2703bb\\07_evaluator_output.json"
+  }
+}

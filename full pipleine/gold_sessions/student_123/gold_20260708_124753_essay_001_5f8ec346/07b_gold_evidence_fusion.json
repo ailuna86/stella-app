@@ -1,0 +1,30 @@
+{
+  "schema_version": "GOLD_EVIDENCE_FUSION_METADATA_V1_4",
+  "created_at": "2026-07-08T10:47:53.632032+00:00",
+  "boundary": "Metadata-level orchestration record only; targeted engines own scoring, detection, LRET classification, coaching, practice, revision, and learner-model logic.",
+  "performance_evidence": {
+    "source_artifact": "02d_final_score_contract.json",
+    "present": false,
+    "score_status": null,
+    "score_confidence": null,
+    "progress_tracking_allowed": null,
+    "lie_update_allowed": null
+  },
+  "error_pattern_evidence": {
+    "source_artifact": "01b_errormap_v3.json",
+    "present": true,
+    "error_count": 44,
+    "counts_present": true
+  },
+  "writing_capacity_evidence": {
+    "source_artifact": "07_evaluator_output.json",
+    "present": false,
+    "profile_present": false,
+    "consumer_payloads_present": false
+  },
+  "service_outputs": {
+    "lret_present": false,
+    "writing_coach_present": false,
+    "practice_present": false
+  }
+}

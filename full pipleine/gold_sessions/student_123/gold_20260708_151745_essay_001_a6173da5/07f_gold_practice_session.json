@@ -1,0 +1,226 @@
+{
+  "schema_version": "GOLD_PRACTICE_SESSION_STANDALONE_V1_4_3",
+  "engine_id": "VA_STELLA_GOLD_PRACTICE_SESSION_BUILDER",
+  "engine_version": "1.4.3-standalone-no-imports",
+  "created_at": "2026-07-08T13:17:56.776605+00:00",
+  "session_id": "practice_d4c0428be2bc",
+  "student_id": "student_123",
+  "essay_id": "essay_001",
+  "source_score": {
+    "overall_band": 5.0,
+    "criteria_bands": {
+      "task_response": 5,
+      "coherence_cohesion": 5,
+      "lexical_resource": 5,
+      "grammar": 5
+    },
+    "score_family": "B1_WEAK",
+    "score_released": true
+  },
+  "primary_focus": {
+    "rank": 1,
+    "capacity_domain": "sentence_control",
+    "skill_tag": "sentence_control",
+    "skill_id": "sentence_control",
+    "student_label": "Sentence Control",
+    "criterion": "grammar",
+    "evidence_count": 13,
+    "weighted_pressure": 12.05,
+    "priority_level": "very_high",
+    "top_families": [
+      "GRAMMAR_PUNCTUATION",
+      "VERB_PATTERN",
+      "CLAUSE_STRUCTURE",
+      "SUBJECT_VERB_AGREEMENT",
+      "COMPARATIVE_FORM"
+    ],
+    "family_counts": {
+      "GRAMMAR_PUNCTUATION": 6,
+      "VERB_PATTERN": 2,
+      "CLAUSE_STRUCTURE": 2,
+      "SUBJECT_VERB_AGREEMENT": 1,
+      "COMPARATIVE_FORM": 1,
+      "ARTICLE_DETERMINER": 1
+    },
+    "recommended_service": "writing_coach",
+    "recommended_difficulty": "controlled",
+    "priority_reason": "Selected from chargeable ErrorMap capacity evidence because downstream routing requires a stable skill focus.",
+    "evidence_samples": [
+      {
+        "error_id": "err_ddb2bdb4533b",
+        "source_row_id": "det_f0463c9513a1",
+        "family": "VERB_PATTERN",
+        "surface_quote": "for take",
+        "sentence_index": 3,
+        "severity": "high",
+        "confidence": 0.75
+      },
+      {
+        "error_id": "err_06ba1838138d",
+        "source_row_id": "det_1d63582154cf",
+        "family": "GRAMMAR_PUNCTUATION",
+        "surface_quote": " ,",
+        "sentence_index": 4,
+        "severity": "low",
+        "confidence": 0.95
+      },
+      {
+        "error_id": "err_72da915c3a1d",
+        "source_row_id": "det_39c224ecc2a6",
+        "family": "GRAMMAR_PUNCTUATION",
+        "surface_quote": "For example",
+        "sentence_index": 4,
+        "severity": "low",
+        "confidence": 0.95
+      },
+      {
+        "error_id": "err_cea76b2a9329",
+        "source_row_id": "det_cf959aeeea17",
+        "family": "GRAMMAR_PUNCTUATION",
+        "surface_quote": " .",
+        "sentence_index": 5,
+        "severity": "low",
+        "confidence": 0.95
+      },
+      {
+        "error_id": "err_ff85715fcec9",
+        "source_row_id": "det_42ea5ad1b1b2",
+        "family": "CLAUSE_STRUCTURE",
+        "surface_quote": "the way be",
+        "sentence_index": 5,
+        "severity": "high",
+        "confidence": 0.75
+      }
+    ]
+  },
+  "exercise_count": 7,
+  "targeted_exercise_count": 7,
+  "exercises": [
+    {
+      "exercise_number": 1,
+      "total_exercises": 7,
+      "exercise_id": "PASSIVE_VOICE_B1_v10_00035",
+      "criterion": "grammar",
+      "capacity_domain": "sentence_control",
+      "family": "GRAMMAR_PUNCTUATION",
+      "match_mode": "targeted",
+      "cefr_level": "B1",
+      "exercise_type": "classification",
+      "prompt": "Classify each example as correct or incorrect: Rewrite in passive voice: Researchers collected evidence about AI tools. / Evidence about AI tools was collected by researchers. Context: during exam preparation; skill variant 174.",
+      "choices": null,
+      "answer_key": "first incorrect; second correct",
+      "explanation": "Transforming the given structure (variant 2): 'the sentence' must be rewritten as passive — 'be + past participle'. The second option applies this correctly. Passive construction accuracy is tested directly in IELTS Grammatical Range. [Key: 'first incorrect; sec']."
+    },
+    {
+      "exercise_number": 2,
+      "total_exercises": 7,
+      "exercise_id": "NOUN_NUMBER_COUNTABILITY_A2_v10_00043",
+      "criterion": "grammar",
+      "capacity_domain": "sentence_control",
+      "family": "VERB_PATTERN",
+      "match_mode": "targeted",
+      "cefr_level": "A2",
+      "exercise_type": "classification",
+      "prompt": "Correct the noun error: The school bought many new equipments for tax reform. Context: The context is a revision task for a learner writing about tax reform.",
+      "choices": null,
+      "answer_key": "The school bought a lot of new equipment for tax reform.",
+      "explanation": "'Equipment' is an uncountable noun in English — it has no plural form and cannot be preceded by 'many' or 'an'. Correct quantifiers: 'much equipment', 'a lot of equipment', 'some equipment'. This is a very common error in IELTS writing; the correct answer is: 'The school bought a lot of new equipment for tax reform.'."
+    },
+    {
+      "exercise_number": 3,
+      "total_exercises": 7,
+      "exercise_id": "VERB_FORM_A2_v10_00082",
+      "criterion": "grammar",
+      "capacity_domain": "sentence_control",
+      "family": "CLAUSE_STRUCTURE",
+      "match_mode": "targeted",
+      "cefr_level": "A2",
+      "exercise_type": "fill_gap",
+      "prompt": "Correct the verb form: Teenagers avoid to discuss difficult problems. Context: in communities with limited services; skill variant 158.",
+      "choices": null,
+      "answer_key": "Teenagers avoid discussing difficult problems.",
+      "explanation": "In academic IELTS writing: The required verb form here is 'Teenagers avoid discussing difficult problems.'. Choosing between infinitive, gerund, and participle depends on the preceding trigger word. Mastering these patterns improves IELTS Grammatical Range and Accuracy. [Key: 'Teenagers avoid disc']."
+    },
+    {
+      "exercise_number": 4,
+      "total_exercises": 7,
+      "exercise_id": "NOUN_NUMBER_COUNTABILITY_A2_v10_00038",
+      "criterion": "grammar",
+      "capacity_domain": "sentence_control",
+      "family": "SUBJECT_VERB_AGREEMENT",
+      "match_mode": "targeted",
+      "cefr_level": "A2",
+      "exercise_type": "classification",
+      "prompt": "Choose the correct phrase for housing policy: many information / much information / an information Context: The context is an academic paragraph about housing policy.",
+      "choices": null,
+      "answer_key": "much information",
+      "explanation": "For uncountable noun usage (variant 2): 'Information' is uncountable in English — it has no plural form and uses 'much', not 'many'. 'much information' is the only correct choice. Countability errors are common in IELTS and affect Grammatical Range Accuracy. [Key: 'much information']."
+    },
+    {
+      "exercise_number": 5,
+      "total_exercises": 7,
+      "exercise_id": "ARTICLE_DETERMINER_A2_v10_00104",
+      "criterion": "grammar",
+      "capacity_domain": "sentence_control",
+      "family": "COMPARATIVE_FORM",
+      "match_mode": "targeted",
+      "cefr_level": "A2",
+      "exercise_type": "mcq",
+      "prompt": "Choose the correct article: Patients need ___ long-term strategy when social expectations change.",
+      "choices": [
+        "a",
+        "an",
+        "the",
+        "no article"
+      ],
+      "answer_key": "a",
+      "explanation": "To correct this error (variant 2): The correct article is 'a' — article choice depends on whether the reference is first mention, specific, or generic. Precision here contributes to Grammatical Range and Accuracy. [Key: 'a']."
+    },
+    {
+      "exercise_number": 6,
+      "total_exercises": 7,
+      "exercise_id": "ACADEMIC_VOCABULARY_B2_v10_00037",
+      "criterion": "lexical_resource",
+      "capacity_domain": "academic_style",
+      "family": "REGISTER",
+      "match_mode": "targeted",
+      "cefr_level": "B2",
+      "exercise_type": "mcq",
+      "prompt": "Choose the academic alternative: The report looks at the causes of community safety. Context: during periods of rapid change; skill variant 181.",
+      "choices": [
+        "looks at",
+        "discusses",
+        "considers",
+        "examines"
+      ],
+      "answer_key": "examines",
+      "explanation": "Recognising this pattern (variant 3): 'examines' is the formal academic alternative to 'looks at'. High-frequency academic verbs (examine, analyse, demonstrate, investigate) raise IELTS Lexical Resource. Replacing informal verbs with precise academic ones is a quick Band 7 upgrade. [Key: 'examines']."
+    },
+    {
+      "exercise_number": 7,
+      "total_exercises": 7,
+      "exercise_id": "ex_dcbb5a182633",
+      "criterion": "task_response",
+      "capacity_domain": "argument_development",
+      "family": "UNSUPPORTED_CLAIM",
+      "match_mode": "targeted",
+      "cefr_level": "A2",
+      "exercise_type": "classification",
+      "prompt": "Classify each question type: A: 'Do you agree or disagree that cars should be banned from city centres?' B: 'Discuss the advantages and disadvantages of living abroad.' C: 'What are the causes of youth unemployment and what solutions can you suggest?' D: 'Some say technology helps education, others disagree. Discuss both views and give your opinion.'",
+      "choices": null,
+      "answer_key": "Match to: opinion, advantages/disadvantages, problem/solution, or discuss both views.",
+      "explanation": "A: Opinion. B: Advantages/disadvantages. C: Causes/solutions. D: Discuss both views."
+    }
+  ],
+  "selection_audit": {
+    "target_count": 7,
+    "bank_size": 12710,
+    "fallbacks_used": [],
+    "quality_flags": {
+      "has_primary_focus": true,
+      "has_exercises": true,
+      "targeted_ratio": 1.0
+    }
+  },
+  "boundary": "Practice session builder selects existing exercise-bank items only; it does not score, detect, or generate LRET/coaching content."
+}

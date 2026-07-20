@@ -1,0 +1,14 @@
+{
+  "schema_version": "GOLD_SERVICE_ROUTING_V1_2",
+  "primary_next_service": "writing_coach",
+  "secondary_services": [
+    "lret",
+    "practice"
+  ],
+  "reason": "It is the best next target according to the current essay evidence and skill dependency logic.",
+  "next_best_action": {
+    "type": "writing_coach",
+    "skill_id": "sentence_control",
+    "skill_name": "Sentence control"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "GOLD_SKILLS_PROGRESS_V1_2",
+  "skills": [
+    {
+      "skill_id": "sentence_control",
+      "skill_name": "Sentence control",
+      "evidence_count": 17,
+      "sessions": 1,
+      "status": "active_gap",
+      "last_observation_status": "gap"
+    },
+    {
+      "skill_id": "lexical_precision",
+      "skill_name": "Lexical precision",
+      "evidence_count": 15,
+      "sessions": 1,
+      "status": "active_gap",
+      "last_observation_status": "gap"
+    },
+    {
+      "skill_id": "academic_style",
+      "skill_name": "Academic style",
+      "evidence_count": 7,
+      "sessions": 1,
+      "status": "active_gap",
+      "last_observation_status": "gap"
+    },
+    {
+      "skill_id": "argument_development",
+      "skill_name": "Argument development",
+      "evidence_count": 2,
+      "sessions": 1,
+      "status": "building",
+      "last_observation_status": "monitor"
+    },
+    {
+      "skill_id": "cohesion_control",
+      "skill_name": "Cohesion control",
+      "evidence_count": 1,
+      "sessions": 1,
+      "status": "building",
+      "last_observation_status": "monitor"
+    },
+    {
+      "skill_id": "task_response_control",
+      "skill_name": "Task response control",
+      "evidence_count": 0,
+      "sessions": 1,
+      "status": "building",
+      "last_observation_status": "not_negatively_observed"
+    }
+  ]
+}
