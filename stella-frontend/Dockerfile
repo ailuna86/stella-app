@@ -52,7 +52,7 @@ RUN npm run build
 # Copied wholesale: engine scripts, gold_engine_commands_full_v1_4_13.json,
 # the writing-coach move bank, and every other file the command config's
 # relative paths expect to find alongside it.
-COPY "full pipleine/" "/app/pipeline/"
+COPY ["full pipleine/", "/app/pipeline/"]
 
 ENV STELLA_GOLD_PIPELINE_DIR=/app/pipeline
 ENV STELLA_GOLD_ENGINE_CONFIG=gold_engine_commands_full_v1_4_13.json
