@@ -247,8 +247,31 @@ export async function runGoldEvaluation(input: {
     } catch (qaErr) {
       qaDetail = ` (also failed to read QA report: ${qaErr instanceof Error ? qaErr.message : String(qaErr)})`;
     }
+    // Still only tells us artifacts are missing, not why — the actual
+    // reason (a Python traceback, a bad API key, etc.) is captured per-
+    // stage as stderr and recorded on manifest.json's stage_results[].
+    // Surface any failed stage's real error here instead of making
+    // someone SSH into the disk to find gold_web_sessions/<dir>/manifest.json
+    // by hand.
+    let stageDetail = "";
+    try {
+      const manifestPath = (parsed as any).manifest;
+      if (manifestPath && fs.existsSync(manifestPath)) {
+        const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+        const failed = Array.isArray(manifest.stage_results)
+          ? manifest.stage_results.filter((s: any) => s.status === "failed")
+          : [];
+        if (failed.length) {
+          stageDetail = ` — FAILED STAGES: ${failed
+            .map((s: any) => `[${s.stage}] ${(s.error ?? "").slice(0, 600)}`)
+            .join(" ||| ")}`;
+        }
+      }
+    } catch (mErr) {
+      stageDetail = ` (also failed to read manifest: ${mErr instanceof Error ? mErr.message : String(mErr)})`;
+    }
     throw new Error(
-      `feedback report missing in ${parsed.session_dir} (qa_status: ${parsed.qa_status})${qaDetail}`
+      `feedback report missing in ${parsed.session_dir} (qa_status: ${parsed.qa_status})${qaDetail}${stageDetail}`
     );
   }
   const raw = JSON.parse(fs.readFileSync(reportFile, "utf8")) as GoldFeedbackReportRaw;
