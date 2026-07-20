@@ -47,7 +47,7 @@ RUN apt-get update \
 # (PEP 668, "externally-managed-environment") -- --break-system-packages is
 # required here since this container has no other Python workload to
 # protect from version conflicts.
-COPY "full pipleine/requirements.txt" "/app/pipeline-requirements.txt"
+COPY ["full pipleine/requirements.txt", "/app/pipeline-requirements.txt"]
 RUN pip3 install --no-cache-dir --break-system-packages -r /app/pipeline-requirements.txt
 
 WORKDIR /app
