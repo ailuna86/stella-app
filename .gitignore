@@ -1,5 +1,8 @@
 stella-frontend/node_modules
 stella-frontend/.next
 stella-frontend/data
+stella-frontend/.env.local
 full pipleine/gold_web_sessions
-full pipleine/**/*.zipstella-frontend/.env.local
+full pipleine/gold_sessions/
+full pipleine/*.zip
+full pipleine/**/*.zip
