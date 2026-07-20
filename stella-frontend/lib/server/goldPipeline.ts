@@ -230,7 +230,26 @@ export async function runGoldEvaluation(input: {
 
   const reportFile = path.join(parsed.session_dir, "06_feedback_report_v6c.json");
   if (!fs.existsSync(reportFile)) {
-    throw new Error(`feedback report missing in ${parsed.session_dir} (qa_status: ${parsed.qa_status})`);
+    // The orchestrator's final stdout line only gives a qa_status + file
+    // paths, not the actual reason a stage failed — that detail lives in
+    // QA_gold_report.json (missing_required_artifacts, invalid_required,
+    // boundary_issues, quality_gate_issues). Read it here so the thrown
+    // error (which ends up in both the DB record and, since the route's
+    // catch block now console.errors it, the host's logs) actually says
+    // what broke instead of just "needs_attention".
+    let qaDetail = "";
+    try {
+      const qaReportPath = (parsed as any).qa_report;
+      if (qaReportPath && fs.existsSync(qaReportPath)) {
+        const qa = JSON.parse(fs.readFileSync(qaReportPath, "utf8"));
+        qaDetail = ` — missing_required_artifacts: ${JSON.stringify(qa.missing_required_artifacts ?? [])}, invalid_required: ${JSON.stringify(qa.invalid_required ?? [])}, boundary_issues: ${JSON.stringify(qa.boundary_issues ?? [])}, quality_gate_issues: ${JSON.stringify(qa.quality_gate_issues ?? [])}`;
+      }
+    } catch (qaErr) {
+      qaDetail = ` (also failed to read QA report: ${qaErr instanceof Error ? qaErr.message : String(qaErr)})`;
+    }
+    throw new Error(
+      `feedback report missing in ${parsed.session_dir} (qa_status: ${parsed.qa_status})${qaDetail}`
+    );
   }
   const raw = JSON.parse(fs.readFileSync(reportFile, "utf8")) as GoldFeedbackReportRaw;
   const report = mapGoldReportToFeedbackReport(raw, input);
