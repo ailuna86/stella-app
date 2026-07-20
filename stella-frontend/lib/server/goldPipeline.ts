@@ -262,8 +262,13 @@ export async function runGoldEvaluation(input: {
           ? manifest.stage_results.filter((s: any) => s.status === "failed")
           : [];
         if (failed.length) {
+          // Python tracebacks are "most recent call last" — the actual
+          // exception type + message is at the END of the string, not the
+          // start. slice(0, 600) was keeping the outer frames and cutting
+          // off exactly the one line that matters. slice(-1500) keeps the
+          // tail instead.
           stageDetail = ` — FAILED STAGES: ${failed
-            .map((s: any) => `[${s.stage}] ${(s.error ?? "").slice(0, 600)}`)
+            .map((s: any) => `[${s.stage}] ${(s.error ?? "").slice(-1500)}`)
             .join(" ||| ")}`;
         }
       }
