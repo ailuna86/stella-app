@@ -61,21 +61,24 @@ reproducible.
 
 ## 4. Push to Railway (or Render)
 
-**Railway** — simplest path:
-1. Install the CLI: `npm install -g @railway/cli`, then `railway login`.
-2. From the parent folder: `railway init`, then `railway up` — it detects
-   the Dockerfile automatically. (Or connect the GitHub repo in Railway's
-   dashboard for git-push deploys instead of CLI pushes.)
-3. In the Railway dashboard, add three **volumes** (Settings → Volumes):
-   - Mount path `/app/data`
-   - Mount path `/app/pipeline/gold_web_sessions`
-   - Mount path `/app/resources`
+One persistent disk is all you need — the app splits it into three logical
+locations itself (see `docker-entrypoint.sh`), because most hosts, Render's
+Web Service tier included, only support one disk per service anyway.
 
-**Render** — same Dockerfile, use "New Web Service" → "Existing image or
-Dockerfile", point it at this repo, add persistent disks at the same three
-mount paths under Settings → Disks. Render's free tier does NOT include
-persistent disks — you'll need a paid instance for this to actually work
-across restarts.
+**Render:**
+1. "New Web Service" → connect the GitHub repo → set **Dockerfile Path** to
+   `stella-frontend/Dockerfile`.
+2. Under Settings → Disks, add **one** disk, mount path `/data`. Render's
+   free tier does NOT include persistent disks — you'll need a paid
+   instance for this to actually work across restarts.
+3. Never mount a disk at `/app` itself — that's where the built app lives;
+   a disk mounted there would overlay your build output and either break
+   the first deploy or silently freeze the app on old code on every deploy
+   after that. `/data` is a path outside the build entirely, which is the
+   point.
+
+**Railway** — same idea: Settings → Volumes → one volume, mount path
+`/data`.
 
 ## 5. Upload the canonical resources folder
 
@@ -89,16 +92,21 @@ run this session):
 - `positive_collocations_registry.tsv`
 - `lexical_registry.json`
 
-Copy that whole folder onto the `/app/resources` volume. The exact
-mechanism depends on your host:
+Copy that whole folder onto the disk at **`/data/resources`** (not
+`/app/resources` — that path is a symlink `docker-entrypoint.sh` creates
+pointing at `/data/resources`; either path gets you to the same place once
+the container's running, but `/data/resources` is the real location on the
+disk itself, which is what matters if you're copying files in directly).
+The exact mechanism depends on your host:
 - Railway: `railway run bash` gives you a shell inside the running
   container with the volume mounted — `scp`/`rsync` the files in, or use
   Railway's volume browser if your plan has one.
 - Render: SSH into the instance (paid plans support this) and copy the
   files onto the mounted disk directly.
 
-Once uploaded, set `STELLA_CANONICAL_RESOURCES_DIR=/app/resources` as an
-env var (step 6). Until you do this, LRET runs without its canonical
+`STELLA_CANONICAL_RESOURCES_DIR` is already set to `/app/resources` inside
+the image (see the Dockerfile) — you don't need to set it again in the
+dashboard. Until you upload the files, LRET runs without its canonical
 registries — it still works, just with weaker positive-collocation and
 academic-vocabulary matching (confirmed: canonical loading is optional,
 not a hard requirement, but you'll want it for real students).
@@ -114,25 +122,25 @@ Set these in your hosting provider's dashboard (never commit them):
 | `RESEND_API_KEY` | for real pilot | Without it, confirmation codes show on-screen instead of emailing |
 | `RESEND_FROM` | for real pilot | e.g. `"ST.ELLA <login@yourdomain.com>"` |
 | `STELLA_GOLD_ENGINE_CONFIG` | no | Defaults correctly to `gold_engine_commands_full_v1_4_13.json`, already baked into the image |
-| `STELLA_CANONICAL_RESOURCES_DIR` | yes, after step 5 | `/app/resources` |
 | `VIP_CHEAP_MODEL` / `VIP_STRONG_MODEL` | optional | Detector's two-tier model switch — see the model recommendation in `GOLD_PIPELINE_SPEC_V2.md` |
 | `LRET_SUGGESTION_MODEL` | optional | Leave unset to keep classify/generate on the same (cheap) model; set to a stronger tier to test the split |
 
-`STELLA_GOLD_PIPELINE_DIR` does not need to be set — it's baked into the
-image as `/app/pipeline` via the Dockerfile.
+`STELLA_GOLD_PIPELINE_DIR` and `STELLA_CANONICAL_RESOURCES_DIR` don't need
+to be set in the dashboard — both are baked into the image via the
+Dockerfile.
 
 ## 7. Verify
 
 After deploy, submit one real essay through the live URL and confirm:
 - The submission completes (check the container logs for the 27-stage
   orchestrator run finishing without a Python traceback).
-- `10_revision_workspace.json` and friends appear under the
-  `/app/pipeline/gold_web_sessions` volume (confirms the volume mount is
-  actually being written to, not silently falling back to
-  in-container-only storage that vanishes on restart).
+- `10_revision_workspace.json` and friends appear under `/data/sessions`
+  on the disk (confirms the volume mount is actually being written to, not
+  silently falling back to in-container-only storage that vanishes on
+  restart).
 - Restart the service from the dashboard and confirm existing user
-  accounts / prior submissions are still there (confirms `/app/data` is a
-  real persistent volume, not just container-local disk).
+  accounts / prior submissions are still there (confirms `/data` is a real
+  persistent volume, not just container-local disk).
 
 ## What this doesn't cover
 

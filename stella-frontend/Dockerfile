@@ -56,19 +56,22 @@ COPY "full pipleine/" "/app/pipeline/"
 
 ENV STELLA_GOLD_PIPELINE_DIR=/app/pipeline
 ENV STELLA_GOLD_ENGINE_CONFIG=gold_engine_commands_full_v1_4_13.json
-# Deliberately NOT set here — point this at your mounted canonical-resources
-# volume in your hosting provider's dashboard (see the deployment guide).
-# Left unset, the orchestrator falls back to a path that only exists on the
-# original dev machine and LRET's canonical registries silently won't load.
-# ENV STELLA_CANONICAL_RESOURCES_DIR=/app/resources
+ENV STELLA_CANONICAL_RESOURCES_DIR=/app/resources
 
-# Persistent volumes — mount these in your hosting provider's dashboard so
-# they survive redeploys and restarts:
-#   /app/data                    SQLite database (users, submissions, etc.)
-#   /app/pipeline/gold_web_sessions   every essay's full session output
-#   /app/resources                LRET's canonical lexical registries
-#     (upload once; see the deployment guide for what goes in it)
-VOLUME ["/app/data", "/app/pipeline/gold_web_sessions", "/app/resources"]
+# --- Single persistent disk, split three ways via symlinks ---------------
+# Most hosts (Render's Web Service tier, notably) only support ONE
+# persistent disk per service, but this app needs three separate persistent
+# locations. docker-entrypoint.sh mounts everything under /data and
+# symlinks /app/data, /app/pipeline/gold_web_sessions, and /app/resources
+# to subfolders inside it at container start -- the app's own code is
+# untouched, it still reads/writes those exact paths.
+COPY stella-frontend/docker-entrypoint.sh /app/docker-entrypoint.sh
+RUN chmod +x /app/docker-entrypoint.sh
+
+# Mount ONE disk here in your hosting provider's dashboard so the database,
+# pipeline session output, and canonical resources all survive redeploys.
+VOLUME ["/data"]
 
 EXPOSE 3000
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["npm", "start"]
