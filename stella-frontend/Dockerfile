@@ -7,13 +7,13 @@
 #
 # This app needs Node (to run Next.js) and Python (to run the Gold pipeline
 # as a subprocess — see lib/server/goldPipeline.ts) in the same place, plus
-# persistent storage for the SQLite database, the pipeline's session output,
-# and LRET's canonical lexical registries. All three are mounted as volumes
-# in your hosting provider's dashboard rather than baked into the image,
-# since they're either runtime state (db, sessions) or large external data
-# that shouldn't live in version control or the image layer cache
-# (canonical resources — confirmed real size: tens of thousands of
-# collocation/lexical entries).
+# persistent storage for the SQLite database and the pipeline's session
+# output (both runtime state, mounted from the disk in the hosting
+# provider's dashboard). LRET's canonical lexical registries are NOT
+# runtime state — they're static reference data, and as of this revision
+# they live committed in the repo at stella-frontend/app/resources/, so
+# they get baked into the image at build time like any other app file. No
+# manual upload to the disk is needed for them.
 #
 # The Gold pipeline's Python code is entirely standard-library (confirmed by
 # checking every import across every engine file — no `openai` package, no
@@ -56,15 +56,20 @@ COPY ["full pipleine/", "/app/pipeline/"]
 
 ENV STELLA_GOLD_PIPELINE_DIR=/app/pipeline
 ENV STELLA_GOLD_ENGINE_CONFIG=gold_engine_commands_full_v1_4_13.json
-ENV STELLA_CANONICAL_RESOURCES_DIR=/app/resources
+# Baked-in path: stella-frontend/app/resources/ (repo) lands at
+# /app/app/resources inside the image, because WORKDIR is /app and
+# `COPY stella-frontend/ ./` preserves the app/ subfolder structure.
+ENV STELLA_CANONICAL_RESOURCES_DIR=/app/app/resources
 
-# --- Single persistent disk, split three ways via symlinks ---------------
+# --- Single persistent disk, split two ways via symlinks ------------------
 # Most hosts (Render's Web Service tier, notably) only support ONE
-# persistent disk per service, but this app needs three separate persistent
-# locations. docker-entrypoint.sh mounts everything under /data and
-# symlinks /app/data, /app/pipeline/gold_web_sessions, and /app/resources
-# to subfolders inside it at container start -- the app's own code is
-# untouched, it still reads/writes those exact paths.
+# persistent disk per service, but this app needs two separate persistent
+# locations (db, pipeline session output — canonical resources are now
+# baked into the image, see above, so they no longer need the disk).
+# docker-entrypoint.sh mounts everything under /data and symlinks
+# /app/data and /app/pipeline/gold_web_sessions to subfolders inside it at
+# container start -- the app's own code is untouched, it still reads/writes
+# those exact paths.
 COPY stella-frontend/docker-entrypoint.sh /app/docker-entrypoint.sh
 RUN chmod +x /app/docker-entrypoint.sh
 
