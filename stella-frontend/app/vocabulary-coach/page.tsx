@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { currentUser } from "@/lib/server/auth";
 import { submissionsFor } from "@/lib/server/store";
 import { loadLretSession } from "@/lib/server/goldPipeline";
+import VocabCoachPeelSession from "@/components/VocabCoachPeelSession";
 
 // v13: index route for Vocabulary Coach (LRET) — mirrors the /writing-coach
 // pattern: find the latest evaluated essay that actually has LRET output and
@@ -20,15 +21,20 @@ export default async function VocabularyCoachIndexPage() {
   if (withLret) redirect(`/vocabulary-coach/${withLret.id}`);
 
   return (
-    <div className="mx-auto max-w-xl py-10 text-center">
-      <h1 className="text-2xl font-semibold">Vocabulary coach</h1>
-      <p className="mt-2 text-sm text-ink-600">
-        Vocabulary coach is built from your evaluated essays — submit your first one to unlock
-        it.
+    <div className="mx-auto max-w-xl py-10">
+      <h1 className="text-center text-2xl font-semibold">Vocabulary coach</h1>
+      <p className="mt-2 text-center text-sm text-ink-600">
+        The full picture of your essay vocabulary unlocks once you submit an essay — but your
+        daily vocabulary practice below is ready right away.
       </p>
-      <Link href="/writing/submit" className="btn-primary mt-4 inline-flex">
-        Write my essay
-      </Link>
+      <div className="mt-6">
+        <VocabCoachPeelSession />
+      </div>
+      <div className="mt-6 flex justify-center">
+        <Link href="/writing/submit" className="btn-primary">
+          Write my essay
+        </Link>
+      </div>
     </div>
   );
 }

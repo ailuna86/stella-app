@@ -3,6 +3,7 @@ import { currentUser } from "@/lib/server/auth";
 import { getSubmission } from "@/lib/server/store";
 import { loadLretSession, loadRevisionWorkspace } from "@/lib/server/goldPipeline";
 import VocabularyCoachView from "@/components/VocabularyCoachView";
+import VocabCoachPeelSession from "@/components/VocabCoachPeelSession";
 
 // v13: Vocabulary Coach — surfaces the LRET engine's real per-essay output.
 // Previously this engine's work only ever showed up folded into the
@@ -23,15 +24,21 @@ export default async function VocabularyCoachPage({ params }: { params: { id: st
   const lret = sub.sessionDir ? loadLretSession(sub.sessionDir) : undefined;
   if (!lret) {
     return (
-      <div className="mx-auto max-w-xl py-10 text-center">
-        <h1 className="text-xl font-semibold">Vocabulary coach not available</h1>
-        <p className="mt-2 text-sm text-ink-600">
+      <div className="mx-auto max-w-xl py-10">
+        <h1 className="text-center text-xl font-semibold">Vocabulary coach not available</h1>
+        <p className="mt-2 text-center text-sm text-ink-600">
           This essay doesn't have vocabulary analysis attached — it's only produced for
-          Gold-tier evaluations.
+          Gold-tier evaluations. Your daily vocabulary practice below still works independently
+          of any specific essay.
         </p>
-        <Link href={`/writing/report/${sub.id}`} className="btn-secondary mt-4 inline-flex">
-          Back to report
-        </Link>
+        <div className="mt-6">
+          <VocabCoachPeelSession />
+        </div>
+        <div className="mt-4 flex justify-center">
+          <Link href={`/writing/report/${sub.id}`} className="btn-secondary">
+            Back to report
+          </Link>
+        </div>
       </div>
     );
   }
@@ -54,6 +61,18 @@ export default async function VocabularyCoachPage({ params }: { params: { id: st
         units={{ fix: lret.fixUnits, enhance: lret.enhanceUnits, clarify: lret.clarifyUnits, keep: lret.keepUnits }}
         reviseHref={hasWorkspace ? `/writing/revise/${sub.id}` : null}
       />
+
+      <div className="mt-8">
+        <h2 className="text-xl font-semibold">Daily vocabulary practice</h2>
+        <p className="mt-1 text-sm text-ink-600">
+          Short retrieval-practice paragraphs targeting the topics and word types you've been
+          diagnosed struggling with above, plus scheduled review of items you've been taught
+          before.
+        </p>
+        <div className="mt-3">
+          <VocabCoachPeelSession />
+        </div>
+      </div>
 
       <div className="mt-4 flex gap-3">
         <Link href={`/writing/report/${sub.id}`} className="btn-secondary">
