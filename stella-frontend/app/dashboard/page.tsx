@@ -98,42 +98,6 @@ export default async function Dashboard() {
         <Stat icon="confirmation_number" label="Evaluations left" value={String(user.entitlements.evaluations_left)} />
       </div>
 
-      {isGold && latest?.report && (
-        <div className="card relative mt-4 overflow-hidden card-gold">
-          <span className="material-symbols-outlined absolute right-3 top-3 text-6xl text-amber-500/10">
-            trending_up
-          </span>
-          <h2 className="font-medium text-ink-900">Latest assessment</h2>
-          <div className="relative mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <CriterionStat
-              label="Task response"
-              value={latest.report.score_summary.criteria_bands.task_achievement}
-            />
-            <CriterionStat
-              label="Coherence & cohesion"
-              value={latest.report.score_summary.criteria_bands.coherence_cohesion}
-            />
-            <CriterionStat
-              label="Lexical resource"
-              value={latest.report.score_summary.criteria_bands.lexical_resource}
-            />
-            <CriterionStat
-              label="Grammar"
-              value={latest.report.score_summary.criteria_bands.grammatical_range_accuracy}
-            />
-          </div>
-          <div className="relative mt-4 flex items-center justify-between rounded-card bg-brand-600 p-4 text-white">
-            <span className="flex items-center gap-2 text-sm font-medium">
-              <span className="material-symbols-outlined text-[20px]">auto_awesome</span>
-              Overall band: {latest.report.score_summary.holistic_band.toFixed(1)}
-            </span>
-            <Link href={`/writing/report/${latest.id}`} className="text-sm font-medium underline hover:opacity-80">
-              Detailed analysis
-            </Link>
-          </div>
-        </div>
-      )}
-
       <div className="card mt-4">
         <h2 className="flex items-center gap-2 font-medium text-ink-900">
           <span className="material-symbols-outlined text-brand-600">assignment</span>
@@ -169,6 +133,46 @@ export default async function Dashboard() {
           </>
         )}
       </div>
+
+      {/* v19: moved below the Homework card, matching its own "Your report is
+          ready below" copy — this used to render ABOVE Homework, so the text
+          was pointing at content that had already scrolled past, not content
+          still to come. No logic changed, purely reordered. */}
+      {isGold && latest?.report && (
+        <div className="card relative mt-4 overflow-hidden card-gold">
+          <span className="material-symbols-outlined absolute right-3 top-3 text-6xl text-amber-500/10">
+            trending_up
+          </span>
+          <h2 className="font-medium text-ink-900">Latest assessment</h2>
+          <div className="relative mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <CriterionStat
+              label="Task response"
+              value={latest.report.score_summary.criteria_bands.task_achievement}
+            />
+            <CriterionStat
+              label="Coherence & cohesion"
+              value={latest.report.score_summary.criteria_bands.coherence_cohesion}
+            />
+            <CriterionStat
+              label="Lexical resource"
+              value={latest.report.score_summary.criteria_bands.lexical_resource}
+            />
+            <CriterionStat
+              label="Grammar"
+              value={latest.report.score_summary.criteria_bands.grammatical_range_accuracy}
+            />
+          </div>
+          <div className="relative mt-4 flex items-center justify-between rounded-card bg-brand-600 p-4 text-white">
+            <span className="flex items-center gap-2 text-sm font-medium">
+              <span className="material-symbols-outlined text-[20px]">auto_awesome</span>
+              Overall band: {latest.report.score_summary.holistic_band.toFixed(1)}
+            </span>
+            <Link href={`/writing/report/${latest.id}`} className="text-sm font-medium underline hover:opacity-80">
+              Detailed analysis
+            </Link>
+          </div>
+        </div>
+      )}
 
       <div className="card mt-4">
         <div className="flex items-center justify-between">

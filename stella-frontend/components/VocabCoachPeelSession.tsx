@@ -164,6 +164,27 @@ export default function VocabCoachPeelSession() {
         {[session.topic, session.subtopic].filter(Boolean).join(" · ")}
         {session.angle ? ` · ${session.angle}` : ""}
       </p>
+
+      {/* Universal PEEL explanation -- same structure regardless of task_type/
+          angle, so it lives once here rather than repeated across all 228
+          prompt-bank entries. Collapsed by default (native <details>, no JS
+          state needed) so it doesn't distract returning students, but is one
+          click away for anyone unsure what "one paragraph" should contain. */}
+      <details className="mt-3 rounded-card border border-brand-100 bg-brand-50/40 p-3 text-sm">
+        <summary className="cursor-pointer font-medium text-brand-800">
+          What should my paragraph contain? (PEEL)
+        </summary>
+        <ul className="mt-2 space-y-1.5 text-ink-700">
+          <li><span className="font-medium text-brand-800">Point</span> — state your one idea in the first sentence. Don't hedge or list multiple ideas.</li>
+          <li><span className="font-medium text-brand-800">Evidence</span> — give one specific example, reason, or fact that supports it.</li>
+          <li><span className="font-medium text-brand-800">Explain</span> — say why that evidence actually supports your point.</li>
+          <li><span className="font-medium text-brand-800">Link</span> — close with a sentence that ties back to the question.</li>
+        </ul>
+        <p className="mt-2 text-xs text-ink-500">
+          This is the same structure every time, whatever the task type — only the topic and target words change.
+        </p>
+      </details>
+
       {session.scenarioText && <p className="mt-3 text-sm leading-relaxed text-ink-700">{session.scenarioText}</p>}
       {session.instructionFinal && (
         <p className="mt-2 text-sm font-medium text-ink-900">{session.instructionFinal}</p>
