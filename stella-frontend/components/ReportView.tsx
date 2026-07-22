@@ -62,8 +62,9 @@ export default function ReportView({
     <div className="mx-auto max-w-3xl py-6">
       {report.escalate_to_human_review && (
         <div className="mb-4 rounded-card border border-amber-300 bg-amber-50 p-3 text-sm text-amber-800">
-          The pipeline flagged this submission as ambiguous — worth a closer look before
-          fully trusting the automated evaluation.
+          {report.quality_notice ??
+            "The pipeline flagged this submission as ambiguous — worth a closer look before " +
+              "fully trusting the automated evaluation."}
         </div>
       )}
 

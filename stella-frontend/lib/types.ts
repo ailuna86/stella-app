@@ -117,6 +117,15 @@ export interface FeedbackReport {
   focus_area_feedback: FocusArea[];
   closing_message?: string;
   escalate_to_human_review?: boolean;
+  // v18 (session-audit Finding 2): the orchestrator's QA gate for
+  // canonical_resources_not_loaded_zero_resource_run already existed and
+  // already flipped escalate_to_human_review to true — but the banner that
+  // renders from it only ever said "flagged as ambiguous," giving no hint
+  // that the actual cause was LRET running with its lexical resources
+  // unavailable. quality_notice carries a specific, plain-language reason
+  // when one is recognized, so the same existing signal is finally legible
+  // instead of generic. Falls back to the old generic message when unset.
+  quality_notice?: string;
 }
 
 export interface BankExercise {
