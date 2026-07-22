@@ -1,0 +1,698 @@
+{
+  "bank_id": "vocab_coach_task_type_bank_v1.2.0",
+  "supersedes": "vocab_coach_task_type_bank_v1.1.0 (and v1.0.0) -- both kept in place, not deleted or overwritten",
+  "scope_note_changelog": [
+    {
+      "version": "v1.0.0",
+      "change": "Initial 22 items, 3 task-types, hedged/academic fixed phrases only."
+    },
+    {
+      "version": "v1.1.0",
+      "change": "Expanded to 56 items: added basic-level phrases, verbs, and collocations across levels."
+    },
+    {
+      "version": "v1.2.0",
+      "change": "Full revision per VOCAB_COACH_BANK_REVISION_PROMPT_V1.md audit. (7) Added a 4th task-type, 'discussion' (discuss-both-views), 17 items, side_a/side_b single-stance framings rather than dual-clause connectors. (8) Rebalanced type mix (added collocations, esp. cause_effect_problem_solution and advantages_disadvantages), rebalanced level mix (added intermediate items, previously the thinnest band), and pushed new items against the same registries the topic bank cites before falling back to curated wording. (9) Added an 'angle' field to every item in advantages_disadvantages, cause_effect_problem_solution, and discussion, so selection can draw only the single angle a one-idea PEEL micro-task actually needs. Removed 'outweigh' and 'outweighs the disadvantages' (inherently two-sided, X-outweighs-Y) and 'on the other hand' (a pure contrast connector presupposing a stated first side) from single-idea selection -- moved to a new top-level 'essay_level_only' bucket, not read by the engine's task-type selection at all. Dropped the 'further' framing from 'a further benefit is that'/'a further downside worth noting is' (both implied a prior point already made elsewhere, a mismatch for a standalone paragraph) rather than tagging them essay-level-only, since the underlying content is genuinely usable standalone once 'further' is removed. Rebalanced cause_effect_problem_solution from 15 cause/effect-language items vs. 4 solution-language items toward parity by adding problem-naming items (previously zero) and more solution-proposing items."
+    }
+  ],
+  "essay_level_only": {
+    "note": "Items that are inherently two-sided/comparative or presuppose a previously-stated side, and therefore cannot be assigned a single angle for a one-idea PEEL micro-task (see Background constraint: one paragraph, one idea). NOT read by the engine's select_task_type_phrase() -- kept here only as a documented, intentionally-unused pool for a future whole-essay context, not deleted outright.",
+    "items": [
+      {
+        "phrase": "outweigh",
+        "type": "verb",
+        "level": "advanced",
+        "pattern": "sth outweighs sth",
+        "reason": "inherently comparative -- X outweighs Y has no single-sided use"
+      },
+      {
+        "phrase": "outweighs the disadvantages",
+        "type": "collocation",
+        "level": "advanced",
+        "reason": "inherently comparative, same as above"
+      },
+      {
+        "phrase": "on the other hand",
+        "type": "fixed_phrase",
+        "level": "basic",
+        "registry_check": "confirmed_in_discourse_registry",
+        "registry_source": "discourse_registry.json:on the other hand:cohesion:0.88(approx)",
+        "reason": "pure contrast connector presupposing a previously stated side -- nothing to contrast against in an isolated one-idea paragraph"
+      }
+    ]
+  },
+  "task_types": {
+    "opinion": {
+      "label": "Opinion / Agree-Disagree",
+      "rhetorical_job": "State and hedge a personal position persuasively without overclaiming.",
+      "items": [
+        {
+          "phrase": "I agree that",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "I disagree that",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "I believe that",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "I think that",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "in my opinion",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "from my point of view",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "personally, I think",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "agree with (an idea/statement)",
+          "type": "verb",
+          "level": "basic",
+          "pattern": "agree with sb/sth",
+          "registry_check": "confirmed_preposition_governance_registry",
+          "registry_source": "agree+verb_prep+pattern='agree with sb':confidence=0.85"
+        },
+        {
+          "phrase": "believe in (something)",
+          "type": "verb",
+          "level": "intermediate",
+          "pattern": "believe in sth",
+          "registry_check": "confirmed_preposition_governance_registry",
+          "registry_source": "believe+verb_prep+pattern='believe in sb/sth':confidence=0.85"
+        },
+        {
+          "phrase": "argue that",
+          "type": "verb",
+          "level": "intermediate",
+          "pattern": "argue that + clause",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "maintain that",
+          "type": "verb",
+          "level": "advanced",
+          "pattern": "maintain that + clause",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "contend that",
+          "type": "verb",
+          "level": "advanced",
+          "pattern": "contend that + clause",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "assert that",
+          "type": "verb",
+          "level": "advanced",
+          "pattern": "assert that + clause",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "claim that",
+          "type": "verb",
+          "level": "intermediate",
+          "pattern": "claim that + clause",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "hold the view that",
+          "type": "collocation",
+          "level": "intermediate",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "take the view that",
+          "type": "collocation",
+          "level": "intermediate",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a firm belief that",
+          "type": "collocation",
+          "level": "intermediate",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "as far as I am concerned",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "it could be argued that",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "I am firmly convinced that",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "there is a strong case for",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "it is widely believed that",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "on balance",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "registry_check": "confirmed_in_discourse_registry",
+          "registry_source": "discourse_registry.json:on balance:cohesion:0.92"
+        }
+      ]
+    },
+    "cause_effect_problem_solution": {
+      "label": "Cause-Effect / Problem-Solution",
+      "rhetorical_job": "Link a cause to its effect, or name a problem and propose a workable remedy.",
+      "items": [
+        {
+          "phrase": "this causes",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "effect",
+          "registry_check": "confirmed_in_discourse_registry",
+          "registry_source": "discourse_registry.json:this causes:cohesion:0.88(approx)"
+        },
+        {
+          "phrase": "this leads to",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "effect",
+          "registry_check": "confirmed_in_discourse_registry",
+          "registry_source": "discourse_registry.json:this leads:cohesion:0.92"
+        },
+        {
+          "phrase": "because of this",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "effect",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "as a result",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "effect",
+          "registry_check": "confirmed_in_discourse_registry",
+          "registry_source": "discourse_registry.json:as a result:cohesion:0.88(approx)"
+        },
+        {
+          "phrase": "cause (a problem)",
+          "type": "verb",
+          "level": "basic",
+          "angle": "effect",
+          "pattern": "cause sth",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "result in",
+          "type": "verb",
+          "level": "intermediate",
+          "angle": "effect",
+          "pattern": "result in sth",
+          "registry_check": "confirmed_preposition_governance_registry",
+          "registry_source": "result+phrasal_or_governance_pattern+pattern='result in sth':confidence=0.85"
+        },
+        {
+          "phrase": "lead to",
+          "type": "verb",
+          "level": "basic",
+          "angle": "effect",
+          "pattern": "lead to sth",
+          "registry_check": "confirmed_preposition_governance_registry",
+          "registry_source": "lead+phrasal_or_governance_pattern+pattern='lead to sth':confidence=0.85"
+        },
+        {
+          "phrase": "contribute to",
+          "type": "verb",
+          "level": "intermediate",
+          "angle": "effect",
+          "pattern": "contribute to sth",
+          "registry_check": "confirmed_preposition_governance_registry",
+          "registry_source": "contribute+phrasal_or_governance_pattern+pattern='contribute to sth':confidence=0.85"
+        },
+        {
+          "phrase": "trigger",
+          "type": "verb",
+          "level": "advanced",
+          "angle": "effect",
+          "pattern": "trigger sth",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "bring about",
+          "type": "verb",
+          "level": "advanced",
+          "angle": "effect",
+          "pattern": "bring sth about",
+          "registry_check": "confirmed_preposition_governance_registry",
+          "registry_source": "bring+phrasal_or_governance_pattern+pattern='bring sth about':confidence=0.85"
+        },
+        {
+          "phrase": "a direct consequence of",
+          "type": "collocation",
+          "level": "advanced",
+          "angle": "effect",
+          "registry_check": "partial_match",
+          "registry_source": "consequence+adjective_modifier(important/profound/far-reaching):positive_collocations_registry.tsv:0.92"
+        },
+        {
+          "phrase": "gives rise to",
+          "type": "collocation",
+          "level": "advanced",
+          "angle": "effect",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "stem from",
+          "type": "verb",
+          "level": "advanced",
+          "angle": "cause",
+          "pattern": "stem from sth",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "arise from",
+          "type": "verb",
+          "level": "advanced",
+          "angle": "cause",
+          "pattern": "arise from sth",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "account for",
+          "type": "verb",
+          "level": "intermediate",
+          "angle": "cause",
+          "pattern": "account for sth",
+          "registry_check": "confirmed_preposition_governance_registry",
+          "registry_source": "account+phrasal_or_governance_pattern+pattern='account for sth':confidence=0.85"
+        },
+        {
+          "phrase": "a root cause of",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "cause",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "largely attributable to",
+          "type": "collocation",
+          "level": "advanced",
+          "angle": "cause",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a pressing issue",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "problem",
+          "registry_check": "partial_match",
+          "registry_source": "issue+adjective_modifier(burning/critical/crucial):positive_collocations_registry.tsv:0.92"
+        },
+        {
+          "phrase": "a critical issue",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "problem",
+          "registry_check": "confirmed_positive_collocations_registry",
+          "registry_source": "issue+adjective_modifier+collocate='critical':positive_collocations_registry.tsv:0.92"
+        },
+        {
+          "phrase": "a growing concern is that",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "angle": "problem",
+          "registry_check": "confirmed_positive_collocations_registry",
+          "registry_source": "concern+adjective_modifier+collocate='growing':positive_collocations_registry.tsv:0.92"
+        },
+        {
+          "phrase": "a significant challenge",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "problem",
+          "registry_check": "confirmed_positive_collocations_registry",
+          "registry_source": "challenge+adjective_modifier+collocate='considerable':positive_collocations_registry.tsv:0.92"
+        },
+        {
+          "phrase": "this poses a serious problem for",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "problem",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "one viable measure would be to",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "solution",
+          "registry_check": "partial_match",
+          "registry_source": "measure+adjective_modifier(effective/practical/necessary):positive_collocations_registry.tsv:0.92"
+        },
+        {
+          "phrase": "this issue could be mitigated by",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "solution",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a more effective approach would be to",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "solution",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "unless action is taken to address this",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "solution",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "an effective solution",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "solution",
+          "registry_check": "confirmed_positive_collocations_registry",
+          "registry_source": "solution+adjective_modifier+collocate='effective':positive_collocations_registry.tsv:0.92"
+        },
+        {
+          "phrase": "a practical solution would be to",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "angle": "solution",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "an appropriate measure",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "solution",
+          "registry_check": "confirmed_positive_collocations_registry",
+          "registry_source": "measure+adjective_modifier+collocate='appropriate':positive_collocations_registry.tsv:0.92"
+        },
+        {
+          "phrase": "one way to tackle this is to",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "solution",
+          "registry_check": "not_in_registry_curated"
+        }
+      ]
+    },
+    "advantages_disadvantages": {
+      "label": "Advantages / Disadvantages",
+      "rhetorical_job": "Weigh benefits against drawbacks without collapsing into a flat list.",
+      "items": [
+        {
+          "phrase": "a good thing about (this) is",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "advantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "on the plus side",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "advantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "benefit from",
+          "type": "verb",
+          "level": "intermediate",
+          "angle": "advantage",
+          "pattern": "benefit from sth",
+          "registry_check": "confirmed_preposition_governance_registry",
+          "registry_source": "benefit+phrasal_or_governance_pattern+pattern='benefit from sth':confidence=0.85"
+        },
+        {
+          "phrase": "the principal advantage of",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "advantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a benefit is that",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "angle": "advantage",
+          "registry_check": "not_in_registry_curated",
+          "note": "'further' dropped from v1.1.0's 'a further benefit is that' -- see Problem 9"
+        },
+        {
+          "phrase": "a key advantage",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "advantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a major upside of",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "advantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a clear benefit of",
+          "type": "collocation",
+          "level": "basic",
+          "angle": "advantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a bad thing about (this) is",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "disadvantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "on the down side",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "disadvantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a drawback of",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "disadvantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a downside of",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "disadvantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "the main drawback is that",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "angle": "disadvantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "this comes at the cost of",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "disadvantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a downside worth noting is",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "disadvantage",
+          "registry_check": "not_in_registry_curated",
+          "note": "'further' dropped from v1.1.0's 'a further downside worth noting is' -- see Problem 9"
+        },
+        {
+          "phrase": "a serious drawback",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "disadvantage",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a notable limitation of",
+          "type": "collocation",
+          "level": "advanced",
+          "angle": "disadvantage",
+          "registry_check": "not_in_registry_curated"
+        }
+      ]
+    },
+    "discussion": {
+      "label": "Discussion / Discuss Both Views",
+      "rhetorical_job": "Present one side of a debate persuasively on its own terms, as a single-idea paragraph -- not both sides at once.",
+      "items": [
+        {
+          "phrase": "some people argue that",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "side_a",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "others believe that",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "side_b",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "one view is that",
+          "type": "fixed_phrase",
+          "level": "basic",
+          "angle": "side_a",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "an opposing view holds that",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "angle": "side_b",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "it could be said that",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "angle": "side_a",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "critics argue that",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "angle": "side_b",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "advocates of this position maintain that",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "side_a",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "an alternative perspective is that",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "side_b",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "proponents of this view argue that",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "side_a",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "opponents of this view contend that",
+          "type": "fixed_phrase",
+          "level": "advanced",
+          "angle": "side_b",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "champion (a cause/view)",
+          "type": "verb",
+          "level": "advanced",
+          "angle": "side_a",
+          "pattern": "champion sth",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "make a compelling case for",
+          "type": "collocation",
+          "level": "advanced",
+          "angle": "side_a",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "raise valid concerns about",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "side_b",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a compelling argument for",
+          "type": "collocation",
+          "level": "advanced",
+          "angle": "side_a",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "a valid concern about",
+          "type": "collocation",
+          "level": "intermediate",
+          "angle": "side_b",
+          "registry_check": "not_in_registry_curated"
+        },
+        {
+          "phrase": "supporters of this idea point out that",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "angle": "side_a",
+          "registry_check": "partial_match",
+          "registry_source": "point+phrasal_or_governance_pattern+pattern='point sth out':preposition_governance_registry.tsv:0.85"
+        },
+        {
+          "phrase": "detractors point out that",
+          "type": "fixed_phrase",
+          "level": "intermediate",
+          "angle": "side_b",
+          "registry_check": "partial_match",
+          "registry_source": "point+phrasal_or_governance_pattern+pattern='point sth out':preposition_governance_registry.tsv:0.85"
+        }
+      ]
+    }
+  }
+}
