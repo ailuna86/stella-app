@@ -27,8 +27,33 @@ export const GOLD_PIPELINE_DIR =
   process.env.STELLA_GOLD_PIPELINE_DIR ?? path.resolve(process.cwd(), "..", "full_gold_v1");
 
 const ORCHESTRATOR = "gold_full_pipeline_orchestrator_v1_4_9.py";
+// v1.4.14: bumped from v1_4_13 to pick up two new versioned engine files
+// (va_premium_evaluator_v8_4_wke_standalone.py, lret_engine_v1_12_1_...) that
+// fix the session-audit Task Response relevance bug and the LRET FIX/KEEP
+// duplicate bug. Per project convention, the fixes were written as new
+// versioned engine files rather than edits to the v8_3/v1_12_0 originals —
+// this config bump is what actually points the orchestrator at them.
+// v1.4.15: bumped from v1_4_14 to pick up GOLD_PIPELINE_SPEC_V3_TASK_RELEVANCE.md
+// Section 3 — the Detector-side topic_alignment_risk safety-net flag (a cheap,
+// LLM-call-independent tripwire for genuinely off-topic essays) plus the
+// Scorer's hard ceiling that consumes it, regardless of the Evaluator's own
+// relevance judgment. Three new versioned engine files this bump:
+// det_vip_cli_bridge_v1_1.py (wraps new det_vip_v18d_3_topic_alignment_risk.py),
+// detector_to_errormap_v3_1_standalone.py (surfaces the flag on the errormap
+// artifact so it's visible to Priority/Directive/Feedback Report), and
+// premium_unified_scorer_v1_4_2_topic_ceiling.py (applies the cap).
+// v1.4.16: bumped from v1_4_15 to register the new Vocabulary Coach (LRET +
+// PEEL) engines and bump learner_profile to gold_lie_profile_builder_standalone_v1_4_4.py
+// (adds an additive, optional --vocabulary-coach input). Per the same
+// reasoning as mission_response_grading below, Vocabulary Coach's three
+// engines (vocab_coach_selection_engine_v1_1.py,
+// vocab_coach_response_grader_v1_1.py, vocab_coach_ledger_update_v1_1.py) are
+// registered in this config for documentation/consistency but are NOT part
+// of the orchestrator's automatic per-essay STAGE_ORDER — they run on their
+// own cooldown-gated cadence via the standalone runVocabCoach* functions
+// below, not through a full 27-stage orchestrator invocation.
 const ENGINE_CONFIG =
-  process.env.STELLA_GOLD_ENGINE_CONFIG ?? "gold_engine_commands_full_v1_4_13.json";
+  process.env.STELLA_GOLD_ENGINE_CONFIG ?? "gold_engine_commands_full_v1_4_16.json";
 export const OUTPUT_ROOT = "gold_web_sessions";
 // The orchestrator's --canonical-resources-dir used to default to a
 // hardcoded absolute path baked into gold_full_pipeline_orchestrator_v1_4_9.py
@@ -287,6 +312,32 @@ export async function runGoldEvaluation(input: {
     // report) is present and valid — but flag it for the trainer QA queue
     // the same way a low-confidence Gold score already does.
     report.escalate_to_human_review = true;
+
+    // v18 (session-audit Finding 2): this branch already ran on the real
+    // off-topic-essay session and set escalate_to_human_review — but nothing
+    // ever said which QA gate issue triggered it, so a real, specific problem
+    // (LRET's canonical resources failing to load, confirmed via
+    // canonical_resources_not_loaded_zero_resource_run in the orchestrator's
+    // own quality_gate_issues) sat invisible behind a generic "ambiguous"
+    // banner. Read the QA report here too, not just on the failure path, and
+    // give the student/admin the specific reason when it's one we recognize.
+    try {
+      const qaReportPath = (parsed as any).qa_report;
+      if (qaReportPath && fs.existsSync(qaReportPath)) {
+        const qa = JSON.parse(fs.readFileSync(qaReportPath, "utf8"));
+        const issues: Array<{ issue?: string; artifact?: string }> = Array.isArray(qa.quality_gate_issues)
+          ? qa.quality_gate_issues
+          : [];
+        if (issues.some((i) => i.issue === "canonical_resources_not_loaded_zero_resource_run")) {
+          report.quality_notice =
+            "Vocabulary suggestions in this report ran with reduced resource support — some " +
+            "collocation/lexical feedback may be thinner than usual. This doesn't affect your " +
+            "band scores.";
+        }
+      }
+    } catch (qaErr) {
+      console.error(`[ST.ELLA] Could not read QA report for quality_notice detail:`, qaErr);
+    }
   }
 
   return { report, sessionDir: parsed.session_dir };
@@ -328,6 +379,22 @@ export interface WritingCoachMission {
     difficulty: string;
     requiredItems: number;
   };
+  // v17 (session-audit Finding 6): writing_coach_alignment_guard_standalone_v1_4_7.py
+  // already computes an honest, explicit signal whenever Writing Coach's own
+  // selected skill differs from the Gold Directive's top-priority skill --
+  // status "explained_override", the Directive's focus, Writing Coach's own
+  // selected focus, and a plain-language rationale. Confirmed via direct
+  // search that nothing in this codebase read directive_alignment before this
+  // change -- the mismatch complaint was a frontend plumbing gap, not a
+  // missing backend signal. Null when the guard didn't run (older sessions)
+  // or when the two are already aligned and there's nothing to explain.
+  directiveAlignment: {
+    status: string;
+    isAligned: boolean;
+    directiveFocusLabel: string;
+    coachFocusLabel: string;
+    rationale: string;
+  } | null;
 }
 
 export function loadWritingCoach(sessionDir: string): WritingCoachMission | undefined {
@@ -353,6 +420,31 @@ export function loadWritingCoach(sessionDir: string): WritingCoachMission | unde
     const rawSteps: string[] = Array.isArray(m.steps) ? m.steps : [];
     const modelStep = rawSteps.find((s) => /^Model \(/i.test(s)) ?? null;
     const steps = rawSteps.filter((s) => s !== modelStep);
+
+    // v17: directive_alignment is written by writing_coach_alignment_guard_
+    // standalone_v1_4_7.py at the top level of this same file, alongside a
+    // duplicated subset inside coach_decision. Read the top-level object,
+    // since it carries the fuller shape (directive_primary_focus,
+    // coach_selected_focus, override_reason) the guard actually computes.
+    const align = raw.directive_alignment ?? null;
+    const labelFor = (focus: any): string => {
+      const label = focus?.student_label || focus?.capacity_domain || focus?.skill_id || "";
+      return String(label).replace(/_/g, " ").trim();
+    };
+    const directiveAlignment = align
+      ? {
+          status: String(align.status ?? ""),
+          isAligned: align.status === "aligned",
+          directiveFocusLabel: labelFor(align.directive_primary_focus),
+          coachFocusLabel:
+            align.coach_selected_focus?.selected_skill_name ||
+            labelFor(align.coach_selected_focus) ||
+            m.title ||
+            "",
+          rationale: String(align.override_reason ?? ""),
+        }
+      : null;
+
     return {
       homeCard: {
         title: card.title ?? "Today's Writing Coach",
@@ -383,6 +475,7 @@ export function loadWritingCoach(sessionDir: string): WritingCoachMission | unde
         difficulty: m.difficulty ?? "controlled",
         requiredItems: m.required_output?.required_items ?? (Array.isArray(m.stimulus?.items) ? m.stimulus.items.length : 1),
       },
+      directiveAlignment,
     };
   } catch (e) {
     console.error(`[ST.ELLA] Could not read Writing Coach output from ${sessionDir}:`, e);
@@ -644,6 +737,261 @@ export async function runMissionGrading(
           howToImprove: it.how_to_improve ?? null,
         }))
       : [],
+  };
+}
+
+// ---------------------------------------------------------------------------
+// v16: Vocabulary Coach (LRET + PEEL) — per
+// VOCABULARY_COACH_ENGINE_BUILD_PROMPT_V1.md. Same reasoning as
+// runMissionGrading above: this is a small, cooldown-gated micro-task, not
+// a full essay re-score, so it calls its three standalone engines directly
+// via spawn() rather than going through the 27-stage orchestrator. The three
+// engines are pure, independent CLI scripts (no shared state beyond the
+// files passed on the command line), so no orchestrator/STAGE_ORDER wiring
+// was needed or added — see gold_engine_commands_full_v1_4_16.json's
+// description for the same note from the config side.
+//
+// Flow: runVocabCoachSession() generates (or returns "not yet available for
+// N more hours") a session; the frontend renders its prompt; the student
+// submits a paragraph; submitVocabCoachResponse() grades it AND updates the
+// Leitner ledger in one call (grading fails to update, is truthful and
+// simply never returned; there's no partial-write risk since ledger update
+// only writes after grading succeeds).
+// ---------------------------------------------------------------------------
+
+const VOCAB_COACH_SELECTION_SCRIPT = "vocab_coach_selection_engine_v1_1.py";
+const VOCAB_COACH_GRADER_SCRIPT = "vocab_coach_response_grader_v1_1.py";
+const VOCAB_COACH_LEDGER_SCRIPT = "vocab_coach_ledger_update_v1_1.py";
+const VOCAB_COACH_TOPIC_BANK = "vocab_coach_topic_bank_v1_3_0.json";
+const VOCAB_COACH_TASK_TYPE_BANK = "vocab_coach_task_type_bank_v1_2_0.json";
+const VOCAB_COACH_PROMPT_BANK = "vocab_coach_prompt_bank_v1_0_0.json";
+const VOCAB_COACH_TIMEOUT_MS = 60 * 1000;
+const VOCAB_COACH_MAX_LRET_SESSIONS = 5;
+
+function learnerProfilesDir(): string {
+  const dir = path.join(GOLD_PIPELINE_DIR, OUTPUT_ROOT, "learner_profiles");
+  fs.mkdirSync(dir, { recursive: true });
+  return dir;
+}
+
+function vocabCoachLedgerPath(studentId: string): string {
+  return path.join(learnerProfilesDir(), `${studentId}_vocab_coach_ledger.json`);
+}
+
+// Scans this student's own session directories ({OUTPUT_ROOT}/{studentId}/gold_*)
+// for real 07d_lret_session.json artifacts, most recent first, so the
+// selection engine's LRET-history bias (see VOCABULARY_COACH_ENGINE_BUILD_PROMPT_V1.md,
+// Architecture point 1) has real diagnostic history to read instead of
+// always falling back to "no bias applied".
+function findRecentLretSessionPaths(studentId: string, limit = VOCAB_COACH_MAX_LRET_SESSIONS): string[] {
+  const studentDir = path.join(GOLD_PIPELINE_DIR, OUTPUT_ROOT, studentId);
+  if (!fs.existsSync(studentDir)) return [];
+  const sessionDirs = fs
+    .readdirSync(studentDir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name)
+    .sort()
+    .reverse(); // gold_{stamp}_{essayId}_{hash} — lexicographic sort matches chronological
+  const found: string[] = [];
+  for (const name of sessionDirs) {
+    const p = path.join(studentDir, name, "07d_lret_session.json");
+    if (fs.existsSync(p)) found.push(p);
+    if (found.length >= limit) break;
+  }
+  return found;
+}
+
+// Best-effort: the most recent essay's finalized score contract, used as the
+// selection engine's optional --score-contract CEFR-gating input. Returns
+// undefined (not a hard error) if none exists yet — the engine already has
+// a documented fail-safe mid-band default for that case.
+function findLatestScoreContractPath(studentId: string): string | undefined {
+  const studentDir = path.join(GOLD_PIPELINE_DIR, OUTPUT_ROOT, studentId);
+  if (!fs.existsSync(studentDir)) return undefined;
+  const sessionDirs = fs
+    .readdirSync(studentDir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name)
+    .sort()
+    .reverse();
+  for (const name of sessionDirs) {
+    const p = path.join(studentDir, name, "02d_final_score_contract.json");
+    if (fs.existsSync(p)) return p;
+  }
+  return undefined;
+}
+
+function runPythonScript(script: string, args: string[], timeoutMs: number, label: string): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const proc = spawn("python", [script, ...args], {
+      cwd: GOLD_PIPELINE_DIR,
+      env: process.env,
+      windowsHide: true,
+    });
+    let stderr = "";
+    proc.stderr.on("data", (d) => (stderr += d.toString()));
+    proc.on("error", reject);
+    proc.on("close", (code) =>
+      code === 0 ? resolve() : reject(new Error(`${label} exited ${code}: ${stderr.slice(-800)}`))
+    );
+    const timer = setTimeout(() => {
+      proc.kill();
+      reject(new Error(`${label} timed out after ${timeoutMs / 1000}s`));
+    }, timeoutMs);
+    proc.on("close", () => clearTimeout(timer));
+  });
+}
+
+export interface VocabCoachSession {
+  status: "generated" | "not_yet_available";
+  nextSessionAvailableAt: string | null;
+  sessionId: string | null;
+  topic: string | null;
+  subtopic: string | null;
+  taskType: string | null;
+  angle: string | null;
+  scenarioText: string | null;
+  instructionFinal: string | null;
+  suggestedVocabulary: Array<{ phrase: string; topic?: string; subtopic?: string }>;
+  reviewItems: Array<{ phrase: string; box: string; note: string }>;
+  lretBiasApplied: boolean;
+  lretBiasNote: string | null;
+  filePath: string;
+}
+
+export async function runVocabCoachSession(studentId: string): Promise<VocabCoachSession> {
+  const sessionsDir = path.join(GOLD_PIPELINE_DIR, OUTPUT_ROOT, "vocab_coach_sessions", studentId);
+  fs.mkdirSync(sessionsDir, { recursive: true });
+  const outFile = path.join(sessionsDir, `session_${Date.now()}.json`);
+  const ledgerPath = vocabCoachLedgerPath(studentId);
+  const lretSessions = findRecentLretSessionPaths(studentId);
+  const scoreContract = findLatestScoreContractPath(studentId);
+
+  const args = [
+    "--ledger",
+    ledgerPath,
+    "--topic-bank",
+    VOCAB_COACH_TOPIC_BANK,
+    "--task-type-bank",
+    VOCAB_COACH_TASK_TYPE_BANK,
+    "--prompt-bank",
+    VOCAB_COACH_PROMPT_BANK,
+    "--student-id",
+    studentId,
+    "--output",
+    outFile,
+  ];
+  if (scoreContract) args.push("--score-contract", scoreContract);
+  if (lretSessions.length > 0) args.push("--lret-sessions", ...lretSessions);
+
+  await runPythonScript(VOCAB_COACH_SELECTION_SCRIPT, args, VOCAB_COACH_TIMEOUT_MS, "vocab coach selection");
+
+  if (!fs.existsSync(outFile)) throw new Error("Vocabulary Coach selection produced no output file.");
+  const raw = JSON.parse(fs.readFileSync(outFile, "utf8"));
+
+  if (raw.status === "not_yet_available") {
+    return {
+      status: "not_yet_available",
+      nextSessionAvailableAt: raw.next_session_available_at ?? null,
+      sessionId: null,
+      topic: null,
+      subtopic: null,
+      taskType: null,
+      angle: null,
+      scenarioText: null,
+      instructionFinal: null,
+      suggestedVocabulary: [],
+      reviewItems: [],
+      lretBiasApplied: false,
+      lretBiasNote: null,
+      filePath: outFile,
+    };
+  }
+
+  const rotation = raw.rotation ?? {};
+  const prompt = raw.prompt ?? {};
+  const bias = raw.lret_family_bias ?? {};
+  return {
+    status: "generated",
+    nextSessionAvailableAt: null,
+    sessionId: raw.session_id ?? null,
+    topic: rotation.topic ?? null,
+    subtopic: rotation.subtopic ?? null,
+    taskType: rotation.task_type ?? null,
+    angle: rotation.angle ?? null,
+    scenarioText: prompt.scenario_text ?? null,
+    instructionFinal: prompt.instruction_final ?? null,
+    suggestedVocabulary: Array.isArray(prompt.suggested_vocabulary) ? prompt.suggested_vocabulary : [],
+    reviewItems: Array.isArray(raw.review_items) ? raw.review_items : [],
+    lretBiasApplied: Boolean(bias.bias_applied),
+    lretBiasNote: bias.note ?? null,
+    filePath: outFile,
+  };
+}
+
+export interface VocabCoachItemVerdict {
+  phrase: string;
+  source: "new" | "review" | string;
+  verdict: "used_correctly" | "used_but_awkward" | "attempted_incorrectly" | "not_used" | "needs_review" | string;
+  evidence: string;
+}
+
+export interface VocabCoachSubmitResult {
+  itemVerdicts: VocabCoachItemVerdict[];
+  paragraphNote: { oneIdeaOk: boolean | null; note: string };
+  llmChecked: boolean;
+}
+
+export async function submitVocabCoachResponse(
+  studentId: string,
+  sessionFilePath: string,
+  responseText: string
+): Promise<VocabCoachSubmitResult> {
+  if (!fs.existsSync(sessionFilePath)) {
+    throw new Error("Vocabulary Coach session file not found — session may have expired or been cleaned up.");
+  }
+  const sessionsDir = path.dirname(sessionFilePath);
+  const stamp = Date.now();
+  const gradingFile = path.join(sessionsDir, `grading_${stamp}.json`);
+
+  const useLlm = Boolean(process.env.OPENAI_API_KEY);
+  const graderArgs = [
+    "--session",
+    sessionFilePath,
+    "--response",
+    responseText,
+    "--output",
+    gradingFile,
+    ...(useLlm ? ["--use-llm"] : []),
+  ];
+  await runPythonScript(VOCAB_COACH_GRADER_SCRIPT, graderArgs, VOCAB_COACH_TIMEOUT_MS, "vocab coach grading");
+  if (!fs.existsSync(gradingFile)) throw new Error("Vocabulary Coach grading produced no output file.");
+  const grading = JSON.parse(fs.readFileSync(gradingFile, "utf8"));
+
+  const ledgerArgs = [
+    "--session",
+    sessionFilePath,
+    "--grading",
+    gradingFile,
+    "--ledger",
+    vocabCoachLedgerPath(studentId),
+  ];
+  await runPythonScript(VOCAB_COACH_LEDGER_SCRIPT, ledgerArgs, VOCAB_COACH_TIMEOUT_MS, "vocab coach ledger update");
+
+  return {
+    itemVerdicts: Array.isArray(grading.item_verdicts)
+      ? grading.item_verdicts.map((v: any) => ({
+          phrase: v.phrase,
+          source: v.source,
+          verdict: v.verdict,
+          evidence: v.evidence ?? "",
+        }))
+      : [],
+    paragraphNote: {
+      oneIdeaOk: grading.paragraph_note?.one_idea_ok ?? null,
+      note: grading.paragraph_note?.note ?? "",
+    },
+    llmChecked: Boolean(grading.use_llm),
   };
 }
 
