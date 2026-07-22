@@ -65,7 +65,13 @@ RUN npm run build
 COPY ["full pipleine/", "/app/pipeline/"]
 
 ENV STELLA_GOLD_PIPELINE_DIR=/app/pipeline
-ENV STELLA_GOLD_ENGINE_CONFIG=gold_engine_commands_full_v1_4_13.json
+# Bumped from v1_4_13 -- that pin was 3 versions stale (missing the V3
+# Section 3 topic-alignment-risk ceiling from v1_4_15 and the Vocabulary
+# Coach wiring from v1_4_16) and was silently overriding goldPipeline.ts's
+# own updated default, since this explicit env var always wins. If you add
+# a newer gold_engine_commands_full_v*.json in the future, this line -- not
+# just the TS default -- is what actually controls which config Render runs.
+ENV STELLA_GOLD_ENGINE_CONFIG=gold_engine_commands_full_v1_4_16.json
 # Baked-in path: stella-frontend/app/resources/ (repo) lands at
 # /app/app/resources inside the image, because WORKDIR is /app and
 # `COPY stella-frontend/ ./` preserves the app/ subfolder structure.
