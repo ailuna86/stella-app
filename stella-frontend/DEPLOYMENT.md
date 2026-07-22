@@ -121,7 +121,7 @@ Set these in your hosting provider's dashboard (never commit them):
 | `OPENAI_API_KEY` | yes | Powers Detector/Evaluator/LRET/Writing Coach LLM calls |
 | `RESEND_API_KEY` | for real pilot | Without it, confirmation codes show on-screen instead of emailing |
 | `RESEND_FROM` | for real pilot | e.g. `"ST.ELLA <login@yourdomain.com>"` |
-| `STELLA_GOLD_ENGINE_CONFIG` | no | Defaults correctly to `gold_engine_commands_full_v1_4_13.json`, already baked into the image |
+| `STELLA_GOLD_ENGINE_CONFIG` | no | Defaults correctly to `gold_engine_commands_full_v1_4_16.json` (bumped from v1_4_13 — that pin had gone stale by 3 versions and was silently overriding goldPipeline.ts's own updated default), already baked into the image |
 | `VIP_CHEAP_MODEL` / `VIP_STRONG_MODEL` | optional | Detector's two-tier model switch — see the model recommendation in `GOLD_PIPELINE_SPEC_V2.md` |
 | `LRET_SUGGESTION_MODEL` | optional | Leave unset to keep classify/generate on the same (cheap) model; set to a stronger tier to test the split |
 
