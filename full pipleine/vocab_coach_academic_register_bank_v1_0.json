@@ -1,0 +1,255 @@
+{
+  "bank_id": "vocab_coach_academic_register_bank_v1.0",
+  "scope_note": "Tier A of the two-tier academic vocabulary design (Topic_Academic_Vocab_Expansion_Spec_v1.docx §2.1/§2.4/§3). Topic-independent discourse markers, hedging, and argument-structure phrases -- always available, and the fallback pool when an essay's topic has no bank match at all (companion spec Session_Flow_and_Vocab_Expansion_Spec_v1 §2.3). Smaller, supplementary pool relative to Tier B topic-anchored academic collocations (see vocab_coach_topic_bank_v1_4_0.json, academic_collocations subtopics / academic_collocation-typed items), which take selection priority in a topic-matched session per spec §2.4.",
+  "known_limitations": [
+    "No live academic-discourse-phrase registry/corpus exists in the accessible project folders (same gap the spec found for collocation registries, §4) -- this bank is manually curated from standard EAP (English for Academic Purposes) discourse conventions, not extracted from a frequency-ranked corpus. cefr_estimate values follow the same B2+ minimum quality bar as Tier B (spec §2.3).",
+    "function has exactly 4 values here (hedging/connective/argument_verb/balance_and_conclusion) -- a first-pass taxonomy, not validated against a formal EAP phrase-function classification.",
+    "This bank intentionally excludes topic-specific content -- if a phrase could be seen as leaning toward one topic (e.g. implying an economic argument), it was left out of Tier A and, where applicable, placed in Tier B instead."
+  ],
+  "functions_index": {
+    "hedging": "Softening a claim to avoid overgeneralization.",
+    "connective": "Linking ideas across sentences/paragraphs with academic register.",
+    "argument_verb": "Reporting or introducing a claim, position, or piece of evidence.",
+    "balance_and_conclusion": "Weighing both sides and signalling a conclusion."
+  },
+  "phrases": [
+    {
+      "phrase": "it could be argued that",
+      "function": "hedging",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this is not to say that",
+      "function": "hedging",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "to some extent",
+      "function": "hedging",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "arguably",
+      "function": "hedging",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "it would be reasonable to suggest that",
+      "function": "hedging",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this may not be the case for everyone",
+      "function": "hedging",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "in some respects",
+      "function": "hedging",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "it is worth noting that",
+      "function": "hedging",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this is by no means a universal view",
+      "function": "hedging",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this trend has been exacerbated by",
+      "function": "connective",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "as a direct consequence of this",
+      "function": "connective",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this is further compounded by",
+      "function": "connective",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "in light of this",
+      "function": "connective",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "notwithstanding this",
+      "function": "connective",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this is closely linked to",
+      "function": "connective",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "by the same token",
+      "function": "connective",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "conversely",
+      "function": "connective",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this stands in stark contrast to",
+      "function": "connective",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "building on this point",
+      "function": "connective",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this raises the question of whether",
+      "function": "argument_verb",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "a growing consensus suggests",
+      "function": "argument_verb",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "critics contend that",
+      "function": "argument_verb",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "proponents maintain that",
+      "function": "argument_verb",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this underscores the importance of",
+      "function": "argument_verb",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this highlights the need for",
+      "function": "argument_verb",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "evidence suggests that",
+      "function": "argument_verb",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "this calls into question",
+      "function": "argument_verb",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "one could counter that",
+      "function": "argument_verb",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "on balance",
+      "function": "balance_and_conclusion",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "weighing up the arguments on both sides",
+      "function": "balance_and_conclusion",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "taking everything into account",
+      "function": "balance_and_conclusion",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "ultimately",
+      "function": "balance_and_conclusion",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "all things considered",
+      "function": "balance_and_conclusion",
+      "cefr_estimate": "B2",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    },
+    {
+      "phrase": "the crux of the matter is",
+      "function": "balance_and_conclusion",
+      "cefr_estimate": "C1",
+      "source_bank": "academic_register",
+      "registry_source": "manual_curation_v1.0:no_live_registry_file_available:standard_academic_discourse_phrases_cross_checked_against_EAP_style_guides"
+    }
+  ]
+}

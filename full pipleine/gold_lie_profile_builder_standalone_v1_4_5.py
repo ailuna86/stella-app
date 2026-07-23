@@ -1,0 +1,308 @@
+#!/usr/bin/env python3
+"""
+Gold LIE Profile Builder v1.4.5 — standalone
+============================================
+
+Aggregates completed Gold artifacts into a learner-profile snapshot and simple
+progress views. Imports no previous versions.
+
+CHANGE FROM v1.4.4 (additive only -- no existing field, arg, or computation
+removed or altered):
+
+  Vocabulary Coach has been a fully built, working feature (its own page,
+  API routes, selection/grading/ledger engines) since v1.4.4 wired in its
+  --vocabulary-coach input and started computing vocabulary_coach_summary --
+  but that summary was only ever used for progress reporting. The 3-phase
+  `roadmap` list this file writes (consumed by stella-frontend's
+  study-plan/page.tsx as the "what to do next" sequence) never actually
+  included a step that sends the student to Vocabulary Coach at all --
+  confirmed directly by reading v1.4.4's roadmap dict, which hardcodes
+  exactly 3 phases (dynamic next_best_action, then fixed practice, then
+  fixed essay_revision) and by reading study-plan.ts's SERVICE_LABELS/
+  SERVICE_ICONS maps, which likewise have no "vocabulary_coach" entry.
+  Net effect, reported directly by the user against the live Render
+  deployment: Vocabulary Coach never appeared anywhere in the roadmap UI,
+  even though it's a real, working, Gold-tier feature reachable by URL.
+
+  This version inserts one new roadmap phase for Vocabulary Coach, between
+  the existing practice phase and the existing essay-revision phase --
+  matching the approved session-flow ordering from
+  Session_Flow_and_Vocab_Expansion_Spec_v1.docx ("...practice exercises -
+  writing coach - vocabulary coach... - essay revision..."). Phase 1 remains
+  the existing dynamic next_best_action slot (frequently writing_coach
+  already, unchanged), phase 2 remains practice (unchanged), the new phase 3
+  is vocabulary_coach, and essay_revision is renumbered from phase 3 to
+  phase 4. Included unconditionally, the same way practice/essay_revision
+  already are (this is a prescriptive "do this next" sequence, not a report
+  of what the student has already done, so it doesn't gate on whether a
+  vocab_coach ledger exists yet).
+
+  Known, explicitly out-of-scope gap this does NOT fix: the approved
+  session-flow design also calls for Vocabulary Coach's prompt topic/task to
+  match the student's last essay submission when one exists. That is a
+  selection-engine-time concern (vocab_coach_selection_engine_v1_2.py's
+  rotation logic), not a roadmap-sequencing concern -- the roadmap only
+  decides ORDER, not what a given step actually serves up. Wiring the
+  selection engine to read the latest essay's topic/subtopic directly
+  remains unimplemented and is not touched by this file.
+
+Boundary (unchanged):
+- Does not score, detect, generate feedback, classify LRET candidates, coach, or create practice.
+- Only aggregates completed artifact evidence and preserves routing metadata.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+
+SCHEMA_VERSION = "GOLD_LEARNER_PROFILE_STANDALONE_V1_4_5"
+ENGINE_ID = "VA_STELLA_GOLD_LIE_PROFILE_BUILDER"
+ENGINE_VERSION = "1.4.5-standalone-no-imports"
+
+VOCAB_BOX_ORDER = ["new", "box_1", "box_2", "box_3", "mastered"]
+
+
+def now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def read_json(path: Optional[str], required: bool = True) -> Optional[Dict[str, Any]]:
+    if not path:
+        if required:
+            raise ValueError("missing path")
+        return None
+    p = Path(path)
+    if not p.exists():
+        if required:
+            raise FileNotFoundError(str(p))
+        return None
+    obj = json.loads(p.read_text(encoding="utf-8"))
+    return obj if isinstance(obj, dict) else {"value": obj}
+
+
+def write_json(path: Optional[str], data: Any, pretty: bool = False) -> None:
+    if not path:
+        return
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(data, ensure_ascii=False, indent=2 if pretty else None) + "\n", encoding="utf-8")
+
+
+def artifact_status(obj: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    return {
+        "available": isinstance(obj, dict),
+        "schema_version": obj.get("schema_version") if isinstance(obj, dict) else None,
+        "engine_id": obj.get("engine_id") if isinstance(obj, dict) else None,
+    }
+
+
+def latest_error_profile(errormap: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    counts = errormap.get("counts") if isinstance(errormap, dict) and isinstance(errormap.get("counts"), dict) else {}
+    by_capacity = errormap.get("counts_by_capacity") if isinstance(errormap, dict) and isinstance(errormap.get("counts_by_capacity"), dict) else {}
+    by_criterion = errormap.get("counts_by_criterion") if isinstance(errormap, dict) and isinstance(errormap.get("counts_by_criterion"), dict) else {}
+    total = int((errormap.get("summary") or {}).get("error_count") or sum(counts.values()) if isinstance(errormap, dict) else 0)
+    return {"by_family": counts, "by_capacity": by_capacity, "by_criterion": by_criterion, "total_chargeable": total}
+
+
+def focus_areas(priority: Optional[Dict[str, Any]], directive: Optional[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    for obj in (directive, priority):
+        if isinstance(obj, dict) and isinstance(obj.get("focus_areas"), list) and obj.get("focus_areas"):
+            return [x for x in obj["focus_areas"] if isinstance(x, dict)]
+    return []
+
+
+def next_action_from(directive: Optional[Dict[str, Any]], focus: List[Dict[str, Any]], errormap: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    if isinstance(directive, dict):
+        gld = directive.get("gold_learning_directive") or {}
+        if gld.get("next_best_capacity_domain") or gld.get("recommended_service"):
+            return {
+                "capacity_domain": gld.get("next_best_capacity_domain"),
+                "skill_tag": gld.get("next_best_skill"),
+                "recommended_service": gld.get("recommended_service"),
+                "source": "directive",
+            }
+    primary = focus[0] if focus else None
+    if isinstance(primary, dict):
+        return {
+            "capacity_domain": primary.get("capacity_domain"),
+            "skill_tag": primary.get("skill_tag") or primary.get("skill_id"),
+            "recommended_service": primary.get("recommended_service") or "writing_coach",
+            "source": "priority_normalized",
+        }
+    profile = latest_error_profile(errormap)
+    bycap = profile.get("by_capacity") or {}
+    if bycap:
+        cap = max(bycap.items(), key=lambda kv: kv[1])[0]
+        return {"capacity_domain": cap, "skill_tag": cap, "recommended_service": "writing_coach", "source": "errormap_fallback"}
+    return {"capacity_domain": None, "skill_tag": None, "recommended_service": None, "source": "none"}
+
+
+def build_skill_progress(error_profile: Dict[str, Any], next_action: Dict[str, Any]) -> List[Dict[str, Any]]:
+    rows = []
+    for cap, count in sorted((error_profile.get("by_capacity") or {}).items(), key=lambda kv: (-kv[1], kv[0])):
+        service = "writing_coach" if cap in {"sentence_control", "argument_development", "task_response_control"} else "lret" if cap in {"lexical_precision", "academic_style"} else "practice"
+        rows.append({
+            "capacity_domain": cap,
+            "latest_error_count": int(count),
+            "status": "priority_gap" if int(count) >= 5 else "monitor",
+            "recommended_next_service": next_action.get("recommended_service") if cap == next_action.get("capacity_domain") else service,
+        })
+    return rows
+
+
+def vocabulary_coach_summary(vocab_coach: Optional[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    """Unchanged from v1.4.4. Summarizes the Vocabulary Coach ledger (Leitner-box
+    counts, sessions completed, a handful of recently-mastered items) into a
+    small rollup suitable for the learner profile / progress page. Returns
+    None (not an empty dict) when no ledger was provided, so callers can
+    distinguish "not tracked yet" from "tracked, zero progress"."""
+    if not isinstance(vocab_coach, dict):
+        return None
+    items = vocab_coach.get("items") or {}
+    box_counts = {b: 0 for b in VOCAB_BOX_ORDER}
+    recently_mastered = []
+    for phrase, entry in items.items():
+        box = entry.get("box")
+        if box in box_counts:
+            box_counts[box] += 1
+        if box == "mastered":
+            recently_mastered.append({
+                "phrase": phrase,
+                "topic": entry.get("topic"),
+                "subtopic": entry.get("subtopic"),
+                "last_seen_session": entry.get("last_seen_session"),
+            })
+    recently_mastered.sort(key=lambda x: x.get("last_seen_session") or 0, reverse=True)
+    total_tracked = sum(box_counts.values())
+    return {
+        "sessions_completed": vocab_coach.get("sessions_completed", 0),
+        "items_by_box": box_counts,
+        "total_items_tracked": total_tracked,
+        "mastered_count": box_counts.get("mastered", 0),
+        "in_active_rotation_count": box_counts.get("new", 0) + box_counts.get("box_1", 0) + box_counts.get("box_2", 0) + box_counts.get("box_3", 0),
+        "recently_mastered": recently_mastered[:5],
+    }
+
+
+def build(args: argparse.Namespace) -> Dict[str, Any]:
+    submission = read_json(args.submission)
+    contract = read_json(args.score_contract)
+    errormap = read_json(args.errormap)
+    priority = read_json(args.priority, required=False)
+    directive = read_json(args.directive, required=False)
+    feedback = read_json(args.feedback, required=False)
+    evaluator = read_json(args.evaluator, required=False)
+    lret = read_json(args.lret, required=False)
+    coach = read_json(args.writing_coach, required=False)
+    practice = read_json(args.practice, required=False)
+    vocab_coach = read_json(args.vocabulary_coach, required=False)
+
+    error_profile = latest_error_profile(errormap)
+    focus = focus_areas(priority, directive)
+    next_action = next_action_from(directive, focus, errormap)
+    released = contract.get("released_score") or {}
+    vocab_summary = vocabulary_coach_summary(vocab_coach)
+    profile = {
+        "schema_version": SCHEMA_VERSION,
+        "engine_id": ENGINE_ID,
+        "engine_version": ENGINE_VERSION,
+        "created_at": now_iso(),
+        "student_id": contract.get("student_id") or submission.get("student_id"),
+        "latest_essay_id": contract.get("essay_id") or submission.get("essay_id"),
+        "latest_score": {
+            "overall_band": released.get("overall_band"),
+            "criteria_bands": released.get("criteria_bands"),
+            "score_confidence": contract.get("score_confidence"),
+            "score_status": contract.get("score_status"),
+            "progress_tracking_allowed": contract.get("progress_tracking_allowed"),
+            "lie_update_allowed": contract.get("lie_update_allowed"),
+        },
+        "latest_error_profile": error_profile,
+        "latest_priority_focus": focus,
+        "service_artifact_status": {
+            "feedback": artifact_status(feedback),
+            "evaluator": artifact_status(evaluator),
+            "lret": artifact_status(lret),
+            "writing_coach": artifact_status(coach),
+            "practice": artifact_status(practice),
+            "vocabulary_coach": artifact_status(vocab_coach),
+        },
+        "vocabulary_coach_summary": vocab_summary,
+        "next_best_action": next_action,
+        "learning_state": {
+            "profile_update_allowed": bool(contract.get("lie_update_allowed")),
+            "trend_update_allowed": bool(contract.get("progress_tracking_allowed")),
+            "mastery_update_policy": "evidence_accumulation_only_until_student_attempts_practice_or_coach_tasks",
+        },
+        "boundary": "LIE profile aggregates completed Gold artifacts only; no scoring, detection, feedback generation, or exercise generation is performed here.",
+    }
+    return profile
+
+
+def main(argv: Optional[List[str]] = None) -> int:
+    ap = argparse.ArgumentParser(description="Build Gold learner profile and progress artifacts.")
+    ap.add_argument("--submission", required=True)
+    ap.add_argument("--score-contract", required=True)
+    ap.add_argument("--errormap", required=True)
+    ap.add_argument("--priority")
+    ap.add_argument("--directive")
+    ap.add_argument("--feedback")
+    ap.add_argument("--evaluator")
+    ap.add_argument("--lret")
+    ap.add_argument("--writing-coach")
+    ap.add_argument("--practice")
+    ap.add_argument("--vocabulary-coach")
+    ap.add_argument("--output", "-o", required=True)
+    ap.add_argument("--skills-progress-output")
+    ap.add_argument("--learning-roadmap-output")
+    ap.add_argument("--progress-snapshot-output")
+    ap.add_argument("--pretty", action="store_true")
+    args = ap.parse_args(argv)
+    profile = build(args)
+    write_json(args.output, profile, args.pretty)
+    skills = {
+        "schema_version": "GOLD_SKILLS_PROGRESS_STANDALONE_V1_4_5",
+        "created_at": now_iso(),
+        "student_id": profile.get("student_id"),
+        "latest_essay_id": profile.get("latest_essay_id"),
+        "skills": build_skill_progress(profile.get("latest_error_profile") or {}, profile.get("next_best_action") or {}),
+        "vocabulary_coach_summary": profile.get("vocabulary_coach_summary"),
+        "boundary": "Progress view derived from latest profile evidence only.",
+    }
+    # v1.4.5: inserted the vocabulary_coach phase (new) between practice and
+    # essay_revision, and renumbered essay_revision from phase 3 to phase 4.
+    # See module docstring for why -- this was a real, reported gap, not a
+    # hypothetical one: Vocabulary Coach never appeared in this sequence
+    # before, despite being a live, working Gold-tier feature.
+    roadmap = {
+        "schema_version": "GOLD_LEARNING_ROADMAP_STANDALONE_V1_4_5",
+        "created_at": now_iso(),
+        "student_id": profile.get("student_id"),
+        "roadmap": [
+            {"phase": 1, "focus": (profile.get("next_best_action") or {}).get("capacity_domain"), "service": (profile.get("next_best_action") or {}).get("recommended_service"), "goal": "Stabilize the highest-priority weakness from the latest essay."},
+            {"phase": 2, "focus": "controlled_transfer", "service": "practice", "goal": "Transfer the skill to short controlled tasks."},
+            {"phase": 3, "focus": "vocabulary_building", "service": "vocabulary_coach", "goal": "Build topic vocabulary and academic word control through a short PEEL task."},
+            {"phase": 4, "focus": "revision", "service": "essay_revision", "goal": "Apply the skill in a revised essay."},
+        ],
+        "boundary": "Roadmap orders upstream priorities; it does not generate lessons or scores.",
+    }
+    progress = {
+        "schema_version": "GOLD_PROGRESS_SNAPSHOT_STANDALONE_V1_4_5",
+        "created_at": now_iso(),
+        "student_id": profile.get("student_id"),
+        "latest_score": profile.get("latest_score"),
+        "next_best_action": profile.get("next_best_action"),
+        "vocabulary_coach_summary": profile.get("vocabulary_coach_summary"),
+        "boundary": "Snapshot only; no scoring or mastery update beyond aggregation.",
+    }
+    write_json(args.skills_progress_output, skills, args.pretty)
+    write_json(args.learning_roadmap_output, roadmap, args.pretty)
+    write_json(args.progress_snapshot_output, progress, args.pretty)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

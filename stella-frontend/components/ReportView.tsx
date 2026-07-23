@@ -3,12 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import PlatformFeedbackWidget from "@/components/PlatformFeedbackWidget";
+import NextStepsStrip from "@/components/NextStepsStrip";
+import SessionFlowStepper from "@/components/SessionFlowStepper";
 import {
   CRITERION_LABELS,
   overallTarget,
   rubricTarget,
   type FeedbackReport,
 } from "@/lib/types";
+import type { LretSession, SessionFlowStatus, DailyDigest } from "@/lib/server/goldPipeline";
 
 // v8: added optional essayText — when provided (trainer view only; see
 // app/writing/report/[id]/page.tsx), shows the student's actual essay in a
@@ -26,6 +29,9 @@ export default function ReportView({
   submissionId,
   hasRevision,
   hasVocabulary,
+  lretSession,
+  sessionFlow,
+  dailyDigest,
 }: {
   report: FeedbackReport;
   goal?: number;
@@ -34,6 +40,9 @@ export default function ReportView({
   submissionId?: string;
   hasRevision?: boolean;
   hasVocabulary?: boolean;
+  lretSession?: LretSession;
+  sessionFlow?: SessionFlowStatus;
+  dailyDigest?: DailyDigest;
 }) {
   const s = report.score_summary;
   const target = overallTarget(s.holistic_band, goal);
@@ -262,6 +271,82 @@ export default function ReportView({
         </p>
       )}
 
+      {/* v16: LRET (vocabulary/word-choice) feedback, inline. v15 had reduced
+          this to a single link under "Your next step" (Pipeline_Frontend_Spec_v2
+          §1) — reported back directly as reading like LRET feedback was simply
+          missing, since general feedback ends and nothing lexical-specific is
+          visible without an extra click. This restores a real summary right
+          here, below the general feedback; the dedicated /vocabulary-coach/[id]
+          page (linked below and from "Your next step") is now "see everything",
+          not the only way to see anything. */}
+      {lretSession && (lretSession.counts.fix > 0 || lretSession.counts.enhance > 0 || lretSession.counts.clarify > 0) && (
+        <div className="card mt-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 className="font-medium text-ink-800">Vocabulary & word choice</h2>
+            <span className="rounded-full bg-brand-50 px-3 py-1 text-xs uppercase tracking-wide text-brand-600">
+              {lretSession.counts.fix + lretSession.counts.enhance + lretSession.counts.clarify} item
+              {lretSession.counts.fix + lretSession.counts.enhance + lretSession.counts.clarify === 1 ? "" : "s"}
+            </span>
+          </div>
+          <p className="mt-1 text-sm text-ink-600">
+            {lretSession.counts.fix > 0 && `${lretSession.counts.fix} word${lretSession.counts.fix === 1 ? "" : "s"} to fix`}
+            {lretSession.counts.fix > 0 && (lretSession.counts.enhance > 0 || lretSession.counts.clarify > 0) && ", "}
+            {lretSession.counts.enhance > 0 && `${lretSession.counts.enhance} to strengthen`}
+            {lretSession.counts.enhance > 0 && lretSession.counts.clarify > 0 && ", "}
+            {lretSession.counts.clarify > 0 && `${lretSession.counts.clarify} too vague to clarify`}
+            {lretSession.counts.keep > 0 && ` — plus ${lretSession.counts.keep} word${lretSession.counts.keep === 1 ? "" : "s"} already used well.`}
+          </p>
+
+          <div className="mt-3 space-y-2">
+            {lretSession.fixUnits.slice(0, 3).map((u, i) => (
+              <div key={`fix-${i}`} className="rounded-card border-l-4 border-rose-400 bg-rose-50 p-3">
+                <p className="text-sm text-ink-800">
+                  “<span className="rounded bg-rose-100 px-1">{u.unitText}</span>”
+                </p>
+                {u.reason && <p className="mt-1 text-xs text-ink-600">{u.reason}</p>}
+                {u.suggestions[0] && (
+                  <p className="mt-1 text-sm text-mint-700">Try instead: {u.suggestions.slice(0, 3).join(", ")}</p>
+                )}
+              </div>
+            ))}
+            {lretSession.enhanceUnits.slice(0, 2).map((u, i) => (
+              <div key={`enh-${i}`} className="rounded-card border-l-4 border-amber-400 bg-amber-50 p-3">
+                <p className="text-sm text-ink-800">
+                  “<span className="rounded bg-amber-100 px-1">{u.unitText}</span>” — correct, but a stronger option exists
+                </p>
+                {u.suggestions[0] && (
+                  <p className="mt-1 text-sm text-mint-700">Consider: {u.suggestions.slice(0, 3).join(", ")}</p>
+                )}
+              </div>
+            ))}
+            {lretSession.clarifyUnits.slice(0, 2).map((u, i) => (
+              <div key={`clr-${i}`} className="rounded-card border-l-4 border-brand-300 bg-brand-50 p-3">
+                <p className="text-sm text-ink-800">
+                  “<span className="rounded bg-brand-100 px-1">{u.unitText}</span>” — too vague as written
+                </p>
+                {u.clarificationGuidance[0] && (
+                  <p className="mt-1 text-xs text-ink-600">{u.clarificationGuidance[0]}</p>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {submissionId && (
+            <Link href={`/vocabulary-coach/${submissionId}`} className="btn-secondary mt-3 inline-flex">
+              See all {lretSession.counts.fix + lretSession.counts.enhance + lretSession.counts.clarify} items
+            </Link>
+          )}
+        </div>
+      )}
+
+      {/* v19: guided session-flow stepper — Session_Flow_and_Vocab_Expansion_Spec_v1
+          §0, per the order the student confirmed: practice → writing coach →
+          vocabulary coach → essay revision. This is the sequence-aware guide;
+          the "Your next step" card right below it keeps its own job — direct
+          links to THIS essay's specific vocabulary breakdown and revision
+          workspace, not sequencing. */}
+      {sessionFlow && <SessionFlowStepper status={sessionFlow} digest={dailyDigest} />}
+
       {/* v15: "Your next step" — Pipeline_Frontend_Spec_v2 §1. Both of these are
           diagnostic/actionable on THIS essay specifically, so they're anchored right
           here rather than living as standing nav destinations a student has to go
@@ -287,14 +372,11 @@ export default function ReportView({
         </div>
       )}
 
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/practice" className="btn-secondary">
-          Start today&apos;s practice
-        </Link>
-        <Link href="/dashboard" className="btn-secondary">
-          Back to dashboard
-        </Link>
-      </div>
+      {/* v16: was a bare "Start today's practice" / "Back to dashboard" pair,
+          the only page-bottom nav that didn't match the other three engine
+          pages — replaced with the same shared strip used everywhere else
+          (ST_ELLA_Student_Journey_v1.docx §4.5). */}
+      <NextStepsStrip />
 
       {!hideFeedbackWidget && <PlatformFeedbackWidget context="report" />}
     </div>

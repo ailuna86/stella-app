@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { currentUser } from "@/lib/server/auth";
-import { submitVocabCoachResponse } from "@/lib/server/goldPipeline";
+import { submitVocabCoachResponse, refreshLearnerProfile } from "@/lib/server/goldPipeline";
 
 // Grades a Vocabulary Coach PEEL submission and updates the student's
 // Leitner ledger in one call (see submitVocabCoachResponse in
@@ -26,6 +26,14 @@ export async function POST(req: Request) {
 
   try {
     const result = await submitVocabCoachResponse(user.id, sessionFilePath, text);
+    // v21 (2026-07-23): continuous-loop refresh — fire-and-forget, same
+    // reasoning as /api/practice. Note: the Vocabulary Coach ledger itself
+    // is already real, live history (LIE's --vocabulary-coach argument reads
+    // it directly and always has — this refresh call is about giving
+    // Practice/Writing Coach/Essay Revision activity the same "something
+    // just happened, refresh the profile" trigger the vocab ledger's own
+    // writes already benefited from implicitly on the next essay submission).
+    void refreshLearnerProfile(user.id);
     return NextResponse.json({ ok: true, result });
   } catch (e) {
     console.error("[ST.ELLA] Vocabulary Coach grading failed:", e);

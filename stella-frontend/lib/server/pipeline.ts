@@ -111,6 +111,115 @@ function listSessions(): string[] {
   return fs.existsSync(dir) ? fs.readdirSync(dir).filter((d) => d.startsWith("session_")) : [];
 }
 
+// v24 (2026-07-23): CAPACITY_DOMAIN_TO_BANK_FAMILIES + expandWeakFamilies().
+// Real bug found while wiring LRET/Vocab-Coach signals into Practice: weak-
+// family targeting has likely NEVER actually worked. buildPracticeSession()
+// does `unseen.filter(e => weak.has(e.family))`, where e.family is one of the
+// exercise bank's ~60 UPPER_SNAKE_CASE names (SUBJECT_VERB_AGREEMENT,
+// COLLOCATION, REGISTER_CONTROL, ...) confirmed directly against
+// va_exercise_bank_v11d_approved.jsonl. `weak` was built from
+// focus_area_feedback[].skill_tag, but skill_tag's real vocabulary (confirmed
+// against priority_output_normalizer_standalone_v1_4_4.py) is one of THREE
+// incompatible namespaces depending on which engine produced the focus area:
+//   - ErrorMap-derived: 6 coarse lower_snake buckets (sentence_control,
+//     lexical_precision, academic_style, argument_development,
+//     cohesion_control, task_response_control) -- capacity_domain === skill_tag
+//   - Evaluator-derived: an individual lower_snake skill_id (e.g.
+//     "arg_claim_precision") -- capacity_domain is "evaluator_<domain>"
+//   - LRET/Vocab-Coach lexical-derived: one of 5 tokens (LEXICAL_FORM_CONTROL,
+//     COLLOCATION_CONTROL, LEXICAL_CONTROL, SEMANTIC_PHRASE_CONTROL) --
+//     capacity_domain is "lexical_family_<fam>"
+// None of these string-match the bank's family vocabulary except one lucky
+// exact hit (LEXICAL_CONTROL). So `weak.has(e.family)` was very likely always
+// false in production, and Practice has been silently serving the unweighted
+// `rest` fallback the entire time -- not something this session introduced,
+// but only now surfaced because the task-8 fix made Evaluator/lexical focus
+// areas exist to test this against at all.
+//
+// Fix: bridge via capacity_domain (now plumbed through in goldPipeline.ts's
+// mapGoldReportToFeedbackReport -- see lib/types.ts's FocusArea.capacity_domain
+// doc comment), which is the one namespace that's coarse and enumerable
+// across all three sources (6 + 13 + 5 = 24 known values). This mapping is a
+// best-effort human judgment call, NOT validated against real routing
+// outcomes -- there is no ground truth for "which bank family corresponds to
+// which Evaluator domain." Revisit once real practice-accuracy data exists
+// per family. evaluator_revision_and_self_editing is deliberately left
+// unmapped (no bank family plausibly corresponds to Evaluator's own revision-
+// skill judgment) rather than guessed.
+export const CAPACITY_DOMAIN_TO_BANK_FAMILIES: Record<string, string[]> = {
+  // ErrorMap-derived (build_focus_from_errormap's CAPACITY_TO_SKILL buckets)
+  sentence_control: [
+    "SUBJECT_VERB_AGREEMENT", "VERB_TENSE", "VERB_FORM", "ARTICLE_DETERMINER",
+    "NOUN_NUMBER_COUNTABILITY", "COUNTABLE_UNCOUNTABLE", "PREPOSITION_PATTERN",
+    "PREPOSITIONS", "CLAUSE_STRUCTURE", "FRAGMENTS_RUNONS", "RELATIVE_CLAUSES",
+    "CONDITIONALS", "PASSIVE_VOICE", "PRONOUN_REFERENCE", "WORD_ORDER",
+    "PUNCTUATION", "GRAMMAR_CONTROL", "MODALS", "COMPARATIVE_FORM",
+    "COMPARATIVES", "VERB_NOUN_COMBINATION", "SENTENCE_VARIETY",
+  ],
+  lexical_precision: [
+    "LEXICAL_PRECISION", "COLLOCATION", "WORD_CHOICE", "WORD_FORM",
+    "WORD_FORMATION", "PRECISION", "SEMANTIC_COMBINATION", "IDIOMATIC_CONTROL",
+    "ACADEMIC_VOCABULARY", "LEXICAL_CONTROL", "SLAVIC_TRANSFER_AWKWARD_PHRASE",
+    "REPETITION",
+  ],
+  academic_style: ["REGISTER_CONTROL", "FORMALITY", "HEDGING", "PARAPHRASE"],
+  argument_development: [
+    "ARGUMENT_STRUCTURE", "CLAIM_SUPPORT", "COUNTERARGUMENT",
+    "BALANCED_DISCUSSION", "POSITION_CLARITY", "OVERGENERALIZATION",
+    "CAUSAL_REASONING", "CAUSE_EFFECT_REASONING", "EXAMPLE_QUALITY",
+  ],
+  cohesion_control: [
+    "TRANSITIONS", "REFERENCE_COHESION", "DISCOURSE_LINKING",
+    "PARAGRAPH_PROGRESS", "PARAGRAPH_STRUCTURE",
+  ],
+  task_response_control: [
+    "TASK_RESPONSE", "TASK_RESPONSE_COVERAGE", "TASK_COMPLETENESS",
+    "DATA_DESCRIPTION", "INTRODUCTION_CONCLUSION", "TOPIC_SENTENCE",
+    "SUPPORTING_SENTENCE", "CONCLUSION_LOGIC",
+  ],
+  // Evaluator-derived (build_focus_from_evaluator's "evaluator_" + domain_slug)
+  evaluator_task_understanding: ["TASK_RESPONSE", "TASK_RESPONSE_COVERAGE", "POSITION_CLARITY"],
+  evaluator_content_development: ["SUPPORTING_SENTENCE", "EXAMPLE_QUALITY", "DATA_DESCRIPTION", "CLAIM_SUPPORT"],
+  evaluator_reasoning_competence: ["CAUSAL_REASONING", "CAUSE_EFFECT_REASONING", "ARGUMENT_STRUCTURE"],
+  evaluator_information_processing: ["DATA_DESCRIPTION", "TASK_RESPONSE_COVERAGE"],
+  evaluator_thinking_competence: ["BALANCED_DISCUSSION", "OVERGENERALIZATION", "COUNTERARGUMENT"],
+  evaluator_argumentation: ["ARGUMENT_STRUCTURE", "CLAIM_SUPPORT", "COUNTERARGUMENT", "BALANCED_DISCUSSION", "POSITION_CLARITY"],
+  evaluator_organization: ["PARAGRAPH_STRUCTURE", "PARAGRAPH_PROGRESS", "INTRODUCTION_CONCLUSION", "TOPIC_SENTENCE", "CONCLUSION_LOGIC"],
+  evaluator_cohesion: ["TRANSITIONS", "REFERENCE_COHESION", "DISCOURSE_LINKING"],
+  evaluator_lexical_control: ["LEXICAL_CONTROL", "LEXICAL_PRECISION", "WORD_CHOICE"],
+  evaluator_advanced_lexical_competence: ["ACADEMIC_VOCABULARY", "IDIOMATIC_CONTROL", "COLLOCATION"],
+  evaluator_style_and_reader_impact: ["REGISTER_CONTROL", "FORMALITY", "HEDGING", "PRECISION"],
+  evaluator_grammar_production: ["GRAMMAR_CONTROL", "SUBJECT_VERB_AGREEMENT", "VERB_TENSE", "VERB_FORM", "ARTICLE_DETERMINER", "CLAUSE_STRUCTURE"],
+  // evaluator_revision_and_self_editing: intentionally omitted, see comment above.
+  // LRET/Vocab-Coach lexical-derived (build_focus_from_lexical_signal's "lexical_family_" + fam)
+  lexical_family_single_word: ["WORD_FORM", "WORD_FORMATION", "WORD_CHOICE"],
+  lexical_family_collocation_phrase: ["COLLOCATION", "VERB_NOUN_COMBINATION"],
+  lexical_family_overall_lexical_control: ["LEXICAL_CONTROL", "LEXICAL_PRECISION"],
+  lexical_family_meaning_clarity: ["SEMANTIC_COMBINATION", "PRECISION", "PARAPHRASE"],
+  lexical_family_other_lexical: ["LEXICAL_CONTROL"],
+};
+
+// v24: replaces raw `focus_area_feedback[].skill_tag` identity matching (see
+// the module comment above CAPACITY_DOMAIN_TO_BANK_FAMILIES for why that was
+// a no-op). Falls back to treating skill_tag itself as a bank family name for
+// any capacity_domain not in the table above (harmless: either it happens to
+// match a real bank family, as LEXICAL_CONTROL already did by coincidence, or
+// it matches nothing and contributes no exercises, same as today's behavior).
+export function expandWeakFamilies(
+  focusAreas: Array<{ skill_tag?: string; capacity_domain?: string }>
+): string[] {
+  const out = new Set<string>();
+  for (const fa of focusAreas) {
+    const mapped = fa.capacity_domain ? CAPACITY_DOMAIN_TO_BANK_FAMILIES[fa.capacity_domain] : undefined;
+    if (mapped) {
+      for (const fam of mapped) out.add(fam);
+    } else if (fa.skill_tag) {
+      out.add(fa.skill_tag);
+    }
+  }
+  return [...out];
+}
+
 let bankCache: BankExercise[] | null = null;
 
 export function loadBank(): BankExercise[] {

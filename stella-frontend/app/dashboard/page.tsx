@@ -42,7 +42,10 @@ export default async function Dashboard() {
   // real artifact this now reads (a 3-phase roadmap regenerated after every
   // essay, not a multi-week calendar). Gold only, same as the pipeline only
   // ever generates it for Gold sessions.
-  const roadmap = latest?.sessionDir ? getLearningRoadmap(latest.sessionDir) : undefined;
+  // v22: getLearningRoadmap now also takes studentId -- see study-plan.ts's
+  // comment (Defect 1 fix, reads the per-student "current" roadmap file
+  // first, falling back to this essay's own original 08c).
+  const roadmap = latest?.sessionDir ? getLearningRoadmap(user.id, latest.sessionDir) : undefined;
 
   const pilotEndsAt = user.pilotEndsAt ? new Date(user.pilotEndsAt) : null;
   const pilotExpired = pilotEndsAt ? pilotEndsAt < new Date() : false;

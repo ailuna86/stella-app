@@ -42,7 +42,8 @@ function migrate(d: Database.Database) {
       consent_at TEXT,
       pilot_ends_at TEXT,
       entitlements TEXT NOT NULL,
-      intake TEXT
+      intake TEXT,
+      seen_engine_intros TEXT
     );
     CREATE INDEX IF NOT EXISTS idx_users_org ON users(organization_id);
 
@@ -68,7 +69,9 @@ function migrate(d: Database.Database) {
       created_at TEXT NOT NULL,
       report TEXT,
       session_dir TEXT,
-      error TEXT
+      error TEXT,
+      mode TEXT,
+      time_spent_seconds INTEGER
     );
     CREATE INDEX IF NOT EXISTS idx_submissions_student ON submissions(student_id);
     CREATE INDEX IF NOT EXISTS idx_submissions_org ON submissions(organization_id);
@@ -105,6 +108,23 @@ function migrate(d: Database.Database) {
       mission_title TEXT
     );
     CREATE INDEX IF NOT EXISTS idx_mission_student ON mission_results(student_id);
+
+    -- v22 (2026-07-23): learner_profile_refresh_attempts -- Defect 2 fix for
+    -- goldPipeline.ts's refreshLearnerProfile(). That function is called
+    -- fire-and-forget from 4 routes and NEVER rejects by design, which used
+    -- to mean a failure was fully invisible (no log, no record). One row per
+    -- real refresh attempt (the function's own "no essay yet" / "artifacts
+    -- incomplete" no-op early-returns do NOT write a row -- see its module
+    -- comment) so a trainer or the PO can actually check whether a given
+    -- student's continuous-loop refresh is working.
+    CREATE TABLE IF NOT EXISTS learner_profile_refresh_attempts (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      student_id TEXT NOT NULL,
+      at TEXT NOT NULL,
+      status TEXT NOT NULL,
+      error_message TEXT
+    );
+    CREATE INDEX IF NOT EXISTS idx_refresh_attempts_student ON learner_profile_refresh_attempts(student_id);
 
     CREATE TABLE IF NOT EXISTS platform_feedback (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -175,6 +195,41 @@ function migrate(d: Database.Database) {
   // so a pre-pilot database needs this ALTER TABLE to pick it up.
   try {
     d.exec("ALTER TABLE users ADD COLUMN pilot_ends_at TEXT");
+  } catch {
+    // column already exists — fine
+  }
+  // Same defensive migration for seen_engine_intros (ST_ELLA_Student_Journey_v1.docx
+  // §4.4 — engine intro pop-ups, "Got it" state stored server-side per student
+  // per engine so it follows them across devices, unlike localStorage).
+  try {
+    d.exec("ALTER TABLE users ADD COLUMN seen_engine_intros TEXT");
+  } catch {
+    // column already exists — fine
+  }
+  // v20: essay-submission timer (exam mode / practice mode, PO request "Timer
+  // for essay submission") — defensive migration for databases created
+  // before mode/time_spent_seconds existed on submissions, same pattern as
+  // the two ALTERs above.
+  try {
+    d.exec("ALTER TABLE submissions ADD COLUMN mode TEXT");
+  } catch {
+    // column already exists — fine
+  }
+  try {
+    d.exec("ALTER TABLE submissions ADD COLUMN time_spent_seconds INTEGER");
+  } catch {
+    // column already exists — fine
+  }
+  // v26 (2026-07-23): essay topic tag, for Vocab Coach topic-matching (PO
+  // design discussion -- vocabulary practice should stay on the same topic
+  // as the essay being revised, so it can plausibly show up in the revision;
+  // random topic otherwise). Populated by classifyEssayTopic() in
+  // goldPipeline.ts right after a Gold-tier submission is evaluated. One of
+  // the 18 real vocab_coach_topic_bank_v1_5_0.json topic keys, or NULL if
+  // classification wasn't confident enough -- NULL is a valid, expected
+  // state (falls back to the existing random-topic rotation), not an error.
+  try {
+    d.exec("ALTER TABLE submissions ADD COLUMN topic TEXT");
   } catch {
     // column already exists — fine
   }

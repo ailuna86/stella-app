@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { currentUser } from "@/lib/server/auth";
 import { getSubmission } from "@/lib/server/store";
-import { runRevisionComparison } from "@/lib/server/goldPipeline";
+import { runRevisionComparison, refreshLearnerProfile } from "@/lib/server/goldPipeline";
 import { normalizeParagraphBreaks } from "@/lib/server/text";
 
 // v12: the AI comparison stage — generates a model rewrite of the student's
@@ -33,6 +33,11 @@ export async function POST(req: Request) {
       revisedText: normalizeParagraphBreaks(revisedText),
       prompt: sub.prompt,
     });
+    // v21 (2026-07-23): continuous-loop refresh — fire-and-forget, same
+    // reasoning as /api/practice. This is what makes Essay Revision a real
+    // LIE input (gold_engagement_history_aggregator_v1_0.py's
+    // essay_revision_history reads this exact revision_comparisons/ folder).
+    void refreshLearnerProfile(sub.studentId);
     return NextResponse.json({ ok: true, result });
   } catch (e) {
     console.error("[ST.ELLA] Revision comparison failed:", e);

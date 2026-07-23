@@ -27,11 +27,25 @@ export async function POST(req: Request) {
     );
   }
 
-  const { essay, prompt, assignmentId } = (await req.json()) as {
+  const { essay, prompt, assignmentId, mode, timeSpentSeconds } = (await req.json()) as {
     essay: string;
     prompt: string;
     assignmentId: string | null;
+    mode?: string;
+    timeSpentSeconds?: number;
   };
+  // v20: essay-submission timer — `mode` is student-chosen client-side
+  // ("exam" 40-min WT2 countdown vs untimed "practice"; see SubmitForm.tsx).
+  // Validated defensively here since it's client-supplied: anything other
+  // than the literal "exam" is stored as "practice" (the safe default —
+  // never silently treat an unrecognized value as a timed exam attempt).
+  // `timeSpentSeconds` is the wall-clock elapsed time the client measured
+  // from attempt-start to submit; clamped to a sane non-negative integer.
+  const safeMode: "exam" | "practice" = mode === "exam" ? "exam" : "practice";
+  const safeTimeSpentSeconds =
+    typeof timeSpentSeconds === "number" && Number.isFinite(timeSpentSeconds) && timeSpentSeconds >= 0
+      ? Math.round(timeSpentSeconds)
+      : 0;
   if (!prompt?.trim())
     return NextResponse.json({ ok: false, error: "A task prompt is required." }, { status: 400 });
   if (!essay || essay.trim().split(/\s+/).length < 50)
@@ -53,6 +67,8 @@ export async function POST(req: Request) {
     essay: normalizedEssay,
     status: "evaluating",
     createdAt: new Date().toISOString(),
+    mode: safeMode,
+    timeSpentSeconds: safeTimeSpentSeconds,
   };
   saveSubmission(record);
 

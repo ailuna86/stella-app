@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { currentUser } from "@/lib/server/auth";
 import { getSubmission } from "@/lib/server/store";
-import { loadRevisionWorkspace, loadLretSession } from "@/lib/server/goldPipeline";
+import { loadRevisionWorkspace, loadLretSession, getSessionFlowStatus, loadDailyDigest } from "@/lib/server/goldPipeline";
 import RevisionWorkspaceClient from "@/components/RevisionWorkspaceClient";
+import EngineIntroModal from "@/components/EngineIntroModal";
+import SessionFlowStepper from "@/components/SessionFlowStepper";
 
 // v10: new — the Gold pipeline generates a full sentence-by-sentence revision
 // workspace for every evaluated essay (10_revision_workspace.json: each
@@ -46,12 +48,21 @@ export default async function RevisePage({ params }: { params: { id: string } })
   const wordPct = workspace.prewriting?.minimumWords
     ? Math.min(100, Math.round((workspace.wordCount / workspace.prewriting.minimumWords) * 100))
     : null;
+  // v19: session-flow stepper — Session_Flow_and_Vocab_Expansion_Spec_v1 §0.
+  // Scoped to sub.studentId, not the viewer's id — a trainer opening a
+  // student's revision workspace should see that student's flow status, same
+  // reasoning as the report page's equivalent fix.
+  const flowStatus = getSessionFlowStatus(sub.studentId, { sessionDir: sub.sessionDir, submissionId: sub.id });
+  const flowDigest = loadDailyDigest(sub.studentId);
 
   return (
     <div className="mx-auto max-w-6xl py-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-semibold">Revise your essay</h1>
+          <h1 className="flex items-center text-2xl font-semibold">
+            Revise your essay
+            <EngineIntroModal engineKey="essay_revision" />
+          </h1>
           <p className="mt-1 text-xs uppercase tracking-wide text-ink-400">
             Hints only mode · Gold tier
           </p>
@@ -78,6 +89,8 @@ export default async function RevisePage({ params }: { params: { id: string } })
         {workspace.sentenceCounts.red === 1 ? "" : "s"} to rewrite ·{" "}
         {workspace.sentenceCounts.yellow} to check
       </p>
+
+      <SessionFlowStepper status={flowStatus} digest={flowDigest} currentKey="essay_revision" />
 
       {workspace.prewriting && (
         <details className="card mt-4 shadow-soft" open>
