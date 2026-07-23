@@ -6,6 +6,12 @@ interface VocabItem {
   phrase: string;
   topic?: string;
   subtopic?: string;
+  // v1_2: bare academic words (source_bank "academic_word") carry an
+  // optional structural_hint -- shown only if the student asks, never by
+  // default (Academic_Words_Redesign_Spec_v1.docx Section 4).
+  source_bank?: string;
+  part_of_speech?: string;
+  structural_hint?: string;
 }
 
 interface ReviewItem {
@@ -71,6 +77,9 @@ export default function VocabCoachPeelSession() {
   const [text, setText] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<SubmitResult | null>(null);
+  // v1_2: which academic-word chips currently have their structural_hint
+  // expanded -- collapsed by default for every item, per spec Section 4.
+  const [openHints, setOpenHints] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     let cancelled = false;
@@ -192,11 +201,34 @@ export default function VocabCoachPeelSession() {
 
       {session.suggestedVocabulary.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2">
-          {session.suggestedVocabulary.map((v, i) => (
-            <span key={i} className="rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-800">
-              {v.phrase}
-            </span>
-          ))}
+          {session.suggestedVocabulary.map((v, i) => {
+            const isAcademic = v.source_bank === "academic_word";
+            if (!isAcademic || !v.structural_hint) {
+              return (
+                <span key={i} className="rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-800">
+                  {v.phrase}
+                </span>
+              );
+            }
+            const open = !!openHints[i];
+            return (
+              <span
+                key={i}
+                className="inline-flex items-center gap-1.5 rounded-full border border-mint-200 bg-mint-50 px-3 py-1 text-xs font-medium text-mint-800"
+                title="Academic word — build your own collocation"
+              >
+                {v.phrase}
+                <button
+                  type="button"
+                  onClick={() => setOpenHints((prev) => ({ ...prev, [i]: !prev[i] }))}
+                  className="rounded-full border border-mint-300 px-1.5 text-[10px] font-semibold text-mint-700 hover:bg-mint-100"
+                >
+                  {open ? "hide" : "hint?"}
+                </button>
+                {open && <span className="text-[11px] font-normal text-mint-700">{v.structural_hint}</span>}
+              </span>
+            );
+          })}
         </div>
       )}
 

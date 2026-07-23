@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { currentUser } from "@/lib/server/auth";
 import { practiceResultsFor, submissionsFor } from "@/lib/server/store";
 import { CRITERION_LABELS } from "@/lib/types";
+import { getSkillProgress, perSkillTrend } from "@/lib/server/progress";
 
 export default async function ProgressPage() {
   const user = await currentUser();
@@ -14,6 +15,14 @@ export default async function ProgressPage() {
   const practices = practiceResultsFor(user.id);
   const bands = evals.map((s) => s.report!.score_summary.holistic_band);
   const goal = user.intake?.goalBand ?? 7;
+
+  // v18 (session-audit Finding 5): the real per-skill trend data, accumulated
+  // across every session for this student — previously computed correctly by
+  // the pipeline but never read here. Pulled from the latest submission's
+  // session dir since that's where the cross-session accumulation lives.
+  const latestSessionDir = evals[evals.length - 1]?.sessionDir;
+  const skillProgress = getSkillProgress(latestSessionDir);
+  const skillTrend = skillProgress ? perSkillTrend(skillProgress) : [];
 
   return (
     <div className="mx-auto max-w-2xl">
@@ -29,6 +38,48 @@ export default async function ProgressPage() {
           <BandChart bands={bands} goal={goal} />
         )}
       </div>
+
+      {/* v18 (session-audit Finding 5): per-skill trend across every session,
+          read from the pipeline's own progress-tracker artifact rather than
+          re-derived from each submission's lightweight report — this is the
+          data the "progress tracker is empty" complaint was actually asking
+          for, previously computed correctly but never rendered anywhere. */}
+      {skillTrend.some((s) => s.points.length > 0) && (
+        <div className="card mt-4">
+          <h2 className="font-medium">Skill trend</h2>
+          <p className="mt-1 text-xs text-ink-400">
+            Per-criterion bands across your evaluated essays. Faded points aren't stable enough
+            yet to count as a confirmed trend.
+          </p>
+          <div className="mt-3 space-y-3">
+            {skillTrend
+              .filter((s) => s.points.length > 0)
+              .map((s) => (
+                <div key={s.criterion}>
+                  <p className="text-xs font-medium uppercase tracking-wide text-ink-400">
+                    {s.label}
+                  </p>
+                  <div className="mt-1 flex flex-wrap items-center gap-2">
+                    {s.points.map((p, i) => (
+                      <span
+                        key={`${p.essayId}-${i}`}
+                        className={
+                          "rounded-full px-2.5 py-0.5 text-xs font-medium " +
+                          (p.stable
+                            ? "bg-brand-50 text-brand-800"
+                            : "bg-ink-50 text-ink-400")
+                        }
+                        title={new Date(p.recordedAt).toLocaleDateString()}
+                      >
+                        {p.band}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
 
       {evals.length > 0 && (
         <div className="card mt-4">

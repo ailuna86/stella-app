@@ -22,6 +22,7 @@ import fs from "fs";
 import path from "path";
 import type { AnnotatedError, FeedbackReport, FocusArea } from "@/lib/types";
 import { rubricTarget } from "@/lib/types";
+import { practiceResultsFor, missionResultsFor } from "@/lib/server/store";
 
 export const GOLD_PIPELINE_DIR =
   process.env.STELLA_GOLD_PIPELINE_DIR ?? path.resolve(process.cwd(), "..", "full_gold_v1");
@@ -46,12 +47,13 @@ const ORCHESTRATOR = "gold_full_pipeline_orchestrator_v1_4_9.py";
 // PEEL) engines and bump learner_profile to gold_lie_profile_builder_standalone_v1_4_4.py
 // (adds an additive, optional --vocabulary-coach input). Per the same
 // reasoning as mission_response_grading below, Vocabulary Coach's three
-// engines (vocab_coach_selection_engine_v1_1.py,
-// vocab_coach_response_grader_v1_1.py, vocab_coach_ledger_update_v1_1.py) are
-// registered in this config for documentation/consistency but are NOT part
-// of the orchestrator's automatic per-essay STAGE_ORDER — they run on their
-// own cooldown-gated cadence via the standalone runVocabCoach* functions
-// below, not through a full 27-stage orchestrator invocation.
+// engines (vocab_coach_selection_engine_v1_2.py as of the academic-words
+// build below, vocab_coach_response_grader_v1_1.py,
+// vocab_coach_ledger_update_v1_1.py) are registered in this config for
+// documentation/consistency but are NOT part of the orchestrator's automatic
+// per-essay STAGE_ORDER — they run on their own cooldown-gated cadence via
+// the standalone runVocabCoach* functions below, not through a full
+// 27-stage orchestrator invocation.
 const ENGINE_CONFIG =
   process.env.STELLA_GOLD_ENGINE_CONFIG ?? "gold_engine_commands_full_v1_4_16.json";
 export const OUTPUT_ROOT = "gold_web_sessions";
@@ -759,12 +761,30 @@ export async function runMissionGrading(
 // only writes after grading succeeds).
 // ---------------------------------------------------------------------------
 
-const VOCAB_COACH_SELECTION_SCRIPT = "vocab_coach_selection_engine_v1_1.py";
+// v1_2 (2026-07): adds selection-runtime academic-word picking + hint-on-
+// request, reading the new academic_words pool in topic bank v1.5.0 (see
+// Academic_Words_Redesign_Spec_v1.docx). Grader and ledger-update scripts
+// are unchanged from v1_1 -- v1_1's suggested_vocabulary/items handling is
+// already generic enough to cover the new source_bank: "academic_word"
+// entries with no code changes (verified directly, not just assumed).
+// VOCAB_COACH_TOPIC_BANK also bumps from v1_3_0 -- which had silently fallen
+// behind the two intervening bank builds (v1_4_0's 8 new topics + Tier B
+// academic collocations, v1_5_0's academic_words) -- to v1_5_0, the current
+// bank on disk.
+const VOCAB_COACH_SELECTION_SCRIPT = "vocab_coach_selection_engine_v1_2.py";
 const VOCAB_COACH_GRADER_SCRIPT = "vocab_coach_response_grader_v1_1.py";
 const VOCAB_COACH_LEDGER_SCRIPT = "vocab_coach_ledger_update_v1_1.py";
-const VOCAB_COACH_TOPIC_BANK = "vocab_coach_topic_bank_v1_3_0.json";
+const VOCAB_COACH_TOPIC_BANK = "vocab_coach_topic_bank_v1_5_0.json";
 const VOCAB_COACH_TASK_TYPE_BANK = "vocab_coach_task_type_bank_v1_2_0.json";
-const VOCAB_COACH_PROMPT_BANK = "vocab_coach_prompt_bank_v1_0_0.json";
+// v1_1_0 (2026-07): closes all 35 rotation-unit gaps that v1_0_0 left open
+// once the topic bank grew to 18 topics/57 units -- 31 from the 8 new topics
+// (VOCAB_COACH_PROMPT_BANK_EXTENSION_PROMPT_V2.md) plus 4 from the
+// academic_collocations subtopic on the original 4 subtopic topics, which had
+// silently been uncovered since that subtopic was first added. Verified
+// directly against vocab_coach_selection_engine_v1_2.py: 0 of the 57 real
+// units now fail filter_candidates() for any task_type/angle. All 228
+// original prompts carry over byte-identical; this is additive only.
+const VOCAB_COACH_PROMPT_BANK = "vocab_coach_prompt_bank_v1_1_0.json";
 const VOCAB_COACH_TIMEOUT_MS = 60 * 1000;
 const VOCAB_COACH_MAX_LRET_SESSIONS = 5;
 
@@ -852,7 +872,19 @@ export interface VocabCoachSession {
   angle: string | null;
   scenarioText: string | null;
   instructionFinal: string | null;
-  suggestedVocabulary: Array<{ phrase: string; topic?: string; subtopic?: string }>;
+  // source_bank distinguishes topic/task_type collocations from the new
+  // (v1_2) bare academic_word entries; structural_hint is only ever present
+  // on academic_word entries and is intentionally NOT shown by default in
+  // the UI -- see VocabCoachPeelSession's "Need a hint?" affordance, per
+  // Academic_Words_Redesign_Spec_v1.docx Section 4.
+  suggestedVocabulary: Array<{
+    phrase: string;
+    topic?: string;
+    subtopic?: string;
+    source_bank?: string;
+    part_of_speech?: string;
+    structural_hint?: string;
+  }>;
   reviewItems: Array<{ phrase: string; box: string; note: string }>;
   lretBiasApplied: boolean;
   lretBiasNote: string | null;
@@ -992,6 +1024,163 @@ export async function submitVocabCoachResponse(
       note: grading.paragraph_note?.note ?? "",
     },
     llmChecked: Boolean(grading.use_llm),
+  };
+}
+
+// v16: Vocabulary Coach mastery view (Pipeline_Frontend_Spec_v2 §2). Reads the
+// same ledger vocab_coach_ledger_update_v1_1.py already writes after every
+// PEEL session — no new engine work, this is a rollup of existing state.
+//
+// One schema quirk worth flagging: an item's `next_due_session` is a SESSION
+// INDEX (ledger.sessions_completed at the time it becomes due again), not a
+// calendar date, so "due for review" below compares against sessionsCompleted
+// rather than today's date.
+//
+// vocabularyBankCount is scoped honestly to what this ledger actually proves:
+// an item only leaves the "new" box after a real used_correctly verdict (see
+// update_new_item in the ledger engine), so "box !== new" is a true genuine-use
+// count. It does NOT yet include correct use inside essays, Practice Engine,
+// or Essay Revision — that cross-engine rollup isn't wired yet (see
+// Pipeline_Frontend_Spec_v2 §2 and the companion LRET spec §5.3).
+export interface VocabCoachMasterySummary {
+  sessionsCompleted: number;
+  boxCounts: { new: number; box_1: number; box_2: number; box_3: number; mastered: number };
+  dueForReview: Array<{ phrase: string; box: string; topic: string | null }>;
+  recentlyMastered: Array<{ phrase: string; topic: string | null }>;
+  vocabularyBankCount: number;
+}
+
+export function loadVocabCoachMasterySummary(studentId: string): VocabCoachMasterySummary | null {
+  const ledgerPath = vocabCoachLedgerPath(studentId);
+  if (!fs.existsSync(ledgerPath)) return null;
+
+  let ledger: any;
+  try {
+    ledger = JSON.parse(fs.readFileSync(ledgerPath, "utf8"));
+  } catch {
+    return null;
+  }
+
+  const items: Record<string, any> = ledger.items ?? {};
+  const sessionsCompleted: number = ledger.sessions_completed ?? 0;
+  const boxCounts = { new: 0, box_1: 0, box_2: 0, box_3: 0, mastered: 0 };
+  const dueForReview: Array<{ phrase: string; box: string; topic: string | null }> = [];
+  const masteredEntries: Array<{ phrase: string; topic: string | null; lastSeen: number }> = [];
+  let vocabularyBankCount = 0;
+
+  for (const [phrase, raw] of Object.entries(items)) {
+    const entry = raw as any;
+    const box: string = entry.box ?? "new";
+    if (box in boxCounts) (boxCounts as Record<string, number>)[box] += 1;
+    if (box !== "new") vocabularyBankCount += 1;
+
+    if (
+      box !== "mastered" &&
+      box !== "new" &&
+      typeof entry.next_due_session === "number" &&
+      entry.next_due_session <= sessionsCompleted
+    ) {
+      dueForReview.push({ phrase, box, topic: entry.topic ?? null });
+    }
+    if (box === "mastered") {
+      masteredEntries.push({ phrase, topic: entry.topic ?? null, lastSeen: entry.last_seen_session ?? 0 });
+    }
+  }
+
+  masteredEntries.sort((a, b) => b.lastSeen - a.lastSeen);
+
+  return {
+    sessionsCompleted,
+    boxCounts,
+    dueForReview: dueForReview.slice(0, 8),
+    recentlyMastered: masteredEntries.slice(0, 5).map(({ phrase, topic }) => ({ phrase, topic })),
+    vocabularyBankCount,
+  };
+}
+
+// v17: daily cross-engine digest — Pipeline_Frontend_Spec_v2 §4. Pulls from
+// three separate places (practice_results + mission_results, both SQLite;
+// vocab_coach_sessions/{studentId}/session_*.json on disk) and reads each
+// with its own native notion of "today" -- this function is the one shared
+// place that reconciles them into a single UTC calendar day, which is the
+// "one shared activity-log format" gap the spec called out. Nothing here
+// grades anything; it only counts what each engine already recorded.
+export interface DailyDigest {
+  exercisesCompleted: number;
+  missionsCompleted: number;
+  newWordsLearned: number;
+  workOnNext: string | null;
+  hasActivity: boolean;
+}
+
+function isToday(isoString: string): boolean {
+  const d = new Date(isoString);
+  const now = new Date();
+  return (
+    d.getUTCFullYear() === now.getUTCFullYear() &&
+    d.getUTCMonth() === now.getUTCMonth() &&
+    d.getUTCDate() === now.getUTCDate()
+  );
+}
+
+export function loadDailyDigest(studentId: string, workOnNext: string | null = null): DailyDigest {
+  const todaysPractice = practiceResultsFor(studentId).filter((r) => isToday(r.at));
+  const exercisesCompleted = todaysPractice.reduce((sum, r) => sum + (r.total ?? 0), 0);
+
+  const missionsCompleted = missionResultsFor(studentId).filter(
+    (m) => isToday(m.at) && (m.outcome === "pass" || m.outcome === "partial_pass")
+  ).length;
+
+  // Vocabulary: session_*.json filenames are `session_${Date.now()}.json` (see
+  // runVocabCoachSession), so file mtime already gives us "today" without
+  // needing to parse each file. "New words learned" cross-references the
+  // ledger: an item only reaches box_1+ after a real used_correctly verdict
+  // (see update_new_item in vocab_coach_ledger_update_v1_1.py), so counting
+  // items whose last_seen_session matches one of today's sessions and whose
+  // last_outcome is used_correctly is a true count, not an estimate.
+  let newWordsLearned = 0;
+  try {
+    const sessionsDir = path.join(GOLD_PIPELINE_DIR, OUTPUT_ROOT, "vocab_coach_sessions", studentId);
+    const todaysSessionIndices = new Set<number>();
+    if (fs.existsSync(sessionsDir)) {
+      for (const name of fs.readdirSync(sessionsDir)) {
+        if (!name.startsWith("session_") || !name.endsWith(".json")) continue;
+        const full = path.join(sessionsDir, name);
+        const stat = fs.statSync(full);
+        if (stat.mtime.toDateString() !== new Date().toDateString()) continue;
+        try {
+          const raw = JSON.parse(fs.readFileSync(full, "utf8"));
+          if (typeof raw.session_index === "number") todaysSessionIndices.add(raw.session_index);
+        } catch {
+          // skip unreadable/partial session file
+        }
+      }
+    }
+    if (todaysSessionIndices.size > 0) {
+      const ledgerPath = vocabCoachLedgerPath(studentId);
+      if (fs.existsSync(ledgerPath)) {
+        const ledger = JSON.parse(fs.readFileSync(ledgerPath, "utf8"));
+        for (const entry of Object.values<any>(ledger.items ?? {})) {
+          if (
+            entry.last_outcome === "used_correctly" &&
+            typeof entry.last_seen_session === "number" &&
+            todaysSessionIndices.has(entry.last_seen_session)
+          ) {
+            newWordsLearned += 1;
+          }
+        }
+      }
+    }
+  } catch {
+    // Best-effort — the digest degrades to 0 rather than failing the page.
+  }
+
+  return {
+    exercisesCompleted,
+    missionsCompleted,
+    newWordsLearned,
+    workOnNext,
+    hasActivity: exercisesCompleted > 0 || missionsCompleted > 0 || newWordsLearned > 0,
   };
 }
 

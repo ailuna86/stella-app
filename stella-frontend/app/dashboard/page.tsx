@@ -3,7 +3,9 @@ import { redirect } from "next/navigation";
 import { currentUser } from "@/lib/server/auth";
 import { activeAssignmentFor, submissionsFor, practiceResultsFor } from "@/lib/server/store";
 import { getLearningRoadmap, serviceIcon, serviceLabel } from "@/lib/server/study-plan";
-import { loadWritingCoach } from "@/lib/server/goldPipeline";
+import { loadWritingCoach, loadDailyDigest } from "@/lib/server/goldPipeline";
+import { CRITERION_LABELS } from "@/lib/types";
+import DailyDigestCard from "@/components/DailyDigestCard";
 
 export default async function Dashboard() {
   const user = await currentUser();
@@ -57,6 +59,16 @@ export default async function Dashboard() {
   const coachMission =
     isGold && latest?.sessionDir ? loadWritingCoach(latest.sessionDir) : undefined;
 
+  // v17: daily digest — Pipeline_Frontend_Spec_v2 §4. workOnNext reuses the
+  // exact same top focus-area label the report and /api/practice's weak-
+  // families selection already derive from focus_area_feedback, rather than
+  // computing a second, possibly-inconsistent "weakest area" independently.
+  const topFocusArea = latest?.report?.focus_area_feedback?.[0];
+  const workOnNext = topFocusArea
+    ? CRITERION_LABELS[topFocusArea.criterion] ?? topFocusArea.skill_tag?.replace(/_/g, " ") ?? null
+    : null;
+  const digest = loadDailyDigest(user.id, workOnNext ?? null);
+
   return (
     <div className="mx-auto max-w-4xl">
       <div className="flex items-center gap-3">
@@ -88,6 +100,12 @@ export default async function Dashboard() {
           <Link href="/upgrade" className="btn-secondary mt-3 inline-flex">
             {pilotExpired ? "Subscribe to continue" : "See plans"}
           </Link>
+        </div>
+      )}
+
+      {digest.hasActivity && (
+        <div className="mt-4">
+          <DailyDigestCard digest={digest} />
         </div>
       )}
 

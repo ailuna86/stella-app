@@ -274,6 +274,23 @@ export function savePracticeResult(studentId: string, result: { at: string; corr
     .run(studentId, result.at, result.correct, result.total, JSON.stringify(result.exerciseIds));
 }
 
+// -- writing coach missions --------------------------------------------------
+// v17: see db.ts's mission_results comment -- mission grading used to have no
+// persistence at all (Pipeline_Frontend_Spec_v2 §4).
+
+export function saveMissionResult(studentId: string, result: { at: string; outcome: string; missionTitle?: string | null }) {
+  db()
+    .prepare("INSERT INTO mission_results (student_id, at, outcome, mission_title) VALUES (?, ?, ?, ?)")
+    .run(studentId, result.at, result.outcome, result.missionTitle ?? null);
+}
+
+export function missionResultsFor(studentId: string): Array<{ at: string; outcome: string; missionTitle: string | null }> {
+  const rows = db()
+    .prepare("SELECT * FROM mission_results WHERE student_id = ? ORDER BY at ASC")
+    .all(studentId) as any[];
+  return rows.map((r) => ({ at: r.at, outcome: r.outcome, missionTitle: r.mission_title }));
+}
+
 export function practiceResultsFor(studentId: string): any[] {
   const rows = db()
     .prepare("SELECT * FROM practice_results WHERE student_id = ? ORDER BY at ASC")

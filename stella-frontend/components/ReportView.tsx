@@ -163,20 +163,14 @@ export default function ReportView({
         <div className="mt-6">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <h2 className="font-medium text-ink-800">Focus areas</h2>
-            <div className="flex items-center gap-2">
-              {hasVocabulary && submissionId && (
-                <Link
-                  href={`/vocabulary-coach/${submissionId}`}
-                  className="rounded-full border border-brand-200 px-3 py-1 text-xs font-medium text-brand-800 hover:bg-brand-50"
-                >
-                  Vocabulary breakdown
-                </Link>
-              )}
-              <span className="rounded-full bg-brand-50 px-3 py-1 text-xs uppercase tracking-wide text-brand-600">
-                {report.focus_area_feedback.length} suggested improvement
-                {report.focus_area_feedback.length === 1 ? "" : "s"}
-              </span>
-            </div>
+            {/* v15: the vocabulary-breakdown link used to live here as a small pill,
+                easy to miss next to the count badge. Pipeline_Frontend_Spec_v2 §1 wants
+                it anchored with Essay Revision as the obvious next step instead — see
+                the "Your next step" block below, right after the full error report. */}
+            <span className="rounded-full bg-brand-50 px-3 py-1 text-xs uppercase tracking-wide text-brand-600">
+              {report.focus_area_feedback.length} suggested improvement
+              {report.focus_area_feedback.length === 1 ? "" : "s"}
+            </span>
           </div>
 
           <div className="mt-3 space-y-3">
@@ -268,13 +262,33 @@ export default function ReportView({
         </p>
       )}
 
+      {/* v15: "Your next step" — Pipeline_Frontend_Spec_v2 §1. Both of these are
+          diagnostic/actionable on THIS essay specifically, so they're anchored right
+          here rather than living as standing nav destinations a student has to go
+          find. (Naming note: the vocabulary link below still points at the existing
+          /vocabulary-coach/[id] LRET view; renaming its on-page label to "Word Choice
+          Report" is a deferred follow-up, not done in this pass.) */}
+      {(hasRevision || hasVocabulary) && submissionId && (
+        <div className="card-gold mt-6">
+          <h2 className="font-semibold text-ink-800">Your next step</h2>
+          <p className="mt-1 text-sm text-ink-600">Act on this report while it&apos;s fresh.</p>
+          <div className="mt-3 flex flex-wrap gap-3">
+            {hasVocabulary && (
+              <Link href={`/vocabulary-coach/${submissionId}`} className="btn-secondary">
+                This essay&apos;s vocabulary
+              </Link>
+            )}
+            {hasRevision && (
+              <Link href={`/writing/revise/${submissionId}`} className="btn-primary">
+                Revise this essay
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
+
       <div className="mt-6 flex flex-wrap gap-3">
-        {hasRevision && submissionId && (
-          <Link href={`/writing/revise/${submissionId}`} className="btn-primary">
-            Revise this essay
-          </Link>
-        )}
-        <Link href="/practice" className={hasRevision && submissionId ? "btn-secondary" : "btn-primary"}>
+        <Link href="/practice" className="btn-secondary">
           Start today&apos;s practice
         </Link>
         <Link href="/dashboard" className="btn-secondary">

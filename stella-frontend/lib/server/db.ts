@@ -89,6 +89,23 @@ function migrate(d: Database.Database) {
     );
     CREATE INDEX IF NOT EXISTS idx_practice_student ON practice_results(student_id);
 
+    -- v17: mission_results — Pipeline_Frontend_Spec_v2 §4 daily digest needs
+    -- to say "you completed N writing missions today". runMissionGrading
+    -- already writes each attempt to sessionDir/mission_attempts/*.json, but
+    -- that's scattered one file per attempt inside whichever essay's session
+    -- folder happened to be "latest" at submit time -- not something a daily
+    -- digest can cheaply query across a student's whole history. This table
+    -- is a lightweight queryable index alongside those files, not a
+    -- replacement for them.
+    CREATE TABLE IF NOT EXISTS mission_results (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      student_id TEXT NOT NULL,
+      at TEXT NOT NULL,
+      outcome TEXT NOT NULL,
+      mission_title TEXT
+    );
+    CREATE INDEX IF NOT EXISTS idx_mission_student ON mission_results(student_id);
+
     CREATE TABLE IF NOT EXISTS platform_feedback (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       student_id TEXT NOT NULL,

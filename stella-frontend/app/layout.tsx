@@ -46,26 +46,21 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                       Trainer console
                     </Link>
                   ) : (
+                    // v14: nav restructure per Pipeline_Frontend_Spec_v2 §1 — "Your plan",
+                    // "Coach", and "Vocabulary" no longer stand on their own in the top bar.
+                    // They're full-named cards inside the new /writing hub instead, which
+                    // resolves the earlier complaint that abbreviated nav labels ("Coach",
+                    // "Vocabulary") weren't clear about what they actually were.
                     <>
                       <Link href="/dashboard" className="hover:text-brand-800">
                         Dashboard
                       </Link>
-                      <Link href="/study-plan" className="hover:text-brand-800">
-                        Your plan
+                      <Link href="/writing" className="hover:text-brand-800">
+                        Writing
                       </Link>
                       <Link href="/progress" className="hover:text-brand-800">
                         Progress
                       </Link>
-                      {user.plan === "gold" && (
-                        <>
-                          <Link href="/writing-coach" className="hover:text-brand-800">
-                            Coach
-                          </Link>
-                          <Link href="/vocabulary-coach" className="hover:text-brand-800">
-                            Vocabulary
-                          </Link>
-                        </>
-                      )}
                     </>
                   )}
                   {user.plan !== "gold" && (

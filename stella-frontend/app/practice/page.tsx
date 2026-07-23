@@ -15,12 +15,26 @@ interface Ex {
 
 const LETTERS = ["A", "B", "C", "D", "E", "F"];
 
+// v9: per-item results accumulated through the session, used to build the
+// session recap below (Pipeline_Frontend_Spec_v2 §3) — grouped by
+// family_label into "went well" vs "to work on" instead of just a bare
+// score. Pure aggregation of what the session already produces item by
+// item; no new grading, and the existing /api/practice POST (per-item
+// exerciseIds/correct/total) is untouched.
+interface ItemResult {
+  exerciseId: string;
+  familyLabel: string;
+  correct: boolean;
+  explanation: string;
+}
+
 export default function PracticeSession() {
   const [exercises, setExercises] = useState<Ex[] | null>(null);
   const [minutes, setMinutes] = useState(10);
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
   const [score, setScore] = useState(0);
+  const [results, setResults] = useState<ItemResult[]>([]);
   const [finished, setFinished] = useState(false);
   const [err, setErr] = useState("");
 
@@ -29,6 +43,7 @@ export default function PracticeSession() {
     setIdx(0);
     setPicked(null);
     setScore(0);
+    setResults([]);
     setFinished(false);
     const res = await fetch("/api/practice");
     const data = await res.json();
@@ -71,6 +86,20 @@ export default function PracticeSession() {
   const correct = picked === ex.answer;
 
   if (finished) {
+    // v9: session recap grouped by family_label — Pipeline_Frontend_Spec_v2 §3.
+    // Pure aggregation of `results`, which is just every item's own outcome
+    // recorded as it happened; no new grading here.
+    const byFamily = new Map<string, { correct: number; total: number; missedExplanation?: string }>();
+    for (const r of results) {
+      const entry = byFamily.get(r.familyLabel) ?? { correct: 0, total: 0 };
+      entry.total += 1;
+      if (r.correct) entry.correct += 1;
+      else entry.missedExplanation = entry.missedExplanation ?? r.explanation;
+      byFamily.set(r.familyLabel, entry);
+    }
+    const wentWell = [...byFamily.entries()].filter(([, v]) => v.correct === v.total);
+    const toWorkOn = [...byFamily.entries()].filter(([, v]) => v.correct < v.total);
+
     return (
       <div className="mx-auto max-w-md py-10 text-center">
         <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-card bg-mint-50">
@@ -84,6 +113,39 @@ export default function PracticeSession() {
             ? "Perfect — the next session will move you to new skill families."
             : "Good work. Missed patterns will come back in future sessions."}
         </p>
+
+        {(wentWell.length > 0 || toWorkOn.length > 0) && (
+          <div className="mt-6 space-y-3 text-left">
+            {wentWell.length > 0 && (
+              <div className="rounded-card border border-mint-200 bg-mint-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-mint-700">Went well</p>
+                <ul className="mt-1.5 space-y-1 text-sm text-mint-800">
+                  {wentWell.map(([family, v]) => (
+                    <li key={family}>
+                      {family.replace(/_/g, " ")} — {v.correct}/{v.total}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {toWorkOn.length > 0 && (
+              <div className="rounded-card border border-amber-200 bg-amber-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">To work on</p>
+                <ul className="mt-1.5 space-y-2 text-sm text-amber-800">
+                  {toWorkOn.map(([family, v]) => (
+                    <li key={family}>
+                      <span className="font-medium">
+                        {family.replace(/_/g, " ")} — {v.correct}/{v.total}
+                      </span>
+                      {v.missedExplanation && <p className="mt-0.5 text-xs text-amber-700">{v.missedExplanation}</p>}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+
         <div className="mt-6 flex justify-center gap-3">
           <button className="btn-primary" onClick={load}>
             Practice more
@@ -102,7 +164,12 @@ export default function PracticeSession() {
   function answer(choice: string) {
     if (picked !== null) return;
     setPicked(choice);
-    if (choice === ex.answer) setScore((v) => v + 1);
+    const isCorrect = choice === ex.answer;
+    if (isCorrect) setScore((v) => v + 1);
+    setResults((prev) => [
+      ...prev,
+      { exerciseId: ex.exercise_id, familyLabel: ex.family_label, correct: isCorrect, explanation: ex.explanation },
+    ]);
   }
 
   function nextExercise() {

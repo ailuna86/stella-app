@@ -45,7 +45,7 @@ export default async function WritingCoachPage() {
     );
   }
 
-  const { homeCard: card, mission } = coach;
+  const { homeCard: card, mission, directiveAlignment } = coach;
 
   return (
     <div className="mx-auto max-w-5xl py-6">
@@ -59,6 +59,24 @@ export default async function WritingCoachPage() {
         thing holding your score back.
       </p>
       {card.planSummary && <p className="mt-2 text-sm text-ink-600">{card.planSummary}</p>}
+
+      {/* v17 (session-audit Finding 6): the alignment guard already computes an
+          honest, explicit note whenever today's mission differs from what the
+          Gold Directive flagged as the top priority — this was previously
+          computed and silently dropped, never read by any frontend page. */}
+      {directiveAlignment && !directiveAlignment.isAligned && (
+        <div className="mt-3 rounded-card border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
+          <p>
+            Your top-priority focus right now is{" "}
+            <span className="font-medium">{directiveAlignment.directiveFocusLabel}</span>, but
+            today's mission works on{" "}
+            <span className="font-medium">{directiveAlignment.coachFocusLabel}</span> instead.
+          </p>
+          {directiveAlignment.rationale && (
+            <p className="mt-1 text-amber-800">{directiveAlignment.rationale}</p>
+          )}
+        </div>
+      )}
 
       {/* Header card — matches the Stitch violet mission header */}
       <div className="mt-4 flex flex-col gap-6 rounded-card bg-brand-600 p-6 text-white shadow-soft md:flex-row md:items-center md:justify-between">

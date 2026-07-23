@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { currentUser } from "@/lib/server/auth";
-import { submissionsFor } from "@/lib/server/store";
+import { submissionsFor, saveMissionResult } from "@/lib/server/store";
 import { runMissionGrading } from "@/lib/server/goldPipeline";
 
 // v11: grades a Writing Coach mission response. Deliberately does NOT touch
@@ -25,6 +25,12 @@ export async function POST(req: Request) {
 
   try {
     const result = await runMissionGrading(latest.sessionDir, text);
+    // v17: index this attempt for the daily digest (Pipeline_Frontend_Spec_v2 §4).
+    // Only real graded attempts count — invalid/empty responses aren't a completed
+    // mission, so they're excluded rather than inflating "missions completed today".
+    if (result.outcome === "pass" || result.outcome === "partial_pass" || result.outcome === "fail") {
+      saveMissionResult(user.id, { at: new Date().toISOString(), outcome: result.outcome });
+    }
     return NextResponse.json({ ok: true, result });
   } catch (e) {
     console.error("[ST.ELLA] Mission grading failed:", e);
