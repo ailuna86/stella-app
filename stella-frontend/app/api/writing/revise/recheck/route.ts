@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { currentUser } from "@/lib/server/auth";
-import { getSubmission } from "@/lib/server/store";
+import { getSubmission, getUserById } from "@/lib/server/store";
 import { runRevisionScopedRecheck, refreshLearnerProfile } from "@/lib/server/goldPipeline";
 import { normalizeParagraphBreaks } from "@/lib/server/text";
 
@@ -27,6 +27,12 @@ export async function POST(req: Request) {
   const allowed = sub && (sub.studentId === user.id || user.role === "trainer");
   if (!sub || !allowed || !sub.sessionDir) {
     return NextResponse.json({ ok: false, error: "Essay not found." }, { status: 404 });
+  }
+  // v27 (2026-07-23): Essay Revision is Gold-only -- see /api/writing/revise/compare's
+  // matching comment (same reasoning: gate on the submission owner's plan).
+  const owner = getUserById(sub.studentId);
+  if (!owner || owner.plan !== "gold") {
+    return NextResponse.json({ ok: false, error: "Essay Revision is a Gold-plan feature." }, { status: 403 });
   }
 
   try {

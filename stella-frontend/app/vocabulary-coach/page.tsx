@@ -24,6 +24,15 @@ export default async function VocabularyCoachIndexPage() {
   const user = await currentUser();
   if (!user) return null;
   if (user.role === "trainer") redirect("/trainer");
+  // v27 (2026-07-23): Vocabulary Coach is part of Gold's coaching/learning
+  // layer, deliberately excluded from the new scored-only Premium tier (see
+  // PREMIUM_PIPELINE_SPEC_V1.docx) -- this page previously had ZERO
+  // server-side plan check (only the /writing hub's goldOnly card was
+  // cosmetic), so a premium student who navigated here directly, or
+  // bookmarked the URL, got a fully working Vocabulary Coach anyway. Redirect
+  // to the hub, which already shows the real upgrade-to-Gold messaging for
+  // this card.
+  if (user.plan !== "gold") redirect("/writing");
 
   const summary = loadVocabCoachMasterySummary(user.id);
   // v19: session-flow stepper — Session_Flow_and_Vocab_Expansion_Spec_v1 §0.

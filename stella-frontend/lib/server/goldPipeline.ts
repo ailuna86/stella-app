@@ -139,6 +139,25 @@ const ORCHESTRATOR = "gold_full_pipeline_orchestrator_v1_4_9.py";
 const ENGINE_CONFIG =
   process.env.STELLA_GOLD_ENGINE_CONFIG ?? "gold_engine_commands_full_v1_4_21.json";
 export const OUTPUT_ROOT = "gold_web_sessions";
+// v27 (2026-07-23): the new scored-only Premium tier (replaces
+// pipeline_runner_v14j.py/full_premium — see pipeline.ts's runEvaluation()
+// tier router and PREMIUM_PIPELINE_SPEC_V1.docx for the full rationale).
+// Same engine binaries as Gold (Detector, Evaluator, Scorer, Verifier,
+// Adjudicator, Progress Tracker, Priority Engine, Directive, Feedback
+// Engine, LIE) living in this same GOLD_PIPELINE_DIR folder — only the
+// orchestrator + engine-config are new files, and only because the STAGE_ORDER
+// is trimmed (no lret_session/writing_coach/practice_session/vocab_coach/
+// service_routing/revision_workspace — no coaching/learning layer at all).
+// Runs under its own output-root so premium sessions' raw per-essay artifacts
+// never mix with gold_web_sessions/, but deliberately shares GOLD_PIPELINE_DIR's
+// learner_profiles_dir with Gold (see runPremiumScoredEvaluation()'s own
+// comment for why: LIE is "cross-essay tracking for this student", not
+// "cross-essay tracking for this tier").
+const PREMIUM_ORCHESTRATOR = "premium_scored_pipeline_orchestrator_v1_0.py";
+const PREMIUM_ENGINE_CONFIG =
+  process.env.STELLA_PREMIUM_ENGINE_CONFIG ?? "premium_engine_commands_v1_0.json";
+export const PREMIUM_OUTPUT_ROOT = "premium_web_sessions";
+const PREMIUM_TIMEOUT_MS = 12 * 60 * 1000; // fewer stages than Gold (no coaching layer) but same 2 LLM-calling stages (Detector, Evaluator) dominate runtime
 // The orchestrator's --canonical-resources-dir used to default to a
 // hardcoded absolute path baked into gold_full_pipeline_orchestrator_v1_4_9.py
 // (tied to one specific machine). Fixed there to read
@@ -201,7 +220,13 @@ const GOLD_CRITERION_TO_APP: Record<string, keyof FeedbackReport["score_summary"
 
 function mapGoldReportToFeedbackReport(
   raw: GoldFeedbackReportRaw,
-  input: { submissionId: string; studentId: string }
+  input: { submissionId: string; studentId: string },
+  // v27: Premium reuses this mapper unchanged (feedback_engine_v6c_cli.py's
+  // 06_feedback_report_v6c.json shape is identical either tier -- same script
+  // version, see premium_engine_commands_v1_0.json) but with its own
+  // report_id prefix, so a report_id string alone tells you which pipeline
+  // produced it (useful for the trainer QA queue and any future analytics).
+  enginePrefix: "gold" | "premium" = "gold"
 ): FeedbackReport {
   const cb = raw.performance_summary.criteria_bands;
   const criteria_bands = {
@@ -257,7 +282,7 @@ function mapGoldReportToFeedbackReport(
   const recommendations = raw.top_learning_priorities.map((p) => p.next_step).filter(Boolean);
 
   return {
-    report_id: `gold_${input.submissionId}`,
+    report_id: `${enginePrefix}_${input.submissionId}`,
     student_id: input.studentId,
     generated_at: raw.created_at,
     score_summary: {
@@ -450,6 +475,191 @@ export async function runGoldEvaluation(input: {
   } catch (e) {
     console.error(`[ST.ELLA] Essay topic classification failed for submission ${input.submissionId}:`, e);
   }
+
+  return { report, sessionDir: parsed.session_dir };
+}
+
+// ---------------------------------------------------------------------------
+// v27 (2026-07-23): Premium (scored-only) tier. Replaces the old
+// pipeline_runner_v14j.py/full_premium path in pipeline.ts's runEvaluation()
+// tier router for plan === "premium" | "premium_pilot". Same real engine
+// files as Gold (Detector, Evaluator, Scorer, Verifier, Adjudicator, Progress
+// Tracker, Priority Engine, Directive, Feedback Engine, LIE), run by a
+// separate, trimmed orchestrator (premium_scored_pipeline_orchestrator_v1_0.py
+// + premium_engine_commands_v1_0.json — see PREMIUM_PIPELINE_SPEC_V1.docx for
+// the full rationale) with no coaching/learning-layer stages at all: no
+// lret_session, no writing_coach, no practice_session, no vocab_coach_*, no
+// service_routing, no revision_workspace. Confirmed via direct grep of every
+// engine file (see task #16 research) that only Detector and Evaluator call
+// an LLM either way — every other stage kept here (Scorer/Verifier/
+// Adjudicator/Progress Tracker/Priority Engine/Directive/Feedback
+// Engine/LIE) is pure deterministic post-processing, so "no learning layer,
+// but still uses LLM" is exactly what this produces.
+//
+// LIE's scoped role in Premium (product decision, confirmed with the PO):
+// cross-essay tracking + Practice-results analysis — NOT Writing Coach/Vocab
+// Coach history (premium has neither). This falls out almost for free:
+// gold_lie_profile_builder_standalone_v1_4_7.py's --lret/--writing-coach/
+// --practice args are all documented-optional and a premium session simply
+// never produces those artifact files to point them at (its own
+// learner_profile command in premium_engine_commands_v1_0.json omits them
+// entirely rather than passing paths that will never exist); --engagement-
+// history (added as a new premium_scored_pipeline_orchestrator_v1_0.py
+// argparse flag, mirroring the existing --mission-to-grade pattern) is what
+// actually carries the "cross-essay tracking + Practice results" signal in —
+// generateFreshEngagementHistory() below is the SAME function
+// runVocabCoachSession() already uses (see its own comment above), reused
+// unchanged since it was never actually vocab-coach-specific.
+//
+// learner_profiles_dir is deliberately shared with Gold's (learnerProfilesDir()
+// below, NOT a premium-only subdirectory under PREMIUM_OUTPUT_ROOT) — LIE's
+// job is "track this STUDENT across essays", not "track this student's
+// activity within one pricing tier". If a student is ever on premium for one
+// essay and gold for another, their one continuous learner profile is what
+// "cross-essay tracking" should mean. Raw per-essay session artifacts (all
+// the 0X_*.json intermediate files) still live under their own
+// PREMIUM_OUTPUT_ROOT, separate from gold_web_sessions/ — only the per-
+// student "current" files and the persisted continuity profile are shared.
+// ---------------------------------------------------------------------------
+
+export async function runPremiumScoredEvaluation(input: {
+  submissionId: string;
+  studentId: string;
+  prompt: string;
+  essay: string;
+}): Promise<{ report: FeedbackReport; sessionDir: string }> {
+  const subDir = path.join(GOLD_PIPELINE_DIR, "web_submissions");
+  fs.mkdirSync(subDir, { recursive: true });
+  const subFile = path.join(subDir, `${input.submissionId}.json`);
+  fs.writeFileSync(
+    subFile,
+    JSON.stringify(
+      {
+        essay_id: input.submissionId,
+        student_id: input.studentId,
+        prompt_text: input.prompt,
+        essay_text: input.essay,
+      },
+      null,
+      2
+    )
+  );
+
+  // Same ad hoc, best-effort pattern runVocabCoachSession() uses: compute a
+  // fresh engagement-history artifact before invoking the orchestrator (this
+  // is NOT one of the orchestrator's own STAGE_ORDER stages, in either tier —
+  // gold_engagement_history_aggregator_v1_0.py reads real session history off
+  // disk and was always invoked ad hoc by the frontend, never as a per-
+  // submission pipeline stage). Scratch dir is scoped under this student's
+  // premium sessions, not gold_web_sessions, even though the OUTPUT it
+  // produces gets consumed by a command whose other outputs (the persisted
+  // "current" profile) are shared with Gold — only this scratch computation
+  // is tier-scoped, matching where its own inputs (this student's Practice/
+  // essay-revision history) are read from (submissionsFor/practiceResultsFor
+  // are tier-agnostic already, so this doesn't miss any premium-only
+  // activity).
+  const premiumSessionsScratchDir = path.join(GOLD_PIPELINE_DIR, PREMIUM_OUTPUT_ROOT, input.studentId);
+  fs.mkdirSync(premiumSessionsScratchDir, { recursive: true });
+  const engagementHistory = await generateFreshEngagementHistory(input.studentId, premiumSessionsScratchDir);
+
+  // Deliberately no --pretty, same reason as runGoldEvaluation: main() prints
+  // one JSON line to stdout on exit, pretty-printing would break the parse
+  // below. --strict omitted for the same reason (don't hard-fail a
+  // submission over an imperfect QA gate) — qa_status is still captured.
+  const stdout = await new Promise<string>((resolve, reject) => {
+    const proc = spawn(
+      "python",
+      [
+        PREMIUM_ORCHESTRATOR,
+        "--input",
+        subFile,
+        "--engine-config",
+        PREMIUM_ENGINE_CONFIG,
+        "--output-root",
+        PREMIUM_OUTPUT_ROOT,
+        "--learner-profiles-dir",
+        learnerProfilesDir(),
+        ...(engagementHistory ? ["--engagement-history", engagementHistory] : []),
+        ...(CANONICAL_RESOURCES_DIR ? ["--canonical-resources-dir", CANONICAL_RESOURCES_DIR] : []),
+      ],
+      { cwd: GOLD_PIPELINE_DIR, env: process.env, windowsHide: true }
+    );
+    let out = "";
+    let stderr = "";
+    proc.stdout.on("data", (d) => (out += d.toString()));
+    proc.stderr.on("data", (d) => (stderr += d.toString()));
+    proc.on("error", reject);
+    proc.on("close", (code) =>
+      code === 0
+        ? resolve(out)
+        : reject(new Error(`premium pipeline exited ${code}: ${stderr.slice(-800)}`))
+    );
+    setTimeout(() => {
+      proc.kill();
+      reject(new Error("premium pipeline timeout after 12 minutes"));
+    }, PREMIUM_TIMEOUT_MS);
+  });
+
+  let parsed: { qa_status: string; session_dir: string };
+  try {
+    const lastLine = stdout.trim().split("\n").filter(Boolean).pop() ?? "";
+    parsed = JSON.parse(lastLine);
+  } catch {
+    throw new Error(`could not parse premium orchestrator stdout: ${stdout.slice(-500)}`);
+  }
+
+  const reportFile = path.join(parsed.session_dir, "06_feedback_report_v6c.json");
+  if (!fs.existsSync(reportFile)) {
+    // Same diagnostic-detail extraction as runGoldEvaluation — see that
+    // function's comment for why both the QA report and manifest are worth
+    // reading here instead of just throwing "needs_attention".
+    let qaDetail = "";
+    try {
+      const qaReportPath = (parsed as any).qa_report;
+      if (qaReportPath && fs.existsSync(qaReportPath)) {
+        const qa = JSON.parse(fs.readFileSync(qaReportPath, "utf8"));
+        qaDetail = ` — missing_required_artifacts: ${JSON.stringify(qa.missing_required_artifacts ?? [])}, invalid_required: ${JSON.stringify(qa.invalid_required ?? [])}, boundary_issues: ${JSON.stringify(qa.boundary_issues ?? [])}, quality_gate_issues: ${JSON.stringify(qa.quality_gate_issues ?? [])}`;
+      }
+    } catch (qaErr) {
+      qaDetail = ` (also failed to read QA report: ${qaErr instanceof Error ? qaErr.message : String(qaErr)})`;
+    }
+    let stageDetail = "";
+    try {
+      const manifestPath = (parsed as any).manifest;
+      if (manifestPath && fs.existsSync(manifestPath)) {
+        const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+        const failed = Array.isArray(manifest.stage_results)
+          ? manifest.stage_results.filter((s: any) => s.status === "failed")
+          : [];
+        if (failed.length) {
+          stageDetail = ` — FAILED STAGES: ${failed
+            .map((s: any) => `[${s.stage}] ${(s.error ?? "").slice(-1500)}`)
+            .join(" ||| ")}`;
+        }
+      }
+    } catch (mErr) {
+      stageDetail = ` (also failed to read manifest: ${mErr instanceof Error ? mErr.message : String(mErr)})`;
+    }
+    throw new Error(
+      `feedback report missing in ${parsed.session_dir} (qa_status: ${parsed.qa_status})${qaDetail}${stageDetail}`
+    );
+  }
+  const raw = JSON.parse(fs.readFileSync(reportFile, "utf8")) as GoldFeedbackReportRaw;
+  const report = mapGoldReportToFeedbackReport(raw, input, "premium");
+
+  if (parsed.qa_status && parsed.qa_status !== "pass" && parsed.qa_status !== "PASS") {
+    report.escalate_to_human_review = true;
+  }
+
+  // Same per-student "current" LIE-artifact reseed runGoldEvaluation does —
+  // tier-agnostic (best-effort per file, copies whatever the session
+  // actually produced), so a premium session's own fresh learner_profile
+  // output becomes the new baseline immediately, same as Gold's.
+  reseedCurrentProfileFromSession(input.studentId, parsed.session_dir);
+
+  // No essay-topic classification here: that field exists solely for Vocab
+  // Coach's topic-matching (classifyEssayTopic()'s module comment), and
+  // Premium has no Vocab Coach to match a topic for.
 
   return { report, sessionDir: parsed.session_dir };
 }
@@ -1261,10 +1471,15 @@ export interface VocabCoachSession {
 // engagement-history is an optional, additive bias input for vocab coach
 // selection -- same posture as the optional score-contract/lret-sessions
 // inputs already handled below.
+// v27: also reused (unchanged) by runPremiumScoredEvaluation() below, as the
+// --engagement-history input to premium's learner_profile stage -- this
+// function was never actually vocab-coach-specific (studentId + a scratch
+// sessionsDir is all it needs), only its internal folder name used to say
+// otherwise; renamed to a generic name to match the wider real usage.
 async function generateFreshEngagementHistory(studentId: string, sessionsDir: string): Promise<string | undefined> {
   try {
     const latest = submissionsFor(studentId).find((s) => s.status === "done" && s.sessionDir);
-    const refreshDir = path.join(sessionsDir, "engagement_for_vocab_coach");
+    const refreshDir = path.join(sessionsDir, "engagement_history_fresh");
     fs.mkdirSync(refreshDir, { recursive: true });
     const stamp = Date.now();
     const exportFile = path.join(refreshDir, `export_${stamp}.json`);

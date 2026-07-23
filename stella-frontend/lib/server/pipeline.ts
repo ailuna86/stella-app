@@ -9,11 +9,21 @@
 // to the hardened Gold orchestrator (goldPipeline.ts); premium/premium_pilot
 // keep using this file's original pipeline_runner_v14j.py path — nothing
 // about the premium path changed below.
+// v27 (2026-07-23): premium/premium_pilot now route to the new scored-only
+// Premium orchestrator (runPremiumScoredEvaluation() in goldPipeline.ts) —
+// same real Detector/Evaluator/Scorer/Verifier/Adjudicator/Progress-Tracker/
+// Priority-Engine/Directive/Feedback-Engine/LIE engines as Gold, no coaching/
+// learning layer, still LLM-backed (Detector+Evaluator). Replaces
+// pipeline_runner_v14j.py/full_premium entirely for these two plans — see
+// PREMIUM_PIPELINE_SPEC_V1.docx for the full rationale. The old
+// runPremiumEvaluation() function below is left in place, unused, per this
+// project's convention (never delete/repurpose an old code path — just stop
+// calling it) in case it's ever needed as a reference or rollback.
 import { spawn } from "child_process";
 import fs from "fs";
 import path from "path";
 import type { BankExercise, FeedbackReport } from "@/lib/types";
-import { runGoldEvaluation } from "./goldPipeline";
+import { runGoldEvaluation, runPremiumScoredEvaluation } from "./goldPipeline";
 import { normalizeParagraphBreaks } from "./text";
 
 export const PIPELINE_DIR =
@@ -48,9 +58,14 @@ export async function runEvaluation(input: {
   if (normalized.plan === "gold") {
     return runGoldEvaluation(normalized);
   }
-  return runPremiumEvaluation(normalized);
+  // v27: was runPremiumEvaluation(normalized) (pipeline_runner_v14j.py) --
+  // see module comment above.
+  return runPremiumScoredEvaluation(normalized);
 }
 
+// v27: unused now (see module comment above) -- kept, not deleted, per
+// project convention. Was the premium/premium_pilot path before
+// runPremiumScoredEvaluation() replaced it.
 async function runPremiumEvaluation(input: {
   submissionId: string;
   studentId: string;

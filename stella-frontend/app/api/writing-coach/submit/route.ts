@@ -12,6 +12,14 @@ export async function POST(req: Request) {
   const user = await currentUser();
   if (!user) return NextResponse.json({ ok: false }, { status: 401 });
   if (user.role === "trainer") return NextResponse.json({ ok: false }, { status: 403 });
+  // v27 (2026-07-23): Writing Coach is Gold-only (see PREMIUM_PIPELINE_SPEC_V1.docx) --
+  // this route had no plan check at all before, meaning a premium student
+  // could grade missions via direct API call even though the app.writing-coach
+  // page now redirects them away. Real, server-side enforcement, not just a
+  // page-level redirect.
+  if (user.plan !== "gold") {
+    return NextResponse.json({ ok: false, error: "Writing Coach is a Gold-plan feature." }, { status: 403 });
+  }
 
   const { text } = (await req.json()) as { text?: string };
   if (!text || !text.trim()) {

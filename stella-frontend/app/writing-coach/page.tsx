@@ -17,6 +17,10 @@ export default async function WritingCoachPage() {
   const user = await currentUser();
   if (!user) return null;
   if (user.role === "trainer") redirect("/trainer");
+  // v27 (2026-07-23): Writing Coach is part of the coaching/learning layer
+  // excluded from the new Premium tier (see vocabulary-coach/page.tsx's
+  // matching comment for the full story -- same gap, same fix).
+  if (user.plan !== "gold") redirect("/writing");
 
   const latest = submissionsFor(user.id).find((s) => s.status === "done" && s.sessionDir);
   const coach = latest?.sessionDir ? loadWritingCoach(latest.sessionDir) : undefined;
