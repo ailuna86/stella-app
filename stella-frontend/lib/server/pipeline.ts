@@ -237,6 +237,31 @@ export function expandWeakFamilies(
 
 let bankCache: BankExercise[] | null = null;
 
+// v28 (2026-07-23): real, live bug found via a browser console TypeError on
+// the practice recap screen ("Cannot read properties of undefined (reading
+// 'replace')") -- confirmed directly against va_exercise_bank_v11d_approved.jsonl:
+// 5,997 of 12,710 entries (47%) have family_label: null, populating only the
+// UPPER_SNAKE_CASE `family` token (e.g. "WORD_CHOICE"). app/practice/page.tsx's
+// session-recap screen groups results by family_label and calls
+// family.replace(/_/g, " ") on it -- undefined.replace(...) throws, and since
+// which exercises land in a session is effectively random, roughly half of
+// all practice sessions crash on their own recap screen. Backfilling here
+// (not editing the bank file, per this project's data-file convention) means
+// every consumer of loadBank()/buildPracticeSession() is covered, not just
+// one call site. humanizeFamily() produces the same "Title Case, spaces"
+// style the bank's own real family_label values already use (e.g.
+// "CAUSAL_REASONING" -> "Causal Reasoning" is exactly what the bank's own
+// authored label for that family already reads) so a backfilled label reads
+// no differently from a real one in the UI.
+function humanizeFamily(family: string): string {
+  return family
+    .toLowerCase()
+    .split("_")
+    .filter(Boolean)
+    .map((w) => w[0].toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
 export function loadBank(): BankExercise[] {
   if (bankCache) return bankCache;
   const raw = fs.readFileSync(BANK_PATH, "utf8");
@@ -244,7 +269,8 @@ export function loadBank(): BankExercise[] {
     .split("\n")
     .filter(Boolean)
     .map((l) => JSON.parse(l) as BankExercise)
-    .filter((e) => Array.isArray(e.choices) && e.choices.length >= 2 && !!e.answer);
+    .filter((e) => Array.isArray(e.choices) && e.choices.length >= 2 && !!e.answer)
+    .map((e) => (e.family_label ? e : { ...e, family_label: humanizeFamily(e.family) }));
   return bankCache;
 }
 
