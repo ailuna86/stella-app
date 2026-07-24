@@ -1,3 +1,18 @@
+# Added after a real Render deployment crash: va_premium_evaluator_v8_3_wke_standalone.py
+# does `try: from pydantic import BaseModel, Field / except Exception: BaseModel = object`
+# — with pydantic absent, EvaluatorRequest(BaseModel) becomes a plain class inheriting
+# object with no real __init__, so `EvaluatorRequest(**payload)` raises
+# "TypeError: EvaluatorRequest() takes no arguments" the moment a real submission
+# reaches the evaluator stage. The prior assumption that this pipeline was 100%
+# standard-library was wrong for these three packages, across every engine file
+# that has a guarded `try/except ImportError` around them (Detector, Evaluator,
+# feedback engine, revision AI comparison, progress tracker).
+#
+# uvicorn/spacy deliberately NOT included: nothing in this deployment runs the
+# FastAPI server mode (every engine is invoked as a one-shot CLI subprocess with
+# --input/--output), and spaCy's absence is already a known, accepted, gracefully
+# degraded state from earlier project work (see task history: "Diagnose
+# spaCy/LanguageTool unavailable in-pipeline").
 pydantic>=2.0
 fastapi>=0.100
 openai>=1.0
