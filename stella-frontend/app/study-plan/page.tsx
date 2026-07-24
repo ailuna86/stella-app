@@ -25,7 +25,10 @@ export default async function StudyPlanPage() {
   if (user.role === "trainer") redirect("/trainer");
 
   const latest = submissionsFor(user.id).find((s) => s.status === "done" && s.sessionDir);
-  const roadmap = latest?.sessionDir ? getLearningRoadmap(latest.sessionDir) : undefined;
+  // v22: getLearningRoadmap now also takes studentId -- see study-plan.ts's
+  // comment (Defect 1 fix, reads the per-student "current" roadmap file
+  // first, falling back to this essay's own original 08c).
+  const roadmap = latest?.sessionDir ? getLearningRoadmap(user.id, latest.sessionDir) : undefined;
   const isGold = user.plan === "gold";
 
   return (
@@ -61,6 +64,8 @@ export default async function StudyPlanPage() {
                   ? "/writing-coach"
                   : p.service === "practice"
                   ? "/practice"
+                  : p.service === "vocabulary_coach"
+                  ? "/vocabulary-coach"
                   : p.service === "essay_revision" && latest
                   ? `/writing/revise/${latest.id}`
                   : "/dashboard";
@@ -98,6 +103,8 @@ export default async function StudyPlanPage() {
                           ? "Go to Writing Coach"
                           : p.service === "practice"
                           ? "Start practice"
+                          : p.service === "vocabulary_coach"
+                          ? "Go to Vocabulary Coach"
                           : "Revise your essay"}
                       </Link>
                     )}

@@ -6,18 +6,32 @@ import {
   getAssignments,
   submissionsFor,
   practiceResultsFor,
+  missionResultsFor,
   allPlatformFeedback,
   getPrompts,
   pendingUpgradeRequests,
   getUserById,
+  latestLearnerProfileRefreshAttempt,
 } from "@/lib/server/store";
 import { getLearningRoadmap, serviceLabel } from "@/lib/server/study-plan";
+import { loadVocabCoachMasterySummary } from "@/lib/server/goldPipeline";
 import { CRITERION_LABELS } from "@/lib/types";
 import AssignmentForm from "@/components/AssignmentForm";
 import AddStudentForm from "@/components/AddStudentForm";
 import AddTrainerForm from "@/components/AddTrainerForm";
 import PromptReviewList from "@/components/PromptReviewList";
 import UpgradeRequestsList from "@/components/UpgradeRequestsList";
+
+// v20: essay-submission timer — trainer-facing "how much time did this
+// student actually spend" readout next to each submission row (e.g.
+// "Exam · 38m"). Rounds to the nearest minute since second-level precision
+// isn't useful here; always shows at least "0m" rather than blank so a
+// very fast (or auto-submitted-at-zero) attempt is still visible as a
+// real, if tiny, number rather than looking like missing data.
+function formatMinutes(totalSeconds: number): string {
+  const minutes = Math.max(0, Math.round(totalSeconds / 60));
+  return `${minutes}m`;
+}
 
 // v5 trainer console: full history per student (expandable), group-wide
 // common mistakes, and collected platform feedback.
@@ -67,6 +81,86 @@ export default async function TrainerConsole() {
   const commonMistakes = [...familyCounts.entries()]
     .sort((a, b) => b[1] - a[1])
     .slice(0, 8);
+
+  // v19: group-wide report + lesson-plan suggestions — requested directly:
+  // the console previously only showed raw error-family counts, nothing
+  // synthesized across practice, writing coach, or vocabulary coach, and no
+  // "what to focus on next lesson" summary. Every number below is a real
+  // aggregate of what students' own sessions already recorded (practice_results,
+  // mission_results, each student's vocab ledger via loadVocabCoachMasterySummary)
+  // — nothing here is inferred or LLM-generated, so it stays traceable back to
+  // real activity rather than reading as a black-box recommendation.
+  const oneWeekAgoMs = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  let weeklyPracticeCorrect = 0;
+  let weeklyPracticeTotal = 0;
+  let weeklySessionCount = 0;
+  let weeklyPass = 0;
+  let weeklyPartial = 0;
+  let weeklyFail = 0;
+  const failedMissionTitles = new Map<string, number>();
+  let groupDueForReview = 0;
+  let groupMastered = 0;
+  const overdueWordCounts = new Map<string, number>();
+
+  for (const s of students) {
+    for (const r of practiceResultsFor(s.id)) {
+      if (new Date(r.at).getTime() < oneWeekAgoMs) continue;
+      weeklySessionCount += 1;
+      weeklyPracticeCorrect += r.correct ?? 0;
+      weeklyPracticeTotal += r.total ?? 0;
+    }
+    for (const m of missionResultsFor(s.id)) {
+      if (new Date(m.at).getTime() < oneWeekAgoMs) continue;
+      if (m.outcome === "pass") weeklyPass += 1;
+      else if (m.outcome === "partial_pass") weeklyPartial += 1;
+      else if (m.outcome === "fail") {
+        weeklyFail += 1;
+        if (m.missionTitle) failedMissionTitles.set(m.missionTitle, (failedMissionTitles.get(m.missionTitle) ?? 0) + 1);
+      }
+    }
+    const vocab = loadVocabCoachMasterySummary(s.id);
+    if (vocab) {
+      groupDueForReview += vocab.dueForReview.length;
+      groupMastered += vocab.boxCounts.mastered;
+      for (const d of vocab.dueForReview) {
+        overdueWordCounts.set(d.phrase, (overdueWordCounts.get(d.phrase) ?? 0) + 1);
+      }
+    }
+  }
+
+  const weeklyMissionsTotal = weeklyPass + weeklyPartial + weeklyFail;
+  const weeklyPracticeAccuracy = weeklyPracticeTotal > 0 ? Math.round((weeklyPracticeCorrect / weeklyPracticeTotal) * 100) : null;
+  const topFailedMission = [...failedMissionTitles.entries()].sort((a, b) => b[1] - a[1])[0];
+  const topOverdueWords = [...overdueWordCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 3);
+
+  // Deterministic, rule-based suggestions — each one only fires when its own
+  // real number crosses a threshold, and states that number so a trainer can
+  // check it rather than take it on faith.
+  const focusSuggestions: string[] = [];
+  if (commonMistakes[0] && commonMistakes[0][1] >= 3) {
+    focusSuggestions.push(
+      `${commonMistakes[0][0].replace(/_/g, " ").toLowerCase()} is the most common error across the group (${commonMistakes[0][1]} occurrences) — worth a short group mini-lesson.`
+    );
+  }
+  if (weeklyMissionsTotal >= 3 && weeklyFail / weeklyMissionsTotal > 0.4) {
+    focusSuggestions.push(
+      `${Math.round((weeklyFail / weeklyMissionsTotal) * 100)}% of Writing Coach missions this week came back "not yet"${
+        topFailedMission ? ` — most often on "${topFailedMission[0]}" (${topFailedMission[1]} students)` : ""
+      }.`
+    );
+  }
+  if (groupDueForReview >= 5) {
+    focusSuggestions.push(
+      `${groupDueForReview} vocabulary items are due for review across the group${
+        topOverdueWords.length ? ` — most shared: ${topOverdueWords.map(([w, c]) => `"${w}" (${c})`).join(", ")}` : ""
+      }.`
+    );
+  }
+  if (weeklyPracticeAccuracy !== null && weeklyPracticeAccuracy < 70 && weeklySessionCount >= 3) {
+    focusSuggestions.push(
+      `Group practice accuracy this week is ${weeklyPracticeAccuracy}% across ${weeklySessionCount} session${weeklySessionCount === 1 ? "" : "s"} — below the 70% mark, worth extra repetition time.`
+    );
+  }
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -167,6 +261,56 @@ export default async function TrainerConsole() {
         )}
       </div>
 
+      {/* v19: group-wide report + lesson-plan suggestions, requested directly
+          ("not only errors, but report on the whole group, suggestions for
+          the lesson plan, what to focus on"). Common mistakes above already
+          covered essay errors; this adds practice, Writing Coach, and
+          Vocabulary Coach trends across the whole cohort, plus a short,
+          rule-based "what to focus on" list derived from those same numbers. */}
+      <div className="card mt-4">
+        <h2 className="flex items-center gap-2 font-medium text-ink-900">
+          <span className="material-symbols-outlined text-brand-600">groups</span>
+          Group focus this week
+        </h2>
+        <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          <div className="rounded-card bg-brand-50 p-3 text-center">
+            <div className="text-lg font-semibold text-brand-800">
+              {weeklyPracticeAccuracy !== null ? `${weeklyPracticeAccuracy}%` : "—"}
+            </div>
+            <div className="text-xs text-brand-600">Practice accuracy ({weeklySessionCount} sessions)</div>
+          </div>
+          <div className="rounded-card bg-brand-50 p-3 text-center">
+            <div className="text-lg font-semibold text-brand-800">
+              {weeklyMissionsTotal > 0 ? `${weeklyPass + weeklyPartial}/${weeklyMissionsTotal}` : "—"}
+            </div>
+            <div className="text-xs text-brand-600">Writing Coach pass/partial</div>
+          </div>
+          <div className="rounded-card bg-brand-50 p-3 text-center">
+            <div className="text-lg font-semibold text-brand-800">{groupDueForReview}</div>
+            <div className="text-xs text-brand-600">Vocab items due for review</div>
+          </div>
+          <div className="rounded-card bg-brand-50 p-3 text-center">
+            <div className="text-lg font-semibold text-brand-800">{groupMastered}</div>
+            <div className="text-xs text-brand-600">Words mastered so far</div>
+          </div>
+        </div>
+
+        {focusSuggestions.length > 0 ? (
+          <div className="mt-4 space-y-2">
+            <p className="text-xs font-medium uppercase tracking-wide text-ink-400">Suggested focus</p>
+            {focusSuggestions.map((s, i) => (
+              <div key={i} className="flex gap-2 rounded-card border border-brand-100 p-3 text-sm text-ink-800">
+                <span className="text-brand-500">→</span> <span>{s}</span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-3 text-sm text-ink-400">
+            No strong group-wide pattern yet this week — check back after more sessions.
+          </p>
+        )}
+      </div>
+
       <div className="card mt-4">
         <h2 className="flex items-center gap-2 font-medium text-ink-900">
           <span className="material-symbols-outlined text-brand-600">groups</span>
@@ -183,8 +327,11 @@ export default async function TrainerConsole() {
               // v8: submissions the pipeline flagged as ambiguous surface first
               .sort((a, b) => Number(!!b.report?.escalate_to_human_review) - Number(!!a.report?.escalate_to_human_review));
             const practices = practiceResultsFor(s.id);
+            // v22: getLearningRoadmap now also takes studentId -- see
+            // study-plan.ts's comment (Defect 1 fix).
             const roadmap =
-              s.plan === "gold" && done[0]?.sessionDir ? getLearningRoadmap(done[0].sessionDir) : undefined;
+              s.plan === "gold" && done[0]?.sessionDir ? getLearningRoadmap(s.id, done[0].sessionDir) : undefined;
+            const refreshAttempt = latestLearnerProfileRefreshAttempt(s.id);
             const avgAcc = practices.length
               ? Math.round(
                   (practices.reduce(
@@ -200,6 +347,20 @@ export default async function TrainerConsole() {
                 <summary className="flex cursor-pointer items-center justify-between">
                   <span>
                     <span className="text-sm font-medium">{s.name}</span>
+                    {/* v22: refresh-failure badge -- Defect 2 fix. refreshLearnerProfile()
+                        never rejects by design (fire-and-forget), so this badge is what
+                        actually makes a failing continuous-loop refresh visible to a
+                        trainer instead of it being silently swallowed forever. Same small-
+                        badge style as the existing "needs review" / "Exam · 38m" badges
+                        below. Title carries the real error message for a quick hover-check. */}
+                    {refreshAttempt?.status === "failure" && (
+                      <span
+                        className="ml-2 rounded-full bg-red-100 px-2 py-0.5 text-xs text-red-800"
+                        title={refreshAttempt.errorMessage ?? undefined}
+                      >
+                        profile refresh failing
+                      </span>
+                    )}
                     <span className="ml-2 text-xs text-ink-400">
                       {s.email} · {s.verifiedAt ? "verified" : "not signed in yet"} ·{" "}
                       {s.plan === "gold" ? "Gold" : "Premium"}
@@ -234,6 +395,19 @@ export default async function TrainerConsole() {
                         {sub.report?.escalate_to_human_review && (
                           <span className="mr-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs text-amber-800">
                             needs review
+                          </span>
+                        )}
+                        {sub.mode && (
+                          <span
+                            className={`mr-2 rounded-full px-2 py-0.5 text-xs ${
+                              sub.mode === "exam"
+                                ? "bg-brand-100 text-brand-800"
+                                : "bg-brand-50 text-ink-600"
+                            }`}
+                          >
+                            {sub.mode === "exam" ? "Exam" : "Practice"}
+                            {typeof sub.timeSpentSeconds === "number" &&
+                              ` · ${formatMinutes(sub.timeSpentSeconds)}`}
                           </span>
                         )}
                         {new Date(sub.createdAt).toLocaleDateString()} ·{" "}

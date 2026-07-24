@@ -64,6 +64,7 @@ function rowToUser(row: any): User {
     pilotEndsAt: row.pilot_ends_at ?? undefined,
     entitlements: JSON.parse(row.entitlements),
     intake: row.intake ? JSON.parse(row.intake) : undefined,
+    seenEngineIntros: row.seen_engine_intros ? JSON.parse(row.seen_engine_intros) : [],
   };
 }
 
@@ -92,6 +93,9 @@ function rowToSubmission(row: any): SubmissionRecord {
     report: row.report ? JSON.parse(row.report) : undefined,
     sessionDir: row.session_dir ?? undefined,
     error: row.error ?? undefined,
+    mode: row.mode ?? undefined,
+    timeSpentSeconds: row.time_spent_seconds ?? undefined,
+    topic: row.topic ?? undefined,
   };
 }
 
@@ -121,7 +125,7 @@ export function getUsers(organizationId?: string): User[] {
 export function saveUser(user: User) {
   db()
     .prepare(
-      `UPDATE users SET name=?, email=?, role=?, plan=?, verified_at=?, consent_at=?, pilot_ends_at=?, entitlements=?, intake=?
+      `UPDATE users SET name=?, email=?, role=?, plan=?, verified_at=?, consent_at=?, pilot_ends_at=?, entitlements=?, intake=?, seen_engine_intros=?
        WHERE id=?`
     )
     .run(
@@ -134,8 +138,23 @@ export function saveUser(user: User) {
       user.pilotEndsAt ?? null,
       JSON.stringify(user.entitlements),
       user.intake ? JSON.stringify(user.intake) : null,
+      JSON.stringify(user.seenEngineIntros ?? []),
       user.id
     );
+}
+
+// v17: mark one engine's intro pop-up as acknowledged for this student —
+// server-side (see User.seenEngineIntros), idempotent (adding an already-
+// present key is a no-op). Deliberately its own small UPDATE rather than a
+// full saveUser() round trip, since callers hitting this (the "Got it"
+// button) shouldn't need to first fetch/reconstruct the whole User object.
+export function markEngineIntroSeen(userId: string, engineKey: string): void {
+  const row = db().prepare("SELECT seen_engine_intros FROM users WHERE id = ?").get(userId) as any;
+  if (!row) return;
+  const seen: string[] = row.seen_engine_intros ? JSON.parse(row.seen_engine_intros) : [];
+  if (seen.includes(engineKey)) return;
+  seen.push(engineKey);
+  db().prepare("UPDATE users SET seen_engine_intros = ? WHERE id = ?").run(JSON.stringify(seen), userId);
 }
 
 export function addUser(user: User) {
@@ -214,8 +233,8 @@ export function saveSubmission(s: SubmissionRecord) {
   } else {
     db()
       .prepare(
-        `INSERT INTO submissions (id, organization_id, student_id, assignment_id, prompt, essay, status, created_at, report, session_dir, error)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+        `INSERT INTO submissions (id, organization_id, student_id, assignment_id, prompt, essay, status, created_at, report, session_dir, error, mode, time_spent_seconds)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
       )
       .run(
         s.id,
@@ -228,9 +247,21 @@ export function saveSubmission(s: SubmissionRecord) {
         s.createdAt,
         reportJson,
         s.sessionDir ?? null,
-        s.error ?? null
+        s.error ?? null,
+        s.mode ?? null,
+        s.timeSpentSeconds ?? null
       );
   }
+}
+
+// v26 (2026-07-23): sets a submission's classified essay topic (one of the
+// 18 real vocab_coach_topic_bank_v1_5_0.json topic keys, or null) after
+// classifyEssayTopic() runs in goldPipeline.ts's post-evaluation success
+// path. A dedicated single-column UPDATE, same pattern as markEngineIntroSeen
+// above -- the caller (runGoldEvaluation) already has just the submission id
+// and topic string in hand, no need to round-trip a full SubmissionRecord.
+export function setSubmissionTopic(submissionId: string, topic: string | null): void {
+  db().prepare("UPDATE submissions SET topic = ? WHERE id = ?").run(topic, submissionId);
 }
 
 export function getSubmission(id: string): SubmissionRecord | undefined {
@@ -301,6 +332,36 @@ export function practiceResultsFor(studentId: string): any[] {
     total: r.total,
     exerciseIds: JSON.parse(r.exercise_ids),
   }));
+}
+
+// -- learner profile refresh attempts ----------------------------------------
+// v22 (2026-07-23): Defect 2 fix for goldPipeline.ts's refreshLearnerProfile()
+// -- see its module comment. One row per real refresh attempt; used by
+// app/trainer/page.tsx to show a warning badge next to a student whose most
+// recent attempt failed.
+
+export function recordLearnerProfileRefreshAttempt(
+  studentId: string,
+  status: "success" | "failure",
+  errorMessage: string | null
+) {
+  db()
+    .prepare(
+      "INSERT INTO learner_profile_refresh_attempts (student_id, at, status, error_message) VALUES (?, ?, ?, ?)"
+    )
+    .run(studentId, new Date().toISOString(), status, errorMessage);
+}
+
+export function latestLearnerProfileRefreshAttempt(
+  studentId: string
+): { at: string; status: string; errorMessage: string | null } | undefined {
+  const row = db()
+    .prepare(
+      "SELECT * FROM learner_profile_refresh_attempts WHERE student_id = ? ORDER BY id DESC LIMIT 1"
+    )
+    .get(studentId) as any;
+  if (!row) return undefined;
+  return { at: row.at, status: row.status, errorMessage: row.error_message };
 }
 
 // -- platform feedback -------------------------------------------------------

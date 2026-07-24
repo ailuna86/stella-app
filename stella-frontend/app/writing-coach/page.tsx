@@ -2,8 +2,11 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { currentUser } from "@/lib/server/auth";
 import { submissionsFor } from "@/lib/server/store";
-import { loadWritingCoach } from "@/lib/server/goldPipeline";
+import { loadWritingCoach, getSessionFlowStatus, loadDailyDigest } from "@/lib/server/goldPipeline";
 import MissionSubmitForm from "@/components/MissionSubmitForm";
+import NextStepsStrip from "@/components/NextStepsStrip";
+import EngineIntroModal from "@/components/EngineIntroModal";
+import SessionFlowStepper from "@/components/SessionFlowStepper";
 
 // v10: new — the Gold pipeline generates a real, personalized daily coaching
 // mission after every evaluated essay (07e_writing_coach_output.json). This
@@ -14,14 +17,24 @@ export default async function WritingCoachPage() {
   const user = await currentUser();
   if (!user) return null;
   if (user.role === "trainer") redirect("/trainer");
+  // v27 (2026-07-23): Writing Coach is part of the coaching/learning layer
+  // excluded from the new Premium tier (see vocabulary-coach/page.tsx's
+  // matching comment for the full story -- same gap, same fix).
+  if (user.plan !== "gold") redirect("/writing");
 
   const latest = submissionsFor(user.id).find((s) => s.status === "done" && s.sessionDir);
   const coach = latest?.sessionDir ? loadWritingCoach(latest.sessionDir) : undefined;
+  // v19: session-flow stepper — Session_Flow_and_Vocab_Expansion_Spec_v1 §0.
+  const flowStatus = getSessionFlowStatus(user.id, { sessionDir: latest?.sessionDir, submissionId: latest?.id });
+  const flowDigest = loadDailyDigest(user.id);
 
   if (!latest) {
     return (
       <div className="mx-auto max-w-xl py-10 text-center">
-        <h1 className="text-2xl font-semibold">Writing coach</h1>
+        <h1 className="flex items-center justify-center text-2xl font-semibold">
+          Writing coach
+          <EngineIntroModal engineKey="writing_coach" />
+        </h1>
         <p className="mt-2 text-sm text-ink-600">
           Your daily coaching mission is built from your essays — submit your first one to
           unlock it.
@@ -29,6 +42,8 @@ export default async function WritingCoachPage() {
         <Link href="/writing/submit" className="btn-primary mt-4 inline-flex">
           Write my essay
         </Link>
+        <SessionFlowStepper status={flowStatus} digest={flowDigest} currentKey="writing_coach" />
+        <NextStepsStrip exclude={["writing_coach"]} />
       </div>
     );
   }
@@ -36,11 +51,16 @@ export default async function WritingCoachPage() {
   if (!coach) {
     return (
       <div className="mx-auto max-w-xl py-10 text-center">
-        <h1 className="text-2xl font-semibold">Writing coach</h1>
+        <h1 className="flex items-center justify-center text-2xl font-semibold">
+          Writing coach
+          <EngineIntroModal engineKey="writing_coach" />
+        </h1>
         <p className="mt-2 text-sm text-ink-600">
           No mission is available for your latest essay yet — check back after your next
           submission, or ask your trainer if this persists.
         </p>
+        <SessionFlowStepper status={flowStatus} digest={flowDigest} currentKey="writing_coach" />
+        <NextStepsStrip exclude={["writing_coach"]} />
       </div>
     );
   }
@@ -49,7 +69,10 @@ export default async function WritingCoachPage() {
 
   return (
     <div className="mx-auto max-w-5xl py-6">
-      <h1 className="text-2xl font-semibold">Writing coach</h1>
+      <h1 className="flex items-center text-2xl font-semibold">
+        Writing coach
+        <EngineIntroModal engineKey="writing_coach" />
+      </h1>
       <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-600">
         Writing coach is a short daily exercise — usually 10 minutes — that trains one
         specific skill at a time, chosen from what your actual essays show you need most.
@@ -161,6 +184,8 @@ export default async function WritingCoachPage() {
       <Link href="/dashboard" className="btn-secondary mt-6 inline-flex">
         Back to dashboard
       </Link>
+      <SessionFlowStepper status={flowStatus} digest={flowDigest} currentKey="writing_coach" />
+      <NextStepsStrip exclude={["writing_coach"]} />
     </div>
   );
 }

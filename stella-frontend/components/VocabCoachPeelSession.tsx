@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import NextStepsStrip from "@/components/NextStepsStrip";
 
 interface VocabItem {
   phrase: string;
@@ -132,6 +133,7 @@ export default function VocabCoachPeelSession() {
         <p className="mt-2 text-sm text-ink-600">
           You've completed today's practice. Your next set is ready {formatCooldown(session?.nextSessionAvailableAt ?? null)}.
         </p>
+        <NextStepsStrip exclude={["vocabulary_coach"]} />
       </div>
     );
   }
@@ -162,6 +164,7 @@ export default function VocabCoachPeelSession() {
             Semantic check not run this time — verdicts above marked "needs a human look" are unverified, not wrong.
           </p>
         )}
+        <NextStepsStrip exclude={["vocabulary_coach"]} />
       </div>
     );
   }

@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment / secrets — never commit real credentials
+.env.local
+.env*.local
+
+# Local SQLite data — real student/trainer data, never commit
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+
+# Build/type-check artifacts and logs
+tsconfig.tsbuildinfo
+npm_out.log
+*.log
+
+# OS/editor
+.DS_Store

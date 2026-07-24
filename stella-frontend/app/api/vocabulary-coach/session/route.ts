@@ -12,6 +12,12 @@ export async function GET() {
   const user = await currentUser();
   if (!user) return NextResponse.json({ ok: false }, { status: 401 });
   if (user.role === "trainer") return NextResponse.json({ ok: false }, { status: 403 });
+  // v27 (2026-07-23): Vocabulary Coach is Gold-only (see
+  // PREMIUM_PIPELINE_SPEC_V1.docx) -- real server-side enforcement, not just
+  // the page-level redirect in app/vocabulary-coach/page.tsx.
+  if (user.plan !== "gold") {
+    return NextResponse.json({ ok: false, error: "Vocabulary Coach is a Gold-plan feature." }, { status: 403 });
+  }
 
   try {
     const session = await runVocabCoachSession(user.id);

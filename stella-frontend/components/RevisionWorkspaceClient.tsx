@@ -43,6 +43,68 @@ interface ComparisonResult {
   items: ComparisonItem[];
 }
 
+// v20: scoped re-check types — Session_Flow_and_Vocab_Expansion_Spec_v1 §1.
+// Additive, alongside the existing AI-comparison result above, not a
+// replacement for it. Never a holistic band/Task-Response/Coherence claim.
+interface RecheckErrorItem {
+  family: string;
+  rubric: string | null;
+  quote: string;
+  message: string;
+  suggestedRevision: string | null;
+  severity: string | null;
+}
+interface RecheckSentence {
+  originalText: string;
+  revisedText: string;
+  errorsBefore: RecheckErrorItem[];
+  errorsAfter: RecheckErrorItem[];
+  fixed: RecheckErrorItem[];
+  introduced: RecheckErrorItem[];
+  persisting: RecheckErrorItem[];
+  status: string;
+  statusLabel: string;
+}
+interface RecheckResult {
+  sentencesRewritten: number;
+  nowErrorFree: number;
+  alreadyCleanRewrite: number;
+  stillHasErrors: number;
+  introducedNewErrorSentences: number;
+  totalErrorsFixed: number;
+  totalErrorsIntroduced: number;
+  honestSummaryText: string;
+  scopeDisclaimer: string;
+  newSentencesAdded: number;
+  sentencesRemoved: number;
+  truncatedForCostCap: boolean;
+  sentences: RecheckSentence[];
+}
+
+// v20: a sentence's own card color follows the SAME status it actually ended
+// up in, not a generic "changed" color — rose only for genuinely worse/still
+// broken, mint only for genuinely fixed, amber for "changed but mixed" or a
+// non-error edit. Matches the red/amber/mint convention already used for
+// paragraph/sentence status above.
+const RECHECK_CARD_STYLE: Record<string, string> = {
+  now_error_free: "border-mint-400 bg-mint-50",
+  already_clean_rewrite: "border-brand-100 bg-white",
+  introduced_new_error: "border-rose-400 bg-rose-50",
+  got_worse: "border-rose-400 bg-rose-50",
+  still_has_errors: "border-amber-300 bg-amber-50",
+  partially_improved: "border-amber-300 bg-amber-50",
+  changed_errors: "border-amber-300 bg-amber-50",
+};
+const RECHECK_BADGE_STYLE: Record<string, string> = {
+  now_error_free: "bg-mint-400 text-white",
+  already_clean_rewrite: "bg-brand-100 text-brand-700",
+  introduced_new_error: "bg-rose-400 text-white",
+  got_worse: "bg-rose-400 text-white",
+  still_has_errors: "bg-amber-300 text-amber-900",
+  partially_improved: "bg-amber-300 text-amber-900",
+  changed_errors: "bg-amber-300 text-amber-900",
+};
+
 type Filter = "all" | "red" | "redyellow" | "yellow";
 
 const CARD_STYLE: Record<string, string> = {
@@ -92,6 +154,11 @@ export default function RevisionWorkspaceClient({
   const [comparing, setComparing] = useState(false);
   const [err, setErr] = useState("");
   const [comparison, setComparison] = useState<ComparisonResult | null>(null);
+  // v20: fired alongside the AI comparison (same click, separate request —
+  // see the "Design choice" comment on runRevisionScopedRecheck in
+  // goldPipeline.ts for why this is a sibling call, not folded into one).
+  const [recheck, setRecheck] = useState<RecheckResult | null>(null);
+  const [recheckErr, setRecheckErr] = useState("");
   const router = useRouter();
 
   const words = essay.trim() ? essay.trim().split(/\s+/).length : 0;
@@ -131,20 +198,39 @@ export default function RevisionWorkspaceClient({
     setComparing(true);
     setErr("");
     setComparison(null);
-    try {
-      const res = await fetch("/api/writing/revise/compare", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ submissionId, revisedText: essay }),
-      });
-      const data = await res.json();
-      if (data.ok) setComparison(data.result);
-      else setErr(data.error ?? "Comparison failed.");
-    } catch {
-      setErr("Comparison failed — please try again.");
-    } finally {
-      setComparing(false);
-    }
+    setRecheckErr("");
+    setRecheck(null);
+    // v20: both requests fire from this one click and run concurrently —
+    // no extra round trip is perceived by the student even though they're
+    // two separate backend calls (see goldPipeline.ts's "Design choice"
+    // comment for why they're kept separate server-side). Each is handled
+    // independently so a failure in one doesn't blank out the other.
+    const comparisonPromise = fetch("/api/writing/revise/compare", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ submissionId, revisedText: essay }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.ok) setComparison(data.result);
+        else setErr(data.error ?? "Comparison failed.");
+      })
+      .catch(() => setErr("Comparison failed — please try again."));
+
+    const recheckPromise = fetch("/api/writing/revise/recheck", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ submissionId, revisedText: essay }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.ok) setRecheck(data.result);
+        else setRecheckErr(data.error ?? "Sentence check failed.");
+      })
+      .catch(() => setRecheckErr("Sentence check failed — please try again."));
+
+    await Promise.allSettled([comparisonPromise, recheckPromise]);
+    setComparing(false);
   }
 
   // Flatten every paragraph's lexical upgrades into one top-level list, as
@@ -325,6 +411,83 @@ export default function RevisionWorkspaceClient({
           </div>
         </div>
       </div>
+
+      {/* v20: Scoped sentence re-check — additive, shown alongside the AI
+          comparison below, not a replacement for it. Deliberately no band
+          score / Task Response / Coherence claim anywhere in this panel —
+          see RevisionScopedRecheck's own scopeDisclaimer, rendered verbatim. */}
+      {recheckErr && !recheck && (
+        <p className="mt-6 text-sm text-rose-600">{recheckErr}</p>
+      )}
+      {recheck && (
+        <div className="mt-8 space-y-4 border-t border-brand-100 pt-6">
+          <div>
+            <h3 className="text-xs font-bold uppercase tracking-widest text-ink-400">
+              Sentence-level re-check
+            </h3>
+            <p className="mt-1 text-sm text-ink-800">{recheck.honestSummaryText}</p>
+            <p className="mt-1 text-xs text-ink-500">{recheck.scopeDisclaimer}</p>
+            {recheck.truncatedForCostCap && (
+              <p className="mt-1 text-xs text-amber-700">
+                You rewrote more sentences than we could re-check in one pass — showing the first
+                batch below.
+              </p>
+            )}
+          </div>
+
+          {recheck.sentences.length > 0 && (
+            <div className="space-y-3">
+              {recheck.sentences.map((s, i) => (
+                <div
+                  key={i}
+                  className={`rounded-card border p-3 text-sm ${
+                    RECHECK_CARD_STYLE[s.status] ?? RECHECK_CARD_STYLE.changed_errors
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <span
+                      className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${
+                        RECHECK_BADGE_STYLE[s.status] ?? RECHECK_BADGE_STYLE.changed_errors
+                      }`}
+                    >
+                      {s.statusLabel}
+                    </span>
+                  </div>
+                  <div className="mt-2 grid gap-2 md:grid-cols-2">
+                    <div className="rounded-md bg-white/80 p-2">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-ink-400">
+                        Before
+                      </p>
+                      <p className="mt-0.5 text-ink-700">{s.originalText}</p>
+                    </div>
+                    <div className="rounded-md bg-white/80 p-2">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-ink-400">
+                        After (your rewrite)
+                      </p>
+                      <p className="mt-0.5 text-ink-800">{s.revisedText}</p>
+                    </div>
+                  </div>
+                  {s.fixed.length > 0 && (
+                    <p className="mt-2 text-xs text-mint-700">
+                      ✓ Fixed: {s.fixed.map((e) => e.family.replace(/_/g, " ").toLowerCase()).join(", ")}
+                    </p>
+                  )}
+                  {s.introduced.length > 0 && (
+                    <p className="mt-2 text-xs text-rose-700">
+                      ⚠ New: {s.introduced.map((e) => e.message || e.family.replace(/_/g, " ").toLowerCase()).join("; ")}
+                    </p>
+                  )}
+                  {s.persisting.length > 0 && (
+                    <p className="mt-2 text-xs text-amber-700">
+                      Still there: {s.persisting.map((e) => e.family.replace(/_/g, " ").toLowerCase()).join(", ")}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* AI comparison */}
       {comparison && (

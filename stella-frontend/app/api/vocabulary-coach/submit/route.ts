@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { currentUser } from "@/lib/server/auth";
-import { submitVocabCoachResponse } from "@/lib/server/goldPipeline";
+import { submitVocabCoachResponse, refreshLearnerProfile } from "@/lib/server/goldPipeline";
 
 // Grades a Vocabulary Coach PEEL submission and updates the student's
 // Leitner ledger in one call (see submitVocabCoachResponse in
@@ -12,6 +12,11 @@ export async function POST(req: Request) {
   const user = await currentUser();
   if (!user) return NextResponse.json({ ok: false }, { status: 401 });
   if (user.role === "trainer") return NextResponse.json({ ok: false }, { status: 403 });
+  // v27 (2026-07-23): Vocabulary Coach is Gold-only (see
+  // PREMIUM_PIPELINE_SPEC_V1.docx) -- matches the GET session route's gate.
+  if (user.plan !== "gold") {
+    return NextResponse.json({ ok: false, error: "Vocabulary Coach is a Gold-plan feature." }, { status: 403 });
+  }
 
   const { sessionFilePath, text } = (await req.json()) as {
     sessionFilePath?: string;
@@ -26,6 +31,14 @@ export async function POST(req: Request) {
 
   try {
     const result = await submitVocabCoachResponse(user.id, sessionFilePath, text);
+    // v21 (2026-07-23): continuous-loop refresh — fire-and-forget, same
+    // reasoning as /api/practice. Note: the Vocabulary Coach ledger itself
+    // is already real, live history (LIE's --vocabulary-coach argument reads
+    // it directly and always has — this refresh call is about giving
+    // Practice/Writing Coach/Essay Revision activity the same "something
+    // just happened, refresh the profile" trigger the vocab ledger's own
+    // writes already benefited from implicitly on the next essay submission).
+    void refreshLearnerProfile(user.id);
     return NextResponse.json({ ok: true, result });
   } catch (e) {
     console.error("[ST.ELLA] Vocabulary Coach grading failed:", e);

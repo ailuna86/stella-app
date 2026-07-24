@@ -31,6 +31,11 @@ export interface User {
   // ("gold" | "premium_pilot") is reused for both pilot grants and eventual
   // paid subscriptions of the same tier.
   pilotEndsAt?: string;
+  // v17: which engines this student has already acknowledged the intro
+  // pop-up for (ST_ELLA_Student_Journey_v1.docx §4.4). Stored server-side,
+  // not localStorage, because a phone-only "seen it" flag would just
+  // re-show the modal on the student's laptop — the opposite of the point.
+  seenEngineIntros?: string[];
   entitlements: {
     can_self_submit: boolean;
     can_practice: boolean;
@@ -73,6 +78,24 @@ export interface SubmissionRecord {
   report?: FeedbackReport;
   sessionDir?: string;
   error?: string;
+  // v20: essay-submission timer feature. `mode` is the student's own choice
+  // ("exam" = strict 40-minute WT2 countdown, "practice" = untimed — the
+  // default for every Task 1 submission since exam mode is WT2-only).
+  // `timeSpentSeconds` is wall-clock elapsed time from when the student
+  // started this attempt (mode chosen / page landed on) to submit, tracked
+  // in both modes so trainers can always see actual time spent, even for
+  // practice submissions where no countdown was ever shown to the student.
+  mode?: "exam" | "practice";
+  timeSpentSeconds?: number;
+  // v26 (2026-07-23): one of vocab_coach_topic_bank_v1_5_0.json's 18 real
+  // topic keys (e.g. "education", "crime_and_justice"), set by
+  // classifyEssayTopic() in goldPipeline.ts's post-evaluation success path --
+  // deterministic keyword-match against the topic bank's own vocabulary, no
+  // LLM call. undefined until classification runs, or if it ran but wasn't
+  // confident enough to pick one topic over the others -- both are valid,
+  // expected states (Vocab Coach falls back to its existing random-topic
+  // rotation in either case), not errors.
+  topic?: string;
 }
 
 export interface AnnotatedError {
@@ -89,6 +112,19 @@ export interface FocusArea {
   rank: number;
   criterion: string;
   skill_tag: string;
+  // v24 (2026-07-23): Gold's raw focus_area_feedback already carries
+  // capacity_domain (see goldPipeline.ts's GoldFeedbackReportRaw type) but it
+  // was being dropped in mapGoldReportToFeedbackReport() -- this is the one
+  // stable, coarse-grained namespace shared across all three focus-area
+  // sources (ErrorMap's 6 capacity buckets, Evaluator's 13
+  // "evaluator_<domain>" buckets, LRET/Vocab Coach's 5 "lexical_family_<fam>"
+  // buckets -- see priority_output_normalizer_standalone_v1_4_4.py). skill_tag
+  // is NOT stable across sources (errormap: same as capacity_domain;
+  // evaluator: an individual skill_id like "arg_claim_precision"; lexical: one
+  // of 5 tokens) so it can't be used alone to bridge into the exercise bank's
+  // own UPPER_SNAKE family taxonomy -- see CAPACITY_DOMAIN_TO_BANK_FAMILIES in
+  // pipeline.ts, which is the actual consumer of this new field.
+  capacity_domain?: string;
   current_band: number;
   target_band: number;
   summary: string;

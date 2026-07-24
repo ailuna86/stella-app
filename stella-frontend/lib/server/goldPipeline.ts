@@ -22,7 +22,13 @@ import fs from "fs";
 import path from "path";
 import type { AnnotatedError, FeedbackReport, FocusArea } from "@/lib/types";
 import { rubricTarget } from "@/lib/types";
-import { practiceResultsFor, missionResultsFor } from "@/lib/server/store";
+import {
+  practiceResultsFor,
+  missionResultsFor,
+  submissionsFor,
+  recordLearnerProfileRefreshAttempt,
+  setSubmissionTopic,
+} from "@/lib/server/store";
 
 export const GOLD_PIPELINE_DIR =
   process.env.STELLA_GOLD_PIPELINE_DIR ?? path.resolve(process.cwd(), "..", "full_gold_v1");
@@ -54,9 +60,104 @@ const ORCHESTRATOR = "gold_full_pipeline_orchestrator_v1_4_9.py";
 // per-essay STAGE_ORDER — they run on their own cooldown-gated cadence via
 // the standalone runVocabCoach* functions below, not through a full
 // 27-stage orchestrator invocation.
+// v1.4.17: bumped from v1_4_16 to pick up
+// gold_lie_profile_builder_standalone_v1_4_5.py's roadmap fix -- the
+// 3-phase "learning_roadmap" it writes (study-plan/page.tsx's data source)
+// never included a Vocabulary Coach step at all, despite v1_4_4 already
+// accepting --vocabulary-coach as an input. Reported directly by the user
+// against the live deployment ("I don't see vocabulary coach at all" on
+// /study-plan). v1_4_5 inserts a real vocabulary_coach phase between
+// practice and essay_revision; study-plan.ts's SERVICE_LABELS/SERVICE_ICONS
+// and study-plan/page.tsx's href/button-label switch were updated to match.
+// v1.4.18 (2026-07-23): bumped from v1_4_17 to pick up
+// lret_engine_v1_13_0_llm_verified_clarify_and_enhance.py (LRET accuracy
+// audit fix pack, see LRET_Accuracy_Audit_Findings_v1.docx). Per project
+// convention the fixes were written as a new versioned engine file rather
+// than edits to v1_12_1 -- this config bump is what actually points
+// lret_session at it. --detector-output was already wired to {errormap}
+// (01b_errormap_v3.json) in v1_4_13 onward and needed no change here --
+// verified directly that 01b_errormap_v3.json (not 01_detector_output.json,
+// which lacks the top-level "errors" array the engine's
+// _v1610_suppress_keep_units_with_detector_errors() reads) is the file that
+// actually makes the Detector-KEEP reconciliation fire. v1_13_0 added: the
+// FIX->ENHANCE low-corroboration demotion no longer silently vanishes from
+// output; the same-headword-registry-collocate CLARIFY mechanism now
+// requires a scoped LLM vagueness confirmation instead of firing on any
+// registry coincidence; ENHANCE substitutions get a final LLM grammar/
+// naturalness check.
+// v1_4_19 (2026-07-23): bumped lret_session to v1_13_1 -- the ENHANCE
+// naturalness check above was fail-open (no OPENAI_API_KEY, or one
+// candidate's LLM call failing, both left that suggestion shown
+// unverified -- exactly the ungrammatical substitutions Fix 4 exists to
+// catch). Now fails closed, same posture as the CLARIFY check: no verified
+// judgment means no suggestion shown. Verified directly (not just read):
+// ran _v1130_apply_enhance_naturalness_check with no API key -> every
+// candidate dropped; ran it with a mocked partial-failure LLM response
+// (one candidate judged, others returning no verdict) -> only the
+// unverified ones were dropped, the verified-good one survived.
+// v1_4_20 (2026-07-23): bumped to wire the LRET/Vocabulary-Coach-to-Priority-Engine
+// cross-engine signal (Pipeline_Frontend_Spec_v2.docx section 6, LRET_v2_Spec.docx
+// section 5.3) -- the audit-fix prerequisite this was blocked on (lret_engine_v1_13_1
+// above) is now done. priority_input bumps to priority_input_builder_standalone_v1_4_9.py
+// and gains --lret {prior_context} + --vocab-ledger
+// {learner_profiles_dir}/{student_id}_vocab_coach_ledger.json (both optional/additive).
+// --lret intentionally receives {prior_context}, not this run's own {lret_session}:
+// checked directly in gold_full_pipeline_orchestrator_v1_4_9.py's STAGE_ORDER --
+// priority_input is stage 16, lret_session is stage 22, so this essay's own LRET pass
+// has not happened yet when priority_input runs; only the PRIOR essay's signal
+// (carried forward via {prior_context}, already produced at stage 1) is actually
+// available at this point. learner_profile bumps to
+// gold_lie_profile_builder_standalone_v1_4_6.py, which adds one additive
+// lexical_skill_signals field so THIS essay's LRET signal survives into the persisted
+// profile for the NEXT essay's priority_input step to read. Verified: Priority Engine's
+// extract_strengths_profile() genuinely reads the new evaluator_payload.strengths_profile
+// entries this produces. NOT yet verified/wired (as of v1.4.20): priority_output_normalizer_standalone.py's
+// focus_areas (what Directive/Writing Coach mission selection/LIE's next_best_action
+// actually consume) is built only from ErrorMap and does not read Priority Engine's raw
+// output at all -- so this signal does not yet change recommended_service. That is a
+// separate, still-open gap this bump does not close (see
+// priority_input_builder_standalone_v1_4_9.py's module docstring for the full trace).
+// v23 (2026-07-23): closes the gap noted immediately above. priority_normalized now runs
+// priority_output_normalizer_standalone_v1_4_4.py, which adds build_focus_from_evaluator()
+// (reads consumer_payloads.writing_coach_payload.development_target_signals/gap_signals --
+// confirmed against a real 07_evaluator_output.json; this is Evaluator's own holistic
+// competence judgment, e.g. weak argumentation/organization, which ErrorMap alone would
+// never surface) and build_focus_from_lexical_signal() (reads priority_input's
+// lexical_coach_signal.families -- confirmed Priority Engine's own raw output does NOT
+// carry this field at all, only the strength side reaches it via strengths_profile, so a
+// new --priority-input arg was required, not just --priority). Both are merged with the
+// pre-existing build_focus_from_errormap() into one ranked focus_areas list without
+// conflating the three taxonomies (see that file's module docstring for the full
+// merge/rank strategy). Verified end-to-end on a real session
+// (gold_20260719_212849_sub_1784489329011_..._ed924a2c): focus_areas grew from 2
+// (ErrorMap-only: sentence_control, lexical_precision) to 6, adding two genuinely new
+// Evaluator-derived weaknesses (Organization, Argumentation) and two lexical-signal
+// entries, and directive_adapter_cli_v1_4_3.py consumed the result correctly. Config
+// bumps to gold_engine_commands_full_v1_4_21.json (adds --evaluator {evaluator} and
+// --priority-input {priority_input} to the priority_normalized command; both artifacts
+// already exist by that point in STAGE_ORDER).
 const ENGINE_CONFIG =
-  process.env.STELLA_GOLD_ENGINE_CONFIG ?? "gold_engine_commands_full_v1_4_16.json";
+  process.env.STELLA_GOLD_ENGINE_CONFIG ?? "gold_engine_commands_full_v1_4_21.json";
 export const OUTPUT_ROOT = "gold_web_sessions";
+// v27 (2026-07-23): the new scored-only Premium tier (replaces
+// pipeline_runner_v14j.py/full_premium — see pipeline.ts's runEvaluation()
+// tier router and PREMIUM_PIPELINE_SPEC_V1.docx for the full rationale).
+// Same engine binaries as Gold (Detector, Evaluator, Scorer, Verifier,
+// Adjudicator, Progress Tracker, Priority Engine, Directive, Feedback
+// Engine, LIE) living in this same GOLD_PIPELINE_DIR folder — only the
+// orchestrator + engine-config are new files, and only because the STAGE_ORDER
+// is trimmed (no lret_session/writing_coach/practice_session/vocab_coach/
+// service_routing/revision_workspace — no coaching/learning layer at all).
+// Runs under its own output-root so premium sessions' raw per-essay artifacts
+// never mix with gold_web_sessions/, but deliberately shares GOLD_PIPELINE_DIR's
+// learner_profiles_dir with Gold (see runPremiumScoredEvaluation()'s own
+// comment for why: LIE is "cross-essay tracking for this student", not
+// "cross-essay tracking for this tier").
+const PREMIUM_ORCHESTRATOR = "premium_scored_pipeline_orchestrator_v1_0.py";
+const PREMIUM_ENGINE_CONFIG =
+  process.env.STELLA_PREMIUM_ENGINE_CONFIG ?? "premium_engine_commands_v1_0.json";
+export const PREMIUM_OUTPUT_ROOT = "premium_web_sessions";
+const PREMIUM_TIMEOUT_MS = 12 * 60 * 1000; // fewer stages than Gold (no coaching layer) but same 2 LLM-calling stages (Detector, Evaluator) dominate runtime
 // The orchestrator's --canonical-resources-dir used to default to a
 // hardcoded absolute path baked into gold_full_pipeline_orchestrator_v1_4_9.py
 // (tied to one specific machine). Fixed there to read
@@ -119,7 +220,13 @@ const GOLD_CRITERION_TO_APP: Record<string, keyof FeedbackReport["score_summary"
 
 function mapGoldReportToFeedbackReport(
   raw: GoldFeedbackReportRaw,
-  input: { submissionId: string; studentId: string }
+  input: { submissionId: string; studentId: string },
+  // v27: Premium reuses this mapper unchanged (feedback_engine_v6c_cli.py's
+  // 06_feedback_report_v6c.json shape is identical either tier -- same script
+  // version, see premium_engine_commands_v1_0.json) but with its own
+  // report_id prefix, so a report_id string alone tells you which pipeline
+  // produced it (useful for the trainer QA queue and any future analytics).
+  enginePrefix: "gold" | "premium" = "gold"
 ): FeedbackReport {
   const cb = raw.performance_summary.criteria_bands;
   const criteria_bands = {
@@ -160,6 +267,11 @@ function mapGoldReportToFeedbackReport(
       rank: i + 1,
       criterion: f.criterion,
       skill_tag: f.skill_tag,
+      // v24 (2026-07-23): was silently dropped here even though the raw Gold
+      // report already carries it (see GoldFeedbackReportRaw above) -- see
+      // lib/types.ts's FocusArea.capacity_domain doc comment for why this is
+      // the field Practice now needs to bridge into the exercise bank.
+      capacity_domain: f.capacity_domain,
       current_band,
       target_band: rubricTarget(current_band),
       summary: f.summary,
@@ -170,7 +282,7 @@ function mapGoldReportToFeedbackReport(
   const recommendations = raw.top_learning_priorities.map((p) => p.next_step).filter(Boolean);
 
   return {
-    report_id: `gold_${input.submissionId}`,
+    report_id: `${enginePrefix}_${input.submissionId}`,
     student_id: input.studentId,
     generated_at: raw.created_at,
     score_summary: {
@@ -341,6 +453,213 @@ export async function runGoldEvaluation(input: {
       console.error(`[ST.ELLA] Could not read QA report for quality_notice detail:`, qaErr);
     }
   }
+
+  // v22 (2026-07-23): Defect 1 fix (see refreshLearnerProfile()'s module
+  // comment) -- this new essay's own learner_profile/roadmap/etc artifacts
+  // are correct and complete at this point; reseed the per-student "current"
+  // files from them now, so the roadmap/profile a student sees immediately
+  // reflects THIS essay rather than a stale copy left over from whatever
+  // Practice/Coach/Vocab/Revision activity happened around the PREVIOUS
+  // essay. Subsequent refreshLearnerProfile() calls enrich this new baseline
+  // further as the student does more of that activity around this essay.
+  reseedCurrentProfileFromSession(input.studentId, parsed.session_dir);
+
+  // v26 (2026-07-23): classify this essay's topic for Vocab Coach
+  // topic-matching (see classifyEssayTopic()'s module comment). Best-effort,
+  // never blocks a successful evaluation on a classification hiccup -- an
+  // essay with no confident topic is a normal, expected state (undefined),
+  // not a failure; only a genuine exception is worth logging.
+  try {
+    const topic = classifyEssayTopic(input.prompt, input.essay);
+    setSubmissionTopic(input.submissionId, topic ?? null);
+  } catch (e) {
+    console.error(`[ST.ELLA] Essay topic classification failed for submission ${input.submissionId}:`, e);
+  }
+
+  return { report, sessionDir: parsed.session_dir };
+}
+
+// ---------------------------------------------------------------------------
+// v27 (2026-07-23): Premium (scored-only) tier. Replaces the old
+// pipeline_runner_v14j.py/full_premium path in pipeline.ts's runEvaluation()
+// tier router for plan === "premium" | "premium_pilot". Same real engine
+// files as Gold (Detector, Evaluator, Scorer, Verifier, Adjudicator, Progress
+// Tracker, Priority Engine, Directive, Feedback Engine, LIE), run by a
+// separate, trimmed orchestrator (premium_scored_pipeline_orchestrator_v1_0.py
+// + premium_engine_commands_v1_0.json — see PREMIUM_PIPELINE_SPEC_V1.docx for
+// the full rationale) with no coaching/learning-layer stages at all: no
+// lret_session, no writing_coach, no practice_session, no vocab_coach_*, no
+// service_routing, no revision_workspace. Confirmed via direct grep of every
+// engine file (see task #16 research) that only Detector and Evaluator call
+// an LLM either way — every other stage kept here (Scorer/Verifier/
+// Adjudicator/Progress Tracker/Priority Engine/Directive/Feedback
+// Engine/LIE) is pure deterministic post-processing, so "no learning layer,
+// but still uses LLM" is exactly what this produces.
+//
+// LIE's scoped role in Premium (product decision, confirmed with the PO):
+// cross-essay tracking + Practice-results analysis — NOT Writing Coach/Vocab
+// Coach history (premium has neither). This falls out almost for free:
+// gold_lie_profile_builder_standalone_v1_4_7.py's --lret/--writing-coach/
+// --practice args are all documented-optional and a premium session simply
+// never produces those artifact files to point them at (its own
+// learner_profile command in premium_engine_commands_v1_0.json omits them
+// entirely rather than passing paths that will never exist); --engagement-
+// history (added as a new premium_scored_pipeline_orchestrator_v1_0.py
+// argparse flag, mirroring the existing --mission-to-grade pattern) is what
+// actually carries the "cross-essay tracking + Practice results" signal in —
+// generateFreshEngagementHistory() below is the SAME function
+// runVocabCoachSession() already uses (see its own comment above), reused
+// unchanged since it was never actually vocab-coach-specific.
+//
+// learner_profiles_dir is deliberately shared with Gold's (learnerProfilesDir()
+// below, NOT a premium-only subdirectory under PREMIUM_OUTPUT_ROOT) — LIE's
+// job is "track this STUDENT across essays", not "track this student's
+// activity within one pricing tier". If a student is ever on premium for one
+// essay and gold for another, their one continuous learner profile is what
+// "cross-essay tracking" should mean. Raw per-essay session artifacts (all
+// the 0X_*.json intermediate files) still live under their own
+// PREMIUM_OUTPUT_ROOT, separate from gold_web_sessions/ — only the per-
+// student "current" files and the persisted continuity profile are shared.
+// ---------------------------------------------------------------------------
+
+export async function runPremiumScoredEvaluation(input: {
+  submissionId: string;
+  studentId: string;
+  prompt: string;
+  essay: string;
+}): Promise<{ report: FeedbackReport; sessionDir: string }> {
+  const subDir = path.join(GOLD_PIPELINE_DIR, "web_submissions");
+  fs.mkdirSync(subDir, { recursive: true });
+  const subFile = path.join(subDir, `${input.submissionId}.json`);
+  fs.writeFileSync(
+    subFile,
+    JSON.stringify(
+      {
+        essay_id: input.submissionId,
+        student_id: input.studentId,
+        prompt_text: input.prompt,
+        essay_text: input.essay,
+      },
+      null,
+      2
+    )
+  );
+
+  // Same ad hoc, best-effort pattern runVocabCoachSession() uses: compute a
+  // fresh engagement-history artifact before invoking the orchestrator (this
+  // is NOT one of the orchestrator's own STAGE_ORDER stages, in either tier —
+  // gold_engagement_history_aggregator_v1_0.py reads real session history off
+  // disk and was always invoked ad hoc by the frontend, never as a per-
+  // submission pipeline stage). Scratch dir is scoped under this student's
+  // premium sessions, not gold_web_sessions, even though the OUTPUT it
+  // produces gets consumed by a command whose other outputs (the persisted
+  // "current" profile) are shared with Gold — only this scratch computation
+  // is tier-scoped, matching where its own inputs (this student's Practice/
+  // essay-revision history) are read from (submissionsFor/practiceResultsFor
+  // are tier-agnostic already, so this doesn't miss any premium-only
+  // activity).
+  const premiumSessionsScratchDir = path.join(GOLD_PIPELINE_DIR, PREMIUM_OUTPUT_ROOT, input.studentId);
+  fs.mkdirSync(premiumSessionsScratchDir, { recursive: true });
+  const engagementHistory = await generateFreshEngagementHistory(input.studentId, premiumSessionsScratchDir);
+
+  // Deliberately no --pretty, same reason as runGoldEvaluation: main() prints
+  // one JSON line to stdout on exit, pretty-printing would break the parse
+  // below. --strict omitted for the same reason (don't hard-fail a
+  // submission over an imperfect QA gate) — qa_status is still captured.
+  const stdout = await new Promise<string>((resolve, reject) => {
+    const proc = spawn(
+      "python",
+      [
+        PREMIUM_ORCHESTRATOR,
+        "--input",
+        subFile,
+        "--engine-config",
+        PREMIUM_ENGINE_CONFIG,
+        "--output-root",
+        PREMIUM_OUTPUT_ROOT,
+        "--learner-profiles-dir",
+        learnerProfilesDir(),
+        ...(engagementHistory ? ["--engagement-history", engagementHistory] : []),
+        ...(CANONICAL_RESOURCES_DIR ? ["--canonical-resources-dir", CANONICAL_RESOURCES_DIR] : []),
+      ],
+      { cwd: GOLD_PIPELINE_DIR, env: process.env, windowsHide: true }
+    );
+    let out = "";
+    let stderr = "";
+    proc.stdout.on("data", (d) => (out += d.toString()));
+    proc.stderr.on("data", (d) => (stderr += d.toString()));
+    proc.on("error", reject);
+    proc.on("close", (code) =>
+      code === 0
+        ? resolve(out)
+        : reject(new Error(`premium pipeline exited ${code}: ${stderr.slice(-800)}`))
+    );
+    setTimeout(() => {
+      proc.kill();
+      reject(new Error("premium pipeline timeout after 12 minutes"));
+    }, PREMIUM_TIMEOUT_MS);
+  });
+
+  let parsed: { qa_status: string; session_dir: string };
+  try {
+    const lastLine = stdout.trim().split("\n").filter(Boolean).pop() ?? "";
+    parsed = JSON.parse(lastLine);
+  } catch {
+    throw new Error(`could not parse premium orchestrator stdout: ${stdout.slice(-500)}`);
+  }
+
+  const reportFile = path.join(parsed.session_dir, "06_feedback_report_v6c.json");
+  if (!fs.existsSync(reportFile)) {
+    // Same diagnostic-detail extraction as runGoldEvaluation — see that
+    // function's comment for why both the QA report and manifest are worth
+    // reading here instead of just throwing "needs_attention".
+    let qaDetail = "";
+    try {
+      const qaReportPath = (parsed as any).qa_report;
+      if (qaReportPath && fs.existsSync(qaReportPath)) {
+        const qa = JSON.parse(fs.readFileSync(qaReportPath, "utf8"));
+        qaDetail = ` — missing_required_artifacts: ${JSON.stringify(qa.missing_required_artifacts ?? [])}, invalid_required: ${JSON.stringify(qa.invalid_required ?? [])}, boundary_issues: ${JSON.stringify(qa.boundary_issues ?? [])}, quality_gate_issues: ${JSON.stringify(qa.quality_gate_issues ?? [])}`;
+      }
+    } catch (qaErr) {
+      qaDetail = ` (also failed to read QA report: ${qaErr instanceof Error ? qaErr.message : String(qaErr)})`;
+    }
+    let stageDetail = "";
+    try {
+      const manifestPath = (parsed as any).manifest;
+      if (manifestPath && fs.existsSync(manifestPath)) {
+        const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+        const failed = Array.isArray(manifest.stage_results)
+          ? manifest.stage_results.filter((s: any) => s.status === "failed")
+          : [];
+        if (failed.length) {
+          stageDetail = ` — FAILED STAGES: ${failed
+            .map((s: any) => `[${s.stage}] ${(s.error ?? "").slice(-1500)}`)
+            .join(" ||| ")}`;
+        }
+      }
+    } catch (mErr) {
+      stageDetail = ` (also failed to read manifest: ${mErr instanceof Error ? mErr.message : String(mErr)})`;
+    }
+    throw new Error(
+      `feedback report missing in ${parsed.session_dir} (qa_status: ${parsed.qa_status})${qaDetail}${stageDetail}`
+    );
+  }
+  const raw = JSON.parse(fs.readFileSync(reportFile, "utf8")) as GoldFeedbackReportRaw;
+  const report = mapGoldReportToFeedbackReport(raw, input, "premium");
+
+  if (parsed.qa_status && parsed.qa_status !== "pass" && parsed.qa_status !== "PASS") {
+    report.escalate_to_human_review = true;
+  }
+
+  // Same per-student "current" LIE-artifact reseed runGoldEvaluation does —
+  // tier-agnostic (best-effort per file, copies whatever the session
+  // actually produced), so a premium session's own fresh learner_profile
+  // output becomes the new baseline immediately, same as Gold's.
+  reseedCurrentProfileFromSession(input.studentId, parsed.session_dir);
+
+  // No essay-topic classification here: that field exists solely for Vocab
+  // Coach's topic-matching (classifyEssayTopic()'s module comment), and
+  // Premium has no Vocab Coach to match a topic for.
 
   return { report, sessionDir: parsed.session_dir };
 }
@@ -771,7 +1090,17 @@ export async function runMissionGrading(
 // behind the two intervening bank builds (v1_4_0's 8 new topics + Tier B
 // academic collocations, v1_5_0's academic_words) -- to v1_5_0, the current
 // bank on disk.
-const VOCAB_COACH_SELECTION_SCRIPT = "vocab_coach_selection_engine_v1_2.py";
+// v25 (2026-07-23): bumped to v1_3 -- combined 3-source family bias (LRET +
+// Evaluator's D7/D9/D14 lexical/style domains + Practice engagement-history
+// repeated_practice_families), per direct product-owner design discussion.
+// See that file's module docstring for the full grounding. runVocabCoachSession()
+// below now also passes --evaluator and --engagement-history (both optional,
+// additive -- an old-shaped call with neither still works exactly as v1_2 did).
+// v26 (2026-07-23): bumped to v1_4 -- adds optional --topic-lock, wired below
+// from the latest essay's classifyEssayTopic() result (see that function's
+// module comment). No essay yet, or topic not confidently classified -> arg
+// omitted -> rotation across all topics, unchanged from v1_3's behavior.
+const VOCAB_COACH_SELECTION_SCRIPT = "vocab_coach_selection_engine_v1_4.py";
 const VOCAB_COACH_GRADER_SCRIPT = "vocab_coach_response_grader_v1_1.py";
 const VOCAB_COACH_LEDGER_SCRIPT = "vocab_coach_ledger_update_v1_1.py";
 const VOCAB_COACH_TOPIC_BANK = "vocab_coach_topic_bank_v1_5_0.json";
@@ -788,6 +1117,138 @@ const VOCAB_COACH_PROMPT_BANK = "vocab_coach_prompt_bank_v1_1_0.json";
 const VOCAB_COACH_TIMEOUT_MS = 60 * 1000;
 const VOCAB_COACH_MAX_LRET_SESSIONS = 5;
 
+// v26 (2026-07-23): essay-topic classification for Vocab Coach topic-
+// matching. Product-owner design: vocabulary practice should stay on the
+// SAME topic as the essay being revised (so learned words can plausibly show
+// up in the revision, making the whole Practice+Writing-Coach+Vocab-Coach
+// loop's effect on revision quality actually testable) -- but only when
+// there IS a specific essay to match; the no-essay session-flow keeps
+// today's random-topic rotation unchanged (no work needed there).
+//
+// Deliberately deterministic keyword-match against the topic bank's OWN
+// vocabulary, not an LLM call -- classification runs on every Gold
+// evaluation, so a per-essay LLM cost/latency here would be a real recurring
+// cost for a task simple keyword overlap already handles well; matches this
+// codebase's established preference for narrow, cheap, explainable engines
+// over LLM calls wherever one will do (see LRET's fail-closed narrow-LLM-
+// fallback pattern for the same philosophy applied elsewhere).
+let vocabTopicBankCache: any = null;
+function loadVocabTopicBankRaw(): any {
+  if (vocabTopicBankCache) return vocabTopicBankCache;
+  const p = path.join(GOLD_PIPELINE_DIR, VOCAB_COACH_TOPIC_BANK);
+  vocabTopicBankCache = JSON.parse(fs.readFileSync(p, "utf8"));
+  return vocabTopicBankCache;
+}
+
+const STOPWORDS = new Set([
+  "the", "a", "an", "and", "or", "but", "of", "to", "in", "on", "for", "with",
+  "is", "are", "was", "were", "be", "been", "being", "this", "that", "these",
+  "those", "it", "its", "as", "at", "by", "from", "into", "about", "than",
+  "then", "so", "such", "not", "no", "do", "does", "did", "has", "have", "had",
+  "will", "would", "can", "could", "should", "may", "might", "must", "if",
+  "there", "their", "they", "them", "which", "who", "whom", "what", "when",
+  "where", "how", "why", "some", "many", "most", "more", "much", "very", "also",
+]);
+
+function tokenize(text: string): string[] {
+  return (text.toLowerCase().match(/[a-z][a-z'-]*/g) ?? []).filter(
+    (w) => w.length > 2 && !STOPWORDS.has(w)
+  );
+}
+
+// Extracts every unit (a flat topic, or one of its subtopics) as
+// {topicKey, keywords: Set<string>} -- topicKey is always the TOP-LEVEL
+// topic name (vocab_coach_selection_engine's --topic-lock operates at that
+// granularity, matching enumerate_units()'s own topic/subtopic distinction),
+// even when the keywords themselves come from a subtopic's items.
+// `headword` is each collocation's real content word (e.g. "offence" for
+// "cause offence") -- confirmed directly against vocab_coach_topic_bank_v1_5_0.json
+// -- a much cleaner topic signal than tokenizing the whole phrase, which
+// includes generic collocate words ("cause", "serious") that recur across
+// many topics and would dilute the signal. Falls back to tokenizing `phrase`
+// only for older bank entries that predate the `headword` field.
+let topicKeywordIndexCache: Record<string, Set<string>> | null = null;
+function buildTopicKeywordIndex(): Record<string, Set<string>> {
+  if (topicKeywordIndexCache) return topicKeywordIndexCache;
+  const bank = loadVocabTopicBankRaw();
+  const index: Record<string, Set<string>> = {};
+
+  function addItems(topicKey: string, items: any[] | undefined) {
+    if (!Array.isArray(items)) return;
+    const set = (index[topicKey] ??= new Set());
+    for (const it of items) {
+      if (it && typeof it.headword === "string") {
+        set.add(it.headword.toLowerCase());
+      } else if (it && typeof it.phrase === "string") {
+        for (const w of tokenize(it.phrase)) set.add(w);
+      }
+    }
+  }
+  function addAcademicWords(topicKey: string, words: any[] | undefined) {
+    if (!Array.isArray(words)) return;
+    const set = (index[topicKey] ??= new Set());
+    for (const w of words) {
+      if (w && typeof w.word === "string") set.add(w.word.toLowerCase());
+    }
+  }
+
+  const topics = bank?.topics ?? {};
+  for (const [topicKey, tdata] of Object.entries<any>(topics)) {
+    if (tdata && tdata.subtopics) {
+      for (const sdata of Object.values<any>(tdata.subtopics)) {
+        addItems(topicKey, sdata?.items);
+        addAcademicWords(topicKey, sdata?.academic_words);
+      }
+    } else {
+      addItems(topicKey, tdata?.items);
+      addAcademicWords(topicKey, tdata?.academic_words);
+    }
+  }
+  topicKeywordIndexCache = index;
+  return index;
+}
+
+// Provisional thresholds, not tuned against real essays -- same
+// not-yet-validated caveat this session has already flagged for
+// EVALUATOR_PRIORITY_HIGH/MEDIUM and vocab_coach_selection_engine_v1_3's
+// combined-tally merge. MIN_HITS guards against classifying a very short or
+// generic essay off one incidental word match; MIN_MARGIN_RATIO guards
+// against a near-tie between two topics (e.g. "technology" vs "education"
+// both plausibly present) picking one arbitrarily -- returns unclassified
+// (undefined) rather than guessing in either case, which is the safe
+// fallback since Vocab Coach's existing random-topic rotation already
+// handles "no confident topic" gracefully.
+const TOPIC_CLASSIFY_MIN_HITS = 3;
+const TOPIC_CLASSIFY_MIN_MARGIN_RATIO = 1.3;
+
+export function classifyEssayTopic(promptText: string, essayText: string): string | undefined {
+  const index = buildTopicKeywordIndex();
+  const tokens = tokenize(`${promptText}\n${essayText}`);
+  if (tokens.length === 0) return undefined;
+
+  const scores: Record<string, number> = {};
+  const seenPerTopic: Record<string, Set<string>> = {};
+  for (const tok of tokens) {
+    for (const [topicKey, keywords] of Object.entries(index)) {
+      if (keywords.has(tok)) {
+        const seen = (seenPerTopic[topicKey] ??= new Set());
+        if (!seen.has(tok)) {
+          seen.add(tok);
+          scores[topicKey] = (scores[topicKey] ?? 0) + 1;
+        }
+      }
+    }
+  }
+
+  const ranked = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+  if (ranked.length === 0) return undefined;
+  const [topTopic, topScore] = ranked[0];
+  if (topScore < TOPIC_CLASSIFY_MIN_HITS) return undefined;
+  const runnerUpScore = ranked[1]?.[1] ?? 0;
+  if (runnerUpScore > 0 && topScore / runnerUpScore < TOPIC_CLASSIFY_MIN_MARGIN_RATIO) return undefined;
+  return topTopic;
+}
+
 function learnerProfilesDir(): string {
   const dir = path.join(GOLD_PIPELINE_DIR, OUTPUT_ROOT, "learner_profiles");
   fs.mkdirSync(dir, { recursive: true });
@@ -796,6 +1257,59 @@ function learnerProfilesDir(): string {
 
 function vocabCoachLedgerPath(studentId: string): string {
   return path.join(learnerProfilesDir(), `${studentId}_vocab_coach_ledger.json`);
+}
+
+// v22 (2026-07-23): Defect 1 fix -- see refreshLearnerProfile()'s module
+// comment below for the full story. These are per-STUDENT "current" LIE
+// artifacts, separate from any one essay's own frozen session-dir files
+// (08_gold_learner_profile.json/08b/08c/09/08a) -- same per-student
+// file-naming convention as vocabCoachLedgerPath above. refreshLearnerProfile
+// writes here (never back into a session dir again); runGoldEvaluation's
+// success path reseeds these from a brand-new essay's own fresh originals
+// (see reseedCurrentProfileFromSession below); getLearningRoadmap() in
+// study-plan.ts reads currentRoadmapPath() first, falling back to the
+// session's own 08c only if no refresh/reseed has happened yet for this
+// student.
+export function currentLearnerProfilePath(studentId: string): string {
+  return path.join(learnerProfilesDir(), `${studentId}_current_learner_profile.json`);
+}
+export function currentSkillsProgressPath(studentId: string): string {
+  return path.join(learnerProfilesDir(), `${studentId}_current_skills_progress.json`);
+}
+export function currentRoadmapPath(studentId: string): string {
+  return path.join(learnerProfilesDir(), `${studentId}_current_roadmap.json`);
+}
+export function currentProgressSnapshotPath(studentId: string): string {
+  return path.join(learnerProfilesDir(), `${studentId}_current_progress_snapshot.json`);
+}
+export function currentPersistedProfilePath(studentId: string): string {
+  return path.join(learnerProfilesDir(), `${studentId}_current_persisted_profile.json`);
+}
+
+// Copies a NEW essay's own fresh, correct, original learner-profile artifacts
+// into the per-student "current" paths above. Called once, right after
+// runGoldEvaluation()'s orchestrator run completes successfully -- this
+// establishes a correct new baseline (this essay's real, just-computed
+// profile) instead of leaving the PREVIOUS essay cycle's stale "current"
+// files in place until the next Practice/Coach/Vocab/Revision action happens
+// to trigger a refreshLearnerProfile() call. Best-effort per file (a single
+// missing/unreadable artifact shouldn't fail the whole essay submission that
+// is already otherwise successful at this point) -- logged, not thrown.
+function reseedCurrentProfileFromSession(studentId: string, sessionDir: string): void {
+  const copies: Array<[string, string]> = [
+    [path.join(sessionDir, "08_gold_learner_profile.json"), currentLearnerProfilePath(studentId)],
+    [path.join(sessionDir, "08b_gold_skills_progress_report.json"), currentSkillsProgressPath(studentId)],
+    [path.join(sessionDir, "08c_gold_learning_roadmap.json"), currentRoadmapPath(studentId)],
+    [path.join(sessionDir, "09_gold_progress_snapshot.json"), currentProgressSnapshotPath(studentId)],
+    [path.join(sessionDir, "08a_gold_persisted_profile.json"), currentPersistedProfilePath(studentId)],
+  ];
+  for (const [src, dest] of copies) {
+    try {
+      if (fs.existsSync(src)) fs.copyFileSync(src, dest);
+    } catch (e) {
+      console.error(`[ST.ELLA] Could not reseed current profile file ${dest} from ${src}:`, e);
+    }
+  }
 }
 
 // Scans this student's own session directories ({OUTPUT_ROOT}/{studentId}/gold_*)
@@ -839,6 +1353,38 @@ function findLatestScoreContractPath(studentId: string): string | undefined {
     if (fs.existsSync(p)) return p;
   }
   return undefined;
+}
+
+// v25 (2026-07-23): same pattern as findLatestScoreContractPath above, for
+// vocab_coach_selection_engine_v1_3.py's new --evaluator input. Points at the
+// raw 07_evaluator_output.json (the full payload, including
+// consumer_payloads.writing_coach_payload.development_target_signals) -- NOT
+// the trimmed evaluator_payload used elsewhere in this file.
+function findLatestEvaluatorOutputPath(studentId: string): string | undefined {
+  const studentDir = path.join(GOLD_PIPELINE_DIR, OUTPUT_ROOT, studentId);
+  if (!fs.existsSync(studentDir)) return undefined;
+  const sessionDirs = fs
+    .readdirSync(studentDir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name)
+    .sort()
+    .reverse();
+  for (const name of sessionDirs) {
+    const p = path.join(studentDir, name, "07_evaluator_output.json");
+    if (fs.existsSync(p)) return p;
+  }
+  return undefined;
+}
+
+// v26 (2026-07-23): the latest "done" submission's classified topic (see
+// classifyEssayTopic()), for Vocab Coach's --topic-lock. Uses submissionsFor
+// (already ordered created_at DESC, per store.ts), not a session-dir scan --
+// topic is a plain DB column, no file to locate. Returns undefined if there's
+// no essay yet, or classification never produced a confident topic for it --
+// both are normal, expected states (see classifyEssayTopic()'s doc comment).
+function findLatestEssayTopic(studentId: string): string | undefined {
+  const latest = submissionsFor(studentId).find((s) => s.status === "done" && s.topic);
+  return latest?.topic;
 }
 
 function runPythonScript(script: string, args: string[], timeoutMs: number, label: string): Promise<void> {
@@ -888,7 +1434,85 @@ export interface VocabCoachSession {
   reviewItems: Array<{ phrase: string; box: string; note: string }>;
   lretBiasApplied: boolean;
   lretBiasNote: string | null;
+  // v25 (2026-07-23): lretBiasApplied/lretBiasNote above now reflect the
+  // COMBINED bias (LRET + Evaluator + Practice engagement-history), not just
+  // LRET -- names kept for backward compatibility with existing UI code.
+  // biasSources breaks out each source's own raw tally for transparency (e.g.
+  // a future trainer-facing "why was this word picked" view); evaluatorOnly
+  // surfaces genuine Evaluator lexical/style weaknesses that don't have a
+  // corresponding bank item type to bias toward yet (see
+  // vocab_coach_selection_engine_v1_3.py's module docstring) -- shown so this
+  // gap is visible rather than silently invisible.
+  biasSources: {
+    lretSessions: Record<string, number>;
+    evaluatorDevelopmentTargets: Record<string, number>;
+    engagementHistoryPractice: Record<string, number>;
+  };
+  evaluatorSurfacedOnly: Array<{ skill_id?: string; domain?: string; priority_index?: number }>;
+  // v26 (2026-07-23): whether this session's rotation was restricted to the
+  // latest essay's classified topic (topicLockRequested is what
+  // classifyEssayTopic() produced; topicLockApplied is false if that topic
+  // didn't match any real topic in the bank in use, or if there was no
+  // essay/no confident classification at all -- either way rotation still
+  // ran, just across all topics as before).
+  topicLockRequested: string | null;
+  topicLockApplied: boolean;
   filePath: string;
+}
+
+// v25 (2026-07-23): generates a FRESH engagement-history file right before
+// vocab coach selection runs, rather than relying on refreshLearnerProfile()
+// having run recently (that function writes to a per-refresh-call stamped
+// path under a specific essay's sessionDir, not a stable well-known
+// location -- unsuitable to depend on here). Same aggregator, same cheap
+// cost (verified <1s in refreshLearnerProfile's own testing) -- reusing
+// ENGAGEMENT_HISTORY_AGGREGATOR_SCRIPT rather than inventing a second one.
+// Best-effort: returns undefined (not a throw) on any failure, since
+// engagement-history is an optional, additive bias input for vocab coach
+// selection -- same posture as the optional score-contract/lret-sessions
+// inputs already handled below.
+// v27: also reused (unchanged) by runPremiumScoredEvaluation() below, as the
+// --engagement-history input to premium's learner_profile stage -- this
+// function was never actually vocab-coach-specific (studentId + a scratch
+// sessionsDir is all it needs), only its internal folder name used to say
+// otherwise; renamed to a generic name to match the wider real usage.
+async function generateFreshEngagementHistory(studentId: string, sessionsDir: string): Promise<string | undefined> {
+  try {
+    const latest = submissionsFor(studentId).find((s) => s.status === "done" && s.sessionDir);
+    const refreshDir = path.join(sessionsDir, "engagement_history_fresh");
+    fs.mkdirSync(refreshDir, { recursive: true });
+    const stamp = Date.now();
+    const exportFile = path.join(refreshDir, `export_${stamp}.json`);
+    const engagementFile = path.join(refreshDir, `engagement_history_${stamp}.json`);
+    fs.writeFileSync(
+      exportFile,
+      JSON.stringify({
+        student_id: studentId,
+        practice_results: practiceResultsFor(studentId),
+        mission_results: missionResultsFor(studentId),
+      })
+    );
+    await runPythonScript(
+      ENGAGEMENT_HISTORY_AGGREGATOR_SCRIPT,
+      [
+        "--practice-mission-export",
+        exportFile,
+        "--exercise-bank",
+        EXERCISE_BANK_PATH,
+        ...(latest?.sessionDir ? ["--session-dir", latest.sessionDir] : []),
+        "--student-id",
+        studentId,
+        "--output",
+        engagementFile,
+      ],
+      REFRESH_TIMEOUT_MS,
+      "engagement history for vocab coach"
+    );
+    return fs.existsSync(engagementFile) ? engagementFile : undefined;
+  } catch (e) {
+    console.error(`[ST.ELLA] Could not generate engagement history for vocab coach selection (${studentId}):`, e);
+    return undefined;
+  }
 }
 
 export async function runVocabCoachSession(studentId: string): Promise<VocabCoachSession> {
@@ -898,6 +1522,18 @@ export async function runVocabCoachSession(studentId: string): Promise<VocabCoac
   const ledgerPath = vocabCoachLedgerPath(studentId);
   const lretSessions = findRecentLretSessionPaths(studentId);
   const scoreContract = findLatestScoreContractPath(studentId);
+  // v25: three-source family bias -- see vocab_coach_selection_engine_v1_3.py's
+  // module docstring. Both new inputs are optional/best-effort; a missing
+  // evaluator file or a failed engagement-history generation just means that
+  // source contributes nothing to the combined tally, same graceful
+  // degradation as the pre-existing score-contract/lret-sessions inputs.
+  const evaluatorOutput = findLatestEvaluatorOutputPath(studentId);
+  const engagementHistory = await generateFreshEngagementHistory(studentId, sessionsDir);
+  // v26: topic-matching -- see classifyEssayTopic()'s module comment and
+  // vocab_coach_selection_engine_v1_4.py's --topic-lock. undefined (arg
+  // omitted below) when there's no essay yet or its topic wasn't confidently
+  // classified -- rotation falls back to across-all-topics, unchanged.
+  const topicLock = findLatestEssayTopic(studentId);
 
   const args = [
     "--ledger",
@@ -915,6 +1551,9 @@ export async function runVocabCoachSession(studentId: string): Promise<VocabCoac
   ];
   if (scoreContract) args.push("--score-contract", scoreContract);
   if (lretSessions.length > 0) args.push("--lret-sessions", ...lretSessions);
+  if (evaluatorOutput) args.push("--evaluator", evaluatorOutput);
+  if (engagementHistory) args.push("--engagement-history", engagementHistory);
+  if (topicLock) args.push("--topic-lock", topicLock);
 
   await runPythonScript(VOCAB_COACH_SELECTION_SCRIPT, args, VOCAB_COACH_TIMEOUT_MS, "vocab coach selection");
 
@@ -936,6 +1575,10 @@ export async function runVocabCoachSession(studentId: string): Promise<VocabCoac
       reviewItems: [],
       lretBiasApplied: false,
       lretBiasNote: null,
+      biasSources: { lretSessions: {}, evaluatorDevelopmentTargets: {}, engagementHistoryPractice: {} },
+      evaluatorSurfacedOnly: [],
+      topicLockRequested: topicLock ?? null,
+      topicLockApplied: false,
       filePath: outFile,
     };
   }
@@ -943,6 +1586,8 @@ export async function runVocabCoachSession(studentId: string): Promise<VocabCoac
   const rotation = raw.rotation ?? {};
   const prompt = raw.prompt ?? {};
   const bias = raw.lret_family_bias ?? {};
+  const biasSourcesRaw = bias.sources ?? {};
+  const topicLockInfo = raw.topic_lock ?? {};
   return {
     status: "generated",
     nextSessionAvailableAt: null,
@@ -957,6 +1602,16 @@ export async function runVocabCoachSession(studentId: string): Promise<VocabCoac
     reviewItems: Array.isArray(raw.review_items) ? raw.review_items : [],
     lretBiasApplied: Boolean(bias.bias_applied),
     lretBiasNote: bias.note ?? null,
+    biasSources: {
+      lretSessions: biasSourcesRaw.lret_sessions ?? {},
+      evaluatorDevelopmentTargets: biasSourcesRaw.evaluator_development_targets ?? {},
+      engagementHistoryPractice: biasSourcesRaw.engagement_history_practice ?? {},
+    },
+    evaluatorSurfacedOnly: Array.isArray(bias.evaluator_surfaced_only_no_bank_mapping)
+      ? bias.evaluator_surfaced_only_no_bank_mapping
+      : [],
+    topicLockRequested: topicLockInfo.requested ?? null,
+    topicLockApplied: Boolean(topicLockInfo.applied),
     filePath: outFile,
   };
 }
@@ -1123,25 +1778,19 @@ function isToday(isoString: string): boolean {
   );
 }
 
-export function loadDailyDigest(studentId: string, workOnNext: string | null = null): DailyDigest {
-  const todaysPractice = practiceResultsFor(studentId).filter((r) => isToday(r.at));
-  const exercisesCompleted = todaysPractice.reduce((sum, r) => sum + (r.total ?? 0), 0);
-
-  const missionsCompleted = missionResultsFor(studentId).filter(
-    (m) => isToday(m.at) && (m.outcome === "pass" || m.outcome === "partial_pass")
-  ).length;
-
-  // Vocabulary: session_*.json filenames are `session_${Date.now()}.json` (see
-  // runVocabCoachSession), so file mtime already gives us "today" without
-  // needing to parse each file. "New words learned" cross-references the
-  // ledger: an item only reaches box_1+ after a real used_correctly verdict
-  // (see update_new_item in vocab_coach_ledger_update_v1_1.py), so counting
-  // items whose last_seen_session matches one of today's sessions and whose
-  // last_outcome is used_correctly is a true count, not an estimate.
-  let newWordsLearned = 0;
+// v19: factored out of loadDailyDigest so getSessionFlowStatus (below) can
+// reuse the exact same "did a real graded Vocabulary Coach attempt happen
+// today" signal instead of re-deriving it. session_*.json is written at
+// session-GENERATION time (see runVocabCoachSession), not grading time, so a
+// file existing today only proves a session was opened, not completed —
+// this cross-references the ledger's last_seen_session (only ever set by a
+// real graded submission, see vocab_coach_ledger_update_v1_1.py's
+// update_new_item/update_item) against today's session indices to get an
+// honest "graded today" signal.
+function todaysGradedVocabSessionIndices(studentId: string): Set<number> {
+  const todaysSessionIndices = new Set<number>();
   try {
     const sessionsDir = path.join(GOLD_PIPELINE_DIR, OUTPUT_ROOT, "vocab_coach_sessions", studentId);
-    const todaysSessionIndices = new Set<number>();
     if (fs.existsSync(sessionsDir)) {
       for (const name of fs.readdirSync(sessionsDir)) {
         if (!name.startsWith("session_") || !name.endsWith(".json")) continue;
@@ -1156,6 +1805,47 @@ export function loadDailyDigest(studentId: string, workOnNext: string | null = n
         }
       }
     }
+  } catch {
+    // best-effort — degrades to "no sessions found today"
+  }
+  return todaysSessionIndices;
+}
+
+function vocabCoachGradedToday(studentId: string): boolean {
+  const todaysSessionIndices = todaysGradedVocabSessionIndices(studentId);
+  if (todaysSessionIndices.size === 0) return false;
+  try {
+    const ledgerPath = vocabCoachLedgerPath(studentId);
+    if (!fs.existsSync(ledgerPath)) return false;
+    const ledger = JSON.parse(fs.readFileSync(ledgerPath, "utf8"));
+    for (const entry of Object.values<any>(ledger.items ?? {})) {
+      if (typeof entry.last_seen_session === "number" && todaysSessionIndices.has(entry.last_seen_session)) {
+        return true;
+      }
+    }
+  } catch {
+    // best-effort
+  }
+  return false;
+}
+
+export function loadDailyDigest(studentId: string, workOnNext: string | null = null): DailyDigest {
+  const todaysPractice = practiceResultsFor(studentId).filter((r) => isToday(r.at));
+  const exercisesCompleted = todaysPractice.reduce((sum, r) => sum + (r.total ?? 0), 0);
+
+  const missionsCompleted = missionResultsFor(studentId).filter(
+    (m) => isToday(m.at) && (m.outcome === "pass" || m.outcome === "partial_pass")
+  ).length;
+
+  // v19: reuses todaysGradedVocabSessionIndices (factored out for
+  // getSessionFlowStatus below) instead of re-deriving today's session
+  // indices inline. "New words learned" still requires last_outcome ===
+  // "used_correctly" specifically — an item only reaches box_1+ after that
+  // real verdict (see update_new_item in vocab_coach_ledger_update_v1_1.py) —
+  // so this is a true count, not an estimate.
+  let newWordsLearned = 0;
+  try {
+    const todaysSessionIndices = todaysGradedVocabSessionIndices(studentId);
     if (todaysSessionIndices.size > 0) {
       const ledgerPath = vocabCoachLedgerPath(studentId);
       if (fs.existsSync(ledgerPath)) {
@@ -1182,6 +1872,68 @@ export function loadDailyDigest(studentId: string, workOnNext: string | null = n
     workOnNext,
     hasActivity: exercisesCompleted > 0 || missionsCompleted > 0 || newWordsLearned > 0,
   };
+}
+
+// v19: guided session-flow sequencing — Session_Flow_and_Vocab_Expansion_Spec_v1
+// §0, per the student's own stated order: with a recent essay, practice →
+// writing coach → vocabulary coach → essay revision, then a wrap-up; without
+// one, practice → writing coach → vocabulary coach → wrap-up. Each step's
+// "done today" signal reuses data every engine already records for its own
+// purposes (practice_results / mission_results / the vocab ledger's
+// last_seen_session) — no new tracking table. Essay revision isn't a daily
+// thing like the other three, so it's scoped to "done for this specific
+// essay" via revision_comparisons/ contents rather than "done today".
+export type SessionFlowStepKey = "practice" | "writing_coach" | "vocabulary_coach" | "essay_revision";
+
+export interface SessionFlowStep {
+  key: SessionFlowStepKey;
+  label: string;
+  href: string;
+  done: boolean;
+}
+
+export interface SessionFlowStatus {
+  steps: SessionFlowStep[];
+  currentIndex: number; // index of the first not-done step, or steps.length if all done
+  cameFromEssay: boolean;
+}
+
+export function getSessionFlowStatus(
+  studentId: string,
+  opts: { sessionDir?: string | null; submissionId?: string | null } = {}
+): SessionFlowStatus {
+  const practiceDone = practiceResultsFor(studentId).some((r) => isToday(r.at));
+  const writingCoachDone = missionResultsFor(studentId).some(
+    (m) => isToday(m.at) && (m.outcome === "pass" || m.outcome === "partial_pass")
+  );
+  const vocabCoachDone = vocabCoachGradedToday(studentId);
+
+  const steps: SessionFlowStep[] = [
+    { key: "practice", label: "Practice", href: "/practice", done: practiceDone },
+    { key: "writing_coach", label: "Writing Coach", href: "/writing-coach", done: writingCoachDone },
+    { key: "vocabulary_coach", label: "Vocabulary Coach", href: "/vocabulary-coach", done: vocabCoachDone },
+  ];
+
+  const { sessionDir, submissionId } = opts;
+  const cameFromEssay = !!(sessionDir && loadRevisionWorkspace(sessionDir));
+  if (cameFromEssay && submissionId) {
+    let revisionDone = false;
+    try {
+      const comparisonsDir = path.join(sessionDir!, "revision_comparisons");
+      revisionDone = fs.existsSync(comparisonsDir) && fs.readdirSync(comparisonsDir).some((n) => n.startsWith("comparison_"));
+    } catch {
+      // best-effort
+    }
+    steps.push({
+      key: "essay_revision",
+      label: "Essay Revision",
+      href: `/writing/revise/${submissionId}`,
+      done: revisionDone,
+    });
+  }
+
+  const currentIndex = steps.findIndex((s) => !s.done);
+  return { steps, currentIndex: currentIndex === -1 ? steps.length : currentIndex, cameFromEssay };
 }
 
 // ---------------------------------------------------------------------------
@@ -1304,6 +2056,183 @@ export async function runRevisionComparison(
 }
 
 // ---------------------------------------------------------------------------
+// v20: essay revision scoped re-check — Session_Flow_and_Vocab_Expansion_Spec_v1
+// §1 ("a scoped, real re-check, not a full re-band"). Today's /api/writing/
+// revise/compare (runRevisionComparison above) deliberately never re-scores —
+// its own comment says so. This adds a REAL check, but scoped to only the
+// sentences the student actually rewrote: essay_revision_scoped_recheck_v1_0.py
+// diffs original vs. revised text (paragraph-scoped difflib alignment), runs
+// the real Detector (det_vip via det_vip_cli_bridge_v1_1.py) on each changed
+// sentence's PARAGRAPH context, before and after, and reports a per-sentence
+// before/after delta plus one honest aggregate summary string. It deliberately
+// does NOT produce a holistic band, and does NOT claim Task Response or
+// Coherence & Cohesion changed — see the engine's own module docstring for why
+// (holistic criteria can't be judged from a handful of edited sentences, but
+// local grammar/lexical accuracy can, sentence-by-sentence — exactly what the
+// Detector already does per-sentence in the full pipeline's own
+// 01d_detector_for_scorer.json rows).
+//
+// Design choice: SIBLING endpoint (/api/writing/revise/recheck), not folded
+// into runRevisionComparison's request/response. Reasons:
+//   1. Failure isolation — the AI-comparison call is an LLM full-paragraph
+//      rewrite (up to 120s); this call is 1-6 short Detector subprocess calls
+//      with a materially different cost/timeout profile (spec 1.2). Combining
+//      them into one request means one slow/failing engine blocks or kills
+//      the other's result.
+//   2. Independently tunable safety caps — --max-detector-calls /
+//      --timeout-seconds here are tuned for "a handful of sentences", not for
+//      a whole-essay LLM generation.
+//   3. RevisionWorkspaceClient.tsx still fires both from the SAME "Compare"
+//      click via Promise.allSettled (see the component), so there's no extra
+//      round trip perceived by the student — this is a backend separation of
+//      concerns, not an extra UI step.
+// Matches runRevisionComparison's own pattern exactly: a standalone script
+// call (not the 27-stage orchestrator), request/output files written under
+// the session dir for auditability, spawn + timeout + non-zero-exit rejection.
+// ---------------------------------------------------------------------------
+
+const REVISION_SCOPED_RECHECK_SCRIPT = "essay_revision_scoped_recheck_v1_0.py";
+// v20: 3 minutes overall, 60s per Detector subprocess call, capped at 6 calls
+// (3 changed paragraphs worth -- spec 1.2's "typically 1-5 sentences"). This
+// call always passes --require-llm through (matching the existing pipeline's
+// own det_vip config, which always enables it too), so a real production
+// call involves real LLM latency per paragraph, not just rule/spaCy passes --
+// hence a longer per-call budget than a purely rule-based check would need.
+const REVISION_SCOPED_RECHECK_TIMEOUT_MS = 180 * 1000;
+
+export interface RevisionRecheckErrorItem {
+  family: string;
+  rubric: string | null;
+  quote: string;
+  message: string;
+  suggestedRevision: string | null;
+  severity: string | null;
+}
+
+export interface RevisionRecheckSentence {
+  originalText: string;
+  revisedText: string;
+  errorsBefore: RevisionRecheckErrorItem[];
+  errorsAfter: RevisionRecheckErrorItem[];
+  fixed: RevisionRecheckErrorItem[];
+  introduced: RevisionRecheckErrorItem[];
+  persisting: RevisionRecheckErrorItem[];
+  status: string;
+  statusLabel: string;
+}
+
+export interface RevisionScopedRecheck {
+  sentencesRewritten: number;
+  nowErrorFree: number;
+  alreadyCleanRewrite: number;
+  stillHasErrors: number;
+  introducedNewErrorSentences: number;
+  totalErrorsFixed: number;
+  totalErrorsIntroduced: number;
+  honestSummaryText: string;
+  scopeDisclaimer: string;
+  newSentencesAdded: number;
+  sentencesRemoved: number;
+  truncatedForCostCap: boolean;
+  sentences: RevisionRecheckSentence[];
+}
+
+function mapRecheckError(raw: any): RevisionRecheckErrorItem {
+  return {
+    family: raw?.family ?? "UNKNOWN",
+    rubric: raw?.rubric ?? null,
+    quote: raw?.quote ?? "",
+    message: raw?.message ?? "",
+    suggestedRevision: raw?.suggested_revision ?? null,
+    severity: raw?.severity ?? null,
+  };
+}
+
+export async function runRevisionScopedRecheck(
+  sessionDir: string,
+  opts: { originalText: string; revisedText: string; prompt: string; taskType?: string }
+): Promise<RevisionScopedRecheck> {
+  const attemptsDir = path.join(sessionDir, "revision_scoped_rechecks");
+  fs.mkdirSync(attemptsDir, { recursive: true });
+  const stamp = Date.now();
+  const reqFile = path.join(attemptsDir, `request_${stamp}.json`);
+  const resultFile = path.join(attemptsDir, `recheck_${stamp}.json`);
+
+  fs.writeFileSync(
+    reqFile,
+    JSON.stringify({
+      original: { essay_text: opts.originalText },
+      revised: { essay_text: opts.revisedText },
+      prompt: { prompt_text: opts.prompt, task_type: opts.taskType ?? "WT2" },
+    })
+  );
+
+  await new Promise<void>((resolve, reject) => {
+    const proc = spawn(
+      "python",
+      [
+        REVISION_SCOPED_RECHECK_SCRIPT,
+        "--request",
+        reqFile,
+        "--output",
+        resultFile,
+        "--pretty",
+        // Tuned for "a handful of sentences" (spec 1.2), not a whole essay —
+        // see the module-level comment above for why this is a separate,
+        // independently-tuned call rather than sharing runRevisionComparison's
+        // 120s LLM-generation timeout.
+        "--timeout-seconds",
+        "60",
+        "--max-detector-calls",
+        "6",
+      ],
+      { cwd: GOLD_PIPELINE_DIR, env: process.env, windowsHide: true }
+    );
+    let stderr = "";
+    proc.stderr.on("data", (d) => (stderr += d.toString()));
+    proc.on("error", reject);
+    proc.on("close", (code) =>
+      code === 0 ? resolve() : reject(new Error(`revision scoped recheck exited ${code}: ${stderr.slice(-800)}`))
+    );
+    setTimeout(() => {
+      proc.kill();
+      reject(new Error("revision scoped recheck timed out after 3 minutes"));
+    }, REVISION_SCOPED_RECHECK_TIMEOUT_MS);
+  });
+
+  if (!fs.existsSync(resultFile)) throw new Error("Revision scoped recheck produced no output file.");
+  const raw = JSON.parse(fs.readFileSync(resultFile, "utf8"));
+  const summary = raw.summary ?? {};
+  const sentenceResults: any[] = Array.isArray(raw.sentence_results) ? raw.sentence_results : [];
+
+  return {
+    sentencesRewritten: summary.sentences_rewritten ?? 0,
+    nowErrorFree: summary.now_error_free ?? 0,
+    alreadyCleanRewrite: summary.already_clean_rewrite ?? 0,
+    stillHasErrors: summary.still_has_errors ?? 0,
+    introducedNewErrorSentences: summary.introduced_new_error_sentences ?? 0,
+    totalErrorsFixed: summary.total_errors_fixed ?? 0,
+    totalErrorsIntroduced: summary.total_errors_introduced ?? 0,
+    honestSummaryText: summary.honest_summary_text ?? "",
+    scopeDisclaimer: summary.scope_disclaimer ?? "",
+    newSentencesAdded: summary.new_sentences_added ?? 0,
+    sentencesRemoved: summary.sentences_removed ?? 0,
+    truncatedForCostCap: !!summary.truncated_for_cost_cap,
+    sentences: sentenceResults.map((s) => ({
+      originalText: s.original_text ?? "",
+      revisedText: s.revised_text ?? "",
+      errorsBefore: Array.isArray(s.errors_before) ? s.errors_before.map(mapRecheckError) : [],
+      errorsAfter: Array.isArray(s.errors_after) ? s.errors_after.map(mapRecheckError) : [],
+      fixed: Array.isArray(s.fixed) ? s.fixed.map(mapRecheckError) : [],
+      introduced: Array.isArray(s.introduced) ? s.introduced.map(mapRecheckError) : [],
+      persisting: Array.isArray(s.persisting) ? s.persisting.map(mapRecheckError) : [],
+      status: s.status ?? "unknown",
+      statusLabel: s.status_label ?? "",
+    })),
+  };
+}
+
+// ---------------------------------------------------------------------------
 // v13: Vocabulary Coach (LRET — the app's lexical precision engine).
 //
 // Confirmed by reading lret_engine_v1_12_0_meaning_sensitive_detector_families.py
@@ -1374,5 +2303,267 @@ export function loadLretSession(sessionDir: string): LretSession | undefined {
   } catch (e) {
     console.error(`[ST.ELLA] Could not read LRET session from ${sessionDir}:`, e);
     return undefined;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// v21 (2026-07-23): the continuous-loop refresh path. Product-owner decision,
+// verbatim: "all 3 should!!!" (Practice/Writing Coach/Vocabulary Coach/Essay
+// Revision should feed LIE with real learned history, not presence checks)
+// and "should be a continuous loop" (LIE/Priority Engine should refresh in
+// reaction to that activity BETWEEN essays, not only when a new essay is
+// submitted).
+//
+// Deliberately does NOT call gold_full_pipeline_orchestrator_v1_4_9.py.
+// Traced its STAGE_ORDER directly: prior_context, intake, detector,
+// detector_for_scorer, errormap, detector_for_evaluator, metric_profile,
+// evaluator, evaluator_rubric_bridge, scorer, verifier, adjudicator,
+// score_contract, progress_tracker(_persist), priority_input, priority,
+// priority_normalized, directive, feedback_engine, feedback_report,
+// lret_session, writing_coach(_raw), practice_session,
+// mission_response_grading, learner_profile, persisted_profile,
+// skills_progress, learning_roadmap, service_routing, progress_snapshot,
+// revision_workspace(_launch_packet), evidence_fusion. Every stage up to and
+// including lret_session/writing_coach/practice_session is essay-scoped and
+// LLM-heavy (Detector/Scorer/Verifier/Adjudicator/Evaluator) -- none of
+// Practice/Writing Coach/Vocabulary Coach/Essay Revision activity changes
+// the essay itself, so none of that has anything new to recompute. This
+// function only spawns two cheap, non-LLM standalone scripts
+// (gold_engagement_history_aggregator_v1_0.py, new, and LIE itself,
+// gold_lie_profile_builder_standalone_v1_4_7.py), reusing the SAME frozen
+// per-essay artifacts (00_submission.json, 02d_final_score_contract.json,
+// 01b_errormap_v3.json, 03b_priority_normalized_v1_4_3.json,
+// 04_directive_v2.json, 06_feedback_report_v6c.json,
+// 07_evaluator_output.json, 07d_lret_session.json,
+// 07e_writing_coach_output.json, 07f_gold_practice_session.json) the
+// original essay-submission run already produced and never rewriting them.
+//
+// Priority Engine is deliberately NOT re-run. Traced priority_input's own
+// command (priority_input_builder_standalone_v1_4_9.py, in
+// gold_engine_commands_full_v1_4_20.json): --detector (01d, essay-scoped,
+// frozen), --submission (frozen), --scorer (frozen), --evaluator (frozen),
+// --lret {prior_context} (the PRECEDING essay's LRET signal -- untouched by
+// any of this refresh's four triggers), --vocab-ledger (read live only at
+// essay-submission time, not by this refresh path). None of Practice/
+// Writing Coach/Vocabulary Coach/Essay Revision activity changes any of
+// those inputs, so Priority Engine has nothing new to read here --
+// re-running it would be pure wasted work.
+//
+// gold_profile_persist_v1.py IS re-run (also cheap: pure JSON merge, no
+// subprocess fan-out, no LLM -- see build_persisted_profile(), it's a
+// copy.deepcopy plus a few field assignments) so the persisted continuity
+// file ({learner_profiles_dir}/{studentId}_gold_profile.json, read by the
+// NEXT essay's prior_context) reflects the freshest learner_profile
+// snapshot too, not just this essay's own session-dir copy of it.
+//
+// v22 (2026-07-23): Defect 1 fix (product-owner-confirmed bug). This used to
+// write its outputs back over the SAME session-dir file paths the original
+// essay-submission run wrote (08_gold_learner_profile.json/08b/08c/09/08a) --
+// which meant a trainer opening the QA/debug view of THAT essay days later
+// would see a file mutated by whatever the student did afterward, not what
+// the AI actually judged at submission time. Fixed: writes now go to
+// per-STUDENT "current" files instead (currentLearnerProfilePath(studentId)
+// and friends, defined above -- {learner_profiles_dir}/{studentId}_current_*,
+// same convention as vocabCoachLedgerPath) and the essay's own session-dir
+// artifacts are never opened for writing by this function again (confirmed:
+// every fs.existsSync/path.join below that used to target sessionDir for a
+// *_output write now targets a current*Path() call instead; sessionDir is
+// still read from for this essay's frozen inputs, which is correct and
+// unchanged). study-plan.ts's getLearningRoadmap() now reads
+// currentRoadmapPath(studentId) first and only falls back to the session's
+// own 08c if no refresh/reseed has ever happened for this student.
+// runGoldEvaluation()'s success path reseeds the current files from each new
+// essay's own fresh originals (see reseedCurrentProfileFromSession above),
+// so "current" always has a correct baseline even before the first
+// post-essay refresh trigger fires.
+//
+// No-essay-yet case: if this student has no "done" submission with a
+// sessionDir (or its frozen artifacts are incomplete -- e.g. a run that
+// failed partway through the orchestrator), there is nothing safe to
+// refresh -- returns silently rather than throwing (and does NOT write a
+// refresh-attempt row below -- that's an expected no-op, not a failed
+// attempt).
+//
+// Error handling: this function NEVER rejects -- every failure path is
+// caught and logged, never re-thrown, so the four call sites below (practice
+// submit, writing-coach submit, vocabulary-coach submit, essay-revision
+// compare/recheck) can call it fire-and-forget without needing their own
+// try/catch. v22 (Defect 2 fix, product-owner-confirmed bug): that swallow
+// used to be silent -- zero logging, zero persisted record, nothing a
+// trainer or the PO could check. Now every real attempt (not the no-op
+// early-returns above) logs via console.error("[ST.ELLA] ...") on failure,
+// matching this codebase's established convention, AND records a row in the
+// new learner_profile_refresh_attempts SQLite table (student_id, at, status,
+// error_message -- see db.ts/store.ts) on both success and failure, so
+// app/trainer/page.tsx can show a warning badge next to a student whose most
+// recent attempt failed.
+// ---------------------------------------------------------------------------
+
+const ENGAGEMENT_HISTORY_AGGREGATOR_SCRIPT = "gold_engagement_history_aggregator_v1_0.py";
+const LIE_PROFILE_BUILDER_SCRIPT = "gold_lie_profile_builder_standalone_v1_4_7.py";
+const PROFILE_PERSIST_SCRIPT = "gold_profile_persist_v1.py";
+// Pure Python, file-in/file-out, zero LLM calls, zero subprocess fan-out --
+// this is 3 short-lived local processes reading a handful of small JSON
+// files, not a re-score. 30s is a generous ceiling, not an expected runtime
+// (a real run of all 3 scripts together took well under 2s in testing).
+const REFRESH_TIMEOUT_MS = 30 * 1000;
+
+const EXERCISE_BANK_PATH =
+  process.env.STELLA_EXERCISE_BANK ?? path.join(GOLD_PIPELINE_DIR, "va_exercise_bank_v11d_approved.jsonl");
+
+export async function refreshLearnerProfile(studentId: string): Promise<void> {
+  try {
+    const latest = submissionsFor(studentId).find((s) => s.status === "done" && s.sessionDir);
+    if (!latest?.sessionDir || !fs.existsSync(latest.sessionDir)) {
+      return; // no essay submitted yet (or its session dir is gone) -- nothing to attach a refresh to.
+    }
+    const sessionDir = latest.sessionDir;
+
+    const requiredFrozenArtifacts = [
+      "00_submission.json",
+      "02d_final_score_contract.json",
+      "01b_errormap_v3.json",
+    ].map((f) => path.join(sessionDir, f));
+    if (!requiredFrozenArtifacts.every((f) => fs.existsSync(f))) {
+      return; // LIE's own required inputs are incomplete for this session -- nothing safe to refresh.
+    }
+
+    const refreshDir = path.join(sessionDir, "engagement_refresh");
+    fs.mkdirSync(refreshDir, { recursive: true });
+    const stamp = Date.now();
+    const exportFile = path.join(refreshDir, `export_${stamp}.json`);
+    const engagementFile = path.join(refreshDir, `engagement_history_${stamp}.json`);
+
+    // JSON-export step, not direct Python sqlite3 access to stella.db --
+    // see gold_engagement_history_aggregator_v1_0.py's module docstring for
+    // why (Python's sqlite3 WAS confirmed able to read the WAL-mode file
+    // directly, but store.ts already owns tested query logic for exactly
+    // this data, and the production target is Windows, where a second OS
+    // process opening the same better-sqlite3-owned file concurrently is a
+    // real, avoidable risk this sidesteps entirely).
+    fs.writeFileSync(
+      exportFile,
+      JSON.stringify({
+        student_id: studentId,
+        practice_results: practiceResultsFor(studentId),
+        mission_results: missionResultsFor(studentId),
+      })
+    );
+
+    await runPythonScript(
+      ENGAGEMENT_HISTORY_AGGREGATOR_SCRIPT,
+      [
+        "--practice-mission-export",
+        exportFile,
+        "--exercise-bank",
+        EXERCISE_BANK_PATH,
+        "--session-dir",
+        sessionDir,
+        "--student-id",
+        studentId,
+        "--output",
+        engagementFile,
+      ],
+      REFRESH_TIMEOUT_MS,
+      "engagement history aggregation"
+    );
+
+    const vocabLedger = vocabCoachLedgerPath(studentId);
+    await runPythonScript(
+      LIE_PROFILE_BUILDER_SCRIPT,
+      [
+        "--submission",
+        path.join(sessionDir, "00_submission.json"),
+        "--score-contract",
+        path.join(sessionDir, "02d_final_score_contract.json"),
+        "--errormap",
+        path.join(sessionDir, "01b_errormap_v3.json"),
+        "--priority",
+        path.join(sessionDir, "03b_priority_normalized_v1_4_3.json"),
+        "--directive",
+        path.join(sessionDir, "04_directive_v2.json"),
+        "--feedback",
+        path.join(sessionDir, "06_feedback_report_v6c.json"),
+        "--evaluator",
+        path.join(sessionDir, "07_evaluator_output.json"),
+        "--lret",
+        path.join(sessionDir, "07d_lret_session.json"),
+        "--writing-coach",
+        path.join(sessionDir, "07e_writing_coach_output.json"),
+        "--practice",
+        path.join(sessionDir, "07f_gold_practice_session.json"),
+        ...(fs.existsSync(vocabLedger) ? ["--vocabulary-coach", vocabLedger] : []),
+        "--engagement-history",
+        engagementFile,
+        // v22: these four used to point at the essay's own session-dir
+        // paths (08_gold_learner_profile.json/08b/08c/09) -- see Defect 1
+        // fix in the module comment above. Now they point at the
+        // per-STUDENT "current" files instead; the session dir's own
+        // originals are never opened for writing here again.
+        "--output",
+        currentLearnerProfilePath(studentId),
+        "--skills-progress-output",
+        currentSkillsProgressPath(studentId),
+        "--learning-roadmap-output",
+        currentRoadmapPath(studentId),
+        "--progress-snapshot-output",
+        currentProgressSnapshotPath(studentId),
+        "--pretty",
+      ],
+      REFRESH_TIMEOUT_MS,
+      "LIE profile refresh"
+    );
+
+    // Keep the persisted continuity file in sync too -- see module comment
+    // above for why this one IS re-run (cheap, deterministic, no LLM)
+    // unlike Priority Engine.
+    const priorContext = path.join(sessionDir, "00a_prior_context.json");
+    const directiveFile = path.join(sessionDir, "04_directive_v2.json");
+    await runPythonScript(
+      PROFILE_PERSIST_SCRIPT,
+      [
+        // v22: reads the just-refreshed per-student current learner profile
+        // (written above), not the session's own frozen 08 file.
+        "--learner-profile",
+        currentLearnerProfilePath(studentId),
+        ...(fs.existsSync(priorContext) ? ["--prior-context", priorContext] : []),
+        "--score-contract",
+        path.join(sessionDir, "02d_final_score_contract.json"),
+        ...(fs.existsSync(directiveFile) ? ["--directive", directiveFile] : []),
+        "--session-id",
+        path.basename(sessionDir),
+        "--learner-profiles-dir",
+        learnerProfilesDir(),
+        // v22: was path.join(sessionDir, "08a_gold_persisted_profile.json")
+        // -- see Defect 1 fix above. This script's own --learner-profiles-dir
+        // continuity file ({studentId}_gold_profile.json) is unaffected by
+        // this change; only this --output target moves off the session dir.
+        "--output",
+        currentPersistedProfilePath(studentId),
+        "--pretty",
+      ],
+      REFRESH_TIMEOUT_MS,
+      "learner profile persist refresh"
+    );
+
+    // v22 (Defect 2 fix): record a successful attempt so a trainer/PO can
+    // confirm refreshes are actually happening, not just infer it from an
+    // absence of failures.
+    recordLearnerProfileRefreshAttempt(studentId, "success", null);
+  } catch (e) {
+    // Fire-and-forget by design (see every caller) -- a refresh problem must
+    // never surface as, or cause, a student-facing error on an unrelated
+    // request (saving a practice result, grading a mission, etc.). v22
+    // (Defect 2 fix): logging alone used to be the only trace of a failure
+    // (and even that wasn't reliably present) -- now also persists a
+    // "failure" row so it's visible outside the server log too (trainer
+    // console badge, see app/trainer/page.tsx).
+    const message = e instanceof Error ? e.message : String(e);
+    console.error(`[ST.ELLA] refreshLearnerProfile failed for ${studentId}:`, e);
+    try {
+      recordLearnerProfileRefreshAttempt(studentId, "failure", message);
+    } catch (dbErr) {
+      console.error(`[ST.ELLA] Could not persist refresh-failure record for ${studentId}:`, dbErr);
+    }
   }
 }

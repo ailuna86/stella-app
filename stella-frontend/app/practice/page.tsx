@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import PlatformFeedbackWidget from "@/components/PlatformFeedbackWidget";
+import NextStepsStrip from "@/components/NextStepsStrip";
+import EngineIntroModal from "@/components/EngineIntroModal";
+import SessionFlowStepper from "@/components/SessionFlowStepper";
+import type { SessionFlowStatus, DailyDigest } from "@/lib/server/goldPipeline";
 
 interface Ex {
   exercise_id: string;
@@ -37,6 +41,7 @@ export default function PracticeSession() {
   const [results, setResults] = useState<ItemResult[]>([]);
   const [finished, setFinished] = useState(false);
   const [err, setErr] = useState("");
+  const [flow, setFlow] = useState<{ status: SessionFlowStatus; digest: DailyDigest } | null>(null);
 
   async function load() {
     setExercises(null);
@@ -70,6 +75,16 @@ export default function PracticeSession() {
         total: exs.length,
       }),
     });
+    // v19: session-flow stepper (Session_Flow_and_Vocab_Expansion_Spec_v1 §0) —
+    // fetched after finishing, not on page load, since a fresh practice_results
+    // row from the POST above is what flips "practice" to done for today.
+    try {
+      const res = await fetch("/api/session-flow");
+      const data = await res.json();
+      if (data.ok) setFlow({ status: data.status, digest: data.digest });
+    } catch {
+      // non-critical — the recap still renders without the stepper
+    }
   }
 
   if (err) return <p className="py-10 text-center text-sm text-rose-600">{err}</p>;
@@ -155,6 +170,8 @@ export default function PracticeSession() {
           </Link>
         </div>
         <div className="text-left">
+          {flow && <SessionFlowStepper status={flow.status} digest={flow.digest} currentKey="practice" />}
+          <NextStepsStrip exclude={["practice"]} />
           <PlatformFeedbackWidget context="practice" />
         </div>
       </div>
@@ -185,7 +202,10 @@ export default function PracticeSession() {
     <div className="mx-auto max-w-2xl py-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-lg font-semibold text-brand-800">Practice</h1>
+          <h1 className="flex items-center text-lg font-semibold text-brand-800">
+            Practice
+            <EngineIntroModal engineKey="practice" />
+          </h1>
           <p className="text-xs text-ink-400">
             {ex.family_label} · Exercise {idx + 1} of {exercises.length}
           </p>
